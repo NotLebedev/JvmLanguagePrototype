@@ -56,30 +56,7 @@ public class Main implements Opcodes {
 
             ///////////////////////////
 
-            var classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES); // No need to use COMPUTE_MAXS as COMPUTE_FRAMES implies it
-
-            classWriter.visit(54, ACC_PUBLIC + ACC_SUPER, "src/Test", null, "java/lang/Object", null);
-
-            Method method = new Method();
-
-            Variable v = new Variable("src.parsing.Class2", "c2", 0);
-
-            ObjectField of = new ObjectField();
-            of.setNames(v, "field");
-
-            Variable str = new Variable("java.lang.String", "str", 0);
-
-            VariableAssignement va = new VariableAssignement();
-
-            va.setParams(str, of);
-
-            method.addExpression(va);
-
-            method.generateBytecode(classWriter);
-
-            classWriter.visitEnd();
-
-            /*RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.String str = \"Hello!\"\n" +
+            RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.String str = \"Hello!\"\n" +
                     "str = \"World!\"\n" +
                     "java.lang.String str2 = str;"));
             CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
@@ -87,7 +64,7 @@ public class Main implements Opcodes {
 
             var tree = rootParser.code();
 
-            ClassWriter classWriter = tree.accept(new CodeVisitor());*/
+            ClassWriter classWriter = tree.accept(new CodeVisitor());
 
             ///////////////////////////
 
