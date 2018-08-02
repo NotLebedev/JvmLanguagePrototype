@@ -74,6 +74,15 @@ public class Utils {
 
     }
 
+    public static boolean hasField(Class<?> cls, String field) {
 
+        try {
+            cls.getField(field);
+            return true;
+        } catch (NoSuchFieldException e) {
+            return false;
+        }
+
+    }
 
 }
