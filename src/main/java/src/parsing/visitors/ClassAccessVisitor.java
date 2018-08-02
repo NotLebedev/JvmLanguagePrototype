@@ -42,11 +42,13 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                 tokens.remove(0);
 
+                Boolean requireStatic = Boolean.FALSE;
+
                 while (!tokens.isEmpty()) {
 
                     String next = tokens.get(0);
 
-                    if(Utils.hasField(Objects.requireNonNull(val).getType(), next)) { // Simple case of object field
+                    if(Utils.hasField(Objects.requireNonNull(val).getType(), next) && (!requireStatic)) { // Simple case of object field
 
                         var objectField = new ObjectField();
 
@@ -57,6 +59,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
                         }
 
                         val = objectField;
+                        requireStatic = Boolean.FALSE;
 
                     }else if(Utils.hasStaticField(val.getType(), next)){ // Static field case
 
@@ -70,15 +73,19 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
                         }                                                           // behind all sequence of values
                                                                                     // so after compilation just
                         val = staticClassField;                                     // getStatic will be called
+                        requireStatic = Boolean.FALSE;
 
-                    }else if(Utils.hasStaticClass(val.getType(), next)) {
+                    }else if(Utils.hasNestedClass(val.getType(), next)) {
 
                         // Fictive variable here is used just to indicate class type, it wont be used in code as
-                        // static classes can have only static methods and fields, which do not require exact value
+                        // classes can only have static methods and fields accessed, which do not require exact value
                         // to operate (see case above), so this fictive variable will be thrown out
 
                         try {
+
                             val = new Variable(val.getTypeString(), "fictive", -1);
+                            requireStatic = Boolean.TRUE;   // By setting this field to true, we insure,
+                                                    // that no non-static fields and methods will be accessed
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
                         }
