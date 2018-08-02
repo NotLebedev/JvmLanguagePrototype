@@ -18,11 +18,9 @@ public class Class2 {
 
     }
 
-    public static class InnerClass {
+    public class InnerClass {
 
-        public static void qwe() {
-
-        }
+        public void qwe() {}
 
     }
 
