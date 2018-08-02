@@ -12,6 +12,7 @@ import src.parsing.domain.VariableNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
@@ -44,7 +45,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                     String next = tokens.get(0);
 
-                    if(Utils.hasField(val.getType(), next)) {
+                    if(Utils.hasField(Objects.requireNonNull(val).getType(), next)) {
 
                         var objectField = new ObjectField();
 
