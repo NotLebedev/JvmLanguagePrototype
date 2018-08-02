@@ -25,7 +25,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
     @Override
     public MethodInvocation visitClassAccess(RootParser.ClassAccessContext ctx) {
 
-        if(ctx.path() != null) {
+        if(ctx.path() != null) { // Non-local method invocation
 
             var tokens = new ArrayList<>(Arrays.asList(ctx.path().getText().split("\\.")));
 
@@ -57,7 +57,17 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                         val = objectField;
 
+                    }else if(Utils.hasStaticField(val.getType(), next)){
+
+
+
+                    }else if(Utils.hasStaticClass(val.getType(), next)) {
+
+
+
                     }
+
+                    tokens.remove(0);
 
                 }
 

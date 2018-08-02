@@ -86,12 +86,12 @@ public class Utils {
     }
 
     /**
-     * Checks if class has static field/inner class with this name
+     * Checks if class has static field with this name
      * @param cls owner class
      * @param name name to be found
      * @return result of check
      */
-    public static boolean hasStatic(Class<?> cls, String name) {
+    public static boolean hasStaticField(Class<?> cls, String name) {
 
         try {
             cls.getField(name);
@@ -99,11 +99,22 @@ public class Utils {
         } catch (NoSuchFieldException ignored) {
         }
 
-        for (Class<?> declaredClass : cls.getDeclaredClasses()) {
+        return false;
 
-            if(declaredClass.getName().equals(name))
-                return true;
+    }
 
+    /**
+     * Checks if class has static inner class with this name
+     * @param cls owner class
+     * @param name name to be found
+     * @return result of check
+     */
+    public static boolean hasStaticClass(Class<?> cls, String name) {
+
+        try {
+            cls.getField(name);
+            return true;
+        } catch (NoSuchFieldException ignored) {
         }
 
         return false;
