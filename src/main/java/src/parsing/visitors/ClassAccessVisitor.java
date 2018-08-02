@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.MethodInvocation;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectField;
+import src.parsing.domain.StaticClassField;
 import src.parsing.domain.Variable;
 import src.parsing.domain.VariableNotFoundException;
 
@@ -59,7 +60,15 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                     }else if(Utils.hasStaticField(val.getType(), next)){
 
+                        var staticClassField = new StaticClassField();
 
+                        try {
+                            staticClassField.setNames(val.getTypeString(), next);
+                        } catch (ClassNotFoundException | NoSuchFieldException e) {
+                            e.printStackTrace();
+                        }
+
+                        val = staticClassField;
 
                     }else if(Utils.hasStaticClass(val.getType(), next)) {
 
