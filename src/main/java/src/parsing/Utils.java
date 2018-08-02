@@ -1,5 +1,9 @@
 package src.parsing;
 
+import org.objectweb.asm.Opcodes;
+
+import java.lang.reflect.Modifier;
+
 public class Utils {
 
     public static Class classForName(String name) throws ClassNotFoundException {
@@ -74,14 +78,20 @@ public class Utils {
 
     }
 
-    public static boolean hasField(Class<?> cls, String field) {
+    /**
+     * Checks if class has static field with this name
+     * @param cls owner class
+     * @param name name to be found
+     * @return result of check
+     */
+    public static boolean hasNonStaticField(Class<?> cls, String name) {
 
         try {
-            cls.getField(field);
-            return true;
-        } catch (NoSuchFieldException e) {
-            return false;
+            if((cls.getField(name).getModifiers() & Modifier.STATIC) != 0)
+                return true;
+        } catch (NoSuchFieldException ignored) {
         }
+        return false;
 
     }
 
@@ -94,8 +104,8 @@ public class Utils {
     public static boolean hasStaticField(Class<?> cls, String name) {
 
         try {
-            cls.getField(name);
-            return true;
+            if((cls.getField(name).getModifiers() & Modifier.STATIC) == 0)
+                return true;
         } catch (NoSuchFieldException ignored) {
         }
 
@@ -111,13 +121,33 @@ public class Utils {
      */
     public static boolean hasNestedClass(Class<?> cls, String name) {
 
-        try {
-            cls.getField(name);
-            return true;
-        } catch (NoSuchFieldException ignored) {
+        for (Class<?> declaredClass : cls.getDeclaredClasses()) {
+
+            if(declaredClass.getSimpleName().equals(name))
+                return true;
+
         }
 
         return false;
+
+    }
+
+    /**
+     * Finds inner class with this name
+     * @param cls owner class
+     * @param name nested class name
+     * @return found class
+     */
+    public static Class<?> getNestedClass(Class<?> cls, String name) throws ClassNotFoundException {
+
+        for (Class<?> declaredClass : cls.getDeclaredClasses()) {
+
+            if(declaredClass.getSimpleName().equals(name))
+                return declaredClass;
+
+        }
+
+        throw new ClassNotFoundException();
 
     }
 

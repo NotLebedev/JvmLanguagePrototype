@@ -32,13 +32,13 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        /*if(ctx.methodInvocation() != null) {
+        if(ctx.classAccess() != null) {
 
-            var methodInvocationVisitor = new MethodInvocationVisitor(scope);
+            var classAccessVisitor = new ClassAccessVisitor(scope);
 
-            return ctx.methodInvocation().accept(methodInvocationVisitor);
+            return ctx.classAccess().accept(classAccessVisitor);
 
-        }*/
+        }
 
         return null;
 

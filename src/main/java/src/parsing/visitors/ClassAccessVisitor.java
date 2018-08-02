@@ -19,6 +19,8 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
     private Scope scope;
 
+    private Boolean requireStatic;
+
     public ClassAccessVisitor(Scope scope) {
         this.scope = scope;
     }
@@ -42,9 +44,12 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                 tokens.remove(0);
 
-                Boolean requireStatic = Boolean.FALSE;
+                requireStatic = Boolean.FALSE;
 
-                val = parsePath(val, tokens, requireStatic);
+                val = parsePath(val, tokens);
+
+                System.out.println();
+
 
             }
 
@@ -54,17 +59,15 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
     }
 
-    private Value parsePath(Value startValue, ArrayList<String> tokens, Boolean isStatic) {
+    private Value parsePath(Value startValue, ArrayList<String> tokens) {
 
         Value val = startValue;
-
-        Boolean requireStatic = isStatic;
 
         while (!tokens.isEmpty()) {
 
             String next = tokens.get(0);
 
-            if(Utils.hasField(Objects.requireNonNull(val).getType(), next) && (!requireStatic)) { // Simple case of object field
+            if(Utils.hasNonStaticField(Objects.requireNonNull(val).getType(), next) && (!requireStatic)) { // Simple case of object field
 
                 var objectField = new ObjectField();
 
@@ -82,7 +85,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
                 var staticClassField = new StaticClassField();
 
                 try {
-                    staticClassField.setNames(val.getTypeString(), next);   // As you can see no  exact value
+                    staticClassField.setNames(val.getType().getName(), next);   // As you can see no  exact value
                     // was used here
                 } catch (ClassNotFoundException | NoSuchFieldException e) { //
                     e.printStackTrace();                                    // Note, that this case leaves
@@ -99,7 +102,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                 try {
 
-                    val = new Variable(val.getTypeString(), "fictive", -1);
+                    val = new Variable(Utils.getNestedClass(val.getType(), next).getTypeName(), "fictive", -1);
                     requireStatic = Boolean.TRUE;   // By setting this field to true, we insure,
                     // that no non-static fields and methods will be accessed
                 } catch (ClassNotFoundException e) {

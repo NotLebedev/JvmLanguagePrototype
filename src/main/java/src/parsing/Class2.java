@@ -2,7 +2,7 @@ package src.parsing;
 
 public class Class2 {
 
-    public String field;
+    public Class2 field;
 
     public static void print(String[] str) {
 
@@ -20,7 +20,7 @@ public class Class2 {
 
     public static class InnerClass {
 
-        public void qwe() {}
+        public static void qwe() {}
 
     }
 

@@ -101,6 +101,13 @@ public class RootBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements R
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitPathNoEndDot(RootParser.PathNoEndDotContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitEol(RootParser.EolContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
