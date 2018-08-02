@@ -87,7 +87,7 @@ public class Utils {
     public static boolean hasNonStaticField(Class<?> cls, String name) {
 
         try {
-            if((cls.getField(name).getModifiers() & Modifier.STATIC) != 0)
+            if((cls.getField(name).getModifiers() & Modifier.STATIC) == 0)
                 return true;
         } catch (NoSuchFieldException ignored) {
         }
@@ -104,7 +104,7 @@ public class Utils {
     public static boolean hasStaticField(Class<?> cls, String name) {
 
         try {
-            if((cls.getField(name).getModifiers() & Modifier.STATIC) == 0)
+            if((cls.getField(name).getModifiers() & Modifier.STATIC) != 0)
                 return true;
         } catch (NoSuchFieldException ignored) {
         }

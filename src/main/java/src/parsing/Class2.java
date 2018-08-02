@@ -3,6 +3,7 @@ package src.parsing;
 public class Class2 {
 
     public Class2 field;
+    public static Class2 sf;
 
     public static void print(String[] str) {
 
