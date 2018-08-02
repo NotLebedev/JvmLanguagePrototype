@@ -46,7 +46,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                     String next = tokens.get(0);
 
-                    if(Utils.hasField(Objects.requireNonNull(val).getType(), next)) {
+                    if(Utils.hasField(Objects.requireNonNull(val).getType(), next)) { // Simple case of object field
 
                         var objectField = new ObjectField();
 
@@ -58,21 +58,30 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                         val = objectField;
 
-                    }else if(Utils.hasStaticField(val.getType(), next)){
+                    }else if(Utils.hasStaticField(val.getType(), next)){ // Static field case
 
                         var staticClassField = new StaticClassField();
 
                         try {
-                            staticClassField.setNames(val.getTypeString(), next);
-                        } catch (ClassNotFoundException | NoSuchFieldException e) {
-                            e.printStackTrace();
-                        }
-
-                        val = staticClassField;
+                            staticClassField.setNames(val.getTypeString(), next);   // As you can see no  exact value
+                                                                                    // was used here
+                        } catch (ClassNotFoundException | NoSuchFieldException e) { //
+                            e.printStackTrace();                                    // Note, that this case leaves
+                        }                                                           // behind all sequence of values
+                                                                                    // so after compilation just
+                        val = staticClassField;                                     // getStatic will be called
 
                     }else if(Utils.hasStaticClass(val.getType(), next)) {
 
+                        // Fictive variable here is used just to indicate class type, it wont be used in code as
+                        // static classes can have only static methods and fields, which do not require exact value
+                        // to operate (see case above), so this fictive variable will be thrown out
 
+                        try {
+                            val = new Variable(val.getTypeString(), "fictive", -1);
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        }
 
                     }
 
