@@ -1,10 +1,12 @@
 package src.parsing.visitors;
 
+import src.parsing.Utils;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.Interfaces.MethodInvocation;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.ObjectField;
 import src.parsing.domain.Variable;
 import src.parsing.domain.VariableNotFoundException;
 
@@ -24,14 +26,14 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
         if(ctx.path() != null) {
 
-            ArrayList<String> tokens = new ArrayList<>(Arrays.asList(ctx.path().getText().split("\\.")));
+            var tokens = new ArrayList<>(Arrays.asList(ctx.path().getText().split("\\.")));
 
             if(scope.hasVariable(tokens.get(0))) {
 
-                Variable variable = null;
+                Value val = null;
 
                 try {
-                    variable = scope.getVariableByName(tokens.get(0));
+                    val = scope.getVariableByName(tokens.get(0));
                 } catch (VariableNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -40,7 +42,21 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                 while (!tokens.isEmpty()) {
 
+                    String next = tokens.get(0);
 
+                    if(Utils.hasField(val.getType(), next)) {
+
+                        var objectField = new ObjectField();
+
+                        try {
+                            objectField.setNames(val, next);
+                        } catch (ClassNotFoundException | NoSuchFieldException e) {
+                            e.printStackTrace();
+                        }
+
+                        val = objectField;
+
+                    }
 
                 }
 
