@@ -36,8 +36,10 @@ className : path id ;//TODO : currently all classNames are with absolute path, a
 
 chainedMethodInvocation : id bracketOpenS (value commaS)* value? bracketCloseS ( dotS chainedMethodInvocation )? ;*/
 
-classAccess :  (path |  methodInv) methodInv? (dotS classAccess)? ;
+classAccess :  (pathNoEndDot | path |  methodInv) methodInv? (dotS classAccess)? ;
 methodInv : id bracketOpenS (value commaS)* value? bracketCloseS ;
+
+pathNoEndDot : path? id;
 
 
 eol : semicolonS | ;
