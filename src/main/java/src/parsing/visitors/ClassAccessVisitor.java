@@ -16,6 +16,12 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
     @Override
     public MethodInvocation visitClassAccess(RootParser.ClassAccessContext ctx) {
 
+        if(ctx.path() != null) {
+
+            String[] tokens = ctx.path().getText().split("\\.");
+
+        }
+
         return null;
 
     }
