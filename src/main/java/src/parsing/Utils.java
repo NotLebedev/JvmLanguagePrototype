@@ -85,4 +85,29 @@ public class Utils {
 
     }
 
+    /**
+     * Checks if class has static field/inner class with this name
+     * @param cls owner class
+     * @param name name to be found
+     * @return result of check
+     */
+    public static boolean hasStatic(Class<?> cls, String name) {
+
+        try {
+            cls.getField(name);
+            return true;
+        } catch (NoSuchFieldException ignored) {
+        }
+
+        for (Class<?> declaredClass : cls.getDeclaredClasses()) {
+
+            if(declaredClass.getName().equals(name))
+                return true;
+
+        }
+
+        return false;
+
+    }
+
 }
