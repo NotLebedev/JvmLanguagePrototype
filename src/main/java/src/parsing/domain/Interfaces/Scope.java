@@ -14,4 +14,6 @@ public interface Scope {
 
     Variable getVariableByName(String name) throws VariableNotFoundException;
 
+    boolean hasVariable(String name);
+
 }

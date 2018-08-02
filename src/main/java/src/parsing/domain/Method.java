@@ -82,4 +82,18 @@ public class Method implements Scope {
         throw new VariableNotFoundException("Variable " + name + " has not been declared in this scoope");
 
     }
+
+    @Override
+    public boolean hasVariable(String name) {
+
+        for (Variable variable : variables) {
+
+            if(variable.getName().equals(name))
+                return  true;
+
+        }
+
+        return false;
+
+    }
 }
