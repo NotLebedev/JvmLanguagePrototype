@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,37 +34,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="g4" value="2482" />
+          <entry key="g4" value="2506" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="17816" />
-          <entry key="txt" value="788" />
+          <entry key="java" value="17933" />
+          <entry key="lp" value="34" />
+          <entry key="txt" value="812" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="2482" />
+          <entry key="ANTLR v4 grammar file" value="2506" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="17816" />
-          <entry key="PLAIN_TEXT" value="788" />
+          <entry key="JAVA" value="17933" />
+          <entry key="PLAIN_TEXT" value="846" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="4" />
-          <entry key="g4" value="62" />
+          <entry key="g4" value="64" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="227" />
+          <entry key="java" value="229" />
+          <entry key="lp" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="62" />
+          <entry key="ANTLR v4 grammar file" value="64" />
           <entry key="CLASS" value="4" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="227" />
+          <entry key="JAVA" value="229" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -72,19 +76,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/antlr4/Root.g4">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+            <state relative-caret-position="558">
+              <caret line="37" column="75" selection-start-line="37" selection-start-column="75" selection-end-line="37" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="135" column="87" selection-start-line="135" selection-start-column="87" selection-end-line="135" selection-end-column="87" />
+            <state relative-caret-position="230">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,31 +97,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+              <caret column="52" selection-start-column="52" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/antlr4/Tokens.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/antlr4/TokenRules.g4">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -163,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Accessories/src/JavapExec.groovy" />
         <option value="$PROJECT_DIR$/src/main/antlr4/Root.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/MethodInvocation.java" />
         <option value="$PROJECT_DIR$/Accessories/src/JavaExec.groovy" />
@@ -189,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/variableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Method.java" />
         <option value="$PROJECT_DIR$/src/main/antlr4/TokenRules.g4" />
-        <option value="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodInvocationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Scope.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java" />
@@ -210,10 +209,12 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/MethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
+        <option value="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" />
       </list>
     </option>
   </component>
@@ -245,17 +246,6 @@
             <path>
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="Accessories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="Accessories" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
@@ -307,46 +297,31 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="parsing" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
               <item name="visitors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -370,13 +345,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533303653610" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533304814155" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
@@ -459,7 +435,7 @@
       <workItem from="1533213584259" duration="5944000" />
       <workItem from="1533225518432" duration="20372000" />
       <workItem from="1533300534126" duration="2626000" />
-      <workItem from="1533303197033" duration="656000" />
+      <workItem from="1533303197033" duration="1615000" />
     </task>
     <task id="LOCAL-00001" summary="Added some code to visitClassAccess">
       <created>1533206564069</created>
@@ -615,14 +591,22 @@
       <option name="project" value="LOCAL" />
       <updated>1533303110760</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Implemented no-path case">
+      <created>1533303877793</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1533303877794</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107490000" />
+    <option name="totallyTimeSpent" value="108449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.35347044" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -631,6 +615,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32981783" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32981783" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993573" weight="0.32981783" />
@@ -641,9 +626,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32981783" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4993573" visible="true" weight="0.32981783" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993573" weight="0.32981783" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" weight="0.32981783" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="12" weight="0.27996165" />
+      <window_info active="true" anchor="bottom" id="ANTLR Preview" order="12" visible="true" weight="0.27996165" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32981783" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -685,14 +670,15 @@
     <MESSAGE value="Finished MethodInvVisitor" />
     <MESSAGE value="Added recursive ClassAccessVisitor compilation (for chained invocation)" />
     <MESSAGE value="Correction to getting class name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction to getting class name" />
+    <MESSAGE value="Implemented no-path case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented no-path case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/Main.java</url>
-          <line>24</line>
+          <line>25</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -814,20 +800,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignementVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/TypeVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Method.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/antlr4/Tokens.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/antlr4/TokenRules.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Scope.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1003,6 +975,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12672">
           <caret line="828" selection-start-line="828" selection-end-line="828" />
+          <folding>
+            <element signature="e#20676#20677#0" expanded="true" />
+            <element signature="e#20732#20733#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1051,13 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1075,13 +1044,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="37" column="75" selection-start-line="37" selection-start-column="75" selection-end-line="37" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        <state relative-caret-position="230">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="52" selection-start-column="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/antlr4/TokenRules.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/antlr4/Tokens.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
         </state>
       </provider>
     </entry>

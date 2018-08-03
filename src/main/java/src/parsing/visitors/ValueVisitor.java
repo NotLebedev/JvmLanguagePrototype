@@ -33,6 +33,12 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         }
 
+        if(ctx.classAccess() != null) {
+
+            return ctx.classAccess().accept(new ClassAccessVisitor(scope));
+
+        }
+
         return null;
 
     }

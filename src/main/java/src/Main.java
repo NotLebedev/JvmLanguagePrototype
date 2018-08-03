@@ -18,6 +18,7 @@ public class Main {
     public static void main(String[] args) {
 
         try{
+
             /*Class<?> cls = Class2.class;
             var method = cls.getMethod("getStr", (Class<?>[]) null);
 
@@ -51,8 +52,11 @@ public class Main {
 
             ///////////////////////////
 
-            RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out.println(\"Hello world!\")\n" +
-                    "src.parsing.Class2.test().printString()"));
+            /*RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out.println(\"Hello world!\")\n" +
+                    "src.parsing.Class2.test().printString()"));*/
+
+            RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("E:\\Work\\JvmLanguagePrototype\\target\\classes\\source.lp"));
+
             CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
             RootParser rootParser = new RootParser(tokenStream);
 
