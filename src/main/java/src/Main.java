@@ -51,7 +51,7 @@ public class Main implements Opcodes {
 
             ///////////////////////////
 
-            RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out)"));
+            RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out.println(\"Hello world!\")"));
             CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
             RootParser rootParser = new RootParser(tokenStream);
 

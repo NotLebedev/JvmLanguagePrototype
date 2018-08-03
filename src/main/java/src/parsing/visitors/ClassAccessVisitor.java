@@ -3,16 +3,17 @@ package src.parsing.visitors;
 import src.parsing.Utils;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
+import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.ObjectField;
-import src.parsing.domain.StaticClassField;
-import src.parsing.domain.Variable;
-import src.parsing.domain.VariableNotFoundException;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
@@ -98,6 +99,12 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
             }
 
+            if(ctx.methodInv().size() > 0) {
+
+                val = ctx.methodInv(0).accept(new MethodInvVisitor(val, requireStatic, scope));
+
+            }
+
         }
 
         return null;
@@ -163,6 +170,52 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
         }
 
         return val;
+
+    }
+
+    private class MethodInvVisitor extends RootBaseVisitor<Value> {
+
+        private Value val;
+        private Boolean requireStatic;
+        private Scope scope;
+
+        public MethodInvVisitor(Value val, Boolean requireStatic, Scope scope) {
+
+            this.val = val;
+            this.requireStatic = requireStatic;
+            this.scope = scope;
+
+        }
+
+        @Override
+        public Value visitMethodInv(RootParser.MethodInvContext ctx) {
+
+            List<Value> params;
+
+            var valueVisitor = new ValueVisitor(scope);
+
+            params = ctx.value().stream()
+                    .map(valueContext -> valueContext.accept(valueVisitor))
+                    .collect(Collectors.toList());
+
+            var paramTypes = new Class<?>[params.size()];
+
+            paramTypes = params.stream()
+                    .map((Function<Value, Object>) Value::getType)
+                    .collect(Collectors.toList()).toArray(paramTypes);
+
+            Method method = null;
+
+            try {
+                 method = val.getType().getMethod(ctx.id().getText(),
+                                                        paramTypes);
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+
+        }
 
     }
 
