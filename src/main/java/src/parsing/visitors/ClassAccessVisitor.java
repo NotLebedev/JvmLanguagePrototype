@@ -80,21 +80,29 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
                 className.append(next);
 
-                while (!tokens.isEmpty()) { // Getting class name
-
-                    next = tokens.get(0);
+                while (true) { // Getting class name
 
                     try {
 
                         cls = Class.forName(className.toString());
                         break;
 
-                    } catch (ClassNotFoundException e) {
-                        className.append(".").append(next);
-                        tokens.remove(0);
+                    } catch (ClassNotFoundException ignored) {
+
                     }
 
+                    if(tokens.size() == 0)
+                        break;
+
+                    tokens.remove(0);
+                    next = tokens.get(0);
+
+                    className.append(".").append(next);
+
                 }
+
+                if(tokens.size() != 0)
+                    tokens.remove(0);
 
                 if(cls == null) {
                     System.err.println("Class not found");

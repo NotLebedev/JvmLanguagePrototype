@@ -90,7 +90,7 @@ public class Main implements Opcodes {
 
     }
 
-    public Class2 test() {
+    public static Class2 test() {
 
         return new Class2();
 
