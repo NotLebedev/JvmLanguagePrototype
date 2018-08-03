@@ -33,7 +33,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
             Value val = null;
 
-            if(scope.hasVariable(tokens.get(0))) {
+            if(scope.hasVariable(tokens.get(0))) { // Local variable
 
                 try {
                     val = scope.getVariableByName(tokens.get(0));
@@ -50,6 +50,44 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
                 } catch (SymbolNotFoundException e) {
                     e.printStackTrace();
                 }
+
+                System.out.println();
+
+            }else {
+
+                Class<?> cls = null;
+                var className = new StringBuilder();
+
+                var next = tokens.get(0);
+
+                className.append(next);
+                tokens.remove(0);
+
+                while (!tokens.isEmpty()) { // Getting class name
+
+                    next = tokens.get(0);
+
+                    try {
+
+                        cls = Class.forName(className.toString());
+                        break;
+
+                    } catch (ClassNotFoundException e) {
+                        className.append(".").append(next);
+                        tokens.remove(0);
+                    }
+
+                }
+
+                requireStatic = Boolean.TRUE; // Only static fields allowed
+
+                try {
+                    val = parsePath(new Variable(Objects.requireNonNull(cls).getTypeName(), "fictive", -1), tokens);
+                } catch (SymbolNotFoundException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println();
 
             }
 
