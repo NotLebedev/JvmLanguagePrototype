@@ -19,6 +19,12 @@ public class Class2 {
 
     }
 
+    public static Class2 test() {
+
+        return new Class2();
+
+    }
+
     public void printString() {
 
         System.out.println("YES!!!!");

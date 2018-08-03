@@ -131,6 +131,10 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
                 return val;
             }
 
+        } else if(startVal != null) {
+
+            return ctx.methodInv(0).accept(new MethodInvVisitor(startVal, Boolean.FALSE, scope));
+
         }
 
         return null;
