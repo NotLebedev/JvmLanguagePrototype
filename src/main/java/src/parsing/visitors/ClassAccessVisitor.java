@@ -32,9 +32,9 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
             var tokens = new ArrayList<>(Arrays.asList(ctx.path().getText().split("\\.")));
 
-            if(scope.hasVariable(tokens.get(0))) {
+            Value val = null;
 
-                Value val = null;
+            if(scope.hasVariable(tokens.get(0))) {
 
                 try {
                     val = scope.getVariableByName(tokens.get(0));
@@ -46,10 +46,11 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
                 requireStatic = Boolean.FALSE;
 
-                val = parsePath(val, tokens);
-
-                System.out.println();
-
+                try {
+                    val = parsePath(val, tokens);
+                } catch (SymbolNotFoundException e) {
+                    e.printStackTrace();
+                }
 
             }
 
@@ -59,7 +60,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
 
     }
 
-    private Value parsePath(Value startValue, ArrayList<String> tokens) {
+    private Value parsePath(Value startValue, ArrayList<String> tokens) throws SymbolNotFoundException {
 
         Value val = startValue;
 
@@ -109,6 +110,8 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
                     e.printStackTrace();
                 }
 
+            }else {
+                throw new SymbolNotFoundException("Can not find symbol  " + next + " in class " + val.getType().getName());
             }
 
             tokens.remove(0);
