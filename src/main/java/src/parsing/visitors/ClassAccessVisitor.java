@@ -17,10 +17,17 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
     private Scope scope;
 
+    private Value startVal;
     private Boolean requireStatic;
 
     public ClassAccessVisitor(Scope scope) {
         this.scope = scope;
+        this.startVal = null;
+    }
+
+    public ClassAccessVisitor(Scope scope, Value startVal) {
+        this.scope = scope;
+        this.startVal = startVal;
     }
 
     @Override
@@ -32,9 +39,19 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
             var tokens = new ArrayList<>(Arrays.asList(str.split("\\.")));
 
-            Value val = null;
+            Value val = startVal;
 
-            if(scope.hasVariable(tokens.get(0))) { // Local variable
+            if(val != null) {
+
+                requireStatic = Boolean.FALSE;
+
+                try {
+                    val = parsePath(val, tokens);
+                } catch (SymbolNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            }else if(scope.hasVariable(tokens.get(0))) { // Local variable
 
                 try {
                     val = scope.getVariableByName(tokens.get(0));
@@ -62,7 +79,6 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
                 var next = tokens.get(0);
 
                 className.append(next);
-                tokens.remove(0);
 
                 while (!tokens.isEmpty()) { // Getting class name
 
@@ -98,9 +114,13 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
             }
 
             if(ctx.methodInv().size() > 0) {
-
                 val = ctx.methodInv(0).accept(new MethodInvVisitor(val, requireStatic, scope));
+            }
 
+            if(ctx.classAccess() != null) {
+                return ctx.classAccess().accept(new ClassAccessVisitor(scope, val));
+            }else {
+                return val;
             }
 
         }

@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
+import src.parsing.Class2;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.CodeVisitor;
@@ -51,7 +52,8 @@ public class Main implements Opcodes {
 
             ///////////////////////////
 
-            RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out.println(\"Hello world!\")"));
+            RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out.println(\"Hello world!\")\n" +
+                    "src.Main.test().printString()"));
             CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
             RootParser rootParser = new RootParser(tokenStream);
 
@@ -85,6 +87,12 @@ public class Main implements Opcodes {
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    public Class2 test() {
+
+        return new Class2();
 
     }
 

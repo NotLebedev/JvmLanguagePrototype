@@ -19,6 +19,12 @@ public class Class2 {
 
     }
 
+    public void printString() {
+
+        System.out.println("YES!!!!");
+
+    }
+
     public static class InnerClass {
 
         public static void qwe() {}
