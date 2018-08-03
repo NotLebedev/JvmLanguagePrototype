@@ -34,8 +34,8 @@
         <counts>
           <entry key="g4" value="2482" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="16224" />
-          <entry key="txt" value="533" />
+          <entry key="java" value="16326" />
+          <entry key="txt" value="571" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
@@ -43,8 +43,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="2482" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="16224" />
-          <entry key="PLAIN_TEXT" value="533" />
+          <entry key="JAVA" value="16326" />
+          <entry key="PLAIN_TEXT" value="571" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
@@ -73,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="498">
+              <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
-              <caret line="53" column="102" selection-start-line="53" selection-start-column="102" selection-end-line="53" selection-end-column="102" />
+              <caret line="53" column="92" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -334,7 +334,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533287127099" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533289480206" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -421,7 +421,7 @@
       <workItem from="1533206339580" duration="789000" />
       <workItem from="1533207610342" duration="1478000" />
       <workItem from="1533213584259" duration="5944000" />
-      <workItem from="1533225518432" duration="12972000" />
+      <workItem from="1533225518432" duration="13639000" />
     </task>
     <task id="LOCAL-00001" summary="Added some code to visitClassAccess">
       <created>1533206564069</created>
@@ -535,14 +535,22 @@
       <option name="project" value="LOCAL" />
       <updated>1533285694930</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added some code to ClassAccessVisitor">
+      <created>1533287339287</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1533287339287</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96808000" />
+    <option name="totallyTimeSpent" value="97475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.344473" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -599,7 +607,8 @@
     <MESSAGE value="Fixed check in has(Non)StaticField (again my stupidity)" />
     <MESSAGE value="Added exception to parsePath" />
     <MESSAGE value="Changes to class hierarchy, Value is now extending expression" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to class hierarchy, Value is now extending expression" />
+    <MESSAGE value="Added some code to ClassAccessVisitor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some code to ClassAccessVisitor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -612,9 +621,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java</url>
-          <line>57</line>
+          <line>59</line>
           <properties />
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -995,7 +1010,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
-          <caret line="53" column="102" selection-start-line="53" selection-start-column="102" selection-end-line="53" selection-end-column="102" />
+          <caret line="53" column="92" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1004,8 +1019,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="498">
+          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

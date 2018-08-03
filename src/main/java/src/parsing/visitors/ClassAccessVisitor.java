@@ -27,9 +27,11 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitClassAccess(RootParser.ClassAccessContext ctx) {
 
-        if(ctx.path() != null) { // Non-local method invocation
+        if(ctx.path() != null || ctx.pathNoEndDot() != null) { // Non-local method invocation
 
-            var tokens = new ArrayList<>(Arrays.asList(ctx.path().getText().split("\\.")));
+            String str = ctx.path() != null ? ctx.path().getText() : ctx.pathNoEndDot().getText() ;
+
+            var tokens = new ArrayList<>(Arrays.asList(str.split("\\.")));
 
             Value val = null;
 
@@ -77,6 +79,11 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
                         tokens.remove(0);
                     }
 
+                }
+
+                if(cls == null) {
+                    System.err.println("Class not found");
+                    return null;
                 }
 
                 requireStatic = Boolean.TRUE; // Only static fields allowed
