@@ -48,8 +48,8 @@ PATH : (ID DOT)+ ;
 
 //Types capture groups
 STRINGCG : '"'.*?'"' ;
-INTEGERCG : [0-9]+ ;
-FLOATCG : [0-9]+ DOT? [0-9]* ;
+INTEGERCG : MINUS? [0-9]+ ;
+FLOATCG : MINUS? [0-9]+ DOT? [0-9]* ;
 CHARACTERCG : '\''.'\'' ;
 //End types capture groups
 
@@ -66,4 +66,5 @@ BRACEOPEN : '{' ;
 BRACECLOSE : '}' ;
 BRACKETOPEN : '(' ;
 BRACKETCLOSE : ')' ;
+MINUS : '-' ;
 //End symbols

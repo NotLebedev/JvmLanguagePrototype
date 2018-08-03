@@ -19,7 +19,7 @@ public class RootParser extends Parser {
 		BYTE=14, CHAR=15, LONG=16, SHORT=17, INT=18, FLOAT=19, DOUBLE=20, ID=21, 
 		PATH=22, STRINGCG=23, INTEGERCG=24, FLOATCG=25, CHARACTERCG=26, DOT=27, 
 		SEMICOLON=28, EQUALS=29, COMMA=30, INEQUALITYOPEN=31, INEQUALITYCLOSE=32, 
-		BRACEOPEN=33, BRACECLOSE=34, BRACKETOPEN=35, BRACKETCLOSE=36;
+		BRACEOPEN=33, BRACECLOSE=34, BRACKETOPEN=35, BRACKETCLOSE=36, MINUS=37;
 	public static final int
 		RULE_code = 0, RULE_methodCode = 1, RULE_expression = 2, RULE_variableDeclaration = 3, 
 		RULE_type = 4, RULE_variableAssignment = 5, RULE_assignment = 6, RULE_value = 7, 
@@ -49,7 +49,7 @@ public class RootParser extends Parser {
 		"'synchronized'", "'transient'", "'volatile'", "'final'", "'native'", 
 		"'strictfp'", "'boolean'", "'byte'", "'char'", "'long'", "'short'", "'int'", 
 		"'float'", "'double'", null, null, null, null, null, null, "'.'", "';'", 
-		"'='", "','", "'<'", "'>'", "'{'", "'}'", "'('", "')'"
+		"'='", "','", "'<'", "'>'", "'{'", "'}'", "'('", "')'", "'-'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "WS", "PUBLIC", "PRIVATE", "PROTECTED", "STATIC", "ABSTRACT", "SYNCHRONIZED", 
@@ -57,7 +57,7 @@ public class RootParser extends Parser {
 		"CHAR", "LONG", "SHORT", "INT", "FLOAT", "DOUBLE", "ID", "PATH", "STRINGCG", 
 		"INTEGERCG", "FLOATCG", "CHARACTERCG", "DOT", "SEMICOLON", "EQUALS", "COMMA", 
 		"INEQUALITYOPEN", "INEQUALITYCLOSE", "BRACEOPEN", "BRACECLOSE", "BRACKETOPEN", 
-		"BRACKETCLOSE"
+		"BRACKETCLOSE", "MINUS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -2186,7 +2186,7 @@ public class RootParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3&\u0103\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\'\u0103\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
