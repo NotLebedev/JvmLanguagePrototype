@@ -7,7 +7,7 @@ import src.parsing.domain.Interfaces.Value;
 /**
  * Class describing {@link int} literals
  */
-public class IntLiteral implements Value {
+public class IntLiteral extends Value {
 
     private int integer;
 

@@ -3,8 +3,6 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.Utils;
-import src.parsing.domain.Interfaces.Expression;
-import src.parsing.domain.Interfaces.MethodInvocation;
 import src.parsing.domain.Interfaces.Value;
 
 import java.lang.reflect.Method;
@@ -12,7 +10,7 @@ import java.lang.reflect.Method;
 /**
  * Class describing invoking methods of objects
  */
-public class ObjectMethodInvocation implements MethodInvocation {
+public class ObjectMethodInvocation extends Value {
 
     private Value object;
     private Class<?> objectClass;

@@ -3,13 +3,11 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.Utils;
-import src.parsing.domain.Interfaces.Expression;
-import src.parsing.domain.Interfaces.MethodInvocation;
 import src.parsing.domain.Interfaces.Value;
 
 import java.lang.reflect.Method;
 
-public class StaticMethodInvocation implements MethodInvocation {
+public class StaticMethodInvocation extends Value {
 
     private String methodOwnerClassName;
     private Class<?> methodOwnerClass;

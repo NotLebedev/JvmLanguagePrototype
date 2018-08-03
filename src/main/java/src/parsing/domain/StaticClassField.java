@@ -8,7 +8,7 @@ import src.parsing.domain.Interfaces.Value;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public class StaticClassField implements Value {
+public class StaticClassField extends Value {
 
     String fieldOwnerClassName;
     Class<?> fieldOwnerClass;

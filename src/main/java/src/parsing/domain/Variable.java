@@ -6,7 +6,7 @@ import org.objectweb.asm.Type;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 
-public class Variable implements Value {
+public class Variable extends Value {
 
     private int id;
     private String name;

@@ -3,7 +3,6 @@ package src.parsing.visitors;
 import src.parsing.Utils;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.Interfaces.MethodInvocation;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectField;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
+public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
     private Scope scope;
 
@@ -26,7 +25,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<MethodInvocation> {
     }
 
     @Override
-    public MethodInvocation visitClassAccess(RootParser.ClassAccessContext ctx) {
+    public Value visitClassAccess(RootParser.ClassAccessContext ctx) {
 
         if(ctx.path() != null) { // Non-local method invocation
 

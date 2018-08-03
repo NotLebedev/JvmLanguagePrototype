@@ -7,7 +7,7 @@ import src.parsing.domain.Interfaces.Value;
 
 import java.lang.reflect.Field;
 
-public class ObjectField implements Value {
+public class ObjectField extends Value {
 
     private Value object;
     private Class<?> fieldOwnerClass;
