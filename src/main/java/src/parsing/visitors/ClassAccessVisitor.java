@@ -8,10 +8,8 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.lang.reflect.Modifier;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -202,7 +200,7 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
             paramTypes = params.stream()
                     .map((Function<Value, Object>) Value::getType)
-                    .collect(Collectors.toList()).toArray(paramTypes);
+                    .collect(Collectors.toList()).toArray(new Class[0]);
 
             Method method = null;
 
@@ -213,7 +211,50 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
                 e.printStackTrace();
             }
 
-            return null;
+            boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
+
+            if(requireStatic && !isStatic) {
+
+                System.err.println("Incorrect modifier");
+                return null;
+
+            }
+
+            if(isStatic) {
+
+                var smi = new StaticMethodInvocation();
+                try {
+                    smi.setNames(val.getType().getTypeName(),
+                            ctx.id().getText(),
+                            params.stream()
+                                    .map(value -> value.getType().getTypeName())
+                                    .toArray(String[]::new));
+                } catch (ClassNotFoundException | NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+
+                smi.setParamValues(params.toArray(new Value[0]));
+
+                return smi;
+
+            }else {
+
+                var omi = new ObjectMethodInvocation();
+                try {
+                    omi.setNames(val,
+                            ctx.id().getText(),
+                            params.stream()
+                                    .map(value -> value.getType().getTypeName())
+                                    .toArray(String[]::new));
+                } catch (NoSuchMethodException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                omi.setParamValues(params.toArray(new Value[0]));
+
+                return omi;
+
+            }
 
         }
 
