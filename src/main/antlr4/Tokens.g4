@@ -42,7 +42,7 @@ DOUBLE : 'double' ;
 //End types
 
 //Namings
-ID : [A-z][A-z0-9]* ;
+ID : [A-Za-z][A-Za-z0-9]* ;
 PATH : (ID DOT)+ ;
 //End namings
 
@@ -67,4 +67,6 @@ BRACECLOSE : '}' ;
 BRACKETOPEN : '(' ;
 BRACKETCLOSE : ')' ;
 MINUS : '-' ;
+SQUAREBRACKETOPEN : '\u005B' ;
+SQUAREBRACKETCLOSE : '\u005D' ;
 //End symbols

@@ -41,6 +41,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(RootParser.TypeContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#arrayModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayModifier(RootParser.ArrayModifierContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#variableAssignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -304,4 +310,16 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBracketCloseS(RootParser.BracketCloseSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#squareBracketOpen}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSquareBracketOpen(RootParser.SquareBracketOpenContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#squareBracketClose}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSquareBracketClose(RootParser.SquareBracketCloseContext ctx);
 }

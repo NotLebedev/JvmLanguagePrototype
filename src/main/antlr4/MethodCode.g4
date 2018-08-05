@@ -7,9 +7,9 @@ import TokenRules, Tokens ;
 
 methodCode : (expression eol) * ;
 
-expression : variableDeclaration | variableAssignment | classAccess;
+expression : variableDeclaration | variableAssignment | classAccess ;
 variableDeclaration : type id assignment? ;
-type : booleanT |
+type : ( booleanT |
        byteT |
        charT |
        longT |
@@ -17,7 +17,9 @@ type : booleanT |
        intT |
        floatT |
        doubleT |
-       className ;
+       className ) arrayModifier+? ;
+
+arrayModifier : squareBracketOpen squareBracketClose  ;
 
 variableAssignment : id assignment ;
 

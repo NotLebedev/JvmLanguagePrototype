@@ -67,6 +67,8 @@ braceopenS : BRACEOPEN ;
 brcecloseS : BRACECLOSE ;
 bracketOpenS : BRACKETOPEN ;
 bracketCloseS : BRACKETCLOSE ;
+squareBracketOpen : SQUAREBRACKETOPEN ;
+squareBracketClose : SQUAREBRACKETCLOSE ;
 //End symbols
 
 //End tokens
