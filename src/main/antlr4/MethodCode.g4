@@ -8,7 +8,9 @@ import TokenRules, Tokens ;
 methodCode : (expression eol) * ;
 
 expression : variableDeclaration | variableAssignment | classAccess ;
+
 variableDeclaration : type id assignment? ;
+
 type : ( booleanT |
        byteT |
        charT |
@@ -17,7 +19,7 @@ type : ( booleanT |
        intT |
        floatT |
        doubleT |
-       className ) arrayModifier+? ;
+       className ) arrayModifier* ;
 
 arrayModifier : squareBracketOpen squareBracketClose  ;
 
@@ -33,6 +35,7 @@ literalCG :    stringCG |
                 characterCG ;
 
 className : path id ;//TODO : currently all classNames are with absolute path, add imports
+                     //TODO : change path grammar to allow whitespaces
 
 /*methodInvocation : path? chainedMethodInvocation ;
 

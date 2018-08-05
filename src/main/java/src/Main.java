@@ -3,7 +3,6 @@ package src;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.objectweb.asm.ClassWriter;
-import src.parsing.Class2;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.CodeVisitor;
