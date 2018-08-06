@@ -8,6 +8,24 @@ public class Utils {
 
     public static Class classForName(String name) throws ClassNotFoundException {
 
+        name = name.replace(" ", "");
+
+        if(name.matches(".*\\[].*")) { //Check if is array
+
+            String temp = name.replace("[", "");//Calculate degree
+            int occNum = (name.length() - temp.length());          //of array
+
+            StringBuilder sb = new StringBuilder();
+            sb.append(new String(new char[occNum]).replace("\0", "[")); //Add occNum of
+                                                                                        // "[" to start of string
+            name = name.replace("[", "").replace("]", "");
+
+            sb.append(getClassName(Class.forName(name)).replace('/', '.'));
+
+            return Class.forName(sb.toString());
+
+        }
+
         switch (name) {
 
             case "boolean":
