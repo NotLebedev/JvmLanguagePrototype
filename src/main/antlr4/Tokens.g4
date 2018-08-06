@@ -42,8 +42,14 @@ DOUBLE : 'double' ;
 //End types
 
 //Namings
-ID : [A-Za-z][A-Za-z0-9]* ;
-PATH : (ID DOT)+ ;
+fragment LOWCHAR :   'a'..'z';
+
+fragment HIGHCHAR :   'A'..'Z';
+
+fragment DIGIT : '0'..'9';
+
+ID : (LOWCHAR|HIGHCHAR) (LOWCHAR|HIGHCHAR|DIGIT)* ;
+//PATH : (WHITESPACE* ID WHITESPACE* DOT)+ ;
 //End namings
 
 //Types capture groups

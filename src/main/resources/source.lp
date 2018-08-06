@@ -13,4 +13,4 @@ java.lang.System.out.println(str1)
 java.lang.System.out.println(str2)
 
 
-java.lang.String [  ] str;
+java.lang.String[] str;
