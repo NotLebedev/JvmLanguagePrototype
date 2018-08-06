@@ -47,6 +47,6 @@ methodInv : id bracketOpenS (value commaS)* value? bracketCloseS ;
 pathNoEndDot : path? id;
 
 
-eol : semicolonS | ;
+eol : (semicolonS | '\n')+ ;
 
 WS : [ \n\t\r] -> skip ;
