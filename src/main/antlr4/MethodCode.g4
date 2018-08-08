@@ -29,24 +29,18 @@ assignment : equalsS value ;
 
 value : literalCG | id | classAccess | objectInstantiation ;
 
-objectInstantiation : 'new' pathNoEndDot arrayModifier* bracketOpenS (value commaS)* value? bracketCloseS ;
+objectInstantiation : 'new' path arrayModifier* bracketOpenS (value commaS)* value? bracketCloseS ;
 
 literalCG :    stringCG |
                 integerCG |
                 floatCG |
                 characterCG ;
 
-className : path id ;//TODO : currently all classNames are with absolute path, add imports
+className : path ;//TODO : currently all classNames are with absolute path, add imports
 
-/*methodInvocation : path? chainedMethodInvocation ;
-
-chainedMethodInvocation : id bracketOpenS (value commaS)* value? bracketCloseS ( dotS chainedMethodInvocation )? ;*/
-
-classAccess :  (/*path | */pathNoEndDot |  methodInv) /*methodInv?*/ (dotS classAccess)? ;
+classAccess :  (path |  methodInv) (dotS classAccess)? ;
 methodInv : id bracketOpenS (value commaS)* value? bracketCloseS ;
 
-pathNoEndDot : path? id;
-
-eol : /*(semicolonS | '\n')+*/ semicolonS | ;
+eol : semicolonS | ;
 
 WS : [ \n\t\r] -> skip ;

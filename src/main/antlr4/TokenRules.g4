@@ -44,7 +44,7 @@ doubleT : DOUBLE ;
 
 //Namings
 id : ID ;
-path : (id '.')+ ;
+path : (id '.')* id ;
 //End namings
 
 //Types capture groups
