@@ -1,7 +1,5 @@
 package src.parsing;
 
-import org.objectweb.asm.Opcodes;
-
 import java.lang.reflect.Modifier;
 
 public class Utils {
