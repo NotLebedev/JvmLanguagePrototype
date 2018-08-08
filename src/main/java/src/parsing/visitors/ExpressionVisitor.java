@@ -7,7 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 
 public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
-    private Scope scope;
+    private final Scope scope;
 
     public ExpressionVisitor(Scope scope) {
         this.scope = scope;

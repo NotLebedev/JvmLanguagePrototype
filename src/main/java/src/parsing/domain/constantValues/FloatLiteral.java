@@ -5,7 +5,7 @@ import src.parsing.domain.Interfaces.Value;
 
 public class FloatLiteral extends Value {
 
-    private float f;
+    private final float f;
 
     public FloatLiteral(float f) {
         this.f = f;

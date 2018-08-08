@@ -8,7 +8,7 @@ import src.parsing.domain.VariableNotFoundException;
 
 public class ValueVisitor extends RootBaseVisitor<Value> {
 
-    private Scope scope;
+    private final Scope scope;
 
     public ValueVisitor(Scope scope) {
         this.scope = scope;

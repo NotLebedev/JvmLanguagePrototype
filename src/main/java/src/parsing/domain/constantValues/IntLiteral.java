@@ -9,7 +9,7 @@ import src.parsing.domain.Interfaces.Value;
  */
 public class IntLiteral extends Value {
 
-    private int integer;
+    private final int integer;
 
     public IntLiteral(int integer) {
         this.integer = integer;

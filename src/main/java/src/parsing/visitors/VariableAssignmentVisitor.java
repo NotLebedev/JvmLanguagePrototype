@@ -11,7 +11,7 @@ import src.parsing.domain.VariableNotFoundException;
 
 public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
-    private Scope scope;
+    private final Scope scope;
 
     public VariableAssignmentVisitor(Scope scope) {
         this.scope = scope;

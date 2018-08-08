@@ -9,9 +9,9 @@ import src.parsing.domain.Interfaces.Value;
 public class Variable extends Value {
 
     private int id;
-    private String name;
+    private final String name;
 
-    private String typeName;
+    private final String typeName;
     private Class<?> type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {

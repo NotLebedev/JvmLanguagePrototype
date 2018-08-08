@@ -10,7 +10,7 @@ import src.parsing.domain.VariableAssignement;
 
 public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
-    private Scope scope;
+    private final Scope scope;
 
     public VariableDeclarationVisitor(Scope scope) {
         this.scope = scope;

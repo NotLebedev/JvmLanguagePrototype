@@ -8,7 +8,7 @@ import src.parsing.domain.Interfaces.Value;
  */
 public class StringLiteral extends Value {
 
-    private String string;
+    private final String string;
 
     public StringLiteral(String string) {
         this.string = string;

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class MethodCodeVisitor extends RootBaseVisitor<Method> {
 
-    private Method method;
+    private final Method method;
 
     public MethodCodeVisitor(Method method) {
         this.method = method;

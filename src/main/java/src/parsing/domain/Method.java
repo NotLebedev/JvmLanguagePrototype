@@ -15,8 +15,8 @@ public class Method implements Scope {
 
     String name;
 
-    private ArrayList<Expression> expressions = new ArrayList<>();
-    private ArrayList<Variable> variables = new ArrayList<>();
+    private final ArrayList<Expression> expressions = new ArrayList<>();
+    private final ArrayList<Variable> variables = new ArrayList<>();
 
     /**
      * Constructor to use, when method is static and has no fields
