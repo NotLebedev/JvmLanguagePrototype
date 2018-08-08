@@ -24,7 +24,7 @@ public class ObjectField extends Value {
 
     }
 
-    private void resolveNames() throws ClassNotFoundException, NoSuchFieldException {
+    private void resolveNames() throws NoSuchFieldException {
 
         fieldOwnerClass = object.getType();
 
