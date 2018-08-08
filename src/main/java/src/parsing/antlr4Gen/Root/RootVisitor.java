@@ -65,6 +65,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitValue(RootParser.ValueContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#objectInstantiation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObjectInstantiation(RootParser.ObjectInstantiationContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#literalCG}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
