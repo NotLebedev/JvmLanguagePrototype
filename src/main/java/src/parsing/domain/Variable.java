@@ -11,8 +11,8 @@ public class Variable extends Value {
     private int id;
     private String name;
 
-    String typeName;
-    Class<?> type;
+    private String typeName;
+    private Class<?> type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
 

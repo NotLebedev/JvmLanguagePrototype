@@ -10,11 +10,11 @@ import java.lang.reflect.Modifier;
 
 public class StaticClassField extends Value {
 
-    String fieldOwnerClassName;
-    Class<?> fieldOwnerClass;
+    private String fieldOwnerClassName;
+    private Class<?> fieldOwnerClass;
 
-    String fieldName;
-    Field field;
+    private String fieldName;
+    private Field field;
 
     public void setNames(String fieldOwnerClassName, String fieldName) throws ClassNotFoundException, NoSuchFieldException {
 

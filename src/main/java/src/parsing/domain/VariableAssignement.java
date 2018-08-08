@@ -8,9 +8,9 @@ import src.parsing.domain.Interfaces.Value;
 
 public class VariableAssignement extends Expression {
 
-    Variable variable;
+    private Variable variable;
 
-    Value value;
+    private Value value;
 
     public void setParams(Variable variable, Value value) {
 
