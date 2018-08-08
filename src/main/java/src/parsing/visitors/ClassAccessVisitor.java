@@ -33,9 +33,9 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitClassAccess(RootParser.ClassAccessContext ctx) {
 
-        if(ctx.path() != null || ctx.pathNoEndDot() != null) { // Non-local method invocation
+        if(ctx.pathNoEndDot() != null) { // Non-local method invocation
 
-            String str = ctx.path() != null ? ctx.path().getText() : ctx.pathNoEndDot().getText() ;
+            String str = ctx.pathNoEndDot().getText() ;
 
             var tokens = new ArrayList<>(Arrays.asList(str.split("\\.")));
 
