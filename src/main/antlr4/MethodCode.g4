@@ -29,7 +29,7 @@ assignment : equalsS value ;
 
 value : literalCG | id | classAccess | objectInstantiation ;
 
-objectInstantiation : 'new' path arrayModifier* bracketOpenS (value commaS)* value? bracketCloseS ;
+objectInstantiation : 'new' type bracketOpenS (value commaS)* value? bracketCloseS ;
 
 literalCG :    stringCG |
                 integerCG |

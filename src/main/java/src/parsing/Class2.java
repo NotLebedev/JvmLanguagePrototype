@@ -15,7 +15,7 @@ public class Class2 {
 
     public static void print(String str) {
 
-        System.out.println(str);
+        java.lang.StringBuilder sb = new java.lang.StringBuilder();
 
     }
 

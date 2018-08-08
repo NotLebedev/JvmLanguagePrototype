@@ -95,12 +95,6 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMethodInv(RootParser.MethodInvContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link RootParser#pathNoEndDot}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPathNoEndDot(RootParser.PathNoEndDotContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link RootParser#eol}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

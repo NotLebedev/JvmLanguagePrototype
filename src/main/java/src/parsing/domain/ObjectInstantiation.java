@@ -73,7 +73,7 @@ public class ObjectInstantiation extends Value {
 
     }
 
-    public String getDescriptor() {
+    private String getDescriptor() {
 
         StringBuilder sb = new StringBuilder();
         sb.append("(");
@@ -84,7 +84,7 @@ public class ObjectInstantiation extends Value {
 
         sb.append(")");
 
-        sb.append(getTypeString());
+        sb.append("V");
 
         return sb.toString();
 

@@ -18,9 +18,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     public Value visitValue(RootParser.ValueContext ctx) {
 
         if(ctx.literalCG() != null) {
-
             return ctx.literalCG().accept(new LiteralCGVisitor());
-
         }
 
         if(ctx.id() != null) {
@@ -34,9 +32,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         }
 
         if(ctx.classAccess() != null) {
-
             return ctx.classAccess().accept(new ClassAccessVisitor(scope));
+        }
 
+        if(ctx.objectInstantiation() != null) {
+            return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope));
         }
 
         return null;

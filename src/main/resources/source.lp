@@ -13,4 +13,9 @@ java.lang.System.out.println(str1)
 java.lang.System.out.println(str2)
 
 
-java.lang.String[] str
+java.lang.StringBuilder sb = new java.lang.StringBuilder();
+    sb.append("123");
+         sb.append(4);
+        sb.append(5);
+        sb.append(6);
+         java.lang.System.out.println(sb.toString());
