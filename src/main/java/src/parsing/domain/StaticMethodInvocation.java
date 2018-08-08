@@ -88,4 +88,5 @@ public class StaticMethodInvocation extends Value {
     public Class<?> getType() {
         return method.getReturnType();
     }
+
 }
