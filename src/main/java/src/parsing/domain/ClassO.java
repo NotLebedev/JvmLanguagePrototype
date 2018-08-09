@@ -10,10 +10,18 @@ import src.parsing.packageManagement.ClassManagement;
  */
 public class ClassO extends Value {
 
-    private Class<?> containedClass;
+    private final Class<?> containedClass;
 
     public ClassO(String name) throws ClassNotFoundException {
         containedClass = ClassManagement.forName(name);
+    }
+
+    public String getName() {
+        return containedClass.getName();
+    }
+
+    public Class<?> getContainedClass() {
+        return containedClass;
     }
 
     @Override

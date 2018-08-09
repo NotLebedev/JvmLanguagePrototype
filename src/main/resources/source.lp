@@ -1,1 +1,1 @@
-java.lang.String
+src.parsing.Class2.InnerClass

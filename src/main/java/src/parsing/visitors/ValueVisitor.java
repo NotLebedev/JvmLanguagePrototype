@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.PackageO;
 import src.parsing.domain.VariableNotFoundException;
+import src.parsing.packageManagement.ClassManagement;
 
 public class ValueVisitor extends RootBaseVisitor<Value> {
 
@@ -47,26 +48,49 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             var val = ctx.value(0).accept(new ValueVisitor(scope));
 
-            if(val instanceof PackageO && ctx.value(1).id() != null) {   // Package part may expect
-                                                                            // only id to go next
-                //Is subpackage
+            if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
+                                                                        // only id to go next
                 var packageO = (PackageO)val;
 
-                if(packageO.updatePath(ctx.value(1).id().getText()))
+                String id = ctx.value(1).id().getText();
+
+                //Is subpackage
+                if(packageO.updatePath(id))
                     return packageO;
                 //Is subpackage
 
                 //Is class
-                ClassO classO;
 
                 try {
-
-                    classO = new ClassO(packageO.getPath() + "." + ctx.value(1).id().getText());
-                    return classO;
-
+                    return new ClassO(packageO.getPath() + "." + id);
                 } catch (ClassNotFoundException ignored) {
                 }
                 //Is class
+
+            }
+
+            if(val instanceof ClassO) {
+
+                var classO = (ClassO)val;
+
+                if(ctx.value(1).id() != null) {
+
+                    String id = ctx.value(1).id().getText();
+
+                    //Is nested class
+                    try {
+                        return new ClassO(classO.getName() + "$" + id);
+                    } catch (ClassNotFoundException ignored) {
+                    }
+                    //Is nested class
+
+                    //Is static field
+                    if (ClassManagement.hasStaticField(classO, id)) {
+
+                    }
+                    //Is static field
+
+                }
 
             }
 

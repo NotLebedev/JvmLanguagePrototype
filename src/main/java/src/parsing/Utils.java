@@ -95,41 +95,6 @@ public class Utils {
     }
 
     /**
-     * Checks if class has static field with this name
-     * @param cls owner class
-     * @param name name to be found
-     * @return result of check
-     */
-    public static boolean hasNonStaticField(Class<?> cls, String name) {
-
-        try {
-            if((cls.getField(name).getModifiers() & Modifier.STATIC) == 0)
-                return true;
-        } catch (NoSuchFieldException ignored) {
-        }
-        return false;
-
-    }
-
-    /**
-     * Checks if class has static field with this name
-     * @param cls owner class
-     * @param name name to be found
-     * @return result of check
-     */
-    public static boolean hasStaticField(Class<?> cls, String name) {
-
-        try {
-            if((cls.getField(name).getModifiers() & Modifier.STATIC) != 0)
-                return true;
-        } catch (NoSuchFieldException ignored) {
-        }
-
-        return false;
-
-    }
-
-    /**
      * Checks if class has inner class with this name
      * @param cls owner class
      * @param name name to be found
