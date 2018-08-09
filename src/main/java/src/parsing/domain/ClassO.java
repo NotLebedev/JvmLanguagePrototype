@@ -4,6 +4,8 @@ import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
 
+import java.lang.reflect.Field;
+
 /**
  * Object containing class, no value-like access expected
  * This object always contains valid class
@@ -22,6 +24,10 @@ public class ClassO extends Value {
 
     public Class<?> getContainedClass() {
         return containedClass;
+    }
+
+    public Field getField(String fieldName) throws NoSuchFieldException {
+        return containedClass.getField(fieldName);
     }
 
     @Override

@@ -6,6 +6,7 @@ import src.parsing.domain.ClassO;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.PackageO;
+import src.parsing.domain.StaticClassField;
 import src.parsing.domain.VariableNotFoundException;
 import src.parsing.packageManagement.ClassManagement;
 
@@ -85,8 +86,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     //Is nested class
 
                     //Is static field
-                    if (ClassManagement.hasStaticField(classO, id)) {
-
+                    try {
+                        var staticClassField = new StaticClassField();
+                        staticClassField.setNames(classO, id);
+                        return staticClassField;
+                    } catch (NoSuchFieldException ignored) {
                     }
                     //Is static field
 

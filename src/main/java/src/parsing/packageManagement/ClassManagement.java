@@ -2,6 +2,7 @@ package src.parsing.packageManagement;
 
 import src.parsing.domain.ClassO;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public class ClassManagement {

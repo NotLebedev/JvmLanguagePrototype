@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,9 +44,9 @@
           <entry key="dummy" value="1" />
           <entry key="g4" value="3703" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="20981" />
+          <entry key="java" value="21235" />
           <entry key="lp" value="349" />
-          <entry key="txt" value="2351" />
+          <entry key="txt" value="2402" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
@@ -55,8 +54,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3703" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="20981" />
-          <entry key="PLAIN_TEXT" value="2701" />
+          <entry key="JAVA" value="21235" />
+          <entry key="PLAIN_TEXT" value="2752" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -96,8 +95,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="642">
-                  <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+                <state relative-caret-position="747">
+                  <caret line="94" column="37" lean-forward="true" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -105,8 +104,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="693">
-                  <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+                <state relative-caret-position="336">
+                  <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -117,8 +116,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+                <state relative-caret-position="558">
+                  <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#602#603#0" expanded="true" />
@@ -163,8 +162,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+                <state relative-caret-position="213">
+                  <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
                 </state>
               </provider>
             </entry>
@@ -258,7 +257,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/MethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/antlr4/Root.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" />
@@ -278,8 +276,9 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackageO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Utils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
       </list>
     </option>
@@ -440,7 +439,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533825934418" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533826421223" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -543,7 +542,7 @@
       <workItem from="1533544822778" duration="4962000" />
       <workItem from="1533724264415" duration="2667000" />
       <workItem from="1533745041272" duration="11223000" />
-      <workItem from="1533807994178" duration="16305000" />
+      <workItem from="1533807994178" duration="17152000" />
     </task>
     <task id="LOCAL-00001" summary="Added some code to visitClassAccess">
       <created>1533206564069</created>
@@ -846,11 +845,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533821418973</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Added ClassO code to value visitor">
+      <created>1533825980136</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1533825980136</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161622000" />
+    <option name="totallyTimeSpent" value="162469000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -905,7 +911,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added MethodInvVisitor nested class" />
     <MESSAGE value="Finished MethodInvVisitor" />
     <MESSAGE value="Added recursive ClassAccessVisitor compilation (for chained invocation)" />
     <MESSAGE value="Correction to getting class name" />
@@ -930,7 +935,8 @@
     <MESSAGE value="Generated antlr4 recognizer and removed all obsolete code" />
     <MESSAGE value="Added some package stuff" />
     <MESSAGE value="Implemented class parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented class parsing" />
+    <MESSAGE value="Added ClassO code to value visitor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ClassO code to value visitor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -949,7 +955,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java</url>
-          <line>73</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
@@ -1328,13 +1334,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -1342,10 +1341,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        <state relative-caret-position="558">
+          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#602#603#0" expanded="true" />
@@ -1355,20 +1364,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="213">
+          <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+        <state relative-caret-position="747">
+          <caret line="94" column="37" lean-forward="true" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
         </state>
       </provider>
     </entry>
