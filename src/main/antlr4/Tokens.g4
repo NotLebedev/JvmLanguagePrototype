@@ -75,4 +75,7 @@ BRACKETCLOSE : ')' ;
 MINUS : '-' ;
 SQUAREBRACKETOPEN : '\u005B' ;
 SQUAREBRACKETCLOSE : '\u005D' ;
+PLUS : '+' ;
+ASTERISK : '*' ;
+SLASH : '/' ;
 //End symbols
