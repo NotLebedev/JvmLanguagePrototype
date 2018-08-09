@@ -9,8 +9,7 @@ import java.lang.reflect.Method;
 
 public class StaticMethodInvocation extends Value {
 
-    private String methodOwnerClassName;
-    private Class<?> methodOwnerClass;
+    private ClassO methodOwnerClass;
 
     private String methodName;
     private Method method;
@@ -19,9 +18,9 @@ public class StaticMethodInvocation extends Value {
     private Value[] paramValues;
     private Class<?>[] params;
 
-    public void setNames(String methodOwnerClassName, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
+    public void setNames(ClassO methodOwnerClass, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
 
-        this.methodOwnerClassName = methodOwnerClassName;
+        this.methodOwnerClass = methodOwnerClass;
         this.methodName = methodName;
         this.paramNames = paramNames;
 
@@ -29,13 +28,27 @@ public class StaticMethodInvocation extends Value {
 
     }
 
-    public void setParamValues(Value[] paramValues) {
+    /**
+     *
+     * @param paramValues parameter values
+     * @throws IllegalArgumentException class of value doe not match class of parameter
+     */
+    public void setParamValues(Value[] paramValues) throws IllegalArgumentException {
+
+        for (int i = 0; i < params.length; i++) {
+
+            if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
+                throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getTypeString() +
+                        " does not match field type of " + Utils.getClassName(params[i]));
+            }
+
+        }
+
         this.paramValues = paramValues;
+
     }
 
     private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
-
-        methodOwnerClass = Utils.classForName(methodOwnerClassName);
 
         params = new Class<?>[paramNames.length];
 
@@ -55,7 +68,7 @@ public class StaticMethodInvocation extends Value {
         }
 
         methodVisitor.visitMethodInsn(  Opcodes.INVOKESTATIC,
-                                        Utils.getJvmClassName(methodOwnerClass),
+                                        methodOwnerClass.getName().replace('.', '/'),
                                         method.getName(),
                                         getDescriptor(),
                                         methodOwnerClass.isInterface());

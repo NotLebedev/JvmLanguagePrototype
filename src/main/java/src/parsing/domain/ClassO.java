@@ -5,6 +5,7 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * Object containing class, no value-like access expected
@@ -22,12 +23,18 @@ public class ClassO extends Value {
         return containedClass.getName();
     }
 
-    public Class<?> getContainedClass() {
-        return containedClass;
-    }
-
+    //TODO: replace with domain Field, when ready
     public Field getField(String fieldName) throws NoSuchFieldException {
         return containedClass.getField(fieldName);
+    }
+
+    //TODO: replace with
+    public Method getMethod(String methodName, Class<?>[] params) throws NoSuchMethodException {
+        return containedClass.getMethod(methodName, params);
+    }
+
+    public boolean isInterface() {
+        return containedClass.isInterface();
     }
 
     @Override
@@ -42,7 +49,7 @@ public class ClassO extends Value {
 
     @Override
     public Class<?> getType() {
-        return null;
+        return containedClass;
     }
 
 }

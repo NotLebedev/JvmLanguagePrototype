@@ -26,7 +26,7 @@ public class ClassManagement {
     public static boolean hasNonStaticField(ClassO cls, String name) {
 
         try {
-            if((cls.getContainedClass().getField(name).getModifiers() & Modifier.STATIC) == 0)
+            if((cls.getType().getField(name).getModifiers() & Modifier.STATIC) == 0)
                 return true;
         } catch (NoSuchFieldException ignored) {
         }
@@ -43,7 +43,7 @@ public class ClassManagement {
     public static boolean hasStaticField(ClassO cls, String name) {
 
         try {
-            if((cls.getContainedClass().getField(name).getModifiers() & Modifier.STATIC) != 0)
+            if((cls.getType().getField(name).getModifiers() & Modifier.STATIC) != 0)
                 return true;
         } catch (NoSuchFieldException ignored) {
         }
