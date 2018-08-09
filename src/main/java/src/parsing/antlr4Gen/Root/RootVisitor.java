@@ -322,4 +322,28 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSquareBracketClose(RootParser.SquareBracketCloseContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#plusS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlusS(RootParser.PlusSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#minusS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinusS(RootParser.MinusSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#asteriskS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAsteriskS(RootParser.AsteriskSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#slashS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSlashS(RootParser.SlashSContext ctx);
 }

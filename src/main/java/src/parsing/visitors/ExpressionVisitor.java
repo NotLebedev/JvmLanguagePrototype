@@ -32,14 +32,6 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        if(ctx.classAccess() != null) {
-
-            var classAccessVisitor = new ClassAccessVisitor(scope);
-
-            return ctx.classAccess().accept(classAccessVisitor);
-
-        }
-
         return null;
 
     }
