@@ -4,7 +4,10 @@ import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.PackageManager;
 
-public class PackagePart extends Value {
+/**
+ * Object containing package, no value-like access expected
+ */
+public class PackageO extends Value {
 
     private String path = null;
 
