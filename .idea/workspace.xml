@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackagePart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,19 +42,19 @@
         <counts>
           <entry key="g4" value="3703" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="18947" />
+          <entry key="java" value="19632" />
           <entry key="lp" value="308" />
-          <entry key="txt" value="2244" />
-          <entry key="xml" value="4" />
+          <entry key="txt" value="2302" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="ANTLR v4 grammar file" value="3703" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="18947" />
-          <entry key="PLAIN_TEXT" value="2552" />
-          <entry key="XML" value="4" />
+          <entry key="JAVA" value="19632" />
+          <entry key="PLAIN_TEXT" value="2610" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,10 +62,10 @@
           <entry key="class" value="5" />
           <entry key="g4" value="143" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="264" />
+          <entry key="java" value="269" />
           <entry key="lp" value="8" />
           <entry key="snippet" value="2" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -70,10 +73,10 @@
           <entry key="ANTLR v4 grammar file" value="143" />
           <entry key="CLASS" value="5" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="264" />
+          <entry key="JAVA" value="269" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Scratch" value="2" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -100,16 +103,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/antlr4/NonGreedyTest.g4">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="126">
-                  <caret line="7" column="30" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="7" selection-end-column="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="840">
-                  <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+                  <caret line="7" column="30" selection-start-line="5" selection-start-column="8" selection-end-line="7" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -117,8 +111,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="273">
-                  <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+                <state relative-caret-position="420">
+                  <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -138,8 +132,35 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="672">
-                  <caret line="38" column="91" selection-start-line="38" selection-start-column="91" selection-end-line="38" selection-end-column="91" />
+                <state relative-caret-position="189">
+                  <caret line="15" selection-start-line="15" selection-end-line="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/PackagePart.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="525">
+                  <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#487#488#0" expanded="true" />
+                    <element signature="e#514#515#0" expanded="true" />
+                    <element signature="e#667#668#0" expanded="true" />
+                    <element signature="e#694#695#0" expanded="true" />
+                    <element signature="e#741#742#0" expanded="true" />
+                    <element signature="e#768#769#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="84">
+                  <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -147,8 +168,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5712">
-                  <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
+                <state relative-caret-position="5435">
+                  <caret line="295" selection-start-line="295" selection-end-line="295" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -165,7 +186,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
               <provider selected="true" editor-type-id="text-editor">
                 <state>
@@ -178,11 +199,32 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="693">
+                <state relative-caret-position="451">
                   <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="567">
+                  <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="231">
+                  <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -248,15 +290,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/String.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassField.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/objectMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableDeclaration.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Value.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Expression.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Scope.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignementVisitor.java" />
@@ -270,7 +309,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodInvocationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Scope.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/SymbolNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Expression.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
@@ -284,13 +322,10 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/MethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/antlr4/Root.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" />
@@ -299,6 +334,13 @@
         <option value="$PROJECT_DIR$/src/main/antlr4/TokenRules.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
         <option value="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackagePart.java" />
       </list>
     </option>
   </component>
@@ -448,7 +490,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533814985753" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533817477848" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -551,7 +593,7 @@
       <workItem from="1533544822778" duration="4962000" />
       <workItem from="1533724264415" duration="2667000" />
       <workItem from="1533745041272" duration="11223000" />
-      <workItem from="1533807994178" duration="5696000" />
+      <workItem from="1533807994178" duration="9001000" />
     </task>
     <task id="LOCAL-00001" summary="Added some code to visitClassAccess">
       <created>1533206564069</created>
@@ -833,11 +875,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533814773133</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Generated antlr4 recognizer and removed all obsolete code">
+      <created>1533815184585</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1533815184585</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151013000" />
+    <option name="totallyTimeSpent" value="154318000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -861,7 +910,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.5208333" visible="true" weight="0.16573927" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32981783" />
-      <window_info anchor="bottom" auto_hide="true" id="Debug" order="2" weight="0.39880952" />
+      <window_info anchor="bottom" auto_hide="true" id="Debug" order="2" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="5" sideWeight="0.47916666" weight="0.41468254" />
@@ -871,7 +920,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Tool Output" order="9" weight="0.32917964" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" weight="0.32936507" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936507" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32917964" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32936507" />
       <window_info anchor="bottom" x="854" y="262" width="852" height="555" id="ANTLR Preview" order="14" sideWeight="0.48701972" weight="0.38629285" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -892,7 +941,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes to class hierarchy, Value is now extending expression" />
     <MESSAGE value="Added some code to ClassAccessVisitor" />
     <MESSAGE value="Added parsing of pathNoEndDot" />
     <MESSAGE value="Added MethodInvVisitor nested class" />
@@ -917,14 +965,15 @@
     <MESSAGE value="Created and implemented ObjectInstantiation class" />
     <MESSAGE value="Finished with implementing object instantiation" />
     <MESSAGE value="Changed method code value rule, to make class access more uniform" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed method code value rule, to make class access more uniform" />
+    <MESSAGE value="Generated antlr4 recognizer and removed all obsolete code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generated antlr4 recognizer and removed all obsolete code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/Main.java</url>
-          <line>24</line>
+          <line>30</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -934,11 +983,27 @@
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/src/parsing/domain/PackagePart.java</url>
+          <line>14</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>refls</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>refls.getAllTypes()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>Class.forName(sb.toString())</expression-string>
         <language-id>JAVA</language-id>
@@ -979,28 +1044,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>ctx.path()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-424">
-          <caret line="88" column="19" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/io/PrintStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5068">
-          <caret line="809" column="16" selection-start-line="809" selection-start-column="16" selection-end-line="809" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/Override.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1009,13 +1055,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableDeclaration.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignementVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/TypeVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Method.java" />
@@ -1023,13 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1133,16 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-593">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1168,13 +1190,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
@@ -1236,26 +1251,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5712">
-          <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1449">
@@ -1280,7 +1275,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/antlr4/NonGreedyTest.g4">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="30" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="7" selection-end-column="30" />
+          <caret line="7" column="30" selection-start-line="5" selection-start-column="8" selection-end-line="7" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1295,13 +1290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="38" column="91" selection-start-line="38" selection-start-column="91" selection-end-line="38" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -1321,8 +1309,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
+        <state relative-caret-position="451">
           <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5435">
+          <caret line="295" selection-start-line="295" selection-end-line="295" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="17" column="68" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/PackagePart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
