@@ -8,6 +8,11 @@ import src.parsing.domain.Method;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class responsible for visiting of method body content
+ *
+ * @author NotLebedev
+ */
 public class MethodCodeVisitor extends RootBaseVisitor<Method> {
 
     private final Method method;
