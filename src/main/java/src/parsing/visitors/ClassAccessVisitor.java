@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
-    private final Scope scope;
+   /* private final Scope scope;
 
     private final Value startVal;
     private Boolean requireStatic;
@@ -121,9 +121,9 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
 
             }
 
-            /*if(ctx.methodInv().size() > 0) {
+            *//*if(ctx.methodInv().size() > 0) {
                 val = ctx.methodInv(0).accept(new MethodInvVisitor(val, requireStatic, scope));
-            }*/
+            }*//*
 
             if(ctx.classAccess() != null) {
                 return ctx.classAccess().accept(new ClassAccessVisitor(scope, val));
@@ -297,5 +297,5 @@ public class ClassAccessVisitor extends RootBaseVisitor<Value> {
         }
 
     }
-
+*/
 }

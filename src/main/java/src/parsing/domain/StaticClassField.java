@@ -10,24 +10,21 @@ import java.lang.reflect.Modifier;
 
 public class StaticClassField extends Value {
 
-    private String fieldOwnerClassName;
-    private Class<?> fieldOwnerClass;
+    private ClassO fieldOwnerClass;
 
     private String fieldName;
     private Field field;
 
-    public void setNames(String fieldOwnerClassName, String fieldName) throws ClassNotFoundException, NoSuchFieldException {
+    public void setNames(ClassO fieldOwnerClass, String fieldName) throws NoSuchFieldException {
 
-        this.fieldOwnerClassName = fieldOwnerClassName;
+        this.fieldOwnerClass = fieldOwnerClass;
         this.fieldName = fieldName;
 
         resolveNames();
 
     }
 
-    private void resolveNames() throws ClassNotFoundException, NoSuchFieldException {
-
-        fieldOwnerClass = Utils.classForName(fieldOwnerClassName);
+    private void resolveNames() throws NoSuchFieldException {
 
         field = fieldOwnerClass.getField(fieldName);
 
@@ -40,7 +37,7 @@ public class StaticClassField extends Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, Utils.getJvmClassName(fieldOwnerClass), field.getName(), getTypeString());
+        methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, Utils.getJvmClassName(fieldOwnerClass.getType()), field.getName(), getTypeString());
 
     }
 

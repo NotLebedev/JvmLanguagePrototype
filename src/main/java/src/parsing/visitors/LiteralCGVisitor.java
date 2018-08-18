@@ -6,6 +6,11 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.constantValues.IntLiteral;
 import src.parsing.domain.constantValues.StringLiteral;
 
+/**
+ * Class responsible for visiting and parsing capture groups of literals
+ *
+ * @author NotLebedev
+ */
 public class LiteralCGVisitor extends RootBaseVisitor<Value> {
 
     @Override

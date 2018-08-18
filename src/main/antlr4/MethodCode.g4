@@ -7,7 +7,7 @@ import TokenRules, Tokens ;
 
 methodCode : (expression eol) * ;
 
-expression : variableDeclaration | variableAssignment | classAccess ;
+expression : variableDeclaration | variableAssignment | value ;
 
 variableDeclaration : type id assignment? ;
 
@@ -27,7 +27,11 @@ variableAssignment : id assignment ;
 
 assignment : equalsS value ;
 
-value : literalCG | id | classAccess | objectInstantiation ;
+value   : literalCG
+        | id
+        | methodInv
+        | objectInstantiation
+        | value dotS value ;
 
 objectInstantiation : 'new' type bracketOpenS (value commaS)* value? bracketCloseS ;
 
@@ -38,7 +42,7 @@ literalCG :    stringCG |
 
 className : path ;//TODO : currently all classNames are with absolute path, add imports
 
-classAccess :  (path |  methodInv) (dotS classAccess)? ;
+classAccess :  (path |  methodInv)/* (dotS classAccess)? */;
 methodInv : id bracketOpenS (value commaS)* value? bracketCloseS ;
 
 eol : semicolonS | ;

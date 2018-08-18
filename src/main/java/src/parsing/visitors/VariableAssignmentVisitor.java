@@ -9,6 +9,11 @@ import src.parsing.domain.Variable;
 import src.parsing.domain.VariableAssignement;
 import src.parsing.domain.VariableNotFoundException;
 
+/**
+ * Class responsible for visiting assignments (e.g. {@code str1 = str2})
+ *
+ * @author NotLebedev
+ */
 public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
     private final Scope scope;

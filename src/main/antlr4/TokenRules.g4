@@ -69,6 +69,10 @@ bracketOpenS : BRACKETOPEN ;
 bracketCloseS : BRACKETCLOSE ;
 squareBracketOpen : SQUAREBRACKETOPEN ;
 squareBracketClose : SQUAREBRACKETCLOSE ;
+plusS : PLUS ;
+minusS : MINUS ;
+asteriskS : ASTERISK ;
+slashS : SLASH ;
 //End symbols
 
 //End tokens

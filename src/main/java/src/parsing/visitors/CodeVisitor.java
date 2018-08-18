@@ -6,6 +6,11 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.Method;
 
+/**
+ * Class responsible for visiting single file aka top level visitor
+ *
+ * @author NotLebedev
+ */
 public class CodeVisitor extends RootBaseVisitor<ClassWriter> {
 
     @Override
