@@ -47,6 +47,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArrayModifier(RootParser.ArrayModifierContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#arrayIndex}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayIndex(RootParser.ArrayIndexContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#variableAssignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

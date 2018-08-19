@@ -19,3 +19,9 @@ java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append(5);
         (sb).append(6);
 java.lang.System.out.println(sb.toString());
+
+java.lang.String[] strs = src.parsing.Class2.getArr();
+
+java.lang.System.out.println(strs[0])
+java.lang.System.out.println(strs[1])
+java.lang.System.out.println(src.parsing.Class2.getArr()[2])

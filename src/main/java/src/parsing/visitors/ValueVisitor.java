@@ -57,6 +57,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             return ctx.value(0).accept(new ValueVisitor(scope));
         }
 
+        //region dotS
         if(ctx.dotS() != null) {
 
             var val = ctx.value(0).accept(new ValueVisitor(scope));
@@ -145,6 +146,20 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
                 //Is object method invocation
 
+            }
+
+        }
+        //endregion
+
+        if(ctx.arrayIndex() != null) {
+
+            Value val = ctx.value(0).accept(new ValueVisitor(scope));
+            Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope));
+
+            try {
+                return new ArrayAccess(val, index);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
 
         }

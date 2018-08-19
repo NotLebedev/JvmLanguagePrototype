@@ -19,6 +19,12 @@ public class Class2 {
 
     }
 
+    public static String[] getArr() {
+
+        return new String[]{"1a", "2b", "3c"};
+
+    }
+
     public static Class2 test() {
 
         return new Class2();

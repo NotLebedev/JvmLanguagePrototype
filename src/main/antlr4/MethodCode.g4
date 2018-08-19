@@ -21,7 +21,8 @@ type : ( booleanT |
        doubleT |
        className ) arrayModifier* ;
 
-arrayModifier : squareBracketOpen squareBracketClose  ;
+arrayModifier : squareBracketOpen squareBracketClose ;
+arrayIndex : squareBracketOpen value squareBracketClose ;
 
 variableAssignment : value assignment ;
 
@@ -32,7 +33,8 @@ value   : literalCG
         | id
         | objectInstantiation
         | bracketOpenS value bracketCloseS
-        | value dotS value ;
+        | value dotS value
+        | value arrayIndex ;
 
 objectInstantiation : 'new' type bracketOpenS (value commaS)* value? bracketCloseS ;
 

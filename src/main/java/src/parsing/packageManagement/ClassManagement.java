@@ -1,5 +1,6 @@
 package src.parsing.packageManagement;
 
+import src.parsing.Utils;
 import src.parsing.domain.ClassO;
 
 import java.lang.reflect.Field;
@@ -14,7 +15,7 @@ public class ClassManagement {
      * @throws ClassNotFoundException class cannot be located
      */
     public static Class forName(String name) throws ClassNotFoundException {
-        return Class.forName(name);
+        return Utils.classForName(name);
     }
 
     /**

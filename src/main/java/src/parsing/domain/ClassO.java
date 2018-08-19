@@ -37,6 +37,18 @@ public class ClassO extends Value {
         return containedClass.isInterface();
     }
 
+    public boolean isArray() {
+        return containedClass.isArray();
+    }
+
+    public ClassO getArrayElementType() throws ClassNotFoundException {
+
+        if(!isArray())
+            return null;
+
+        return new ClassO(containedClass.getName().substring(1));
+    }
+
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 

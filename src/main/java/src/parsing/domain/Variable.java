@@ -50,6 +50,10 @@ public class Variable extends Value {
         return Utils.getClassName(getType());
     }
 
+    public ClassO getWrappedType() {
+        return type;
+    }
+
     @Override
     public Class<?> getType() {
         return type.getType();
