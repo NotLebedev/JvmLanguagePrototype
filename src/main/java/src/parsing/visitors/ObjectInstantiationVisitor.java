@@ -9,6 +9,11 @@ import src.parsing.domain.ObjectInstantiation;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class responsible for visiting object instantiation aka {@code new}
+ *
+ * @author NotLebedev
+ */
 public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
     private final Scope scope;

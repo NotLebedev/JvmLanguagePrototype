@@ -12,6 +12,13 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * Class responsible for recursive visiting of values, this is visitor of
+ * main grammar rule responsible for parsing of all access (e.g. {@code System.out.println()})
+ * arithmetical (e.g. {@code (i + 32) / j}) boolean (e.g. {@code !(b & a)}) and combined expressions
+ *
+ * @author NotLebedev
+ */
 public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private final Scope scope;
@@ -60,18 +67,17 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 String id = ctx.value(1).id().getText();
 
-                //Is subpackage
+                //region Subpackage
                 if(packageO.updatePath(id))
                     return packageO;
-                //Is subpackage
+                //endregion
 
-                //Is class
-
+                //region Class
                 try {
                     return new ClassO(packageO.getPath() + "." + id);
                 } catch (ClassNotFoundException ignored) {
                 }
-                //Is class
+                //endregion
 
                 return null;
 
@@ -85,14 +91,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                     String id = ctx.value(1).id().getText();
 
-                    //Is nested class
+                    //region Nested class
                     try {
                         return new ClassO(classO.getName() + "$" + id);
                     } catch (ClassNotFoundException ignored) {
                     }
-                    //Is nested class
+                    //endregion
 
-                    //Is static field
+                    //region Static field
                     try {
 
                         var staticClassField = new StaticClassField();
@@ -101,7 +107,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                     } catch (NoSuchFieldException ignored) {
                     }
-                    //Is static field
+                    //endregion
 
                 }
 

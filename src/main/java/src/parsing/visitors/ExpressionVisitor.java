@@ -5,6 +5,11 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 
+/**
+ * Class responsible for visiting single expressions in code
+ *
+ * @author NotLebedev
+ */
 public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
     private final Scope scope;

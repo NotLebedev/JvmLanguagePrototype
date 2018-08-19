@@ -8,6 +8,11 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
 import src.parsing.domain.VariableAssignement;
 
+/**
+ * Class responsible for visiting variable assignments (e.g. {@code String str})
+ *
+ * @author NotLebedev
+ */
 public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
     private final Scope scope;
