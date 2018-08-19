@@ -30,8 +30,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitValue(RootParser.ValueContext ctx) {
 
-        System.out.println();
-
         if(ctx.literalCG() != null) {
             return ctx.literalCG().accept(new LiteralCGVisitor());
         }
@@ -52,6 +50,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         if(ctx.objectInstantiation() != null) {
             return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope));
+        }
+
+        if(ctx.bracketOpenS() != null) {
+            //Just simple parenthesis
+            return ctx.value(0).accept(new ValueVisitor(scope));
         }
 
         if(ctx.dotS() != null) {

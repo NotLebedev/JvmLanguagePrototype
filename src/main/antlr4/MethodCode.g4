@@ -28,9 +28,10 @@ variableAssignment : id assignment ;
 assignment : equalsS value ;
 
 value   : literalCG
-        | id
         | methodInv
+        | id
         | objectInstantiation
+        | bracketOpenS value bracketCloseS
         | value dotS value ;
 
 objectInstantiation : 'new' type bracketOpenS (value commaS)* value? bracketCloseS ;
