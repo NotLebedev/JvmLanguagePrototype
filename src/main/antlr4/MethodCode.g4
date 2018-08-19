@@ -23,7 +23,7 @@ type : ( booleanT |
 
 arrayModifier : squareBracketOpen squareBracketClose  ;
 
-variableAssignment : id assignment ;
+variableAssignment : value assignment ;
 
 assignment : equalsS value ;
 

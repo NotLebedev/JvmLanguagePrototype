@@ -510,8 +510,8 @@ public class RootParser extends Parser {
 	}
 
 	public static class VariableAssignmentContext extends ParserRuleContext {
-		public IdContext id() {
-			return getRuleContext(IdContext.class,0);
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
 		}
 		public AssignmentContext assignment() {
 			return getRuleContext(AssignmentContext.class,0);
@@ -534,7 +534,7 @@ public class RootParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(152);
-			id();
+			value(0);
 			setState(153);
 			assignment();
 			}
@@ -2608,12 +2608,12 @@ public class RootParser extends Parser {
 		"\u008e\3\2\2\2\u0090\u0094\3\2\2\2\u0091\u0093\5\f\7\2\u0092\u0091\3\2"+
 		"\2\2\u0093\u0096\3\2\2\2\u0094\u0092\3\2\2\2\u0094\u0095\3\2\2\2\u0095"+
 		"\13\3\2\2\2\u0096\u0094\3\2\2\2\u0097\u0098\5f\64\2\u0098\u0099\5h\65"+
-		"\2\u0099\r\3\2\2\2\u009a\u009b\5F$\2\u009b\u009c\5\20\t\2\u009c\17\3\2"+
-		"\2\2\u009d\u009e\5V,\2\u009e\u009f\5\22\n\2\u009f\21\3\2\2\2\u00a0\u00a1"+
-		"\b\n\1\2\u00a1\u00aa\5\26\f\2\u00a2\u00aa\5\34\17\2\u00a3\u00aa\5F$\2"+
-		"\u00a4\u00aa\5\24\13\2\u00a5\u00a6\5b\62\2\u00a6\u00a7\5\22\n\2\u00a7"+
-		"\u00a8\5d\63\2\u00a8\u00aa\3\2\2\2\u00a9\u00a0\3\2\2\2\u00a9\u00a2\3\2"+
-		"\2\2\u00a9\u00a3\3\2\2\2\u00a9\u00a4\3\2\2\2\u00a9\u00a5\3\2\2\2\u00aa"+
+		"\2\u0099\r\3\2\2\2\u009a\u009b\5\22\n\2\u009b\u009c\5\20\t\2\u009c\17"+
+		"\3\2\2\2\u009d\u009e\5V,\2\u009e\u009f\5\22\n\2\u009f\21\3\2\2\2\u00a0"+
+		"\u00a1\b\n\1\2\u00a1\u00aa\5\26\f\2\u00a2\u00aa\5\34\17\2\u00a3\u00aa"+
+		"\5F$\2\u00a4\u00aa\5\24\13\2\u00a5\u00a6\5b\62\2\u00a6\u00a7\5\22\n\2"+
+		"\u00a7\u00a8\5d\63\2\u00a8\u00aa\3\2\2\2\u00a9\u00a0\3\2\2\2\u00a9\u00a2"+
+		"\3\2\2\2\u00a9\u00a3\3\2\2\2\u00a9\u00a4\3\2\2\2\u00a9\u00a5\3\2\2\2\u00aa"+
 		"\u00b1\3\2\2\2\u00ab\u00ac\f\3\2\2\u00ac\u00ad\5R*\2\u00ad\u00ae\5\22"+
 		"\n\4\u00ae\u00b0\3\2\2\2\u00af\u00ab\3\2\2\2\u00b0\u00b3\3\2\2\2\u00b1"+
 		"\u00af\3\2\2\2\u00b1\u00b2\3\2\2\2\u00b2\23\3\2\2\2\u00b3\u00b1\3\2\2"+

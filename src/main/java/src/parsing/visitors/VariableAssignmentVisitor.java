@@ -25,24 +25,25 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
     @Override
     public Expression visitVariableAssignment(RootParser.VariableAssignmentContext ctx) {
 
-        var variableAssignment = new VariableAssignement();
+        Value val = ctx.value().accept(new ValueVisitor(scope));
 
-        Variable variable = null;
+        if(val instanceof Variable) {
 
-        try {
-            variable = scope.getVariableByName(ctx.id().getText());
-        } catch (VariableNotFoundException e) {
-            e.printStackTrace();
+            var variableAssignment = new VariableAssignement();
+
+            Variable variable = ((Variable) val);
+
+            var valueVisitor = new ValueVisitor(scope);
+
+            Value value = ctx.assignment().accept(valueVisitor);
+
+            variableAssignment.setParams(variable, value);
+
+            return variableAssignment;
+
         }
 
-        var valueVisitor = new ValueVisitor(scope);
-
-        Value value = ctx.assignment().accept(valueVisitor);
-
-        variableAssignment.setParams(variable, value);
-
-        return variableAssignment;
-
+        return null; //TODO : implement other cases
 
     }
 }
