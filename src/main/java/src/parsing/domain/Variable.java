@@ -12,7 +12,7 @@ public class Variable extends Value {
     private final String name;
 
     private final String typeName;
-    private Class<?> type;
+    private ClassO type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
 
@@ -21,7 +21,7 @@ public class Variable extends Value {
         this.name = name;
         this.id = id;
 
-        type = Utils.classForName(typeName);
+        type = new ClassO(typeName);
 
     }
 
@@ -40,7 +40,7 @@ public class Variable extends Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        int opcode = Type.getType(type).getOpcode(Opcodes.ILOAD);
+        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.ILOAD);
         methodVisitor.visitVarInsn(opcode, id);
 
     }
@@ -52,6 +52,6 @@ public class Variable extends Value {
 
     @Override
     public Class<?> getType() {
-        return type;
+        return type.getType();
     }
 }
