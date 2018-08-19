@@ -19,9 +19,9 @@ public class Class2 {
 
     }
 
-    public static String[] getArr() {
+    public static boolean[] getArr() {
 
-        return new String[]{"1a", "2b", "3c"};
+        return new boolean[]{true, false, true};
 
     }
 

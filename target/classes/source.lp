@@ -19,3 +19,9 @@ java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append(5);
         (sb).append(6);
 java.lang.System.out.println(sb.toString());
+
+boolean[] bools = src.parsing.Class2.getArr();
+
+java.lang.System.out.println(bools[0])
+java.lang.System.out.println(bools[1])
+java.lang.System.out.println(src.parsing.Class2.getArr()[2])

@@ -18,7 +18,7 @@ public class Utils {
                                                                                         // "[" to start of string
             name = name.replace("[", "").replace("]", "");
 
-            sb.append(getClassName(Class.forName(name)).replace('/', '.'));
+            sb.append(getClassName(Utils.classForName(name)).replace('/', '.'));
 
             return Class.forName(sb.toString());
 
@@ -27,20 +27,28 @@ public class Utils {
         switch (name) {
 
             case "boolean":
+            case "Z":
                 return boolean.class;
             case "byte":
+            case "B" :
                 return byte.class;
             case "char":
+            case "C" :
                 return char.class;
             case "long":
+            case "J" :
                 return long.class;
             case "short":
+            case "S":
                 return short.class;
             case "int":
+            case "I":
                 return int.class;
             case "float":
+            case "F":
                 return float.class;
             case "double":
+            case "D":
                 return double.class;
             default:
                 return Class.forName(name);

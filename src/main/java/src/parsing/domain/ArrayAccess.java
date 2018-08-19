@@ -28,7 +28,7 @@ public class ArrayAccess extends Value {
 
         String typeString = this.array.getTypeString().substring(1);
 
-        if(typeString.charAt(0) != '[')
+        if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
 
         type = new ClassO(typeString);
@@ -45,7 +45,7 @@ public class ArrayAccess extends Value {
         array.generateBytecode(methodVisitor);
         index.generateBytecode(methodVisitor);
 
-        int opcode = Type.getType(array.getType()).getOpcode(Opcodes.IALOAD);
+        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.IALOAD);
         methodVisitor.visitInsn(opcode);
 
     }
