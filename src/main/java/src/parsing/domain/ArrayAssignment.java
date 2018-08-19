@@ -4,24 +4,27 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import src.parsing.Utils;
+import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
 
 /**
- * Class describing access to arrays
+ * Class describing storing to array elements
  *
  * @author NotLebedev
  */
-public class ArrayAccess extends Value {
+public class ArrayAssignment extends Expression {
 
     private Value array;
     private Value index;
+    private Value value;
 
     private ClassO type;
 
-    public ArrayAccess(Value array, Value index) throws ClassNotFoundException {
+    public ArrayAssignment(Value array, Value index, Value value) throws ClassNotFoundException {
 
         this.array = array;
         this.index = index; //TODO : type check
+        this.value = value;
 
         /*if(!this.array.getWrappedType().isArray())
             throw new Exception(); //TODO : proper exception
@@ -41,29 +44,16 @@ public class ArrayAccess extends Value {
         return index;
     }
 
-    public Value getArray() {
-        return array;
-    }
-
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
         array.generateBytecode(methodVisitor);
         index.generateBytecode(methodVisitor);
+        value.generateBytecode(methodVisitor);
 
-        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.IALOAD);
+        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.IASTORE);
         methodVisitor.visitInsn(opcode);
 
-    }
-
-    @Override
-    public String getTypeString() {
-        return Utils.getClassName(getType());
-    }
-
-    @Override
-    public Class<?> getType() {
-        return type.getType();
     }
 
 }

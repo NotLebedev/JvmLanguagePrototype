@@ -2,12 +2,10 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
+import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.Variable;
-import src.parsing.domain.VariableAssignement;
-import src.parsing.domain.VariableNotFoundException;
 
 /**
  * Class responsible for visiting assignments (e.g. {@code str1 = str2})
@@ -31,15 +29,29 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             var variableAssignment = new VariableAssignement();
 
-            Variable variable = ((Variable) val);
+            var variable = ((Variable) val);
 
             var valueVisitor = new ValueVisitor(scope);
 
-            Value value = ctx.assignment().accept(valueVisitor);
+            var value = ctx.assignment().accept(valueVisitor);
 
             variableAssignment.setParams(variable, value);
 
             return variableAssignment;
+
+        }
+
+        if(val instanceof ArrayAccess) {
+
+            var arrayAccess = ((ArrayAccess) val);
+
+            var value = ctx.assignment().accept(new ValueVisitor(scope));
+
+            try {
+                return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
 
         }
 
