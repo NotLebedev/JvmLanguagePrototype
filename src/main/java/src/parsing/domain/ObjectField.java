@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 public class ObjectField extends Value {
 
     private Value object;
-    private Class<?> fieldOwnerClass;
+    private ClassO fieldOwnerClass;
 
     private String fieldName;
     private Field field;
@@ -37,17 +37,17 @@ public class ObjectField extends Value {
 
         object.generateBytecode(methodVisitor);
 
-        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, Utils.getClassName(fieldOwnerClass), field.getName(), getTypeString());
+        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getClassName(), field.getName(), getTypeString());
 
     }
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(getType());
+        return getType().getClassName();
     }
 
     @Override
     public ClassO getType() {
-        return field.getType();
+        return new ClassO(field.getType());
     }
 }

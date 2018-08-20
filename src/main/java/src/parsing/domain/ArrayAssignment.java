@@ -51,7 +51,7 @@ public class ArrayAssignment extends Expression {
         index.generateBytecode(methodVisitor);
         value.generateBytecode(methodVisitor);
 
-        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.IASTORE);
+        int opcode = type.getOpcode(Opcodes.IASTORE);
         methodVisitor.visitInsn(opcode);
 
     }

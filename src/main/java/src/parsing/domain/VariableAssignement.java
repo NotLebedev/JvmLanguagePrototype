@@ -31,7 +31,7 @@ public class VariableAssignement extends Expression {
 
         value.generateBytecode(methodVisitor);
 
-        int opcode = Type.getType(variable.getType()).getOpcode(Opcodes.ISTORE);
+        int opcode = variable.getType().getOpcode(Opcodes.ISTORE);
         methodVisitor.visitVarInsn(opcode, variable.getId());
 
     }

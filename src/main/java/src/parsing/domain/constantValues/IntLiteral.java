@@ -56,7 +56,7 @@ public class IntLiteral extends Value {
 
     @Override
     public ClassO getType() {
-        return ClassO.FLOAT;
+        return ClassO.INT;
     }
 
 }

@@ -13,14 +13,14 @@ import java.lang.reflect.Method;
 public class ObjectMethodInvocation extends Value {
 
     private Value object;
-    private Class<?> objectClass;
+    private ClassO objectClass;
 
     private String methodName;
     private Method method;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private Class<?>[] params;
+    private ClassO[] params;
 
     /**
      *
@@ -44,10 +44,10 @@ public class ObjectMethodInvocation extends Value {
 
         objectClass = object.getType();
 
-        params = new Class<?>[paramNames.length];
+        params = new ClassO[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = Utils.classForName(paramNames[i]);
+            params[i] = new ClassO(paramNames[i]);
         }
 
         method = objectClass.getMethod(methodName, params);
@@ -65,7 +65,7 @@ public class ObjectMethodInvocation extends Value {
 
             if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
                 throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getTypeString() +
-                        " does not match field type of " + Utils.getClassName(params[i]));
+                        " does not match field type of " + params[i].getClassName());
             }
 
         }
@@ -85,7 +85,7 @@ public class ObjectMethodInvocation extends Value {
 
 
         methodVisitor.visitMethodInsn(  Opcodes.INVOKEVIRTUAL,
-                                        Utils.getJvmClassName(objectClass),
+                                        objectClass.getJvmName(),
                                         method.getName(),
                                         getDescriptor(),
                                         objectClass.isInterface());
@@ -102,8 +102,8 @@ public class ObjectMethodInvocation extends Value {
         StringBuilder sb = new StringBuilder();
         sb.append("(");
 
-        for (Class<?> param : params) {
-            sb.append(Utils.getClassName(param));
+        for (ClassO param : params) {
+            sb.append(param.getClassName());
         }
 
         sb.append(")");
@@ -116,6 +116,6 @@ public class ObjectMethodInvocation extends Value {
 
     @Override
     public ClassO getType() {
-        return method.getReturnType();
+        return new ClassO(method.getReturnType());
     }
 }

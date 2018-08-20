@@ -8,11 +8,11 @@ import src.parsing.domain.Interfaces.Value;
 public class ObjectInstantiation extends Value {
 
     private String constructorOwnerClassName;
-    private Class<?> constructorOwnerClass;
+    private ClassO constructorOwnerClass;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private Class<?>[] params;
+    private ClassO[] params;
 
     public void setNames(String constructorOwnerClassName, String[] paramNames) throws NoSuchMethodException, ClassNotFoundException {
 
@@ -25,12 +25,12 @@ public class ObjectInstantiation extends Value {
 
     private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
 
-        constructorOwnerClass = Utils.classForName(constructorOwnerClassName);
+        constructorOwnerClass = new ClassO(constructorOwnerClassName);
 
-        params = new Class<?>[paramNames.length];
+        params = new ClassO[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = Utils.classForName(paramNames[i]);
+            params[i] = new ClassO(paramNames[i]);
         }
 
     }
@@ -46,7 +46,7 @@ public class ObjectInstantiation extends Value {
 
             if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
                 throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getTypeString() +
-                        " does not match field type of " + Utils.getClassName(params[i]));
+                        " does not match field type of " + params[i].getClassName());
             }
 
         }
@@ -58,7 +58,7 @@ public class ObjectInstantiation extends Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        methodVisitor.visitTypeInsn(Opcodes.NEW, Utils.getJvmClassName(constructorOwnerClass));
+        methodVisitor.visitTypeInsn(Opcodes.NEW, constructorOwnerClass.getJvmName());
         methodVisitor.visitInsn(Opcodes.DUP);
 
         for (Value value : paramValues) {
@@ -66,7 +66,7 @@ public class ObjectInstantiation extends Value {
         }
 
         methodVisitor.visitMethodInsn(Opcodes.INVOKESPECIAL,
-                Utils.getJvmClassName(constructorOwnerClass),
+                constructorOwnerClass.getJvmName(),
                 "<init>",
                 getDescriptor(),
                 false);
@@ -78,8 +78,8 @@ public class ObjectInstantiation extends Value {
         StringBuilder sb = new StringBuilder();
         sb.append("(");
 
-        for (Class<?> param : params) {
-            sb.append(Utils.getClassName(param));
+        for (ClassO param : params) {
+            sb.append(param.getClassName());
         }
 
         sb.append(")");
@@ -92,7 +92,7 @@ public class ObjectInstantiation extends Value {
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(getType());
+        return getType().getClassName();
     }
 
     @Override

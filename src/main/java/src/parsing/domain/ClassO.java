@@ -9,6 +9,9 @@ import src.parsing.packageManagement.ClassManagement;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Object containing class, no value-like access expected
@@ -30,7 +33,8 @@ public class ClassO extends Value {
 
     private final Class<?> containedClass;
 
-    private ClassO(Class<?> cls) {
+    @Deprecated
+    public ClassO(Class<?> cls) {
         containedClass = cls;
     }
 
@@ -60,14 +64,19 @@ public class ClassO extends Value {
         return Utils.getJvmClassName(containedClass);
     }
 
+    public String getClassName() {
+        return Utils.getClassName(containedClass);
+    }
+
     //TODO: replace with domain Field, when ready
     public Field getField(String fieldName) throws NoSuchFieldException {
         return containedClass.getField(fieldName);
     }
 
     //TODO: replace with
-    public Method getMethod(String methodName, Class<?>[] params) throws NoSuchMethodException {
-        return containedClass.getMethod(methodName, params);
+    public Method getMethod(String methodName, ClassO[] params) throws NoSuchMethodException {
+        return containedClass.getMethod(methodName,
+                Arrays.stream(params).map(ClassO::getContainedClass).toArray(Class[]::new));
     }
 
     public int getOpcode(int sample) {
@@ -110,7 +119,7 @@ public class ClassO extends Value {
 
     }
 
-    private Class<?> getContainedClass() {
+    private Class getContainedClass() {
         return containedClass;
     }
 
@@ -125,6 +134,7 @@ public class ClassO extends Value {
     }
 
     @Override
+    @Deprecated
     public ClassO getType() {
         return this;
     }
