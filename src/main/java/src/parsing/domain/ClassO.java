@@ -73,6 +73,22 @@ public class ClassO extends Value {
     }
 
     @Override
+    public boolean equals(Object obj) {
+
+        if(!(obj instanceof ClassO))
+            return false;
+
+        ClassO comp = ((ClassO) obj);
+
+        return comp.getContainedClass().equals(containedClass);
+
+    }
+
+    private Class<?> getContainedClass() {
+        return containedClass;
+    }
+
+    @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
     }
