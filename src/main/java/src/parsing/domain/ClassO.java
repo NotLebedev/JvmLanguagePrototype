@@ -1,12 +1,17 @@
 package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Object containing class, no value-like access expected
@@ -14,10 +19,27 @@ import java.lang.reflect.Method;
  */
 public class ClassO extends Value {
 
+    //region CONSTANTS
+    public static final ClassO BOOLEAN = new ClassO(boolean.class);
+    public static final ClassO BYTE = new ClassO(byte.class);
+    public static final ClassO CHAR = new ClassO(char.class);
+    public static final ClassO LONG = new ClassO(long.class);
+    public static final ClassO SHORT = new ClassO(short.class);
+    public static final ClassO INT = new ClassO(int.class);
+    public static final ClassO FLOAT = new ClassO(float.class);
+    public static final ClassO DOUBLE = new ClassO(double.class);
+    public static final ClassO STRING = new ClassO(String.class);
+    //endregion
+
     private final Class<?> containedClass;
 
+    @Deprecated
+    public ClassO(Class<?> cls) {
+        containedClass = cls;
+    }
+
     public ClassO(String name) throws ClassNotFoundException {
-        containedClass = ClassManagement.forName(name);
+        containedClass = ClassManagement.forName(name); //TODO: make class not instantiated every time
     }
 
     public ClassO(int arrayDimension, ClassO basicType) throws ClassNotFoundException {
@@ -42,14 +64,23 @@ public class ClassO extends Value {
         return Utils.getJvmClassName(containedClass);
     }
 
+    public String getClassName() {
+        return Utils.getClassName(containedClass);
+    }
+
     //TODO: replace with domain Field, when ready
     public Field getField(String fieldName) throws NoSuchFieldException {
         return containedClass.getField(fieldName);
     }
 
     //TODO: replace with
-    public Method getMethod(String methodName, Class<?>[] params) throws NoSuchMethodException {
-        return containedClass.getMethod(methodName, params);
+    public Method getMethod(String methodName, ClassO[] params) throws NoSuchMethodException {
+        return containedClass.getMethod(methodName,
+                Arrays.stream(params).map(ClassO::getContainedClass).toArray(Class[]::new));
+    }
+
+    public int getOpcode(int sample) {
+        return Type.getType(containedClass).getOpcode(sample);
     }
 
     public boolean isInterface() {
@@ -64,12 +95,16 @@ public class ClassO extends Value {
         return containedClass.isArray();
     }
 
-    public ClassO getArrayElementType() throws ClassNotFoundException {
+    public ClassO getArrayElementType() {
 
         if(!isArray())
             return null;
 
-        return new ClassO(containedClass.getName().substring(1));
+        try {
+            return new ClassO(containedClass.getName().substring(1));
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
 
     @Override
@@ -84,7 +119,7 @@ public class ClassO extends Value {
 
     }
 
-    private Class<?> getContainedClass() {
+    private Class getContainedClass() {
         return containedClass;
     }
 
@@ -99,8 +134,9 @@ public class ClassO extends Value {
     }
 
     @Override
-    public Class<?> getType() {
-        return containedClass;
+    @Deprecated
+    public ClassO getType() {
+        return this;
     }
 
 }

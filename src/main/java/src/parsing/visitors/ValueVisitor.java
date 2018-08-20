@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
@@ -193,11 +194,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     .map(valueContext -> valueContext.accept(valueVisitor))
                     .collect(Collectors.toList());
 
-            var paramTypes = new Class<?>[params.size()];
+            var paramTypes = new ClassO[params.size()];
 
             paramTypes = params.stream()
                     .map((Function<Value, Object>) Value::getType)
-                    .collect(Collectors.toList()).toArray(new Class[0]);
+                    .collect(Collectors.toList()).toArray(new ClassO[0]);
 
             java.lang.reflect.Method method = null;
 
@@ -224,7 +225,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     smi.setNames((ClassO) val,
                             ctx.id().getText(),
                             params.stream()
-                                    .map(value -> value.getType().getTypeName())
+                                    .map(value -> value.getType().getName())
                                     .toArray(String[]::new));
                 } catch (ClassNotFoundException | NoSuchMethodException e) {
                     e.printStackTrace();
@@ -241,7 +242,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     omi.setNames(val,
                             ctx.id().getText(),
                             params.stream()
-                                    .map(value -> value.getType().getTypeName())
+                                    .map(value -> value.getType().getName())
                                     .toArray(String[]::new));
                 } catch (NoSuchMethodException | ClassNotFoundException e) {
                     e.printStackTrace();

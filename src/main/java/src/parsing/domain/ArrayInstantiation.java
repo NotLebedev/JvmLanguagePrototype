@@ -49,7 +49,7 @@ public class ArrayInstantiation extends Value {
 
             if(arrayType.isPrimitive()) {
 
-                int typeI = Type.getType(arrayType.getType()).getOpcode(Opcodes.T_INT);
+                int typeI = arrayType.getOpcode(Opcodes.T_INT);
 
                 methodVisitor.visitVarInsn(Opcodes.NEWARRAY, typeI);
 
@@ -73,12 +73,12 @@ public class ArrayInstantiation extends Value {
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(getType());
+        return getType().getClassName();
     }
 
     @Override
-    public Class<?> getType() {
-        return type.getType();
+    public ClassO getType() {
+        return type;
     }
 
 }

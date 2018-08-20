@@ -40,14 +40,14 @@ public class Variable extends Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.ILOAD);
+        int opcode = type.getOpcode(Opcodes.ILOAD);
         methodVisitor.visitVarInsn(opcode, id);
 
     }
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(getType());
+        return getType().getName();
     }
 
     public ClassO getWrappedType() {
@@ -55,7 +55,7 @@ public class Variable extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return type.getType();
     }
 }

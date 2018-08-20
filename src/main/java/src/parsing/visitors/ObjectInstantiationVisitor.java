@@ -41,7 +41,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             try {
                 objectInstantiation.setNames(ctx.type().getText(), params.stream()
-                        .map(value -> value.getType().getTypeName())
+                        .map(value -> value.getType().getName())
                         .toArray(String[]::new));
             } catch (NoSuchMethodException | ClassNotFoundException e) {
                 e.printStackTrace();

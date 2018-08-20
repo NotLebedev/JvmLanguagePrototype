@@ -1,6 +1,7 @@
 package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
+import src.parsing.domain.ClassO;
 import src.parsing.domain.Interfaces.Value;
 
 /**
@@ -27,7 +28,7 @@ public class StringLiteral extends Value {
     }
 
     @Override
-    public Class<?> getType() {
-        return String.class;
+    public ClassO getType() {
+        return ClassO.STRING;
     }
 }

@@ -46,7 +46,7 @@ public class PackageO extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return null;
     }
 

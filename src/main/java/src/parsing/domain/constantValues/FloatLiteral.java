@@ -1,6 +1,7 @@
 package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
+import src.parsing.domain.ClassO;
 import src.parsing.domain.Interfaces.Value;
 
 public class FloatLiteral extends Value {
@@ -24,8 +25,8 @@ public class FloatLiteral extends Value {
     }
 
     @Override
-    public Class<?> getType() {
-        return float.class;
+    public ClassO getType() {
+        return ClassO.FLOAT;
     }
 
 }
