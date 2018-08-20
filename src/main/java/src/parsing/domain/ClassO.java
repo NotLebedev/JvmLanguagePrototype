@@ -33,6 +33,11 @@ public class ClassO extends Value {
 
     private final Class<?> containedClass;
 
+    /**
+     * This method is marked as deprecated to remind  to remove it from public use
+     *
+     * @param cls
+     */
     @Deprecated
     public ClassO(Class<?> cls) {
         containedClass = cls;
@@ -128,13 +133,20 @@ public class ClassO extends Value {
     }
 
     /**
+     * Determines if the specified ClassO object is array
      *
-     * @return
+     * @return true if is array, else otherwise
      */
     public boolean isArray() {
         return containedClass.isArray();
     }
 
+    /**
+     * Get class contained in array in the specified ClassO
+     * e.g. for String[][] it will be String[]
+     *
+     * @return class contained in array if specified ClassO is array, null otherwise
+     */
     public ClassO getArrayElementType() {
 
         if(!isArray())
