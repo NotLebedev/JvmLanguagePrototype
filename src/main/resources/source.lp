@@ -20,10 +20,12 @@ java.lang.StringBuilder sb = new java.lang.StringBuilder();
         (sb).append(6);
 java.lang.System.out.println(sb.toString());
 
-java.lang.String[] strs = src.parsing.Class2.getArr();
+java.lang.String[] strs = new java.lang.String[3]
 
+strs[0] = "www"
 strs[1] = "replaced"
+strs[2] = "qwe"
 
 java.lang.System.out.println(strs[0])
 java.lang.System.out.println(strs[1])
-java.lang.System.out.println(src.parsing.Class2.getArr()[2])
+java.lang.System.out.println(strs[2])

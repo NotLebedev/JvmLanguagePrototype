@@ -9,9 +9,9 @@ methodCode : (expression eol) * ;
 
 expression : variableDeclaration | variableAssignment | value ;
 
-variableDeclaration : type id assignment? ;
+variableDeclaration : declarationType id assignment? ;
 
-type : ( booleanT |
+arrayType : booleanT |
        byteT |
        charT |
        longT |
@@ -19,7 +19,9 @@ type : ( booleanT |
        intT |
        floatT |
        doubleT |
-       className ) arrayModifier* ;
+       className ;
+
+declarationType : arrayType arrayModifier* ;
 
 arrayModifier : squareBracketOpen squareBracketClose ;
 arrayIndex : squareBracketOpen value squareBracketClose ;
@@ -36,7 +38,7 @@ value   : literalCG
         | value dotS value
         | value arrayIndex ;
 
-objectInstantiation : 'new' type bracketOpenS (value commaS)* value? bracketCloseS ;
+objectInstantiation : 'new' arrayType (arrayIndex+ arrayModifier* | bracketOpenS (value commaS)* value? bracketCloseS) ;
 
 literalCG :    stringCG |
                 integerCG |

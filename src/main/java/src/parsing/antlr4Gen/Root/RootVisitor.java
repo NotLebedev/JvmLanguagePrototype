@@ -41,6 +41,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(RootParser.TypeContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#declarationType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclarationType(RootParser.DeclarationTypeContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#arrayModifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

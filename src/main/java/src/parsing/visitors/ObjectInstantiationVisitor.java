@@ -2,6 +2,8 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
+import src.parsing.domain.ArrayInstantiation;
+import src.parsing.domain.ClassO;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;
@@ -25,27 +27,48 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitObjectInstantiation(RootParser.ObjectInstantiationContext ctx) {
 
-        var objectInstantiation = new ObjectInstantiation();
+        if(ctx.bracketOpenS() != null) {
 
-        List<Value> params;
+            var objectInstantiation = new ObjectInstantiation();
 
-        var valueVisitor = new ValueVisitor(scope);
+            List<Value> params;
 
-        params = ctx.value().stream()
-                .map(valueContext -> valueContext.accept(valueVisitor))
-                .collect(Collectors.toList());
+            var valueVisitor = new ValueVisitor(scope);
 
-        try {
-            objectInstantiation.setNames(ctx.type().getText(), params.stream()
-                    .map(value -> value.getType().getTypeName())
-                    .toArray(String[]::new));
-        } catch (NoSuchMethodException | ClassNotFoundException e) {
-            e.printStackTrace();
+            params = ctx.value().stream()
+                    .map(valueContext -> valueContext.accept(valueVisitor))
+                    .collect(Collectors.toList());
+
+            try {
+                objectInstantiation.setNames(ctx.type().getText(), params.stream()
+                        .map(value -> value.getType().getTypeName())
+                        .toArray(String[]::new));
+            } catch (NoSuchMethodException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            objectInstantiation.setParamValues(params.toArray(new Value[0]));
+
+            return objectInstantiation;
+
+        } else {
+
+            var dimesions = ctx.arrayIndex().stream()
+                    .map(arrayIndexContext ->
+                            arrayIndexContext.value().accept(new ValueVisitor(scope)))
+                    .toArray(Value[]::new);
+            var freeDimensions = ctx.arrayModifier().size();
+
+            try {
+                return new ArrayInstantiation(new ClassO(ctx.type().getText()),
+                        dimesions, freeDimensions);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
         }
 
-        objectInstantiation.setParamValues(params.toArray(new Value[0]));
-
-        return objectInstantiation;
+        return null;
 
     }
 }

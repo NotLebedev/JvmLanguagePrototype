@@ -24,7 +24,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
     @Override
     public Expression visitVariableDeclaration(RootParser.VariableDeclarationContext ctx) {
 
-        var type = ctx.type().getText();
+        var type = ctx.declarationType().getText();
         var name = ctx.id().getText();
 
         Variable variable = null;

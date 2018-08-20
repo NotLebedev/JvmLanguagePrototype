@@ -1,6 +1,7 @@
 package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
+import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
 
@@ -19,8 +20,26 @@ public class ClassO extends Value {
         containedClass = ClassManagement.forName(name);
     }
 
+    public ClassO(int arrayDimension, ClassO basicType) throws ClassNotFoundException {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(basicType.getName());
+
+        for (int i = 0; i < arrayDimension; i++) {
+            sb.append("[]");
+        }
+
+        containedClass = ClassManagement.forName(sb.toString());
+
+    }
+
     public String getName() {
         return containedClass.getName();
+    }
+
+    public String getJvmName() {
+        return Utils.getJvmClassName(containedClass);
     }
 
     //TODO: replace with domain Field, when ready
@@ -35,6 +54,10 @@ public class ClassO extends Value {
 
     public boolean isInterface() {
         return containedClass.isInterface();
+    }
+
+    public boolean isPrimitive() {
+        return containedClass.isPrimitive();
     }
 
     public boolean isArray() {
