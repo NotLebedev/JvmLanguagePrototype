@@ -22,7 +22,7 @@ public class Main {
             var method = cls.getMethod("getStr", (Class<?>[]) null);
 
 
-            System.out.println(Utils.getClassName(method.getReturnType()));*/
+            System.out.println(Utils.getJvmName(method.getReturnType()));*/
             /*StaticMethodInvocation smi = new StaticMethodInvocation();
             smi.setNames("src.parsing.Class2", "getStr", new String[]{"[I", "java.lang.String", "[[J"});
 

@@ -1,7 +1,5 @@
 package src.parsing;
 
-import java.lang.reflect.Modifier;
-
 public class Utils {
 
     public static Class classForName(String name) throws ClassNotFoundException {

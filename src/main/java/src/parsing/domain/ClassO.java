@@ -56,15 +56,30 @@ public class ClassO extends Value {
 
     }
 
+    /**
+     * Get full source code style name e.g. java.lang.String
+     *
+     * @return full source code style name
+     */
     public String getName() {
         return containedClass.getName();
     }
 
-    public String getJvmName() {
+    /**
+     * Get full slash style name e.g. java/lang/String
+     *
+     * @return full slash style name
+     */
+    public String getSlashName() {
         return Utils.getJvmClassName(containedClass);
     }
 
-    public String getClassName() {
+    /**
+     * Get full jvm style name e.g. Ljava/lang/String;
+     *
+     * @return full jvm style name
+     */
+    public String getJvmName() {
         return Utils.getClassName(containedClass);
     }
 

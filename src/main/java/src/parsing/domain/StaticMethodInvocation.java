@@ -39,7 +39,7 @@ public class StaticMethodInvocation extends Value {
 
             if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
                 throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getTypeString() +
-                        " does not match field type of " + params[i].getClassName());
+                        " does not match field type of " + params[i].getJvmName());
             }
 
         }
@@ -68,7 +68,7 @@ public class StaticMethodInvocation extends Value {
         }
 
         methodVisitor.visitMethodInsn(  Opcodes.INVOKESTATIC,
-                                        methodOwnerClass.getJvmName(),
+                                        methodOwnerClass.getSlashName(),
                                         method.getName(),
                                         getDescriptor(),
                                         methodOwnerClass.isInterface());
@@ -86,7 +86,7 @@ public class StaticMethodInvocation extends Value {
         sb.append("(");
 
         for (ClassO param : params) {
-            sb.append(param.getClassName());
+            sb.append(param.getJvmName());
         }
 
         sb.append(")");

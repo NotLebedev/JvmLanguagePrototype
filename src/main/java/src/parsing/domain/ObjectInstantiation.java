@@ -2,7 +2,6 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 
 public class ObjectInstantiation extends Value {
@@ -46,7 +45,7 @@ public class ObjectInstantiation extends Value {
 
             if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
                 throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getTypeString() +
-                        " does not match field type of " + params[i].getClassName());
+                        " does not match field type of " + params[i].getJvmName());
             }
 
         }
@@ -58,7 +57,7 @@ public class ObjectInstantiation extends Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        methodVisitor.visitTypeInsn(Opcodes.NEW, constructorOwnerClass.getJvmName());
+        methodVisitor.visitTypeInsn(Opcodes.NEW, constructorOwnerClass.getSlashName());
         methodVisitor.visitInsn(Opcodes.DUP);
 
         for (Value value : paramValues) {
@@ -66,7 +65,7 @@ public class ObjectInstantiation extends Value {
         }
 
         methodVisitor.visitMethodInsn(Opcodes.INVOKESPECIAL,
-                constructorOwnerClass.getJvmName(),
+                constructorOwnerClass.getSlashName(),
                 "<init>",
                 getDescriptor(),
                 false);
@@ -79,7 +78,7 @@ public class ObjectInstantiation extends Value {
         sb.append("(");
 
         for (ClassO param : params) {
-            sb.append(param.getClassName());
+            sb.append(param.getJvmName());
         }
 
         sb.append(")");
@@ -92,7 +91,7 @@ public class ObjectInstantiation extends Value {
 
     @Override
     public String getTypeString() {
-        return getType().getClassName();
+        return getType().getJvmName();
     }
 
     @Override

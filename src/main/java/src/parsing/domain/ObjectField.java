@@ -2,7 +2,6 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 
 import java.lang.reflect.Field;
@@ -37,13 +36,13 @@ public class ObjectField extends Value {
 
         object.generateBytecode(methodVisitor);
 
-        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getClassName(), field.getName(), getTypeString());
+        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getJvmName(), field.getName(), getTypeString());
 
     }
 
     @Override
     public String getTypeString() {
-        return getType().getClassName();
+        return getType().getJvmName();
     }
 
     @Override

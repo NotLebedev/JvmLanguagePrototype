@@ -2,8 +2,6 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
-import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 
 /**
@@ -55,7 +53,7 @@ public class ArrayInstantiation extends Value {
 
             }else {
 
-                methodVisitor.visitTypeInsn(Opcodes.ANEWARRAY, arrayType.getJvmName());
+                methodVisitor.visitTypeInsn(Opcodes.ANEWARRAY, arrayType.getSlashName());
 
             }
 
@@ -65,7 +63,7 @@ public class ArrayInstantiation extends Value {
                 size.generateBytecode(methodVisitor);
             }
 
-            methodVisitor.visitMultiANewArrayInsn(type.getJvmName(), sizes.length);
+            methodVisitor.visitMultiANewArrayInsn(type.getSlashName(), sizes.length);
 
         }
 
@@ -73,7 +71,7 @@ public class ArrayInstantiation extends Value {
 
     @Override
     public String getTypeString() {
-        return getType().getClassName();
+        return getType().getJvmName();
     }
 
     @Override

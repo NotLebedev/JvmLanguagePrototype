@@ -65,7 +65,7 @@ public class ObjectMethodInvocation extends Value {
 
             if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
                 throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getTypeString() +
-                        " does not match field type of " + params[i].getClassName());
+                        " does not match field type of " + params[i].getJvmName());
             }
 
         }
@@ -85,7 +85,7 @@ public class ObjectMethodInvocation extends Value {
 
 
         methodVisitor.visitMethodInsn(  Opcodes.INVOKEVIRTUAL,
-                                        objectClass.getJvmName(),
+                                        objectClass.getSlashName(),
                                         method.getName(),
                                         getDescriptor(),
                                         objectClass.isInterface());
@@ -103,7 +103,7 @@ public class ObjectMethodInvocation extends Value {
         sb.append("(");
 
         for (ClassO param : params) {
-            sb.append(param.getClassName());
+            sb.append(param.getJvmName());
         }
 
         sb.append(")");
