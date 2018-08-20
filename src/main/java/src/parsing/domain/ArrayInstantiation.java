@@ -77,7 +77,7 @@ public class ArrayInstantiation extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return type.getType();
     }
 

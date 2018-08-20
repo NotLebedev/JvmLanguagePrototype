@@ -47,7 +47,7 @@ public class StaticClassField extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return field.getType();
     }
 

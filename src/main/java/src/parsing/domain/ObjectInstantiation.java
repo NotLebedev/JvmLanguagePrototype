@@ -96,7 +96,7 @@ public class ObjectInstantiation extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return constructorOwnerClass;
     }
 

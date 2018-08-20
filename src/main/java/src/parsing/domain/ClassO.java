@@ -1,6 +1,8 @@
 package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
@@ -14,10 +16,26 @@ import java.lang.reflect.Method;
  */
 public class ClassO extends Value {
 
+    //region CONSTANTS
+    public static final ClassO BOOLEAN = new ClassO(boolean.class);
+    public static final ClassO BYTE = new ClassO(byte.class);
+    public static final ClassO CHAR = new ClassO(char.class);
+    public static final ClassO LONG = new ClassO(long.class);
+    public static final ClassO SHORT = new ClassO(short.class);
+    public static final ClassO INT = new ClassO(int.class);
+    public static final ClassO FLOAT = new ClassO(float.class);
+    public static final ClassO DOUBLE = new ClassO(double.class);
+    public static final ClassO STRING = new ClassO(String.class);
+    //endregion
+
     private final Class<?> containedClass;
 
+    private ClassO(Class<?> cls) {
+        containedClass = cls;
+    }
+
     public ClassO(String name) throws ClassNotFoundException {
-        containedClass = ClassManagement.forName(name);
+        containedClass = ClassManagement.forName(name); //TODO: make class not instantiated every time
     }
 
     public ClassO(int arrayDimension, ClassO basicType) throws ClassNotFoundException {
@@ -52,6 +70,10 @@ public class ClassO extends Value {
         return containedClass.getMethod(methodName, params);
     }
 
+    public int getOpcode(int sample) {
+        return Type.getType(containedClass).getOpcode(sample);
+    }
+
     public boolean isInterface() {
         return containedClass.isInterface();
     }
@@ -64,12 +86,16 @@ public class ClassO extends Value {
         return containedClass.isArray();
     }
 
-    public ClassO getArrayElementType() throws ClassNotFoundException {
+    public ClassO getArrayElementType() {
 
         if(!isArray())
             return null;
 
-        return new ClassO(containedClass.getName().substring(1));
+        try {
+            return new ClassO(containedClass.getName().substring(1));
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
 
     @Override
@@ -99,8 +125,8 @@ public class ClassO extends Value {
     }
 
     @Override
-    public Class<?> getType() {
-        return containedClass;
+    public ClassO getType() {
+        return this;
     }
 
 }

@@ -51,19 +51,19 @@ public class ArrayAccess extends Value {
         array.generateBytecode(methodVisitor);
         index.generateBytecode(methodVisitor);
 
-        int opcode = Type.getType(type.getType()).getOpcode(Opcodes.IALOAD);
+        int opcode = type.getOpcode(Opcodes.IALOAD);
         methodVisitor.visitInsn(opcode);
 
     }
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(getType());
+        return getType().getName();
     }
 
     @Override
-    public Class<?> getType() {
-        return type.getType();
+    public ClassO getType() {
+        return type;
     }
 
 }

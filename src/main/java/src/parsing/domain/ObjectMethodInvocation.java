@@ -115,7 +115,7 @@ public class ObjectMethodInvocation extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return method.getReturnType();
     }
 }

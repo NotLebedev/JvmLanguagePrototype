@@ -98,7 +98,7 @@ public class StaticMethodInvocation extends Value {
     }
 
     @Override
-    public Class<?> getType() {
+    public ClassO getType() {
         return method.getReturnType();
     }
 
