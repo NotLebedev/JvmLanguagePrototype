@@ -19,9 +19,9 @@ public class Class2 {
 
     }
 
-    public static String[] getArr() {
+    public static int[][][] getArr() {
 
-        return new String[3];
+        return new int[3][4][];
 
     }
 

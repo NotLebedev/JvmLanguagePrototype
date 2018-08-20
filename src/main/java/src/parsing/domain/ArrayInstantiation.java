@@ -61,6 +61,12 @@ public class ArrayInstantiation extends Value {
 
         } else { //Multi-dimensional array
 
+            for (Value size : sizes) {
+                size.generateBytecode(methodVisitor);
+            }
+
+            methodVisitor.visitMultiANewArrayInsn(type.getJvmName(), sizes.length);
+
         }
 
     }

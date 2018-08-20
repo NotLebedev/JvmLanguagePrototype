@@ -20,12 +20,38 @@ java.lang.StringBuilder sb = new java.lang.StringBuilder();
         (sb).append(6);
 java.lang.System.out.println(sb.toString());
 
-java.lang.String[] strs = new java.lang.String[3]
+java.lang.String[] strs1 = new java.lang.String[3]
 
-strs[0] = "www"
-strs[1] = "replaced"
-strs[2] = "qwe"
+strs1[0] = "www"
+strs1[1] = "replaced"
+strs1[2] = "qwe"
 
-java.lang.System.out.println(strs[0])
-java.lang.System.out.println(strs[1])
-java.lang.System.out.println(strs[2])
+java.lang.System.out.print(strs1[0])
+java.lang.System.out.print(strs1[1])
+java.lang.System.out.println(strs1[2])
+
+int[][] matrix = new int[3][3]
+
+matrix[0][0] = 1
+matrix[0][1] = 2
+matrix[0][2] = 3
+
+matrix[1][0] = 2
+matrix[1][1] = 4
+matrix[1][2] = 6
+
+matrix[2][0] = 3
+matrix[2][1] = 6
+matrix[2][2] = 9
+
+java.lang.System.out.print(matrix[0][0])
+java.lang.System.out.print(matrix[0][1])
+java.lang.System.out.println(matrix[0][2])
+
+java.lang.System.out.print(matrix[1][0])
+java.lang.System.out.print(matrix[1][1])
+java.lang.System.out.println(matrix[1][2])
+
+java.lang.System.out.print(matrix[2][0])
+java.lang.System.out.print(matrix[2][1])
+java.lang.System.out.println(matrix[2][2])
