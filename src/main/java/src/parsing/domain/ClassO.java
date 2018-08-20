@@ -42,6 +42,13 @@ public class ClassO extends Value {
         containedClass = ClassManagement.forName(name); //TODO: make class not instantiated every time
     }
 
+    /**
+     * Construct an array from given ClassO
+     *
+     * @param arrayDimension dimension of new array
+     * @param basicType non-array type
+     * @throws ClassNotFoundException
+     */
     public ClassO(int arrayDimension, ClassO basicType) throws ClassNotFoundException {
 
         StringBuilder sb = new StringBuilder();
@@ -94,18 +101,36 @@ public class ClassO extends Value {
                 Arrays.stream(params).map(ClassO::getContainedClass).toArray(Class[]::new));
     }
 
+    /**
+     * Returns a JVM instruction opcode adapted to this ClassO.
+     * This method must not be used for method types
+     * @param sample opcode - a JVM instruction opcode for int (e.g. IASTORE)
+     * @return opcode that is similar to the given opcode, but adapted to this ClassO
+     */
     public int getOpcode(int sample) {
         return Type.getType(containedClass).getOpcode(sample);
     }
 
+    /**
+     * Determines if the specified ClassO object represents an interface type
+     * @return true if is interface false otherwise
+     */
     public boolean isInterface() {
         return containedClass.isInterface();
     }
 
+    /**
+     * Determines if the specified ClassO object is primitive type
+     * @return true if primitive, false if reference
+     */
     public boolean isPrimitive() {
         return containedClass.isPrimitive();
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isArray() {
         return containedClass.isArray();
     }
@@ -145,7 +170,7 @@ public class ClassO extends Value {
 
     @Override
     public String getTypeString() {
-        return null;
+        return getJvmName();
     }
 
     @Override
