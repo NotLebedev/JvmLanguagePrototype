@@ -1,7 +1,6 @@
-package src.parsing.domain;
+package src.parsing.domain.structure;
 
 import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
@@ -10,8 +9,6 @@ import src.parsing.packageManagement.ClassManagement;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 /**
  * Object containing class, no value-like access expected

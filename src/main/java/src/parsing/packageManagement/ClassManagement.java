@@ -1,9 +1,8 @@
 package src.parsing.packageManagement;
 
 import src.parsing.Utils;
-import src.parsing.domain.ClassO;
+import src.parsing.domain.structure.ClassO;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public class ClassManagement {

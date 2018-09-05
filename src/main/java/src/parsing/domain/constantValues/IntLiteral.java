@@ -2,7 +2,7 @@ package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.domain.ClassO;
+import src.parsing.domain.structure.ClassO;
 import src.parsing.domain.Interfaces.Value;
 
 /**

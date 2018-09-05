@@ -3,6 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassO;
 
 /**
  * Class describing instantiation of array (e.g. {@code new int[][]}

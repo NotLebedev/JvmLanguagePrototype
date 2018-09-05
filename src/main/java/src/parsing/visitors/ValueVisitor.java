@@ -5,9 +5,10 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.PackageO;
 
 import java.lang.reflect.Modifier;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;

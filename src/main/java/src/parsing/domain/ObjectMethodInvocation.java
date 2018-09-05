@@ -4,6 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassO;
 
 import java.lang.reflect.Method;
 

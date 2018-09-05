@@ -1,7 +1,7 @@
 package src.parsing.domain.Interfaces;
 
 import org.objectweb.asm.MethodVisitor;
-import src.parsing.domain.ClassO;
+import src.parsing.domain.structure.ClassO;
 
 /**
  * Common interface for everything that can be treated as value

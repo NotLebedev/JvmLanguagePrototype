@@ -1,7 +1,5 @@
-import junit.framework.TestCase;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
-import src.parsing.domain.ClassO;
+import src.parsing.domain.structure.ClassO;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
