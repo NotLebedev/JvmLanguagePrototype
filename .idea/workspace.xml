@@ -7,29 +7,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" line="24" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="Refactoring, moved ClassO and PackageO to structure package">
+      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackageO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackageO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClassOTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClassOTestSuite.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,10 +48,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3855" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="28225" />
+          <entry key="java" value="28833" />
           <entry key="lp" value="821" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="3028" />
+          <entry key="txt" value="3091" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -79,8 +59,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3855" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="28225" />
-          <entry key="PLAIN_TEXT" value="3850" />
+          <entry key="JAVA" value="28833" />
+          <entry key="PLAIN_TEXT" value="3913" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -91,7 +71,7 @@
           <entry key="class" value="12" />
           <entry key="g4" value="155" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="415" />
+          <entry key="java" value="423" />
           <entry key="lp" value="16" />
           <entry key="snippet" value="7" />
           <entry key="xml" value="4" />
@@ -102,7 +82,7 @@
           <entry key="ANTLR v4 grammar file" value="155" />
           <entry key="CLASS" value="12" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="415" />
+          <entry key="JAVA" value="423" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
@@ -161,43 +141,32 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassO.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#2708#2709#0" expanded="true" />
-                    <element signature="e#2765#2766#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1911">
-                  <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#2736#2737#0" expanded="true" />
-                    <element signature="e#2801#2802#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="210">
+                  <caret line="91" column="18" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="147">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+                <state relative-caret-position="2364">
+                  <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#2780#2781#0" expanded="true" />
+                    <element signature="e#2845#2846#0" expanded="true" />
+                    <element signature="e#3192#3193#0" expanded="true" />
+                    <element signature="e#3249#3250#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="89">
-                  <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+                <state relative-caret-position="628">
+                  <caret line="97" selection-start-line="85" selection-start-column="8" selection-end-line="97" />
                 </state>
               </provider>
             </entry>
@@ -206,11 +175,29 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Utils.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-797">
+                <state relative-caret-position="-882">
                   <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodContainer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="714">
+                  <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#419#420#0" expanded="true" />
+                    <element signature="e#456#457#0" expanded="true" />
+                    <element signature="e#454#455#0" expanded="true" />
+                    <element signature="e#522#523#0" expanded="true" />
+                    <element signature="e#563#564#0" expanded="true" />
+                    <element signature="e#632#633#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -222,8 +209,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Grammar file" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -279,9 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisiter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/TypeVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/variableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Method.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodInvocationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Scope.java" />
@@ -330,6 +314,9 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ClassO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/AbstractClassContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/MethodO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodContainer.java" />
       </list>
     </option>
   </component>
@@ -414,6 +401,17 @@
             </path>
             <path>
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
             <path>
@@ -440,7 +438,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536162878175" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536163940310" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -583,14 +581,7 @@
       <workItem from="1534762698573" duration="2286000" />
       <workItem from="1534769559751" duration="566000" />
       <workItem from="1534776118891" duration="2542000" />
-      <workItem from="1536162367532" duration="509000" />
-    </task>
-    <task id="LOCAL-00009" summary="Added static class case">
-      <created>1533218497071</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1533218497071</updated>
+      <workItem from="1536162367532" duration="3602000" />
     </task>
     <task id="LOCAL-00010" summary="Changed hasStaticClass to hasNestedClass, added requireStatic flag to visitClassAccess loop">
       <created>1533226086059</created>
@@ -928,7 +919,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534778658429</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Refactoring, moved ClassO and PackageO to structure package">
+      <created>1536163281864</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1536163281868</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -958,7 +956,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209950000" />
+    <option name="totallyTimeSpent" value="213043000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -981,21 +979,21 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32398754" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.3997923" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.32917964" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32917964" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32917964" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32917964" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32917964" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32917964" />
-      <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.32917964" />
-      <window_info anchor="bottom" id="Analyze Dataflow to" order="15" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="1" weight="0.3997923" />
+      <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.32917964" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.32917964" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.32917964" />
+      <window_info anchor="bottom" id="Tool Output" order="7" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32917964" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32917964" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="12" weight="0.32917964" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="13" weight="0.32917964" />
+      <window_info anchor="bottom" id="Analyze Dataflow to" order="14" weight="0.32917964" />
+      <window_info anchor="bottom" x="458" y="545" width="763" height="312" id="Find" order="15" weight="0.32398754" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1051,7 +1049,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed mess with different type of paths, now path is the same as pathNoDotEnd and classPath (matches &quot;java.lang.String&quot; and not &quot;java.lang.&quot; like before), removed outdated commented code from MethodCode" />
     <MESSAGE value="Fixed access modifiers in code" />
     <MESSAGE value="Fixed redundant throw in ObjectField.resolveNames()" />
     <MESSAGE value="Removed unused imports" />
@@ -1076,7 +1073,8 @@
     <MESSAGE value="Changed names of get*Name methods in ClassO for better understanding" />
     <MESSAGE value="Documentation for ClassO" />
     <MESSAGE value="More documentation for ClassO" />
-    <option name="LAST_COMMIT_MESSAGE" value="More documentation for ClassO" />
+    <MESSAGE value="Refactoring, moved ClassO and PackageO to structure package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring, moved ClassO and PackageO to structure package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1161,14 +1159,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/antlr4/NonGreedyTest.g4" />
-    <entry file="file://$PROJECT_DIR$/src/main/antlr4/TokenRules.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/antlr/antlr4-runtime/4.7/antlr4-runtime-4.7.jar!/org/antlr/v4/runtime/RuleContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -1397,13 +1387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
@@ -1454,13 +1437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1701">
-          <caret line="88" column="40" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
@@ -1502,46 +1478,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-797">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        <state relative-caret-position="147">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/AbstractClassContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
+        <state relative-caret-position="672">
           <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="97" selection-start-line="85" selection-start-column="8" selection-end-line="97" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="e#2708#2709#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="91" column="18" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-882">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1911">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+        <state relative-caret-position="2364">
+          <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
           <folding>
-            <element signature="e#2736#2737#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
+            <element signature="e#2780#2781#0" expanded="true" />
+            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
+            <element signature="e#3249#3250#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="714">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
