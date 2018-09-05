@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassO;
 import src.parsing.domain.structure.PackageO;
+import src.parsing.domain.structure.ReflectionMethodContainer;
 
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -201,7 +202,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     .map((Function<Value, Object>) Value::getType)
                     .collect(Collectors.toList()).toArray(new ClassO[0]);
 
-            java.lang.reflect.Method method = null;
+            ReflectionMethodContainer method = null;
 
             try {
                 method = val.getType().getMethod(ctx.id().getText(),

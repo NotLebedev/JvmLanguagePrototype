@@ -5,6 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionMethodContainer;
 
 import java.lang.reflect.Method;
 
@@ -13,7 +14,7 @@ public class StaticMethodInvocation extends Value {
     private ClassO methodOwnerClass;
 
     private String methodName;
-    private Method method;
+    private ReflectionMethodContainer method;
 
     private String[] paramNames;
     private Value[] paramValues;
@@ -71,14 +72,14 @@ public class StaticMethodInvocation extends Value {
         methodVisitor.visitMethodInsn(  Opcodes.INVOKESTATIC,
                                         methodOwnerClass.getSlashName(),
                                         method.getName(),
-                                        getDescriptor(),
+                                        method.getDescriptor(),
                                         methodOwnerClass.isInterface());
 
     }
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(method.getReturnType());
+        return method.getReturnTypeJvmName();
     }
 
     public String getDescriptor() {
@@ -100,7 +101,7 @@ public class StaticMethodInvocation extends Value {
 
     @Override
     public ClassO getType() {
-        return new ClassO(method.getReturnType());
+        return method.getReturnType();
     }
 
 }

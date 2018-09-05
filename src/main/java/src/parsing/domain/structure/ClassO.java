@@ -98,8 +98,8 @@ public class ClassO extends Value {
     }
 
     //TODO: replace with
-    public Method getMethod(String methodName, ClassO[] params) throws NoSuchMethodException {
-        return containedClass.getMethod(methodName,
+    public ReflectionMethodContainer getMethod(String methodName, ClassO[] params) throws NoSuchMethodException {
+        return new ReflectionMethodContainer(containedClass, methodName,
                 Arrays.stream(params).map(ClassO::getContainedClass).toArray(Class[]::new));
     }
 

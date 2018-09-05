@@ -5,6 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionMethodContainer;
 
 import java.lang.reflect.Method;
 
@@ -17,7 +18,7 @@ public class ObjectMethodInvocation extends Value {
     private ClassO objectClass;
 
     private String methodName;
-    private Method method;
+    private ReflectionMethodContainer method;
 
     private String[] paramNames;
     private Value[] paramValues;
@@ -88,35 +89,18 @@ public class ObjectMethodInvocation extends Value {
         methodVisitor.visitMethodInsn(  Opcodes.INVOKEVIRTUAL,
                                         objectClass.getSlashName(),
                                         method.getName(),
-                                        getDescriptor(),
+                                        method.getDescriptor(),
                                         objectClass.isInterface());
 
     }
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(method.getReturnType());
-    }
-
-    public String getDescriptor() {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-
-        for (ClassO param : params) {
-            sb.append(param.getJvmName());
-        }
-
-        sb.append(")");
-
-        sb.append(getTypeString());
-
-        return sb.toString();
-
+        return method.getReturnTypeJvmName();
     }
 
     @Override
     public ClassO getType() {
-        return new ClassO(method.getReturnType());
+        return method.getReturnType();
     }
 }
