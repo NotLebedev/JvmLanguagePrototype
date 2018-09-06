@@ -57,7 +57,7 @@ public class ArrayAccess extends Value {
 
     @Override
     public String getTypeString() {
-        return getType().getName();
+        return getType().getJvmName();
     }
 
     @Override

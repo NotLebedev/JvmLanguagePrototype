@@ -2,12 +2,9 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassO;
 import src.parsing.domain.structure.ReflectionMethodContainer;
-
-import java.lang.reflect.Method;
 
 /**
  * Class describing invoking methods of objects
@@ -96,7 +93,7 @@ public class ObjectMethodInvocation extends Value {
 
     @Override
     public String getTypeString() {
-        return method.getReturnTypeJvmName();
+        return getType().getJvmName();
     }
 
     @Override

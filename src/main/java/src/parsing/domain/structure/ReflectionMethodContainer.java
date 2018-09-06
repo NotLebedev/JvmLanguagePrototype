@@ -20,14 +20,6 @@ public class ReflectionMethodContainer {
         return containedMethod.getName();
     }
 
-    public String getReturnTypeName() {
-        return containedMethod.getReturnType().getTypeName();
-    }
-
-    public String getReturnTypeJvmName() {
-        return Utils.getClassName(containedMethod.getReturnType());
-    }
-
     public ClassO getReturnType() {
         return new ClassO(containedMethod.getReturnType()); //TODO : inspect this place
     }
@@ -42,7 +34,7 @@ public class ReflectionMethodContainer {
         }
 
         sb.append(")");
-        sb.append(getReturnTypeJvmName());
+        sb.append(Utils.getClassName(containedMethod.getReturnType()));
 
         return sb.toString();
 

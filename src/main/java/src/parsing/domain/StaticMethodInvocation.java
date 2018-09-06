@@ -2,12 +2,9 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassO;
 import src.parsing.domain.structure.ReflectionMethodContainer;
-
-import java.lang.reflect.Method;
 
 public class StaticMethodInvocation extends Value {
 
@@ -79,24 +76,7 @@ public class StaticMethodInvocation extends Value {
 
     @Override
     public String getTypeString() {
-        return method.getReturnTypeJvmName();
-    }
-
-    public String getDescriptor() {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-
-        for (ClassO param : params) {
-            sb.append(param.getJvmName());
-        }
-
-        sb.append(")");
-
-        sb.append(getTypeString());
-
-        return sb.toString();
-
+        return getType().getJvmName();
     }
 
     @Override
