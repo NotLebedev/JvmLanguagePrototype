@@ -33,11 +33,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitValue(RootParser.ValueContext ctx) {
 
-        if(ctx.literalCG() != null) {
+        //region literal
+        if (ctx.literalCG() != null) {
             return ctx.literalCG().accept(new LiteralCGVisitor());
         }
+        //endregion
 
-        if(ctx.id() != null) {
+        //region plain id
+        else if (ctx.id() != null) {
 
             try {
                 return scope.getVariableByName(ctx.id().getText());
@@ -46,33 +49,38 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             var packagePart = new PackageO();
 
-            if(packagePart.updatePath(ctx.id().getText()))
+            if (packagePart.updatePath(ctx.id().getText()))
                 return packagePart;
 
         }
+        //endregion
 
-        if(ctx.objectInstantiation() != null) {
+        //region object instantioation
+        else if (ctx.objectInstantiation() != null) {
             return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope));
         }
+        //endregion
 
-        if(ctx.bracketOpenS() != null) {
+        //region parenthesis
+        else if (ctx.bracketOpenS() != null) {
             //Just simple parenthesis
             return ctx.value(0).accept(new ValueVisitor(scope));
         }
+        //endregion
 
         //region dotS
-        if(ctx.dotS() != null) {
+        else if (ctx.dotS() != null) {
 
             var val = ctx.value(0).accept(new ValueVisitor(scope));
 
-            if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
-                                                                        // only id to go next
-                var packageO = (PackageO)val;
+            if (val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
+                // only id to go next
+                var packageO = (PackageO) val;
 
                 String id = ctx.value(1).id().getText();
 
                 //region Subpackage
-                if(packageO.updatePath(id))
+                if (packageO.updatePath(id))
                     return packageO;
                 //endregion
 
@@ -83,15 +91,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 }
                 //endregion
 
-                return null;
+            } else if (val instanceof ClassO) {
 
-            }
+                var classO = (ClassO) val;
 
-            if(val instanceof ClassO) {
-
-                var classO = (ClassO)val;
-
-                if(ctx.value(1).id() != null) {
+                if (ctx.value(1).id() != null) {
 
                     String id = ctx.value(1).id().getText();
 
@@ -115,7 +119,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 }
 
-                if(ctx.value(1).methodInv() != null) {
+                if (ctx.value(1).methodInv() != null) {
 
                     //Is static method invocation
                     return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, true, scope));
@@ -123,38 +127,39 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 }
 
-                return null;
+            } else { // Last case is for any object value
 
-            }
+                if (ctx.value(1).id() != null) {
 
-            if(ctx.value(1).id() != null) {
+                    //Is object field
+                    try {
 
-                //Is object field
-                try {
+                        var objectField = new ObjectField();
+                        objectField.setNames(val, ctx.value(1).id().getText());
+                        return objectField;
 
-                    var objectField = new ObjectField();
-                    objectField.setNames(val, ctx.value(1).id().getText());
-                    return objectField;
+                    } catch (NoSuchFieldException | ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    //Is object field
 
-                } catch (NoSuchFieldException | ClassNotFoundException e) {
-                    e.printStackTrace();
                 }
-                //Is object field
 
-            }
+                if (ctx.value(1).methodInv() != null) {
 
-            if(ctx.value(1).methodInv() != null) {
+                    //Is object method invocation
+                    return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
+                    //Is object method invocation
 
-                //Is object method invocation
-                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
-                //Is object method invocation
+                }
 
             }
 
         }
         //endregion
 
-        if(ctx.arrayIndex() != null) {
+        //region array
+        else if (ctx.arrayIndex() != null) {
 
             Value val = ctx.value(0).accept(new ValueVisitor(scope));
             Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope));
@@ -165,7 +170,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 e.printStackTrace();
             }
 
-        }
+        } //endregion
 
         return null;
 
@@ -213,14 +218,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
 
-            if(requireStatic && !isStatic) {
+            if (requireStatic && !isStatic) {
 
                 System.err.println("Incorrect modifier");
                 return null;
 
             }
 
-            if(isStatic) {
+            if (isStatic) {
 
                 var smi = new StaticMethodInvocation();
                 try {
@@ -237,7 +242,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 return smi;
 
-            }else {
+            } else {
 
                 var omi = new ObjectMethodInvocation();
                 try {
