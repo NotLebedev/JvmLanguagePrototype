@@ -3,7 +3,6 @@ package src.parsing.domain.structure;
 import src.parsing.Utils;
 
 import java.lang.reflect.Method;
-import java.util.Objects;
 
 /**
  * @author NotLebedev

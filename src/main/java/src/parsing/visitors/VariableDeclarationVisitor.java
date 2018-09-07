@@ -6,7 +6,7 @@ import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
-import src.parsing.domain.VariableAssignement;
+import src.parsing.domain.VariableAssignment;
 
 /**
  * Class responsible for visiting variable assignments (e.g. {@code String str})
@@ -39,7 +39,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.assignment() != null) {
 
-            var variableAssignment = new VariableAssignement();
+            var variableAssignment = new VariableAssignment();
 
             var valueVisitor = new ValueVisitor(scope);
 

@@ -12,11 +12,11 @@ import src.parsing.domain.structure.ReflectionClassWrapper;
  */
 public class ArrayInstantiation extends Value {
 
-    private int freeDimensions;
-    private Value[] sizes;
+    private final int freeDimensions;
+    private final Value[] sizes;
 
-    private ReflectionClassWrapper arrayType;
-    private ReflectionClassWrapper type;
+    private final ReflectionClassWrapper arrayType;
+    private final ReflectionClassWrapper type;
 
     /**
      *
@@ -25,17 +25,13 @@ public class ArrayInstantiation extends Value {
      * @param freeDimensions how many non-initialized dimensions array has for int[3] it is 0,
      *                       for int[3][][] it is 2
      */
-    public ArrayInstantiation(ReflectionClassWrapper arrayType, Value[] sizes, int freeDimensions) {
+    public ArrayInstantiation(ReflectionClassWrapper arrayType, Value[] sizes, int freeDimensions) throws ClassNotFoundException {
 
         this.arrayType = arrayType;
         this.sizes = sizes; //TODO : arrayType check
         this.freeDimensions = freeDimensions;
 
-        try {
-            type = new ReflectionClassWrapper(sizes.length + freeDimensions, arrayType);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        type = new ReflectionClassWrapper(sizes.length + freeDimensions, arrayType);
 
     }
 

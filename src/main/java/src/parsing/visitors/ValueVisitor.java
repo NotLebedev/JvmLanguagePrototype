@@ -182,7 +182,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         private final Boolean requireStatic;
         private final Scope scope;
 
-        public MethodInvVisitor(Value val, Boolean requireStatic, Scope scope) {
+        private MethodInvVisitor(Value val, Boolean requireStatic, Scope scope) {
 
             this.val = val;
             this.requireStatic = requireStatic;

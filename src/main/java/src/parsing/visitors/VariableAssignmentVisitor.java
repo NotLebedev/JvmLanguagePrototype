@@ -27,7 +27,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
         if(val instanceof Variable) {
 
-            var variableAssignment = new VariableAssignement();
+            var variableAssignment = new VariableAssignment();
 
             var variable = ((Variable) val);
 

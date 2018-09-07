@@ -13,9 +13,9 @@ import src.parsing.domain.structure.ReflectionClassWrapper;
  */
 public class ArrayAssignment extends Expression {
 
-    private Value array;
-    private Value index;
-    private Value value;
+    private final Value array;
+    private final Value index;
+    private final Value value;
 
     private ReflectionClassWrapper type;
 

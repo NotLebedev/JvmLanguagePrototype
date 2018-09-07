@@ -1,9 +1,6 @@
 package src.parsing.packageManagement;
 
 import src.parsing.Utils;
-import src.parsing.domain.structure.ReflectionClassWrapper;
-
-import java.lang.reflect.Modifier;
 
 public class ClassManagement {
 

@@ -25,7 +25,7 @@ public class Method implements Scope {
     public Method(){}
 
     /**
-     * Constructor to use, when metod is non-static or has fields
+     * Constructor to use, when method is non-static or has fields
      * (In another words, pre-defined fields exist)
      * @param variablesVisible variables
      */
@@ -79,7 +79,7 @@ public class Method implements Scope {
 
         }
 
-        throw new VariableNotFoundException("Variable " + name + " has not been declared in this scoope");
+        throw new VariableNotFoundException("Variable " + name + " has not been declared in this scope");
 
     }
 

@@ -12,8 +12,8 @@ import src.parsing.domain.structure.ReflectionClassWrapper;
  */
 public class ArrayAccess extends Value {
 
-    private Value array;
-    private Value index;
+    private final Value array;
+    private final Value index;
 
     private ReflectionClassWrapper type;
 

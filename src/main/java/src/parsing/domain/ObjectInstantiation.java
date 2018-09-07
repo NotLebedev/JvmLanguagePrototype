@@ -14,7 +14,7 @@ public class ObjectInstantiation extends Value {
     private Value[] paramValues;
     private ReflectionClassWrapper[] params;
 
-    public void setNames(String constructorOwnerClassName, String[] paramNames) throws NoSuchMethodException, ClassNotFoundException {
+    public void setNames(String constructorOwnerClassName, String[] paramNames) throws ClassNotFoundException {
 
         this.constructorOwnerClassName = constructorOwnerClassName;
         this.paramNames = paramNames;
@@ -23,7 +23,7 @@ public class ObjectInstantiation extends Value {
 
     }
 
-    private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
+    private void resolveNames() throws ClassNotFoundException {
 
         constructorOwnerClass = new ReflectionClassWrapper(constructorOwnerClassName);
 

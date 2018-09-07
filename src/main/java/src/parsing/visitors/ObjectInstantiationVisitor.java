@@ -43,7 +43,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                 objectInstantiation.setNames(ctx.type().getText(), params.stream()
                         .map(value -> value.getType().getName())
                         .toArray(String[]::new));
-            } catch (NoSuchMethodException | ClassNotFoundException e) {
+            } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
 
@@ -53,7 +53,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
         } else {
 
-            var dimesions = ctx.arrayIndex().stream()
+            var dimensions = ctx.arrayIndex().stream()
                     .map(arrayIndexContext ->
                             arrayIndexContext.value().accept(new ValueVisitor(scope)))
                     .toArray(Value[]::new);
@@ -61,7 +61,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             try {
                 return new ArrayInstantiation(new ReflectionClassWrapper(ctx.type().getText()),
-                        dimesions, freeDimensions);
+                        dimensions, freeDimensions);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }

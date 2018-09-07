@@ -10,12 +10,9 @@ public class Variable extends Value {
     private int id;
     private final String name;
 
-    private final String typeName;
     private ReflectionClassWrapper type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
-
-        this.typeName = typeName;
 
         this.name = name;
         this.id = id;
