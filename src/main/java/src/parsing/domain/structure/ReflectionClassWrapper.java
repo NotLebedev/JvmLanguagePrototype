@@ -7,7 +7,9 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Object containing class, no value-like access expected
@@ -28,6 +30,9 @@ public class ReflectionClassWrapper extends Value {
     //endregion
 
     private final Class<?> containedClass;
+
+    //Lazy initialized list of methods
+    private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
 
     /**
      * This method is marked as deprecated to remind  to remove it from public use
@@ -93,13 +98,28 @@ public class ReflectionClassWrapper extends Value {
 
     //TODO: replace with domain Field, when ready
     public Field getField(String fieldName) throws NoSuchFieldException {
-        return containedClass.getField(fieldName);
+        return containedClass.getField(fieldName); //TODO : fileds should be created only ones
     }
 
     //TODO: replace with
     public ReflectionMethodWrapper getMethod(String methodName, ReflectionClassWrapper[] params) throws NoSuchMethodException {
-        return new ReflectionMethodWrapper(containedClass, methodName,
+
+        for (ReflectionMethodWrapper method : methods) {
+
+            if(method.matches(methodName, params)) {
+                return method;
+            }
+
+        }
+
+        var newMethod = new ReflectionMethodWrapper(containedClass, methodName,
                 Arrays.stream(params).map(ReflectionClassWrapper::getContainedClass).toArray(Class[]::new));
+
+        methods.add(newMethod);
+
+        return newMethod;
+
+
     }
 
     /**

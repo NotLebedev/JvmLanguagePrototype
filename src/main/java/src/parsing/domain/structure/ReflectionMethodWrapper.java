@@ -3,13 +3,14 @@ package src.parsing.domain.structure;
 import src.parsing.Utils;
 
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 /**
  * @author NotLebedev
  */
 public class ReflectionMethodWrapper {
 
-    private Method containedMethod;
+    private final Method containedMethod;
 
     public ReflectionMethodWrapper(Class<?> cls, String methodName, Class<?>[] params) throws NoSuchMethodException {
         containedMethod = cls.getMethod(methodName, params);
@@ -42,6 +43,24 @@ public class ReflectionMethodWrapper {
 
     public int getModifiers() {
         return containedMethod.getModifiers();
+    }
+
+    public boolean matches(String methodName, ReflectionClassWrapper[] params) {
+
+        if(!getName().equals(methodName))
+            return false;
+
+        var paramTypes = containedMethod.getParameterTypes();
+
+        for (int i = 0; i < params.length; i++) {
+
+            if(!params[i].getName().equals(paramTypes[i].getName()))
+                return false;
+
+        }
+
+        return true;
+
     }
 
 }
