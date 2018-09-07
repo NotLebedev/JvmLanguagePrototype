@@ -4,19 +4,19 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public class StaticClassField extends Value {
 
-    private ClassO fieldOwnerClass;
+    private ReflectionClassWrapper fieldOwnerClass;
 
     private String fieldName;
     private Field field;
 
-    public void setNames(ClassO fieldOwnerClass, String fieldName) throws NoSuchFieldException {
+    public void setNames(ReflectionClassWrapper fieldOwnerClass, String fieldName) throws NoSuchFieldException {
 
         this.fieldOwnerClass = fieldOwnerClass;
         this.fieldName = fieldName;
@@ -48,8 +48,8 @@ public class StaticClassField extends Value {
     }
 
     @Override
-    public ClassO getType() {
-        return new ClassO(field.getType());
+    public ReflectionClassWrapper getType() {
+        return new ReflectionClassWrapper(field.getType());
     }
 
 }

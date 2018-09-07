@@ -3,7 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 /**
  * Class describing access to arrays
@@ -15,7 +15,7 @@ public class ArrayAccess extends Value {
     private Value array;
     private Value index;
 
-    private ClassO type;
+    private ReflectionClassWrapper type;
 
     public ArrayAccess(Value array, Value index) throws ClassNotFoundException {
 
@@ -32,7 +32,7 @@ public class ArrayAccess extends Value {
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
 
-        type = new ClassO(typeString);
+        type = new ReflectionClassWrapper(typeString);
 
     }
 
@@ -61,7 +61,7 @@ public class ArrayAccess extends Value {
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return type;
     }
 

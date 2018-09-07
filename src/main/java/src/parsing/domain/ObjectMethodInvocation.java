@@ -3,8 +3,8 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
-import src.parsing.domain.structure.ReflectionMethodContainer;
+import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.ReflectionMethodWrapper;
 
 /**
  * Class describing invoking methods of objects
@@ -12,14 +12,14 @@ import src.parsing.domain.structure.ReflectionMethodContainer;
 public class ObjectMethodInvocation extends Value {
 
     private Value object;
-    private ClassO objectClass;
+    private ReflectionClassWrapper objectClass;
 
     private String methodName;
-    private ReflectionMethodContainer method;
+    private ReflectionMethodWrapper method;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private ClassO[] params;
+    private ReflectionClassWrapper[] params;
 
     /**
      *
@@ -43,10 +43,10 @@ public class ObjectMethodInvocation extends Value {
 
         objectClass = object.getType();
 
-        params = new ClassO[paramNames.length];
+        params = new ReflectionClassWrapper[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = new ClassO(paramNames[i]);
+            params[i] = new ReflectionClassWrapper(paramNames[i]);
         }
 
         method = objectClass.getMethod(methodName, params);
@@ -97,7 +97,7 @@ public class ObjectMethodInvocation extends Value {
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return method.getReturnType();
     }
 }

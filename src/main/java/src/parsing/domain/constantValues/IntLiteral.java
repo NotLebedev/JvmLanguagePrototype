@@ -2,7 +2,7 @@ package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Value;
 
 /**
@@ -55,8 +55,8 @@ public class IntLiteral extends Value {
     }
 
     @Override
-    public ClassO getType() {
-        return ClassO.INT;
+    public ReflectionClassWrapper getType() {
+        return ReflectionClassWrapper.INT;
     }
 
 }

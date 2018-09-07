@@ -3,7 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 public class Variable extends Value {
 
@@ -11,7 +11,7 @@ public class Variable extends Value {
     private final String name;
 
     private final String typeName;
-    private ClassO type;
+    private ReflectionClassWrapper type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
 
@@ -20,7 +20,7 @@ public class Variable extends Value {
         this.name = name;
         this.id = id;
 
-        type = new ClassO(typeName);
+        type = new ReflectionClassWrapper(typeName);
 
     }
 
@@ -49,12 +49,12 @@ public class Variable extends Value {
         return getType().getName();
     }
 
-    public ClassO getWrappedType() {
+    public ReflectionClassWrapper getWrappedType() {
         return type;
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return type.getType();
     }
 }

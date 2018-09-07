@@ -46,7 +46,7 @@ public class PackageO extends Value {
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return null;
     }
 

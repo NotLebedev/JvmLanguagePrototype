@@ -4,7 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 /**
  * Class describing storing to array elements
@@ -17,7 +17,7 @@ public class ArrayAssignment extends Expression {
     private Value index;
     private Value value;
 
-    private ClassO type;
+    private ReflectionClassWrapper type;
 
     public ArrayAssignment(Value array, Value index, Value value) throws ClassNotFoundException {
 
@@ -35,7 +35,7 @@ public class ArrayAssignment extends Expression {
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
 
-        type = new ClassO(typeString);
+        type = new ReflectionClassWrapper(typeString);
 
     }
 

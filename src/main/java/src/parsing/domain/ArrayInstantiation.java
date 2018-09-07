@@ -3,7 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 /**
  * Class describing instantiation of array (e.g. {@code new int[][]}
@@ -15,8 +15,8 @@ public class ArrayInstantiation extends Value {
     private int freeDimensions;
     private Value[] sizes;
 
-    private ClassO arrayType;
-    private ClassO type;
+    private ReflectionClassWrapper arrayType;
+    private ReflectionClassWrapper type;
 
     /**
      *
@@ -25,14 +25,14 @@ public class ArrayInstantiation extends Value {
      * @param freeDimensions how many non-initialized dimensions array has for int[3] it is 0,
      *                       for int[3][][] it is 2
      */
-    public ArrayInstantiation(ClassO arrayType, Value[] sizes, int freeDimensions) {
+    public ArrayInstantiation(ReflectionClassWrapper arrayType, Value[] sizes, int freeDimensions) {
 
         this.arrayType = arrayType;
         this.sizes = sizes; //TODO : arrayType check
         this.freeDimensions = freeDimensions;
 
         try {
-            type = new ClassO(sizes.length + freeDimensions, arrayType);
+            type = new ReflectionClassWrapper(sizes.length + freeDimensions, arrayType);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class ArrayInstantiation extends Value {
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return type;
     }
 

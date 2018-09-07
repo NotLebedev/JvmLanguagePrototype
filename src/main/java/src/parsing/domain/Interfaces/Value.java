@@ -1,7 +1,7 @@
 package src.parsing.domain.Interfaces;
 
 import org.objectweb.asm.MethodVisitor;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 /**
  * Common interface for everything that can be treated as value
@@ -23,6 +23,6 @@ public abstract class Value extends Expression {
     /**
      * @return {@link Class} which will be placed on stack
      */
-    public abstract ClassO getType();
+    public abstract ReflectionClassWrapper getType();
 
 }

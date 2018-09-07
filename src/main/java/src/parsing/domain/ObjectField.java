@@ -3,14 +3,14 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 import java.lang.reflect.Field;
 
 public class ObjectField extends Value {
 
     private Value object;
-    private ClassO fieldOwnerClass;
+    private ReflectionClassWrapper fieldOwnerClass;
 
     private String fieldName;
     private Field field;
@@ -47,7 +47,7 @@ public class ObjectField extends Value {
     }
 
     @Override
-    public ClassO getType() {
-        return new ClassO(field.getType());
+    public ReflectionClassWrapper getType() {
+        return new ReflectionClassWrapper(field.getType());
     }
 }

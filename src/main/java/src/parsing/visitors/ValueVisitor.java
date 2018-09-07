@@ -5,9 +5,9 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.PackageO;
-import src.parsing.domain.structure.ReflectionMethodContainer;
+import src.parsing.domain.structure.ReflectionMethodWrapper;
 
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -86,14 +86,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 //region Class
                 try {
-                    return new ClassO(packageO.getPath() + "." + id);
+                    return new ReflectionClassWrapper(packageO.getPath() + "." + id);
                 } catch (ClassNotFoundException ignored) {
                 }
                 //endregion
 
-            } else if (val instanceof ClassO) {
+            } else if (val instanceof ReflectionClassWrapper) {
 
-                var classO = (ClassO) val;
+                var classO = (ReflectionClassWrapper) val;
 
                 if (ctx.value(1).id() != null) {
 
@@ -101,7 +101,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                     //region Nested class
                     try {
-                        return new ClassO(classO.getName() + "$" + id);
+                        return new ReflectionClassWrapper(classO.getName() + "$" + id);
                     } catch (ClassNotFoundException ignored) {
                     }
                     //endregion
@@ -201,13 +201,13 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     .map(valueContext -> valueContext.accept(valueVisitor))
                     .collect(Collectors.toList());
 
-            var paramTypes = new ClassO[params.size()];
+            var paramTypes = new ReflectionClassWrapper[params.size()];
 
             paramTypes = params.stream()
                     .map((Function<Value, Object>) Value::getType)
-                    .collect(Collectors.toList()).toArray(new ClassO[0]);
+                    .collect(Collectors.toList()).toArray(new ReflectionClassWrapper[0]);
 
-            ReflectionMethodContainer method = null;
+            ReflectionMethodWrapper method = null;
 
             try {
                 method = val.getType().getMethod(ctx.id().getText(),
@@ -229,7 +229,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 var smi = new StaticMethodInvocation();
                 try {
-                    smi.setNames((ClassO) val,
+                    smi.setNames((ReflectionClassWrapper) val,
                             ctx.id().getText(),
                             params.stream()
                                     .map(value -> value.getType().getName())

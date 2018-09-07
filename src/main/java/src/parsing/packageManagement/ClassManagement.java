@@ -1,7 +1,7 @@
 package src.parsing.packageManagement;
 
 import src.parsing.Utils;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 import java.lang.reflect.Modifier;
 
@@ -23,7 +23,7 @@ public class ClassManagement {
      * @param name name to be found
      * @return result of check
      */
-    public static boolean hasNonStaticField(ClassO cls, String name) {
+    public static boolean hasNonStaticField(ReflectionClassWrapper cls, String name) {
 
         try {
             if((cls.getType().getField(name).getModifiers() & Modifier.STATIC) == 0)
@@ -40,7 +40,7 @@ public class ClassManagement {
      * @param name name to be found
      * @return result of check
      */
-    public static boolean hasStaticField(ClassO cls, String name) {
+    public static boolean hasStaticField(ReflectionClassWrapper cls, String name) {
 
         try {
             if((cls.getType().getField(name).getModifiers() & Modifier.STATIC) != 0)

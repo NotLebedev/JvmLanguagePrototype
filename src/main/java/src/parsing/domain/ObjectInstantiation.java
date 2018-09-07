@@ -3,16 +3,16 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
+import src.parsing.domain.structure.ReflectionClassWrapper;
 
 public class ObjectInstantiation extends Value {
 
     private String constructorOwnerClassName;
-    private ClassO constructorOwnerClass;
+    private ReflectionClassWrapper constructorOwnerClass;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private ClassO[] params;
+    private ReflectionClassWrapper[] params;
 
     public void setNames(String constructorOwnerClassName, String[] paramNames) throws NoSuchMethodException, ClassNotFoundException {
 
@@ -25,12 +25,12 @@ public class ObjectInstantiation extends Value {
 
     private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
 
-        constructorOwnerClass = new ClassO(constructorOwnerClassName);
+        constructorOwnerClass = new ReflectionClassWrapper(constructorOwnerClassName);
 
-        params = new ClassO[paramNames.length];
+        params = new ReflectionClassWrapper[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = new ClassO(paramNames[i]);
+            params[i] = new ReflectionClassWrapper(paramNames[i]);
         }
 
     }
@@ -78,7 +78,7 @@ public class ObjectInstantiation extends Value {
         StringBuilder sb = new StringBuilder();
         sb.append("(");
 
-        for (ClassO param : params) {
+        for (ReflectionClassWrapper param : params) {
             sb.append(param.getJvmName());
         }
 
@@ -96,7 +96,7 @@ public class ObjectInstantiation extends Value {
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return constructorOwnerClass;
     }
 

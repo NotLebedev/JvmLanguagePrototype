@@ -13,18 +13,18 @@ import java.util.Arrays;
  * Object containing class, no value-like access expected
  * This object always contains valid class
  */
-public class ClassO extends Value {
+public class ReflectionClassWrapper extends Value {
 
     //region CONSTANTS
-    public static final ClassO BOOLEAN = new ClassO(boolean.class);
-    public static final ClassO BYTE = new ClassO(byte.class);
-    public static final ClassO CHAR = new ClassO(char.class);
-    public static final ClassO LONG = new ClassO(long.class);
-    public static final ClassO SHORT = new ClassO(short.class);
-    public static final ClassO INT = new ClassO(int.class);
-    public static final ClassO FLOAT = new ClassO(float.class);
-    public static final ClassO DOUBLE = new ClassO(double.class);
-    public static final ClassO STRING = new ClassO(String.class);
+    public static final ReflectionClassWrapper BOOLEAN = new ReflectionClassWrapper(boolean.class);
+    public static final ReflectionClassWrapper BYTE = new ReflectionClassWrapper(byte.class);
+    public static final ReflectionClassWrapper CHAR = new ReflectionClassWrapper(char.class);
+    public static final ReflectionClassWrapper LONG = new ReflectionClassWrapper(long.class);
+    public static final ReflectionClassWrapper SHORT = new ReflectionClassWrapper(short.class);
+    public static final ReflectionClassWrapper INT = new ReflectionClassWrapper(int.class);
+    public static final ReflectionClassWrapper FLOAT = new ReflectionClassWrapper(float.class);
+    public static final ReflectionClassWrapper DOUBLE = new ReflectionClassWrapper(double.class);
+    public static final ReflectionClassWrapper STRING = new ReflectionClassWrapper(String.class);
     //endregion
 
     private final Class<?> containedClass;
@@ -35,22 +35,22 @@ public class ClassO extends Value {
      * @param cls
      */
     @Deprecated
-    public ClassO(Class<?> cls) {
+    public ReflectionClassWrapper(Class<?> cls) {
         containedClass = cls;
     }
 
-    public ClassO(String name) throws ClassNotFoundException {
+    public ReflectionClassWrapper(String name) throws ClassNotFoundException {
         containedClass = ClassManagement.forName(name); //TODO: make class not instantiated every time
     }
 
     /**
-     * Construct an array from given ClassO
+     * Construct an array from given ReflectionClassWrapper
      *
      * @param arrayDimension dimension of new array
      * @param basicType non-array type
      * @throws ClassNotFoundException
      */
-    public ClassO(int arrayDimension, ClassO basicType) throws ClassNotFoundException {
+    public ReflectionClassWrapper(int arrayDimension, ReflectionClassWrapper basicType) throws ClassNotFoundException {
 
         StringBuilder sb = new StringBuilder();
 
@@ -97,23 +97,23 @@ public class ClassO extends Value {
     }
 
     //TODO: replace with
-    public ReflectionMethodContainer getMethod(String methodName, ClassO[] params) throws NoSuchMethodException {
-        return new ReflectionMethodContainer(containedClass, methodName,
-                Arrays.stream(params).map(ClassO::getContainedClass).toArray(Class[]::new));
+    public ReflectionMethodWrapper getMethod(String methodName, ReflectionClassWrapper[] params) throws NoSuchMethodException {
+        return new ReflectionMethodWrapper(containedClass, methodName,
+                Arrays.stream(params).map(ReflectionClassWrapper::getContainedClass).toArray(Class[]::new));
     }
 
     /**
-     * Returns a JVM instruction opcode adapted to this ClassO.
+     * Returns a JVM instruction opcode adapted to this ReflectionClassWrapper.
      * This method must not be used for method types
      * @param sample opcode - a JVM instruction opcode for int (e.g. IASTORE)
-     * @return opcode that is similar to the given opcode, but adapted to this ClassO
+     * @return opcode that is similar to the given opcode, but adapted to this ReflectionClassWrapper
      */
     public int getOpcode(int sample) {
         return Type.getType(containedClass).getOpcode(sample);
     }
 
     /**
-     * Determines if the specified ClassO object represents an interface type
+     * Determines if the specified ReflectionClassWrapper object represents an interface type
      * @return true if is interface false otherwise
      */
     public boolean isInterface() {
@@ -121,7 +121,7 @@ public class ClassO extends Value {
     }
 
     /**
-     * Determines if the specified ClassO object is primitive type
+     * Determines if the specified ReflectionClassWrapper object is primitive type
      * @return true if primitive, false if reference
      */
     public boolean isPrimitive() {
@@ -129,7 +129,7 @@ public class ClassO extends Value {
     }
 
     /**
-     * Determines if the specified ClassO object is array
+     * Determines if the specified ReflectionClassWrapper object is array
      *
      * @return true if is array, else otherwise
      */
@@ -138,18 +138,18 @@ public class ClassO extends Value {
     }
 
     /**
-     * Get class contained in array in the specified ClassO
+     * Get class contained in array in the specified ReflectionClassWrapper
      * e.g. for String[][] it will be String[]
      *
-     * @return class contained in array if specified ClassO is array, null otherwise
+     * @return class contained in array if specified ReflectionClassWrapper is array, null otherwise
      */
-    public ClassO getArrayElementType() {
+    public ReflectionClassWrapper getArrayElementType() {
 
         if(!isArray())
             return null;
 
         try {
-            return new ClassO(containedClass.getName().substring(1));
+            return new ReflectionClassWrapper(containedClass.getName().substring(1));
         } catch (ClassNotFoundException e) {
             return null;
         }
@@ -158,10 +158,10 @@ public class ClassO extends Value {
     @Override
     public boolean equals(Object obj) {
 
-        if(!(obj instanceof ClassO))
+        if(!(obj instanceof ReflectionClassWrapper))
             return false;
 
-        ClassO comp = ((ClassO) obj);
+        ReflectionClassWrapper comp = ((ReflectionClassWrapper) obj);
 
         return comp.getContainedClass().equals(containedClass);
 
@@ -183,7 +183,7 @@ public class ClassO extends Value {
 
     @Override
     @Deprecated
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return this;
     }
 

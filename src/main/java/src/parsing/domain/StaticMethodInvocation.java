@@ -3,21 +3,21 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ClassO;
-import src.parsing.domain.structure.ReflectionMethodContainer;
+import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.ReflectionMethodWrapper;
 
 public class StaticMethodInvocation extends Value {
 
-    private ClassO methodOwnerClass;
+    private ReflectionClassWrapper methodOwnerClass;
 
     private String methodName;
-    private ReflectionMethodContainer method;
+    private ReflectionMethodWrapper method;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private ClassO[] params;
+    private ReflectionClassWrapper[] params;
 
-    public void setNames(ClassO methodOwnerClass, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
+    public void setNames(ReflectionClassWrapper methodOwnerClass, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
 
         this.methodOwnerClass = methodOwnerClass;
         this.methodName = methodName;
@@ -49,10 +49,10 @@ public class StaticMethodInvocation extends Value {
 
     private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
 
-        params = new ClassO[paramNames.length];
+        params = new ReflectionClassWrapper[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = new ClassO(paramNames[i]);
+            params[i] = new ReflectionClassWrapper(paramNames[i]);
         }
 
         method = methodOwnerClass.getMethod(methodName, params);
@@ -80,7 +80,7 @@ public class StaticMethodInvocation extends Value {
     }
 
     @Override
-    public ClassO getType() {
+    public ReflectionClassWrapper getType() {
         return method.getReturnType();
     }
 
