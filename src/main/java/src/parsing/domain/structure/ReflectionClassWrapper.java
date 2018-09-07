@@ -6,7 +6,6 @@ import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.packageManagement.ClassManagement;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,8 +30,9 @@ public class ReflectionClassWrapper extends Value {
 
     private final Class<?> containedClass;
 
-    //Lazy initialized list of methods
+    //Lazy initialized lists of methods and fields
     private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
+    private final List<ReflectionFieldWrapper> fields = new ArrayList<>();
 
     /**
      * This method is marked as deprecated to remind  to remove it from public use
@@ -97,8 +97,20 @@ public class ReflectionClassWrapper extends Value {
     }
 
     //TODO: replace with domain Field, when ready
-    public Field getField(String fieldName) throws NoSuchFieldException {
-        return containedClass.getField(fieldName); //TODO : fileds should be created only ones
+    public ReflectionFieldWrapper getField(String fieldName) throws NoSuchFieldException {
+
+        for (ReflectionFieldWrapper field : fields) {
+
+            if(field.getName().equals(fieldName))
+                return field;
+
+        }
+
+        var newField = new ReflectionFieldWrapper(containedClass, fieldName);
+        fields.add(newField);
+
+        return newField;
+
     }
 
     //TODO: replace with
@@ -106,9 +118,8 @@ public class ReflectionClassWrapper extends Value {
 
         for (ReflectionMethodWrapper method : methods) {
 
-            if(method.matches(methodName, params)) {
+            if(method.matches(methodName, params))
                 return method;
-            }
 
         }
 

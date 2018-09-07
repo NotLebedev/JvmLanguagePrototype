@@ -2,19 +2,17 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.ReflectionFieldWrapper;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 
 public class StaticClassField extends Value {
 
     private ReflectionClassWrapper fieldOwnerClass;
 
     private String fieldName;
-    private Field field;
+    private ReflectionFieldWrapper field;
 
     public void setNames(ReflectionClassWrapper fieldOwnerClass, String fieldName) throws NoSuchFieldException {
 
@@ -29,7 +27,7 @@ public class StaticClassField extends Value {
 
         field = fieldOwnerClass.getField(fieldName);
 
-        if((field.getModifiers() & Modifier.STATIC) == 0) {
+        if(!field.isStatic()) {
             throw new NoSuchFieldException();
         }
 
@@ -44,12 +42,12 @@ public class StaticClassField extends Value {
 
     @Override
     public String getTypeString() {
-        return Utils.getClassName(field.getType());
+        return getType().getJvmName();
     }
 
     @Override
     public ReflectionClassWrapper getType() {
-        return new ReflectionClassWrapper(field.getType());
+        return field.getType();
     }
 
 }

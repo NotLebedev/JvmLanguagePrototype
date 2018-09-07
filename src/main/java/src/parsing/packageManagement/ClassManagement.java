@@ -17,39 +17,4 @@ public class ClassManagement {
         return Utils.classForName(name);
     }
 
-    /**
-     * Checks if class has static field with this name
-     * @param cls owner class
-     * @param name name to be found
-     * @return result of check
-     */
-    public static boolean hasNonStaticField(ReflectionClassWrapper cls, String name) {
-
-        try {
-            if((cls.getType().getField(name).getModifiers() & Modifier.STATIC) == 0)
-                return true;
-        } catch (NoSuchFieldException ignored) {
-        }
-        return false;
-
-    }
-
-    /**
-     * Checks if class has static field with this name
-     * @param cls owner class
-     * @param name name to be found
-     * @return result of check
-     */
-    public static boolean hasStaticField(ReflectionClassWrapper cls, String name) {
-
-        try {
-            if((cls.getType().getField(name).getModifiers() & Modifier.STATIC) != 0)
-                return true;
-        } catch (NoSuchFieldException ignored) {
-        }
-
-        return false;
-
-    }
-
 }

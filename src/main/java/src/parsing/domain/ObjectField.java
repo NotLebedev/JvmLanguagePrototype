@@ -4,8 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
-
-import java.lang.reflect.Field;
+import src.parsing.domain.structure.ReflectionFieldWrapper;
 
 public class ObjectField extends Value {
 
@@ -13,9 +12,9 @@ public class ObjectField extends Value {
     private ReflectionClassWrapper fieldOwnerClass;
 
     private String fieldName;
-    private Field field;
+    private ReflectionFieldWrapper field;
 
-    public void setNames(Value object, String fieldName) throws ClassNotFoundException, NoSuchFieldException {
+    public void setNames(Value object, String fieldName) throws NoSuchFieldException {
 
         this.object = object;
         this.fieldName = fieldName;
@@ -48,6 +47,6 @@ public class ObjectField extends Value {
 
     @Override
     public ReflectionClassWrapper getType() {
-        return new ReflectionClassWrapper(field.getType());
+        return field.getType();
     }
 }

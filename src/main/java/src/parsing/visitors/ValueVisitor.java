@@ -138,7 +138,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                         objectField.setNames(val, ctx.value(1).id().getText());
                         return objectField;
 
-                    } catch (NoSuchFieldException | ClassNotFoundException e) {
+                    } catch (NoSuchFieldException e) {
                         e.printStackTrace();
                     }
                     //Is object field
