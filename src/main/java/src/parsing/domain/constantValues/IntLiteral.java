@@ -50,11 +50,6 @@ public class IntLiteral extends Value {
     }
 
     @Override
-    public String getTypeString() {
-        return "I";
-    }
-
-    @Override
     public ReflectionClassWrapper getType() {
         return ReflectionClassWrapper.INT;
     }

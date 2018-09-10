@@ -20,11 +20,6 @@ public class FloatLiteral extends Value {
     }
 
     @Override
-    public String getTypeString() {
-        return "F";
-    }
-
-    @Override
     public ReflectionClassWrapper getType() {
         return ReflectionClassWrapper.FLOAT;
     }

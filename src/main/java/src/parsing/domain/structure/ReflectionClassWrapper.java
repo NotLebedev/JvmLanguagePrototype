@@ -204,11 +204,6 @@ public class ReflectionClassWrapper extends Value {
     }
 
     @Override
-    public String getTypeString() {
-        return getJvmName();
-    }
-
-    @Override
     @Deprecated
     public ReflectionClassWrapper getType() {
         return this;

@@ -18,8 +18,8 @@ public class VariableAssignment extends Expression {
 
         if(!variable.getType().equals(value.getType())) { // TODO : auto type casting/(un)boxing
 
-            throw new IllegalArgumentException("Illegal argument exception : " + value.getTypeString()
-                                                + " can not be assigned to variable type of " + variable.getTypeString());
+            throw new IllegalArgumentException("Illegal argument exception : " + value.getType().getJvmName()
+                                                + " can not be assigned to variable type of " + variable.getType().getJvmName());
 
         }
 

@@ -27,7 +27,7 @@ public class ArrayAccess extends Value {
 
         type = this.array.getWrappedType().getArrayElementType();*/
 
-        String typeString = this.array.getTypeString().substring(1);
+        String typeString = this.array.getType().getJvmName().substring(1);
 
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
@@ -53,11 +53,6 @@ public class ArrayAccess extends Value {
         int opcode = type.getOpcode(Opcodes.IALOAD);
         methodVisitor.visitInsn(opcode);
 
-    }
-
-    @Override
-    public String getTypeString() {
-        return getType().getJvmName();
     }
 
     @Override

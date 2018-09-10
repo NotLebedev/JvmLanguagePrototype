@@ -42,11 +42,6 @@ public class Variable extends Value {
     }
 
     @Override
-    public String getTypeString() {
-        return getType().getJvmName();
-    }
-
-    @Override
     public ReflectionClassWrapper getType() {
         return type;
     }

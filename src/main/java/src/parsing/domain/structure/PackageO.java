@@ -2,7 +2,6 @@ package src.parsing.domain.structure;
 
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.packageManagement.PackageManager;
 
 /**
  * Object containing package, no value-like access expected
@@ -10,6 +9,8 @@ import src.parsing.packageManagement.PackageManager;
 public class PackageO extends Value {
 
     private String path = null;
+
+    private static Package[] packages = Package.getPackages();
 
     public boolean updatePath(String next) {
 
@@ -21,7 +22,7 @@ public class PackageO extends Value {
             newPath = next;
 
 
-        if(PackageManager.isPackage(newPath)) {
+        if(isPackage(newPath)) {
 
             path = newPath;
             return true;
@@ -35,14 +36,22 @@ public class PackageO extends Value {
         return path;
     }
 
-    @Override
-    public void generateBytecode(MethodVisitor methodVisitor) {
-        // Empty
+    private static boolean isPackage(String name) {
+
+        for (Package aPackage : packages) {
+
+            if(aPackage.getName().startsWith(name))
+                return true;
+
+        }
+
+        return false;
+
     }
 
     @Override
-    public String getTypeString() {
-        return null;
+    public void generateBytecode(MethodVisitor methodVisitor) {
+        // Empty
     }
 
     @Override

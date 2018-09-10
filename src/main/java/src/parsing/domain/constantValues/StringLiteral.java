@@ -23,11 +23,6 @@ public class StringLiteral extends Value {
     }
 
     @Override
-    public String getTypeString() {
-        return "Ljava/lang/String;";
-    }
-
-    @Override
     public ReflectionClassWrapper getType() {
         return ReflectionClassWrapper.STRING;
     }

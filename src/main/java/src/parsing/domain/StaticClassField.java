@@ -36,13 +36,8 @@ public class StaticClassField extends Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, fieldOwnerClass.getSlashName(), field.getName(), getTypeString());
+        methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, fieldOwnerClass.getSlashName(), field.getName(), getType().getJvmName());
 
-    }
-
-    @Override
-    public String getTypeString() {
-        return getType().getJvmName();
     }
 
     @Override

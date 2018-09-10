@@ -67,11 +67,6 @@ public class ArrayInstantiation extends Value {
     }
 
     @Override
-    public String getTypeString() {
-        return getType().getJvmName();
-    }
-
-    @Override
     public ReflectionClassWrapper getType() {
         return type;
     }

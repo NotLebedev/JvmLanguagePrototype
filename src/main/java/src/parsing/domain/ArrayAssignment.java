@@ -30,7 +30,7 @@ public class ArrayAssignment extends Expression {
 
         type = this.array.getWrappedType().getArrayElementType();*/
 
-        String typeString = this.array.getTypeString().substring(1);
+        String typeString = this.array.getType().getJvmName().substring(1);
 
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');

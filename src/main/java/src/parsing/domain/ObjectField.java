@@ -36,13 +36,8 @@ public class ObjectField extends Value {
 
         object.generateBytecode(methodVisitor);
 
-        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getJvmName(), field.getName(), getTypeString());
+        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getJvmName(), field.getName(), getType().getJvmName());
 
-    }
-
-    @Override
-    public String getTypeString() {
-        return getType().getJvmName();
     }
 
     @Override

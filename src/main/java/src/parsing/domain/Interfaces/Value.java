@@ -16,11 +16,6 @@ public abstract class Value extends Expression {
     public abstract void generateBytecode(MethodVisitor methodVisitor);
 
     /**
-     * @return Jvm-like formatted type {@link String}
-     */
-    public abstract String getTypeString();
-
-    /**
      * @return {@link Class} which will be placed on stack
      */
     public abstract ReflectionClassWrapper getType();
