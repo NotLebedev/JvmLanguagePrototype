@@ -8,6 +8,7 @@ import src.parsing.packageManagement.ClassManagement;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class ReflectionClassWrapper extends Value {
 
     //Lazy initialized lists of methods and fields
     private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
-    private final List<ReflectionFieldWrapper> fields = new ArrayList<>();
+    private final HashMap<String, ReflectionFieldWrapper> fields = new HashMap<>();
 
     /**
      * This method is marked as deprecated to remind  to remove it from public use
@@ -96,24 +97,19 @@ public class ReflectionClassWrapper extends Value {
         return Utils.getClassName(containedClass);
     }
 
-    //TODO: replace with domain Field, when ready
     public ReflectionFieldWrapper getField(String fieldName) throws NoSuchFieldException {
 
-        for (ReflectionFieldWrapper field : fields) {
-
-            if(field.getName().equals(fieldName))
-                return field;
-
+        if(fields.containsKey(fieldName)) {
+            return fields.get(fieldName);
         }
 
         var newField = new ReflectionFieldWrapper(containedClass, fieldName);
-        fields.add(newField);
+        fields.put(fieldName, newField);
 
         return newField;
 
     }
 
-    //TODO: replace with
     public ReflectionMethodWrapper getMethod(String methodName, ReflectionClassWrapper[] params) throws NoSuchMethodException {
 
         for (ReflectionMethodWrapper method : methods) {
