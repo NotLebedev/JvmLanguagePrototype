@@ -10,7 +10,7 @@ import src.parsing.domain.structure.ReflectionClassWrapper;
  *
  * @author NotLebedev
  */
-public class ArrayAccess extends Value {
+public class ArrayAccess implements Value {
 
     private final Value array;
     private final Value index;

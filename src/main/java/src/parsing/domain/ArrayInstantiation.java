@@ -10,7 +10,7 @@ import src.parsing.domain.structure.ReflectionClassWrapper;
  *
  * @author NotLebedev
  */
-public class ArrayInstantiation extends Value {
+public class ArrayInstantiation implements Value {
 
     private final int freeDimensions;
     private final Value[] sizes;

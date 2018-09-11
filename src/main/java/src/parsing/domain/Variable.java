@@ -5,7 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 
-public class Variable extends Value {
+public class Variable implements Value {
 
     private int id;
     private final String name;

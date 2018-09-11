@@ -7,7 +7,7 @@ import src.parsing.domain.Interfaces.Value;
 /**
  * Class describing {@link String} literals
  */
-public class StringLiteral extends Value {
+public class StringLiteral implements Value {
 
     private final String string;
 

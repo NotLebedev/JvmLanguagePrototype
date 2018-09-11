@@ -5,7 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 
-public class ObjectInstantiation extends Value {
+public class ObjectInstantiation implements Value {
 
     private String constructorOwnerClassName;
     private ReflectionClassWrapper constructorOwnerClass;

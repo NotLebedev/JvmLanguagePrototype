@@ -6,7 +6,7 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 
-public class StaticMethodInvocation extends Value {
+public class StaticMethodInvocation implements Value {
 
     private ReflectionClassWrapper methodOwnerClass;
 

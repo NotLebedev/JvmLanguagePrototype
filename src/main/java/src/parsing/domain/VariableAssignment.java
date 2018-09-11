@@ -5,7 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
 
-public class VariableAssignment extends Expression {
+public class VariableAssignment implements Expression {
 
     private Variable variable;
 

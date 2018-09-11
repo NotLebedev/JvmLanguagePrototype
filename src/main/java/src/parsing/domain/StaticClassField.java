@@ -7,7 +7,7 @@ import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 
 
-public class StaticClassField extends Value {
+public class StaticClassField implements Value {
 
     private ReflectionClassWrapper fieldOwnerClass;
 

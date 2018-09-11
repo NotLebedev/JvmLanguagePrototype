@@ -4,7 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Value;
 
-public class FloatLiteral extends Value {
+public class FloatLiteral implements Value {
 
     private final float f;
 

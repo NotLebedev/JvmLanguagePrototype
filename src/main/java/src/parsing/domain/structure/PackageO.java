@@ -6,7 +6,7 @@ import src.parsing.domain.Interfaces.Value;
 /**
  * Object containing package, no value-like access expected
  */
-public class PackageO extends Value {
+public class PackageO implements Value {
 
     private String path = null;
 

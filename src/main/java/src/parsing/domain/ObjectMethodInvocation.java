@@ -9,7 +9,7 @@ import src.parsing.domain.structure.ReflectionMethodWrapper;
 /**
  * Class describing invoking methods of objects
  */
-public class ObjectMethodInvocation extends Value {
+public class ObjectMethodInvocation implements Value {
 
     private Value object;
     private ReflectionClassWrapper objectClass;

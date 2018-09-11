@@ -15,7 +15,7 @@ import java.util.List;
  * Object containing class, no value-like access expected
  * This object always contains valid class
  */
-public class ReflectionClassWrapper extends Value {
+public class ReflectionClassWrapper implements Value {
 
     //region CONSTANTS
     public static final ReflectionClassWrapper BOOLEAN = new ReflectionClassWrapper(boolean.class);

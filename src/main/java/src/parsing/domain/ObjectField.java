@@ -6,7 +6,7 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 
-public class ObjectField extends Value {
+public class ObjectField implements Value {
 
     private Value object;
     private ReflectionClassWrapper fieldOwnerClass;
