@@ -2,7 +2,7 @@ package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -13,8 +13,18 @@ public class IntLiteral implements Value {
 
     private final int integer;
 
+    private AbstractClass type;
+
     public IntLiteral(int integer) {
+
         this.integer = integer;
+
+        try {
+            this.type = ClassFactory.getInstance().forName("int");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -52,7 +62,7 @@ public class IntLiteral implements Value {
 
     @Override
     public AbstractClass getType() {
-        return ReflectionClassWrapper.INT;
+        return type;
     }
 
 }

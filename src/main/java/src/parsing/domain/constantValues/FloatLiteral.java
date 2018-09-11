@@ -1,7 +1,7 @@
 package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
-import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -9,8 +9,18 @@ public class FloatLiteral implements Value {
 
     private final float f;
 
+    private AbstractClass type;
+
     public FloatLiteral(float f) {
+
         this.f = f;
+
+        try {
+            this.type = ClassFactory.getInstance().forName("float");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -22,7 +32,7 @@ public class FloatLiteral implements Value {
 
     @Override
     public AbstractClass getType() {
-        return ReflectionClassWrapper.FLOAT;
+        return type;
     }
 
 }

@@ -1,6 +1,7 @@
 package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.interfaces.AbstractClass;
@@ -12,8 +13,18 @@ public class StringLiteral implements Value {
 
     private final String string;
 
+    private AbstractClass type;
+
     public StringLiteral(String string) {
+
         this.string = string;
+
+        try {
+            this.type = ClassFactory.getInstance().forName("java.lang.String");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -25,6 +36,6 @@ public class StringLiteral implements Value {
 
     @Override
     public AbstractClass getType() {
-        return ReflectionClassWrapper.STRING;
+        return type;
     }
 }
