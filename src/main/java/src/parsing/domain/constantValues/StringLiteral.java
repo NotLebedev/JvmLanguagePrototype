@@ -3,6 +3,7 @@ package src.parsing.domain.constantValues;
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing {@link String} literals
@@ -23,7 +24,7 @@ public class StringLiteral implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return ReflectionClassWrapper.STRING;
     }
 }

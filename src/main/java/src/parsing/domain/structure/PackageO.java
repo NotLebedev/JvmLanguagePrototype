@@ -2,6 +2,7 @@ package src.parsing.domain.structure;
 
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
  * Object containing package, no value-like access expected
@@ -55,7 +56,7 @@ public class PackageO implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return null;
     }
 

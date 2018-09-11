@@ -6,19 +6,20 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 public class StaticMethodInvocation implements Value {
 
-    private ReflectionClassWrapper methodOwnerClass;
+    private AbstractClass methodOwnerClass;
 
     private String methodName;
     private ReflectionMethodWrapper method;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private ReflectionClassWrapper[] params;
+    private AbstractClass[] params;
 
-    public void setNames(ReflectionClassWrapper methodOwnerClass, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
+    public void setNames(AbstractClass methodOwnerClass, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
 
         this.methodOwnerClass = methodOwnerClass;
         this.methodName = methodName;
@@ -76,7 +77,7 @@ public class StaticMethodInvocation implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return method.getReturnType();
     }
 

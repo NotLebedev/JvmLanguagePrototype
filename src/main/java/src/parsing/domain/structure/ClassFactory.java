@@ -1,6 +1,7 @@
 package src.parsing.domain.structure;
 
 import src.parsing.Utils;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.util.HashMap;
 
@@ -22,7 +23,7 @@ public class ClassFactory {
     private ClassFactory() {
     }
 
-    public ReflectionClassWrapper forName(String name) throws ClassNotFoundException {
+    public AbstractClass forName(String name) throws ClassNotFoundException {
 
         Class<?> cls = Utils.classForName(name);
 

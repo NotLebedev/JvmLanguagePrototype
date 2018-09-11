@@ -5,13 +5,14 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 public class Variable implements Value {
 
     private int id;
     private final String name;
 
-    private ReflectionClassWrapper type;
+    private AbstractClass type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
 
@@ -43,7 +44,7 @@ public class Variable implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return type;
     }
 }

@@ -6,6 +6,7 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing invoking methods of objects
@@ -13,14 +14,14 @@ import src.parsing.domain.structure.ReflectionMethodWrapper;
 public class ObjectMethodInvocation implements Value {
 
     private Value object;
-    private ReflectionClassWrapper objectClass;
+    private AbstractClass objectClass;
 
     private String methodName;
     private ReflectionMethodWrapper method;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private ReflectionClassWrapper[] params;
+    private AbstractClass[] params;
 
     /**
      *
@@ -93,7 +94,7 @@ public class ObjectMethodInvocation implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return method.getReturnType();
     }
 }

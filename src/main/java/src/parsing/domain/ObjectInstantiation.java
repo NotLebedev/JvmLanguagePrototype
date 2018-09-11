@@ -5,15 +5,16 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 public class ObjectInstantiation implements Value {
 
     private String constructorOwnerClassName;
-    private ReflectionClassWrapper constructorOwnerClass;
+    private AbstractClass constructorOwnerClass;
 
     private String[] paramNames;
     private Value[] paramValues;
-    private ReflectionClassWrapper[] params;
+    private AbstractClass[] params;
 
     public void setNames(String constructorOwnerClassName, String[] paramNames) throws ClassNotFoundException {
 
@@ -79,7 +80,7 @@ public class ObjectInstantiation implements Value {
         StringBuilder sb = new StringBuilder();
         sb.append("(");
 
-        for (ReflectionClassWrapper param : params) {
+        for (AbstractClass param : params) {
             sb.append(param.getJvmName());
         }
 
@@ -92,7 +93,7 @@ public class ObjectInstantiation implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return constructorOwnerClass;
     }
 

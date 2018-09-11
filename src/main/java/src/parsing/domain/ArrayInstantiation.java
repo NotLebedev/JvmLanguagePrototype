@@ -4,6 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing instantiation of array (e.g. {@code new int[][]}
@@ -15,8 +16,8 @@ public class ArrayInstantiation implements Value {
     private final int freeDimensions;
     private final Value[] sizes;
 
-    private final ReflectionClassWrapper arrayType;
-    private final ReflectionClassWrapper type;
+    private final AbstractClass arrayType;
+    private final AbstractClass type;
 
     /**
      *
@@ -25,13 +26,13 @@ public class ArrayInstantiation implements Value {
      * @param freeDimensions how many non-initialized dimensions array has for int[3] it is 0,
      *                       for int[3][][] it is 2
      */
-    public ArrayInstantiation(ReflectionClassWrapper arrayType, Value[] sizes, int freeDimensions) throws ClassNotFoundException {
+    public ArrayInstantiation(AbstractClass arrayType, Value[] sizes, int freeDimensions) throws ClassNotFoundException {
 
         this.arrayType = arrayType;
         this.sizes = sizes; //TODO : arrayType check
         this.freeDimensions = freeDimensions;
 
-        type = new ReflectionClassWrapper(sizes.length + freeDimensions, arrayType);
+        type = new ReflectionClassWrapper(sizes.length + freeDimensions, (ReflectionClassWrapper) arrayType); //TODO : check this
 
     }
 
@@ -67,7 +68,7 @@ public class ArrayInstantiation implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return type;
     }
 

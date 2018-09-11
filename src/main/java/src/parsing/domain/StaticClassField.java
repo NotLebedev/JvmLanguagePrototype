@@ -5,6 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 
 public class StaticClassField implements Value {
@@ -41,7 +42,7 @@ public class StaticClassField implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return field.getType();
     }
 

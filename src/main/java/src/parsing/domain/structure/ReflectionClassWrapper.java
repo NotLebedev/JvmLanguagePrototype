@@ -3,7 +3,6 @@ package src.parsing.domain.structure;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 import src.parsing.Utils;
-import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.packageManagement.ClassManagement;
 
@@ -179,7 +178,7 @@ public class ReflectionClassWrapper implements AbstractClass {
 
     @Override
     @Deprecated
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return this;
     }
 

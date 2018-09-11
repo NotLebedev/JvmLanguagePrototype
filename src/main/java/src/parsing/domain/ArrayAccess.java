@@ -4,7 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
-import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing access to arrays
@@ -16,7 +16,7 @@ public class ArrayAccess implements Value {
     private final Value array;
     private final Value index;
 
-    private ReflectionClassWrapper type;
+    private AbstractClass type;
 
     public ArrayAccess(Value array, Value index) throws ClassNotFoundException {
 
@@ -57,7 +57,7 @@ public class ArrayAccess implements Value {
     }
 
     @Override
-    public ReflectionClassWrapper getType() {
+    public AbstractClass getType() {
         return type;
     }
 

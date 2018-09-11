@@ -6,6 +6,7 @@ import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing storing to array elements
@@ -18,7 +19,7 @@ public class ArrayAssignment implements Expression {
     private final Value index;
     private final Value value;
 
-    private ReflectionClassWrapper type;
+    private AbstractClass type;
 
     public ArrayAssignment(Value array, Value index, Value value) throws ClassNotFoundException {
 
