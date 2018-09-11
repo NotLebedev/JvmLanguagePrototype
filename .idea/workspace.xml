@@ -4,26 +4,21 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Removed .getTypeString() method from Value interface and all implementations&#10;*Moved all PackageManagement logic to PackageO">
-      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" afterDir="false" />
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added interface">
+      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ReflectionClassWrapperTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ReflectionClassWrapperTestSuite.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,13 +32,13 @@
     <session id="-2061069121">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="56" />
+          <entry key="project.closed" value="57" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="10" />
           <entry key="project.open.time.16" value="14" />
           <entry key="project.open.time.17" value="8" />
-          <entry key="project.open.time.18" value="6" />
+          <entry key="project.open.time.18" value="7" />
           <entry key="project.open.time.19" value="6" />
           <entry key="project.open.time.20" value="4" />
           <entry key="project.open.time.21" value="1" />
@@ -53,7 +48,7 @@
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="61" />
+          <entry key="project.opened" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -62,10 +57,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3855" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="31691" />
+          <entry key="java" value="32421" />
           <entry key="lp" value="823" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="4285" />
+          <entry key="txt" value="4349" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -73,8 +68,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3855" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="31691" />
-          <entry key="PLAIN_TEXT" value="5109" />
+          <entry key="JAVA" value="32421" />
+          <entry key="PLAIN_TEXT" value="5173" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -86,7 +81,7 @@
           <entry key="class" value="14" />
           <entry key="g4" value="155" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="519" />
+          <entry key="java" value="561" />
           <entry key="lp" value="18" />
           <entry key="raw" value="3" />
           <entry key="snippet" value="7" />
@@ -98,7 +93,7 @@
           <entry key="ANTLR v4 grammar file" value="155" />
           <entry key="CLASS" value="19" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="519" />
+          <entry key="JAVA" value="561" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
@@ -151,7 +146,57 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="446">
+              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#398#399#0" expanded="true" />
+                <element signature="e#445#446#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,6 +204,7 @@
         <option value="Grammar file" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Singleton" />
       </list>
     </option>
   </component>
@@ -175,6 +221,8 @@
       <find>strs1</find>
       <find>java.lang.reflect</find>
       <find>Class&lt;?&gt;</find>
+      <find>new ReflectionClassWrapper</find>
+      <find>new ReflectionClassWrapper(</find>
     </findStrings>
     <replaceStrings>
       <replace>AM</replace>
@@ -183,6 +231,7 @@
       <replace>smi2</replace>
       <replace>return</replace>
       <replace>strs2</replace>
+      <replace>ClassFactory.getInstance().forName(</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\Work\JvmLanguagePrototype\src\main\java\src\parsing</dir>
@@ -219,8 +268,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackagePart.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/PackageO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" />
@@ -244,32 +291,34 @@
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/test/java/BytecodeIntegrityTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFiledWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignement.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Expression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringLiteral.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ReflectionClassWrapperTestSuite.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" />
       </list>
     </option>
   </component>
@@ -331,6 +380,57 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="packageManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -352,7 +452,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536674619915" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536685659411" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -379,7 +479,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="10" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -450,9 +550,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
         <item itemvalue="JUnit.BytecodeEqualityTest" />
         <item itemvalue="JUnit.BytecodeEqualityTest.test_updateSampleBytecode" />
-        <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
         <item itemvalue="JUnit.ReflectionClassWrapperTestSuite" />
       </list>
     </recent_temporary>
@@ -529,14 +629,8 @@
       <workItem from="1536257055360" duration="142000" />
       <workItem from="1536257237678" duration="8000" />
       <workItem from="1536328869947" duration="11751000" />
-      <workItem from="1536599045966" duration="3035000" />
-    </task>
-    <task id="LOCAL-00021" summary="Added recursive ClassAccessVisitor compilation (for chained invocation)">
-      <created>1533302414440</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1533302414442</updated>
+      <workItem from="1536599045966" duration="4530000" />
+      <workItem from="1536682930825" duration="2675000" />
     </task>
     <task id="LOCAL-00022" summary="Correction to getting class name">
       <created>1533303110760</created>
@@ -874,43 +968,50 @@
       <option name="project" value="LOCAL" />
       <updated>1536600386823</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="*Migrated Expression andValue to interface">
+      <created>1536674710459</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1536674710459</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest - 2018.09.07 at 20h 38m 32s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.07 at 20h 44m 10s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.07 at 20h 53m 05s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.07 at 21h 05m 24s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.07 at 21h 07m 20s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.10 at 20h 07m 53s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.10 at 20h 14m 17s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.10 at 20h 14m 23s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest - 2018.09.10 at 20h 23m 03s.xml">
-      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest - 2018.09.10 at 20h 24m 17s.xml">
       <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 03m 34s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 03m 41s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 12m 32s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 13m 40s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 23m 31s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 24m 14s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest - 2018.09.11 at 17h 24m 16s.xml">
+      <configuration name="BytecodeEqualityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.11 at 17h 24m 33s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.11 at 20h 00m 53s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233908000" />
+    <option name="totallyTimeSpent" value="238078000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -923,8 +1024,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13116057" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13195549" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1003,7 +1105,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished ValueVisitor" />
     <MESSAGE value="Changed syntax of variable assignment for future features" />
     <MESSAGE value="Changed Class&lt;?&gt; to ClassO in Variable" />
     <MESSAGE value="Implemented array access" />
@@ -1028,7 +1129,8 @@
     <MESSAGE value="*Code cleanup" />
     <MESSAGE value="*Replaced ArrayList with HashMap in ReflectionCLassWrapper&#10;*Fixed code in Variable" />
     <MESSAGE value="*Removed .getTypeString() method from Value interface and all implementations&#10;*Moved all PackageManagement logic to PackageO" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Removed .getTypeString() method from Value interface and all implementations&#10;*Moved all PackageManagement logic to PackageO" />
+    <MESSAGE value="*Migrated Expression andValue to interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Migrated Expression andValue to interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1041,21 +1143,15 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java</url>
-          <line>163</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java</url>
-          <line>32</line>
+          <line>33</line>
           <properties />
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1113,13 +1209,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1227,9 +1316,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-210">
           <caret line="26" column="109" selection-start-line="26" selection-start-column="109" selection-end-line="26" selection-end-column="109" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1248,71 +1334,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ReflectionClassWrapperTestSuite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2130">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ClassAccessVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="184" column="8" selection-start-line="184" selection-start-column="8" selection-end-line="184" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="55" column="26" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/PackageManager.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
@@ -1324,37 +1347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1390,32 +1382,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5263#5264#0" expanded="true" />
-            <element signature="e#5310#5311#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="399">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="-42">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        <state relative-caret-position="493">
+          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1424,28 +1421,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="483">
+          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1454,8 +1431,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="231">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/PackageO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/packageManagement/ClassManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ReflectionClassWrapperTestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1464,8 +1512,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        <state relative-caret-position="233">
+          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="89" column="34" lean-forward="true" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1474,15 +1539,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state relative-caret-position="287">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="588">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -21,7 +21,7 @@ public class ReflectionMethodWrapper {
     }
 
     public ReflectionClassWrapper getReturnType() {
-        return new ReflectionClassWrapper(containedMethod.getReturnType()); //TODO : inspect this place
+        return ClassFactory.getInstance().forClass(containedMethod.getReturnType()); //TODO : inspect this place
     }
 
     public String getDescriptor() {

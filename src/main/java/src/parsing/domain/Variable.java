@@ -3,6 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 
 public class Variable implements Value {
@@ -17,7 +18,7 @@ public class Variable implements Value {
         this.name = name;
         this.id = id;
 
-        type = new ReflectionClassWrapper(typeName);
+        type = ClassFactory.getInstance().forName(typeName);
 
     }
 

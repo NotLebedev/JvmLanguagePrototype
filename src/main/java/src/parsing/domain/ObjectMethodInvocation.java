@@ -3,6 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 
@@ -46,7 +47,7 @@ public class ObjectMethodInvocation implements Value {
         params = new ReflectionClassWrapper[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = new ReflectionClassWrapper(paramNames[i]);
+            params[i] = ClassFactory.getInstance().forName(paramNames[i]);
         }
 
         method = objectClass.getMethod(methodName, params);

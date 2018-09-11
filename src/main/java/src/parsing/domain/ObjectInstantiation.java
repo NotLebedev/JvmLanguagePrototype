@@ -3,6 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 
 public class ObjectInstantiation implements Value {
@@ -25,12 +26,12 @@ public class ObjectInstantiation implements Value {
 
     private void resolveNames() throws ClassNotFoundException {
 
-        constructorOwnerClass = new ReflectionClassWrapper(constructorOwnerClassName);
+        constructorOwnerClass = ClassFactory.getInstance().forName(constructorOwnerClassName);
 
         params = new ReflectionClassWrapper[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
-            params[i] = new ReflectionClassWrapper(paramNames[i]);
+            params[i] = ClassFactory.getInstance().forName(paramNames[i]);
         }
 
     }

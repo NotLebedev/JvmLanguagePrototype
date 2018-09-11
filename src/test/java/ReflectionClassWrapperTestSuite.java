@@ -1,4 +1,5 @@
 import org.junit.Test;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,19 +14,19 @@ public class ReflectionClassWrapperTestSuite {
     public void testEquals() {
 
         try {
-            assertEquals(new ReflectionClassWrapper("java.lang.String"), new ReflectionClassWrapper("java.lang.String"));
-            assertEquals(new ReflectionClassWrapper("java.lang.Integer"), new ReflectionClassWrapper("java.lang.Integer"));
-            assertEquals(new ReflectionClassWrapper("java.lang.Boolean"), new ReflectionClassWrapper("java.lang.Boolean"));
-            assertEquals(new ReflectionClassWrapper("int"), new ReflectionClassWrapper("int"));
-            assertEquals(new ReflectionClassWrapper("float"), new ReflectionClassWrapper("float"));
+            assertEquals(ClassFactory.getInstance().forName("java.lang.String"), ClassFactory.getInstance().forName("java.lang.String"));
+            assertEquals(ClassFactory.getInstance().forName("java.lang.Integer"), ClassFactory.getInstance().forName("java.lang.Integer"));
+            assertEquals(ClassFactory.getInstance().forName("java.lang.Boolean"), ClassFactory.getInstance().forName("java.lang.Boolean"));
+            assertEquals(ClassFactory.getInstance().forName("int"), ClassFactory.getInstance().forName("int"));
+            assertEquals(ClassFactory.getInstance().forName("float"), ClassFactory.getInstance().forName("float"));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
         try {
-            assertTrue(!new ReflectionClassWrapper("int").equals(new ReflectionClassWrapper("java.lang.String")));
-            assertTrue(!new ReflectionClassWrapper("java.lang.Integer").equals(new ReflectionClassWrapper("java.lang.String")));
-            assertTrue(!new ReflectionClassWrapper("int").equals(new ReflectionClassWrapper("java.lang.String")));
+            assertTrue(!ClassFactory.getInstance().forName("int").equals(ClassFactory.getInstance().forName("java.lang.String")));
+            assertTrue(!ClassFactory.getInstance().forName("java.lang.Integer").equals(ClassFactory.getInstance().forName("java.lang.String")));
+            assertTrue(!ClassFactory.getInstance().forName("int").equals(ClassFactory.getInstance().forName("java.lang.String")));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

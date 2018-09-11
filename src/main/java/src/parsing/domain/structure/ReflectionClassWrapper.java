@@ -40,13 +40,8 @@ public class ReflectionClassWrapper implements Value {
      *
      * @param cls
      */
-    @Deprecated
-    public ReflectionClassWrapper(Class<?> cls) {
+    ReflectionClassWrapper(Class<?> cls) {
         containedClass = cls;
-    }
-
-    public ReflectionClassWrapper(String name) throws ClassNotFoundException {
-        containedClass = ClassManagement.forName(name); //TODO: make class not instantiated every time
     }
 
     /**
@@ -153,33 +148,6 @@ public class ReflectionClassWrapper implements Value {
      */
     public boolean isPrimitive() {
         return containedClass.isPrimitive();
-    }
-
-    /**
-     * Determines if the specified ReflectionClassWrapper object is array
-     *
-     * @return true if is array, else otherwise
-     */
-    public boolean isArray() {
-        return containedClass.isArray();
-    }
-
-    /**
-     * Get class contained in array in the specified ReflectionClassWrapper
-     * e.g. for String[][] it will be String[]
-     *
-     * @return class contained in array if specified ReflectionClassWrapper is array, null otherwise
-     */
-    public ReflectionClassWrapper getArrayElementType() {
-
-        if(!isArray())
-            return null;
-
-        try {
-            return new ReflectionClassWrapper(containedClass.getName().substring(1));
-        } catch (ClassNotFoundException e) {
-            return null;
-        }
     }
 
     @Override

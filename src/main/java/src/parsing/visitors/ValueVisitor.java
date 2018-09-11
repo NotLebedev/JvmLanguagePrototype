@@ -5,6 +5,7 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
@@ -86,7 +87,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 //region Class
                 try {
-                    return new ReflectionClassWrapper(packageO.getPath() + "." + id);
+                    return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
                 } catch (ClassNotFoundException ignored) {
                 }
                 //endregion
@@ -101,7 +102,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                     //region Nested class
                     try {
-                        return new ReflectionClassWrapper(classO.getName() + "$" + id);
+                        return ClassFactory.getInstance().forName(classO.getName() + "$" + id);
                     } catch (ClassNotFoundException ignored) {
                     }
                     //endregion

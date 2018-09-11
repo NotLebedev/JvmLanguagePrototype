@@ -3,6 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 
 /**
@@ -32,7 +33,7 @@ public class ArrayAccess implements Value {
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
 
-        type = new ReflectionClassWrapper(typeString);
+        type = ClassFactory.getInstance().forName(typeString);
 
     }
 

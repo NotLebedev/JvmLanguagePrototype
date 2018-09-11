@@ -25,7 +25,7 @@ public class ReflectionFieldWrapper {
     }
 
     public ReflectionClassWrapper getType() {
-        return new ReflectionClassWrapper(containedField.getType());
+        return ClassFactory.getInstance().forClass(containedField.getType());
     }
 
 }

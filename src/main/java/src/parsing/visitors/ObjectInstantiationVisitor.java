@@ -3,6 +3,7 @@ package src.parsing.visitors;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.ArrayInstantiation;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
@@ -60,7 +61,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
             var freeDimensions = ctx.arrayModifier().size();
 
             try {
-                return new ArrayInstantiation(new ReflectionClassWrapper(ctx.type().getText()),
+                return new ArrayInstantiation(ClassFactory.getInstance().forName(ctx.type().getText()),
                         dimensions, freeDimensions);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
