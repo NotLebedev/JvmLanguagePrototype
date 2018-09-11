@@ -9,6 +9,7 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -92,9 +93,9 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 }
                 //endregion
 
-            } else if (val instanceof ReflectionClassWrapper) {
+            } else if (val instanceof AbstractClass) {
 
-                var classO = (ReflectionClassWrapper) val;
+                var classO = (AbstractClass) val;
 
                 if (ctx.value(1).id() != null) {
 
@@ -202,11 +203,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     .map(valueContext -> valueContext.accept(valueVisitor))
                     .collect(Collectors.toList());
 
-            var paramTypes = new ReflectionClassWrapper[params.size()];
+            var paramTypes = new AbstractClass[params.size()];
 
             paramTypes = params.stream()
                     .map((Function<Value, Object>) Value::getType)
-                    .collect(Collectors.toList()).toArray(new ReflectionClassWrapper[0]);
+                    .collect(Collectors.toList()).toArray(new AbstractClass[0]);
 
             ReflectionMethodWrapper method = null;
 
@@ -230,7 +231,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 var smi = new StaticMethodInvocation();
                 try {
-                    smi.setNames((ReflectionClassWrapper) val,
+                    smi.setNames((AbstractClass) val,
                             ctx.id().getText(),
                             params.stream()
                                     .map(value -> value.getType().getName())

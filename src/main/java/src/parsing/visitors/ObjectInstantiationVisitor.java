@@ -4,7 +4,6 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.ArrayInstantiation;
 import src.parsing.domain.structure.ClassFactory;
-import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;

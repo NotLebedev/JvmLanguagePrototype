@@ -1,6 +1,5 @@
 import org.junit.Test;
 import src.parsing.domain.structure.ClassFactory;
-import src.parsing.domain.structure.ReflectionClassWrapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
