@@ -4,6 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 import src.parsing.Utils;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.packageManagement.ClassManagement;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
  * Object containing class, no value-like access expected
  * This object always contains valid class
  */
-public class ReflectionClassWrapper implements Value {
+public class ReflectionClassWrapper implements AbstractClass {
 
     //region CONSTANTS
     public static final ReflectionClassWrapper BOOLEAN = new ReflectionClassWrapper(boolean.class);
@@ -105,17 +106,22 @@ public class ReflectionClassWrapper implements Value {
 
     }
 
-    public ReflectionMethodWrapper getMethod(String methodName, ReflectionClassWrapper[] params) throws NoSuchMethodException {
+    public ReflectionMethodWrapper getMethod(String methodName, AbstractClass[] params) throws NoSuchMethodException {
+
+        if(!(params instanceof  ReflectionClassWrapper[]))
+            throw new NoSuchMethodException(); //For obvious reasons classes from libraries can not be type-linked to code being compiled
+
+        var convParams = ((ReflectionClassWrapper[]) params);
 
         for (ReflectionMethodWrapper method : methods) {
 
-            if(method.matches(methodName, params))
+            if(method.matches(methodName, convParams))
                 return method;
 
         }
 
         var newMethod = new ReflectionMethodWrapper(containedClass, methodName,
-                Arrays.stream(params).map(ReflectionClassWrapper::getContainedClass).toArray(Class[]::new));
+                Arrays.stream(convParams).map(ReflectionClassWrapper::getContainedClass).toArray(Class[]::new));
 
         methods.add(newMethod);
 
