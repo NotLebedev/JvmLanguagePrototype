@@ -51,7 +51,7 @@ public class StaticMethodInvocation implements Value {
 
     private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
 
-        params = new ReflectionClassWrapper[paramNames.length];
+        params = new AbstractClass[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
             params[i] = ClassFactory.getInstance().forName(paramNames[i]);

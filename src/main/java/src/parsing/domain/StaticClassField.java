@@ -3,19 +3,18 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 
 public class StaticClassField implements Value {
 
-    private ReflectionClassWrapper fieldOwnerClass;
+    private AbstractClass fieldOwnerClass;
 
     private String fieldName;
     private ReflectionFieldWrapper field;
 
-    public void setNames(ReflectionClassWrapper fieldOwnerClass, String fieldName) throws NoSuchFieldException {
+    public void setNames(AbstractClass fieldOwnerClass, String fieldName) throws NoSuchFieldException {
 
         this.fieldOwnerClass = fieldOwnerClass;
         this.fieldName = fieldName;

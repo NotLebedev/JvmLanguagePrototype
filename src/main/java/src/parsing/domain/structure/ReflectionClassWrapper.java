@@ -107,10 +107,16 @@ public class ReflectionClassWrapper implements AbstractClass {
 
     public ReflectionMethodWrapper getMethod(String methodName, AbstractClass[] params) throws NoSuchMethodException {
 
-        if(!(params instanceof  ReflectionClassWrapper[]))
-            throw new NoSuchMethodException(); //For obvious reasons classes from libraries can not be type-linked to code being compiled
+        var convParams = new ReflectionClassWrapper[params.length];
 
-        var convParams = ((ReflectionClassWrapper[]) params);
+        for (int i = 0; i < params.length; i++) {
+
+            if(!(params[i] instanceof ReflectionClassWrapper))
+                throw new NoSuchMethodException(); //For obvious reasons classes from libraries can not be type-linked to code being compiled
+            else
+                convParams[i] = ((ReflectionClassWrapper) params[i]);
+
+        }
 
         for (ReflectionMethodWrapper method : methods) {
 

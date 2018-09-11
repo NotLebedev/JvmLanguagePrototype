@@ -45,7 +45,7 @@ public class ObjectMethodInvocation implements Value {
 
         objectClass = object.getType();
 
-        params = new ReflectionClassWrapper[paramNames.length];
+        params = new AbstractClass[paramNames.length];
 
         for (int i = 0; i < paramNames.length; i++) {
             params[i] = ClassFactory.getInstance().forName(paramNames[i]);
