@@ -5,6 +5,7 @@ import src.parsing.domain.structure.ReflectionFieldWrapper;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 
 /**
+ * Interface for all class containers
  * @author NotLebedev
  */
 public interface AbstractClass extends Value {
@@ -30,8 +31,21 @@ public interface AbstractClass extends Value {
      */
     String getJvmName();
 
+    /**
+     * Returns a {@link ReflectionFieldWrapper} object that reflects the specified field of the class or interface represented by this object
+     * @param fieldName field name
+     * @return {@link ReflectionFieldWrapper} for specified name
+     * @throws NoSuchFieldException field with given name does not exist
+     */
     ReflectionFieldWrapper getField(String fieldName) throws NoSuchFieldException;
 
+    /**
+     * Returns a {@link ReflectionMethodWrapper} object that reflects the specified field of the class or interface represented by this object
+     * @param methodName method name
+     * @param params parameter types
+     * @return {@link ReflectionMethodWrapper} for specified name
+     * @throws NoSuchMethodException method with given names and parameters does not exist
+     */
     ReflectionMethodWrapper getMethod(String methodName, AbstractClass[] params) throws NoSuchMethodException;
 
     /**

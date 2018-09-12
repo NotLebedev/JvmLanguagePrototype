@@ -14,7 +14,7 @@ import java.util.List;
  * Object containing class, no value-like access expected
  * This object always contains valid class
  */
-public class ReflectionClassWrapper implements AbstractClass {
+class ReflectionClassWrapper implements AbstractClass {
 
     private final Class<?> containedClass;
 
