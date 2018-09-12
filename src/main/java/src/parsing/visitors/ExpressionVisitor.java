@@ -50,7 +50,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        return null;
+        throw new IllegalStateException("Some expression type is not implemented");
 
     }
 

@@ -2,10 +2,12 @@ package src;
 
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.objectweb.asm.ClassWriter;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.CodeVisitor;
+import src.parsing.visitors.errorHandling.CompilationError;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 
 import javax.swing.*;
@@ -62,7 +64,28 @@ public class Main {
 
             var tree = rootParser.code();
 
-            ClassWriter classWriter = tree.accept(new CodeVisitor(new ErrorCollector()));
+            ClassWriter classWriter = null;
+            var errorCollector = new ErrorCollector();
+
+            try {
+                classWriter = tree.accept(new CodeVisitor(errorCollector));
+            } catch (ParseCancellationException ignored) {
+            }
+
+            if(errorCollector.getErrors().size() > 0) {
+
+                System.out.println("Compilation failed");
+
+                for (CompilationError error : errorCollector.getErrors()) {
+
+                    System.out.println("Error on " + error.getLine() + ":" + error.getSymbol() +
+                            " offending symbol \" " + error.getOffendingSymbol() + error.getMessage());
+
+                }
+
+                return;
+
+            }
 
             ///////////////////////////
 
