@@ -8,6 +8,8 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,7 +51,10 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                         .map(value -> value.getType().getName())
                         .toArray(String[]::new));
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                errorCollector.reportFatalError(
+                        new ClassNotFoundError(ctx.type().start.getLine(),                  //Reporting class not found
+                                ctx.start.getCharPositionInLine(), ctx.type().getText()),   //error
+                        new ExpressionParseCancelationException());                         //This error fails compilation of expression only
             }
 
             objectInstantiation.setParamValues(params.toArray(new Value[0]));
@@ -68,7 +73,10 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                 return new ArrayInstantiation(ClassFactory.getInstance().forName(ctx.type().getText()),
                         dimensions, freeDimensions);
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                errorCollector.reportFatalError(
+                        new ClassNotFoundError(ctx.type().start.getLine(),                  //Reporting class not found
+                                ctx.start.getCharPositionInLine(), ctx.type().getText()),   //error
+                        new ExpressionParseCancelationException());                         //This error fails compilation of expression only
             }
 
         }

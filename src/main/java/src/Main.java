@@ -79,7 +79,7 @@ public class Main {
                 for (CompilationError error : errorCollector.getErrors()) {
 
                     System.out.println("Error on " + error.getLine() + ":" + error.getSymbol() +
-                            " offending symbol \" " + error.getOffendingSymbol() + error.getMessage());
+                            " offending symbol \"" + error.getOffendingSymbol() + "\"\n\t" + error.getMessage());
 
                 }
 
