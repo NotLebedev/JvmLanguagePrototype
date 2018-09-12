@@ -6,6 +6,8 @@ import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.ArrayExpectedException;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
@@ -44,7 +46,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             try {
                 variableAssignment.setParams(variable, value);
-            }catch (IllegalArgumentException e) {
+            }catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
                                 variable.getType().getName(), value.getType().getName()),
@@ -64,8 +66,14 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             try {
                 return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
-            } catch (ClassNotFoundException e) {
+            } catch (ArrayExpectedException e) {
                 e.printStackTrace();
+            } catch (IncompatibleTypesException e) {
+                errorCollector.reportFatalError(
+                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                                arrayAccess.getType().getName(), value.getType().getName()),
+                        new ExpressionParseCancelationException()
+                );
             }
 
         }

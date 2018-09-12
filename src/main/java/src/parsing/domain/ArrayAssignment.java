@@ -4,8 +4,11 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.ArrayExpectedException;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 
 /**
  * Class describing storing to array elements
@@ -20,7 +23,7 @@ public class ArrayAssignment implements Expression {
 
     private AbstractClass type;
 
-    public ArrayAssignment(Value array, Value index, Value value) throws ClassNotFoundException {
+    public ArrayAssignment(Value array, Value index, Value value) throws IncompatibleTypesException, ArrayExpectedException {
 
         this.array = array;
         this.index = index; //TODO : type check
@@ -36,7 +39,14 @@ public class ArrayAssignment implements Expression {
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
 
-        type = ClassFactory.getInstance().forName(typeString);
+        try {
+            type = ClassFactory.getInstance().forName(typeString);
+        } catch (ClassNotFoundException e) {
+            throw new ArrayExpectedException();
+        }
+
+        if(!type.equals(value.getType()))
+            throw new IncompatibleTypesException();
 
     }
 

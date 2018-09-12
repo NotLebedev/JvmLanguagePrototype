@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
 import src.parsing.domain.VariableAssignment;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 
 /**
@@ -50,7 +51,11 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
             Value value = ctx.assignment().accept(valueVisitor);
 
-            variableAssignment.setParams(variable, value);
+            try {
+                variableAssignment.setParams(variable, value);
+            } catch (IncompatibleTypesException e) {
+                e.printStackTrace();
+            }
 
             return variableAssignment;
 

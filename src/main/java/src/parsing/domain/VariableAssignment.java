@@ -4,6 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 
 public class VariableAssignment implements Expression {
 
@@ -11,15 +12,14 @@ public class VariableAssignment implements Expression {
 
     private Value value;
 
-    public void setParams(Variable variable, Value value) {
+    public void setParams(Variable variable, Value value) throws IncompatibleTypesException {
 
         this.variable = variable;
         this.value = value;
 
         if(!variable.getType().equals(value.getType())) { // TODO : auto type casting/(un)boxing
 
-            throw new IllegalArgumentException("Illegal argument exception : " + value.getType().getJvmName()
-                                                + " can not be assigned to variable type of " + variable.getType().getJvmName());
+            throw new IncompatibleTypesException();
 
         }
 
