@@ -40,10 +40,6 @@ public class ArrayAssignment implements Expression {
 
     }
 
-    public Value getIndex() {
-        return index;
-    }
-
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 

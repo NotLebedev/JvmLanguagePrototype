@@ -9,7 +9,7 @@ public class ClassFactory {
 
     private static ClassFactory ourInstance;
 
-    private HashMap<Class<?>, ReflectionClassWrapper> reflectionClassMap = new HashMap<>();
+    private final HashMap<Class<?>, ReflectionClassWrapper> reflectionClassMap = new HashMap<>();
 
     public static ClassFactory getInstance() {
 

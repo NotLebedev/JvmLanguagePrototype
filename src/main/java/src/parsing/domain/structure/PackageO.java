@@ -11,7 +11,7 @@ public class PackageO implements Value {
 
     private String path = null;
 
-    private static Package[] packages = Package.getPackages();
+    private static final Package[] packages = Package.getPackages();
 
     public boolean updatePath(String next) {
 

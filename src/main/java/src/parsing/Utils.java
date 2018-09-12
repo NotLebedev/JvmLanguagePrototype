@@ -100,42 +100,4 @@ public class Utils {
 
     }
 
-    /**
-     * Checks if class has inner class with this name
-     * @param cls owner class
-     * @param name name to be found
-     * @return result of check
-     */
-    public static boolean hasNestedClass(Class<?> cls, String name) {
-
-        for (Class<?> declaredClass : cls.getDeclaredClasses()) {
-
-            if(declaredClass.getSimpleName().equals(name))
-                return true;
-
-        }
-
-        return false;
-
-    }
-
-    /**
-     * Finds inner class with this name
-     * @param cls owner class
-     * @param name nested class name
-     * @return found class
-     */
-    public static Class<?> getNestedClass(Class<?> cls, String name) throws ClassNotFoundException {
-
-        for (Class<?> declaredClass : cls.getDeclaredClasses()) {
-
-            if(declaredClass.getSimpleName().equals(name))
-                return declaredClass;
-
-        }
-
-        throw new ClassNotFoundException();
-
-    }
-
 }

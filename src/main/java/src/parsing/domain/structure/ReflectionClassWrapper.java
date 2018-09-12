@@ -4,7 +4,6 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 import src.parsing.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
-import src.parsing.packageManagement.ClassManagement;
 
 import java.util.ArrayList;
 import java.util.Arrays;
