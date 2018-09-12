@@ -23,7 +23,7 @@ public class ArrayAssignment implements Expression {
 
     private AbstractClass type;
 
-    public ArrayAssignment(Value array, Value index, Value value) throws IncompatibleTypesException, ArrayExpectedException {
+    public ArrayAssignment(Value array, Value index, Value value) throws IncompatibleTypesException {
 
         this.array = array;
         this.index = index; //TODO : type check
@@ -42,7 +42,7 @@ public class ArrayAssignment implements Expression {
         try {
             type = ClassFactory.getInstance().forName(typeString);
         } catch (ClassNotFoundException e) {
-            throw new ArrayExpectedException();
+            throw new IllegalStateException("Array value can not be reduced to non-existing value", e);
         }
 
         if(!type.equals(value.getType()))
