@@ -22,7 +22,7 @@ public class IntLiteral implements Value {
         try {
             this.type = ClassFactory.getInstance().forName("int");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            throw new IllegalStateException("Literal type must be available", e);
         }
 
     }

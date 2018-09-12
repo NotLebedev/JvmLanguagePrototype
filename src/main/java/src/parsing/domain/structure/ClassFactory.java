@@ -23,6 +23,37 @@ public class ClassFactory {
     private ClassFactory() {
     }
 
+    /**
+     * Constructs a multi-dimensional array from given basic type
+     * @param arrayDimension number of dimensions to be added
+     * @param basicType class to be turned into array
+     * @return the AbstractClass inheritor for specified array type
+     */
+    public AbstractClass toArray(int arrayDimension, AbstractClass basicType) {
+
+        var sb = new StringBuilder();
+
+        sb.append(basicType.getName());
+
+        for (int i = 0; i < arrayDimension; i++) {
+            sb.append("[]");
+        }
+
+        try {
+            return forName(sb.toString());
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("This should never happen, because new array class" +
+                    "is created from valid one", e);
+        }
+
+    }
+
+    /**
+     * Returns the AbstractClass inheritor associated with the class or interface with the given string name
+     * @param name the fully qualified name of the desired class
+     * @return the AbstractClass inheritor for specified name
+     * @throws ClassNotFoundException if the class cannot be located
+     */
     public AbstractClass forName(String name) throws ClassNotFoundException {
 
         Class<?> cls = Utils.classForName(name);

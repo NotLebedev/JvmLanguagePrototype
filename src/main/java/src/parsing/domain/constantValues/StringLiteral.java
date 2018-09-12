@@ -2,7 +2,6 @@ package src.parsing.domain.constantValues;
 
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.structure.ClassFactory;
-import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -22,7 +21,7 @@ public class StringLiteral implements Value {
         try {
             this.type = ClassFactory.getInstance().forName("java.lang.String");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            throw new IllegalStateException("Literal type must be available", e);
         }
 
     }

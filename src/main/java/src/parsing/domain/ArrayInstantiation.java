@@ -3,6 +3,7 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionClassWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -26,13 +27,13 @@ public class ArrayInstantiation implements Value {
      * @param freeDimensions how many non-initialized dimensions array has for int[3] it is 0,
      *                       for int[3][][] it is 2
      */
-    public ArrayInstantiation(AbstractClass arrayType, Value[] sizes, int freeDimensions) throws ClassNotFoundException {
+    public ArrayInstantiation(AbstractClass arrayType, Value[] sizes, int freeDimensions) {
 
         this.arrayType = arrayType;
         this.sizes = sizes; //TODO : arrayType check
         this.freeDimensions = freeDimensions;
 
-        type = new ReflectionClassWrapper(sizes.length + freeDimensions, (ReflectionClassWrapper) arrayType); //TODO : check this
+        type = ClassFactory.getInstance().toArray(sizes.length + freeDimensions, arrayType);
 
     }
 

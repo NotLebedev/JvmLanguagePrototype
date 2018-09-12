@@ -17,52 +17,14 @@ import java.util.List;
  */
 public class ReflectionClassWrapper implements AbstractClass {
 
-    //region CONSTANTS
-    public static final ReflectionClassWrapper BOOLEAN = new ReflectionClassWrapper(boolean.class);
-    public static final ReflectionClassWrapper BYTE = new ReflectionClassWrapper(byte.class);
-    public static final ReflectionClassWrapper CHAR = new ReflectionClassWrapper(char.class);
-    public static final ReflectionClassWrapper LONG = new ReflectionClassWrapper(long.class);
-    public static final ReflectionClassWrapper SHORT = new ReflectionClassWrapper(short.class);
-    public static final ReflectionClassWrapper INT = new ReflectionClassWrapper(int.class);
-    public static final ReflectionClassWrapper FLOAT = new ReflectionClassWrapper(float.class);
-    public static final ReflectionClassWrapper DOUBLE = new ReflectionClassWrapper(double.class);
-    public static final ReflectionClassWrapper STRING = new ReflectionClassWrapper(String.class);
-    //endregion
-
     private final Class<?> containedClass;
 
     //Lazy initialized lists of methods and fields
     private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
     private final HashMap<String, ReflectionFieldWrapper> fields = new HashMap<>();
 
-    /**
-     * This method is marked as deprecated to remind  to remove it from public use
-     *
-     * @param cls
-     */
     ReflectionClassWrapper(Class<?> cls) {
         containedClass = cls;
-    }
-
-    /**
-     * Construct an array from given ReflectionClassWrapper
-     *
-     * @param arrayDimension dimension of new array
-     * @param basicType non-array type
-     * @throws ClassNotFoundException
-     */
-    public ReflectionClassWrapper(int arrayDimension, ReflectionClassWrapper basicType) throws ClassNotFoundException {
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(basicType.getName());
-
-        for (int i = 0; i < arrayDimension; i++) {
-            sb.append("[]");
-        }
-
-        containedClass = ClassManagement.forName(sb.toString());
-
     }
 
     /**

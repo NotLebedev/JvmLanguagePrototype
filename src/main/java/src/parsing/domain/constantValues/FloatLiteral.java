@@ -18,7 +18,7 @@ public class FloatLiteral implements Value {
         try {
             this.type = ClassFactory.getInstance().forName("float");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            throw new IllegalStateException("Literal type must be available", e);
         }
 
     }
