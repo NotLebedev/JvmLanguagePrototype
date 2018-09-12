@@ -9,6 +9,7 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -26,9 +27,13 @@ import java.util.stream.Collectors;
 public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private final Scope scope;
+    private final ErrorCollector errorCollector;
 
-    public ValueVisitor(Scope scope) {
+    public ValueVisitor(Scope scope, ErrorCollector errorCollector) {
+
         this.scope = scope;
+        this.errorCollector = errorCollector;
+
     }
 
     @Override
@@ -58,21 +63,21 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         //region object instantioation
         else if (ctx.objectInstantiation() != null) {
-            return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope));
+            return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope, errorCollector));
         }
         //endregion
 
         //region parenthesis
         else if (ctx.bracketOpenS() != null) {
             //Just simple parenthesis
-            return ctx.value(0).accept(new ValueVisitor(scope));
+            return ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
         }
         //endregion
 
         //region dotS
         else if (ctx.dotS() != null) {
 
-            var val = ctx.value(0).accept(new ValueVisitor(scope));
+            var val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
 
             if (val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
                 // only id to go next
@@ -162,8 +167,8 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         //region array
         else if (ctx.arrayIndex() != null) {
 
-            Value val = ctx.value(0).accept(new ValueVisitor(scope));
-            Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope));
+            Value val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+            Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope, errorCollector));
 
             try {
                 return new ArrayAccess(val, index);
@@ -196,7 +201,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             List<Value> params;
 
-            var valueVisitor = new ValueVisitor(scope);
+            var valueVisitor = new ValueVisitor(scope, errorCollector);
 
             params = ctx.value().stream()
                     .map(valueContext -> valueContext.accept(valueVisitor))

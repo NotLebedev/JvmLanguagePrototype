@@ -7,6 +7,7 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,9 +20,13 @@ import java.util.stream.Collectors;
 public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
     private final Scope scope;
+    private final ErrorCollector errorCollector;
 
-    public ObjectInstantiationVisitor(Scope scope) {
+    public ObjectInstantiationVisitor(Scope scope, ErrorCollector errorCollector) {
+
         this.scope = scope;
+        this.errorCollector = errorCollector;
+
     }
 
     @Override
@@ -33,7 +38,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             List<Value> params;
 
-            var valueVisitor = new ValueVisitor(scope);
+            var valueVisitor = new ValueVisitor(scope, errorCollector);
 
             params = ctx.value().stream()
                     .map(valueContext -> valueContext.accept(valueVisitor))
@@ -55,7 +60,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             var dimensions = ctx.arrayIndex().stream()
                     .map(arrayIndexContext ->
-                            arrayIndexContext.value().accept(new ValueVisitor(scope)))
+                            arrayIndexContext.value().accept(new ValueVisitor(scope, errorCollector)))
                     .toArray(Value[]::new);
             var freeDimensions = ctx.arrayModifier().size();
 

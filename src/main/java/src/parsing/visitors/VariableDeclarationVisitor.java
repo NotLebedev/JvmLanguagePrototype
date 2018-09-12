@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
 import src.parsing.domain.VariableAssignment;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 /**
  * Class responsible for visiting variable assignments (e.g. {@code String str})
@@ -16,9 +17,13 @@ import src.parsing.domain.VariableAssignment;
 public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
     private final Scope scope;
+    private final ErrorCollector errorCollector;
 
-    public VariableDeclarationVisitor(Scope scope) {
+    public VariableDeclarationVisitor(Scope scope, ErrorCollector errorCollector) {
+
         this.scope = scope;
+        this.errorCollector = errorCollector;
+
     }
 
     @Override
@@ -41,7 +46,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
             var variableAssignment = new VariableAssignment();
 
-            var valueVisitor = new ValueVisitor(scope);
+            var valueVisitor = new ValueVisitor(scope, errorCollector);
 
             Value value = ctx.assignment().accept(valueVisitor);
 

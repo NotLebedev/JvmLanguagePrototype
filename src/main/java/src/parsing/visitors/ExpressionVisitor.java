@@ -4,6 +4,7 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 /**
  * Class responsible for visiting single expressions in code
@@ -13,9 +14,13 @@ import src.parsing.domain.Interfaces.Scope;
 public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
     private final Scope scope;
+    private final ErrorCollector errorCollector;
 
-    public ExpressionVisitor(Scope scope) {
+    public ExpressionVisitor(Scope scope, ErrorCollector errorCollector) {
+
         this.scope = scope;
+        this.errorCollector = errorCollector;
+
     }
 
     @Override
@@ -23,7 +28,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.variableDeclaration() != null) {
 
-            var variableDeclarationVisitor = new VariableDeclarationVisitor(scope);
+            var variableDeclarationVisitor = new VariableDeclarationVisitor(scope, errorCollector);
 
             return ctx.variableDeclaration().accept(variableDeclarationVisitor);
 
@@ -31,7 +36,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.variableAssignment() != null) {
 
-            var variableAssignmentVisitor = new VariableAssignmentVisitor(scope);
+            var variableAssignmentVisitor = new VariableAssignmentVisitor(scope, errorCollector);
 
             return ctx.variableAssignment().accept(variableAssignmentVisitor);
 
@@ -39,7 +44,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.value() != null) {
 
-            var valueVisitor = new ValueVisitor(scope);
+            var valueVisitor = new ValueVisitor(scope, errorCollector);
 
             return ctx.value().accept(valueVisitor);
 

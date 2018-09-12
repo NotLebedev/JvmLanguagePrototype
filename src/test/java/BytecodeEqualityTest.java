@@ -7,6 +7,7 @@ import org.objectweb.asm.ClassWriter;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.CodeVisitor;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -87,7 +88,7 @@ public class BytecodeEqualityTest {
 
         var tree = rootParser.code();
 
-        ClassWriter classWriter = tree.accept(new CodeVisitor());
+        ClassWriter classWriter = tree.accept(new CodeVisitor(new ErrorCollector()));
 
         return classWriter.toByteArray();
 

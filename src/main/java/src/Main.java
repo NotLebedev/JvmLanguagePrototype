@@ -6,6 +6,7 @@ import org.objectweb.asm.ClassWriter;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.CodeVisitor;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 import javax.swing.*;
 import java.io.FileOutputStream;
@@ -61,7 +62,7 @@ public class Main {
 
             var tree = rootParser.code();
 
-            ClassWriter classWriter = tree.accept(new CodeVisitor());
+            ClassWriter classWriter = tree.accept(new CodeVisitor(new ErrorCollector()));
 
             ///////////////////////////
 

@@ -6,6 +6,7 @@ import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.visitors.errorHandling.ErrorCollector;
 
 /**
  * Class responsible for visiting assignments (e.g. {@code str1 = str2})
@@ -15,15 +16,19 @@ import src.parsing.domain.Interfaces.Value;
 public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
     private final Scope scope;
+    private final ErrorCollector errorCollector;
 
-    public VariableAssignmentVisitor(Scope scope) {
+    public VariableAssignmentVisitor(Scope scope, ErrorCollector errorCollector) {
+
         this.scope = scope;
+        this.errorCollector = errorCollector;
+
     }
 
     @Override
     public Expression visitVariableAssignment(RootParser.VariableAssignmentContext ctx) {
 
-        Value val = ctx.value().accept(new ValueVisitor(scope));
+        Value val = ctx.value().accept(new ValueVisitor(scope, errorCollector));
 
         if(val instanceof Variable) {
 
@@ -31,7 +36,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             var variable = ((Variable) val);
 
-            var valueVisitor = new ValueVisitor(scope);
+            var valueVisitor = new ValueVisitor(scope, errorCollector);
 
             var value = ctx.assignment().accept(valueVisitor);
 
@@ -45,7 +50,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             var arrayAccess = ((ArrayAccess) val);
 
-            var value = ctx.assignment().accept(new ValueVisitor(scope));
+            var value = ctx.assignment().accept(new ValueVisitor(scope, errorCollector));
 
             try {
                 return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
