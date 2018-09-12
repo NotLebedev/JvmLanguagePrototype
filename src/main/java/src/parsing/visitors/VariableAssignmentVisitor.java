@@ -7,6 +7,8 @@ import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 /**
  * Class responsible for visiting assignments (e.g. {@code str1 = str2})
@@ -40,7 +42,15 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             var value = ctx.assignment().accept(valueVisitor);
 
-            variableAssignment.setParams(variable, value);
+            try {
+                variableAssignment.setParams(variable, value);
+            }catch (IllegalArgumentException e) {
+                errorCollector.reportFatalError(
+                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                                variable.getType().getName(), value.getType().getName()),
+                        new ExpressionParseCancelationException()
+                );
+            }
 
             return variableAssignment;
 
