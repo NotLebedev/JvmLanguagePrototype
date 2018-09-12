@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.misc.ParseCancellationException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CancellationException;
 
 /**
  * @author NotLebedev
@@ -23,13 +24,14 @@ public class ErrorCollector {
     /**
      * Report error that is fatal for compilation process
      *
-     * This method throws {@link ParseCancellationException}
+     * This method throws {@link CancellationException}
      * @param error {@link CompilationError} to be reported
+     * @param e exception to be thrown
      */
-    public void reportFatalError(CompilationError error) {
+    public void reportFatalError(CompilationError error, CancellationException e) {
 
         errors.add(error);
-        throw new ParseCancellationException();
+        throw e;
 
     }
 
