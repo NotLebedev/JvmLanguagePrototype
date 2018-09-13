@@ -3,6 +3,8 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.ArrayExpectedException;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -13,27 +15,35 @@ import src.parsing.domain.structure.interfaces.AbstractClass;
  */
 public class ArrayAccess implements Value {
 
+    private final static AbstractClass INDEX_TYPE = ClassFactory.getInstance().forCorrectName("int");
+
     private final Value array;
     private final Value index;
 
     private AbstractClass type;
 
-    public ArrayAccess(Value array, Value index) throws ClassNotFoundException {
+    public ArrayAccess(Value array, Value index) throws ArrayExpectedException, IncompatibleTypesException {
 
         this.array = array;
-        this.index = index; //TODO : type check
 
-        /*if(!this.array.getWrappedType().isArray())
-            throw new Exception(); //TODO : proper exception
+        if(!index.getType().equals(INDEX_TYPE)) //TODO : unboxing and type cast
+            throw new IncompatibleTypesException();
 
-        type = this.array.getWrappedType().getArrayElementType();*/
+        this.index = index;
+
+        if(this.array.getType().getJvmName().length() < 2) //If length of classname is less than 2 it can not be an array
+            throw new ArrayExpectedException();
 
         String typeString = this.array.getType().getJvmName().substring(1);
 
         if(typeString.charAt(0) != '[' && typeString.length() > 1)
             typeString = typeString.substring(1, typeString.length() - 1).replace('/', '.');
 
-        type = ClassFactory.getInstance().forName(typeString);
+        try {
+            type = ClassFactory.getInstance().forName(typeString);
+        }catch (ClassNotFoundException e) {
+            throw new ArrayExpectedException();
+        }
 
     }
 

@@ -62,6 +62,25 @@ public class ClassFactory {
 
     }
 
+    /**
+     * Returns the AbstractClass inheritor associated with the class or interface with the given string name
+     * Use this method to load literal classes (e.g. types of literals, array index type)
+     * @param name the fully qualified name of the desired class
+     * @return the AbstractClass inheritor for specified name
+     */
+    public AbstractClass forCorrectName(String name) {
+
+        Class<?> cls = null;
+        try {
+            cls = Utils.classForName(name);
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("Name expected to be correct", e);
+        }
+
+        return forClass(cls);
+
+    }
+
     ReflectionClassWrapper forClass(Class<?> cls) {
 
         if(reflectionClassMap.containsKey(cls))

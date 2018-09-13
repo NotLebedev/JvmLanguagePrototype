@@ -5,11 +5,16 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.ArrayExpectedException;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
+import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -172,8 +177,21 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             try {
                 return new ArrayAccess(val, index);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            } catch (ArrayExpectedException e) {
+                errorCollector.reportFatalError(
+                        new ArrayExpectedError(ctx.value(0).start.getLine(), ctx.value(0).start.getCharPositionInLine(), ctx.value(0).getText(),
+                                val.getType().getName()),
+                        new ExpressionParseCancelationException()
+                );
+            } catch (IncompatibleTypesException e) {
+                errorCollector.reportFatalError(
+                        new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
+                                ctx.arrayIndex().value().start.getCharPositionInLine(),
+                                ctx.arrayIndex().value().getText(),
+                                "int",
+                                index.getType().getName()),
+                        new ExpressionParseCancelationException()
+                );
             }
 
         } //endregion
