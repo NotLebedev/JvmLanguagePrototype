@@ -13,6 +13,7 @@ import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
+import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
@@ -62,6 +63,12 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             if (packagePart.updatePath(ctx.id().getText()))
                 return packagePart;
+
+            errorCollector.reportFatalError(
+                    new CanNotResolveSymbolError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
+                            ctx.id().getText()),
+                    new ExpressionParseCancelationException()
+            );
 
         }
         //endregion

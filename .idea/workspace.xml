@@ -4,13 +4,10 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ArrayExpectedError.java" afterDir="false" />
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added ArrayAccess exceptions&#10;*Added error collection for arrays in ValueVisitor&#10;*Added ClassFactory.forCorrectName()">
+      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/CanNotResolveSymbolError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,10 +47,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3855" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="36683" />
+          <entry key="java" value="36795" />
           <entry key="lp" value="897" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="5717" />
+          <entry key="txt" value="5826" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -61,8 +58,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3855" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="36683" />
-          <entry key="PLAIN_TEXT" value="6626" />
+          <entry key="JAVA" value="36795" />
+          <entry key="PLAIN_TEXT" value="6735" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -74,7 +71,7 @@
           <entry key="class" value="15" />
           <entry key="g4" value="158" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="691" />
+          <entry key="java" value="693" />
           <entry key="lp" value="23" />
           <entry key="raw" value="3" />
           <entry key="snippet" value="7" />
@@ -86,7 +83,7 @@
           <entry key="ANTLR v4 grammar file" value="158" />
           <entry key="CLASS" value="20" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="691" />
+          <entry key="JAVA" value="693" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
@@ -140,11 +137,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            <state relative-caret-position="252">
+              <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -158,18 +155,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="193" column="18" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
+            <state relative-caret-position="453">
+              <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1521#1538#0" />
+                <element signature="e#1359#1375#0" />
                 <element signature="e#1919#1949#0" />
                 <element signature="e#2151#2171#0" />
                 <element signature="e#2377#2390#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ClassNotFoundError.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="12">
+              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="39" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/CanNotResolveSymbolError.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="430">
+              <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -277,7 +292,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/MethodO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassO.java" />
         <option value="$PROJECT_DIR$/src/test/java/BytecodeIntegrityTest.java" />
@@ -326,8 +340,9 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/CanNotResolveSymbolError.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
       </list>
     </option>
   </component>
@@ -574,7 +589,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536853711306" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536854628672" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -602,7 +617,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="10" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -755,14 +770,7 @@
       <workItem from="1536599045966" duration="4530000" />
       <workItem from="1536682930825" duration="6188000" />
       <workItem from="1536765175122" duration="12191000" />
-      <workItem from="1536851290659" duration="2316000" />
-    </task>
-    <task id="LOCAL-00039" summary="Finished with implementing object instantiation">
-      <created>1533758926743</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1533758926743</updated>
+      <workItem from="1536851290659" duration="3219000" />
     </task>
     <task id="LOCAL-00040" summary="Changed method code value rule, to make class access more uniform">
       <created>1533814773133</created>
@@ -1100,7 +1108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536778978476</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="*Added ArrayAccess exceptions&#10;*Added error collection for arrays in ValueVisitor&#10;*Added ClassFactory.forCorrectName()">
+      <created>1536853738856</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1536853738857</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1136,7 +1151,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256098000" />
+    <option name="totallyTimeSpent" value="257001000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1151,7 +1166,7 @@
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13354531" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13354531" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1162,7 +1177,7 @@
       <window_info anchor="bottom" id="Debug" order="1" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Run" order="4" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32917964" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="7" weight="0.32917964" />
@@ -1230,7 +1245,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Renamed ClassO to ReflectionClassWrapper&#10;*Renamed ReflectionMethodContainer to ReflectionMethodWrapper" />
     <MESSAGE value="*Added bytecode equality test" />
     <MESSAGE value="*ReflectionClassWrapper.getMethod() changed in a way to reuse method object instead of creating new one" />
     <MESSAGE value="*Replaced reflection Field usages with ReflectionFieldWrapper&#10;*Removed unused hasNonStaticField() and hasStaticField() methods from ClassManagement" />
@@ -1255,7 +1269,8 @@
     <MESSAGE value="*Implemented error collection in VariableAssignmentVisitor" />
     <MESSAGE value="*Added proper domain exceptions for ArrayAssignment and VariableAssignment&#10;*Implemented IncompatibleTypesException catch clause for VariableAssignmentVisitor" />
     <MESSAGE value="*Removed exception from ArrayAssignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Removed exception from ArrayAssignment" />
+    <MESSAGE value="*Added ArrayAccess exceptions&#10;*Added error collection for arrays in ValueVisitor&#10;*Added ClassFactory.forCorrectName()" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added ArrayAccess exceptions&#10;*Added error collection for arrays in ValueVisitor&#10;*Added ClassFactory.forCorrectName()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1280,7 +1295,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java</url>
-          <line>174</line>
+          <line>181</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
@@ -1346,13 +1361,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ReflectionClassWrapperTestSuite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1385,6 +1393,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1406,6 +1417,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="34" column="92" selection-start-line="34" selection-start-column="92" selection-end-line="34" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1615,13 +1629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ClassNotFoundError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="39" column="1" selection-start-line="7" selection-start-column="31" selection-end-line="39" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
@@ -1706,24 +1713,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ClassNotFoundError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/CanNotResolveSymbolError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="193" column="18" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
+        <state relative-caret-position="453">
+          <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1521#1538#0" />
+            <element signature="e#1359#1375#0" />
             <element signature="e#1919#1949#0" />
             <element signature="e#2151#2171#0" />
             <element signature="e#2377#2390#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
         </state>
       </provider>
     </entry>
