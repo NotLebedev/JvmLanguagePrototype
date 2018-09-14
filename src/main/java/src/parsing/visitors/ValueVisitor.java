@@ -167,7 +167,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                         return objectField;
 
                     } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
+                        errorCollector.reportFatalError(
+                                new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
+                                        ctx.value(1).id().getText()),
+                                new ExpressionParseCancelationException()
+                        );
                     }
                     //Is object field
 
