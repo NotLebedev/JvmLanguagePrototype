@@ -106,6 +106,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 try {
                     return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
                 } catch (ClassNotFoundException ignored) {
+                    errorCollector.reportFatalError(
+                            new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
+                                    ctx.value(1).id().getText()),
+                            new ExpressionParseCancelationException()
+                    );
                 }
                 //endregion
 
