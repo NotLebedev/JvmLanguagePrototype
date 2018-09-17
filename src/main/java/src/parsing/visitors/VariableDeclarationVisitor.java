@@ -11,6 +11,7 @@ import src.parsing.domain.VariableAssignment;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
+import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
@@ -43,7 +44,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
              variable = new Variable(type, name, 0);
         } catch (ClassNotFoundException e) {
             errorCollector.reportFatalError(
-                    new CanNotResolveSymbolError(ctx.declarationType().start.getLine(), ctx.declarationType().start.getCharPositionInLine(),
+                    new ClassNotFoundError(ctx.declarationType().start.getLine(), ctx.declarationType().start.getCharPositionInLine(),
                             ctx.declarationType().getText()),
                     new ParseCancellationException()
             );
@@ -64,7 +65,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
             } catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.assignment().value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                variable.getType().getName(), value.getType().getName()),
+                                variable.getType().getName(), value.getType().getName()), //variable can not be null (because of reportFatalError)
                         new ExpressionParseCancelationException()
                 );
             }

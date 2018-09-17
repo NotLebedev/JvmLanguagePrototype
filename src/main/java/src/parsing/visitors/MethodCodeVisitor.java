@@ -31,23 +31,18 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
     @Override
     public Method visitMethodCode(RootParser.MethodCodeContext ctx) {
 
-        ExpressionVisitor expressionVisitor = new ExpressionVisitor(method, errorCollector);
+        ctx.expression().forEach(expressionContext -> {
 
-        List<Expression> expressions = ctx.expression()
-                .stream()
-                .map(expressionContext -> {
+            try {
 
-                    try {
-                        return expressionContext.accept(expressionVisitor);
-                    }catch (ExpressionParseCancelationException e){
-                        return null;
-                    }
+                var expression = expressionContext.accept(new ExpressionVisitor(method, errorCollector));
 
-                }) .collect(Collectors.toList());
+                if(expression != null)
+                    method.addExpression(expression);
 
-        expressions.forEach(expression -> { //TODO : collapse two streams
-            if(expression != null)
-                method.addExpression(expression);
+            }catch (ExpressionParseCancelationException ignored){
+            }
+
         });
 
         return method;
