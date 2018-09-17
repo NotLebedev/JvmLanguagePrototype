@@ -28,7 +28,7 @@ public class LiteralCGVisitor extends RootBaseVisitor<Value> {
 
         }
 
-        return null;
+        throw new IllegalStateException("Some of visitLiteralCG cases is not implemented");
 
     }
 

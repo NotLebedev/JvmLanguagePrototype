@@ -217,7 +217,8 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         } //endregion
 
-        return null;
+        throw new IllegalStateException("visitValue execution should not reach this point, if " +
+                "it does, than one of cases is not implemented");
 
     }
 

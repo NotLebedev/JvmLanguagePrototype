@@ -81,7 +81,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
         }
 
-        return null;
+        throw new IllegalStateException("visitObjectInstantiation execution should not reach this point");
 
     }
 }

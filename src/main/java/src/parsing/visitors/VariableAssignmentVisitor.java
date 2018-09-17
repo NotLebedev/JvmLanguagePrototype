@@ -77,7 +77,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        return null; //TODO : implement other cases
+        throw new IllegalStateException("I forgot to implement all cases in VariableAssignment"); //TODO : implement other cases
 
     }
 }
