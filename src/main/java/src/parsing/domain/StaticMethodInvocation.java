@@ -11,53 +11,23 @@ public class StaticMethodInvocation implements Value {
 
     private AbstractClass methodOwnerClass;
 
-    private String methodName;
     private ReflectionMethodWrapper method;
 
-    private String[] paramNames;
     private Value[] paramValues;
-    private AbstractClass[] params;
 
-    public void setNames(AbstractClass methodOwnerClass, String methodName, String[] paramNames) throws ClassNotFoundException, NoSuchMethodException {
+    public void setNames(AbstractClass methodOwnerClass, ReflectionMethodWrapper method) {
 
         this.methodOwnerClass = methodOwnerClass;
-        this.methodName = methodName;
-        this.paramNames = paramNames;
-
-        resolveNames();
+        this.method = method;
 
     }
 
     /**
      *
      * @param paramValues parameter values
-     * @throws IllegalArgumentException class of value doe not match class of parameter
      */
-    public void setParamValues(Value[] paramValues) throws IllegalArgumentException {
-
-        for (int i = 0; i < params.length; i++) {
-
-            if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
-                throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getType().getJvmName() +
-                        " does not match field type of " + params[i].getJvmName());
-            }
-
-        }
-
+    public void setParamValues(Value[] paramValues) {
         this.paramValues = paramValues;
-
-    }
-
-    private void resolveNames() throws ClassNotFoundException, NoSuchMethodException {
-
-        params = new AbstractClass[paramNames.length];
-
-        for (int i = 0; i < paramNames.length; i++) {
-            params[i] = ClassFactory.getInstance().forName(paramNames[i]);
-        }
-
-        method = methodOwnerClass.getMethod(methodName, params);
-
     }
 
     @Override

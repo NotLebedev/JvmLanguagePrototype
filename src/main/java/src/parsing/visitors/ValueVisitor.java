@@ -280,15 +280,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             if (isStatic) {
 
                 var smi = new StaticMethodInvocation();
-                try {
-                    smi.setNames((AbstractClass) val,
-                            ctx.id().getText(),
-                            params.stream()
-                                    .map(value -> value.getType().getName())
-                                    .toArray(String[]::new));
-                } catch (ClassNotFoundException | NoSuchMethodException e) {
-                    e.printStackTrace();
-                }
+                smi.setNames(val.getType(), method);
 
                 smi.setParamValues(params.toArray(new Value[0]));
 
