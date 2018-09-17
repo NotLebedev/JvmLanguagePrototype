@@ -21,7 +21,6 @@ import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationE
 import java.lang.reflect.Modifier;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -298,15 +297,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             } else {
 
                 var omi = new ObjectMethodInvocation();
-                try {
-                    omi.setNames(val,
-                            ctx.id().getText(),
-                            params.stream()
-                                    .map(value -> value.getType().getName())
-                                    .toArray(String[]::new));
-                } catch (NoSuchMethodException | ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                omi.setNames(val, method);
 
                 omi.setParamValues(params.toArray(new Value[0]));
 
