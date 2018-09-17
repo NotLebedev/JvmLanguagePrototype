@@ -15,6 +15,7 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
 import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import java.lang.reflect.Modifier;
@@ -250,7 +251,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             var paramTypes = new AbstractClass[params.size()];
 
             paramTypes = params.stream()
-                    .map((Function<Value, Object>) Value::getType)
+                    .map(Value::getType)
                     .collect(Collectors.toList()).toArray(new AbstractClass[0]);
 
             ReflectionMethodWrapper method = null;
@@ -259,7 +260,13 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 method = val.getType().getMethod(ctx.id().getText(),
                         paramTypes);
             } catch (NoSuchMethodException e) {
-                e.printStackTrace();
+                errorCollector.reportFatalError(
+                        new NoSuchMethodError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
+                                ctx.id().getText(),
+                                paramTypes),
+                        new ExpressionParseCancelationException()
+
+                );
             }
 
             boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
