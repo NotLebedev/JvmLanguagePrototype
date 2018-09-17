@@ -12,9 +12,7 @@ import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
-import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
-import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
-import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.errors.*;
 import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
@@ -272,8 +270,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             if (requireStatic && !isStatic) {
 
-                System.err.println("Incorrect modifier");
-                return null;
+                errorCollector.reportFatalError(
+                        new WrongContextError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
+                                ctx.id().getText()),
+                        new ExpressionParseCancelationException()
+                );
 
             }
 
