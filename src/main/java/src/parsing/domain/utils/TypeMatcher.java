@@ -9,7 +9,7 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,6 +26,12 @@ public class TypeMatcher {
     private static TypeMatcher instance;
 
     private List<Pair<AbstractClass, AbstractClass>> boxingPairs;
+    private List<AbstractClass> conversionGroup;
+
+    private static final String[] singleWordGroup = {"byte", "java.lang.Byte",
+                                                     "short", "java.lang.Short",
+                                                     "int", "java.lang.Integer",
+                                                     "char", "java.lang.Character"};
 
     private TypeMatcher() {
 
@@ -33,7 +39,7 @@ public class TypeMatcher {
 
         boxingPairs = new ArrayList<>(8);
 
-        var cf = ClassFactory.getInstance();
+        final var cf = ClassFactory.getInstance();
 
         boxingPairs.add(new Pair<>(cf.forCorrectName("byte"), cf.forCorrectName("java.lang.Byte")));
         boxingPairs.add(new Pair<>(cf.forCorrectName("short"), cf.forCorrectName("java.lang.Short")));
@@ -46,6 +52,13 @@ public class TypeMatcher {
 
         //endregion
 
+        //region init conversionGroups
+
+        conversionGroup = new ArrayList<>();
+        Arrays.stream(singleWordGroup).forEach(s -> conversionGroup.add(cf.forCorrectName(s)));
+
+        //endregion
+
     }
 
     public static TypeMatcher getInstance() {
@@ -54,6 +67,33 @@ public class TypeMatcher {
             instance = new TypeMatcher();
 
         return instance;
+
+    }
+
+    public boolean matches(AbstractClass sample, AbstractClass value) {
+
+        if(sample.equals(value))
+            return true;
+
+        if(!(sample.isPrimitive()) && !(value.isPrimitive()))
+            return false;
+
+        if(conversionGroup.contains(sample) && conversionGroup.contains(value))
+            return true;
+        else {
+
+            for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
+
+                if((boxingPair.getKey().equals(sample.getType()) && boxingPair.getValue().equals(value.getType())) ||
+                        (boxingPair.getKey().equals(value.getType()) && boxingPair.getValue().equals(sample.getType())))
+                    return true;
+
+            }
+
+        }
+
+        return false;
+
 
     }
 

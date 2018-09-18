@@ -2,15 +2,57 @@ import org.junit.jupiter.api.Test;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.utils.TypeMatcher;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author NotLebedev
  */
 public class TypeMatcherTestSuite {
+
+    @Test
+    public void testMatches() {
+
+        assertSingleMatch("int", "int");
+        assertSingleMatch("long", "long");
+
+        assertSingleMatch("char", "int");
+        assertSingleMatch("int", "short");
+        assertSingleMatch("byte", "short");
+
+        assertSingleMatch("int", "java.lang.Integer");
+        assertSingleMatch("byte", "java.lang.Byte");
+        assertSingleMatch("boolean", "java.lang.Boolean");
+
+        assertSingleMatch("int", "java.lang.Short");
+        assertSingleMatch("short", "java.lang.Character");
+        assertSingleMatch("byte", "java.lang.Integer");
+
+        assertSingleNotMatch("int", "long");
+        assertSingleNotMatch("boolean", "java.lang.String");
+        assertSingleNotMatch("java.lang.Byte", "java.lang.Integer");
+        assertSingleNotMatch("int", "java.lang.Long");
+
+
+    }
+
+    private void assertSingleMatch(String class1, String class2) {
+
+        var tm = TypeMatcher.getInstance();
+
+        assertTrue(tm.matches(ClassFactory.getInstance().forCorrectName(class1), ClassFactory.getInstance().forCorrectName(class2)));
+
+    }
+
+    private void assertSingleNotMatch(String class1, String class2) {
+
+        var tm = TypeMatcher.getInstance();
+
+        assertFalse(tm.matches(ClassFactory.getInstance().forCorrectName(class1), ClassFactory.getInstance().forCorrectName(class2)));
+
+    }
 
     @Test
     public void testEqual() throws ClassNotFoundException, IncompatibleTypesException {
