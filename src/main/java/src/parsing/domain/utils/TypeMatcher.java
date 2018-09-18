@@ -28,6 +28,14 @@ public class TypeMatcher {
     private List<Pair<AbstractClass, AbstractClass>> boxingPairs;
     private List<AbstractClass> conversionGroup;
 
+    private static final String[] conversionPairTypes = {"byte", "java.lang.Byte",
+                                                        "short", "java.lang.Short",
+                                                        "int", "java.lang.Integer",
+                                                        "char", "java.lang.Character",
+                                                        "long", "java.lang.Long",
+                                                        "boolean", "java.lang.Boolean",
+                                                        "float", "java.lang.Float",
+                                                        "double", "java.lang.Double"};
     private static final String[] singleWordGroup = {"byte", "java.lang.Byte",
                                                      "short", "java.lang.Short",
                                                      "int", "java.lang.Integer",
@@ -41,14 +49,9 @@ public class TypeMatcher {
 
         final var cf = ClassFactory.getInstance();
 
-        boxingPairs.add(new Pair<>(cf.forCorrectName("byte"), cf.forCorrectName("java.lang.Byte")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("short"), cf.forCorrectName("java.lang.Short")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("int"), cf.forCorrectName("java.lang.Integer")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("long"), cf.forCorrectName("java.lang.Long")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("char"), cf.forCorrectName("java.lang.Character")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("boolean"), cf.forCorrectName("java.lang.Boolean")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("float"), cf.forCorrectName("java.lang.Float")));
-        boxingPairs.add(new Pair<>(cf.forCorrectName("double"), cf.forCorrectName("java.lang.Double")));
+        for (int i = 0; i < 16; i+=2) {
+            boxingPairs.add(new Pair<>(cf.forCorrectName(conversionPairTypes[i]), cf.forCorrectName(conversionPairTypes[i+1])));
+        }
 
         //endregion
 
