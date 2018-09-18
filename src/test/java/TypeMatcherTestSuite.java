@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.utils.TypeMatcher;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TypeMatcherTestSuite {
 
     @Test
-    public void testEqual() throws ClassNotFoundException {
+    public void testEqual() throws ClassNotFoundException, IncompatibleTypesException {
 
         testSingleEqual(new Variable("int", "", 0), new Variable("int", "", 0));
         testSingleEqual(new Variable("java.lang.String", "", 0), new Variable("java.lang.String", "", 0));
@@ -21,14 +22,14 @@ public class TypeMatcherTestSuite {
 
     }
 
-    private void testSingleEqual(Value val1, Value val2) {
+    private void testSingleEqual(Value val1, Value val2) throws IncompatibleTypesException {
 
         assertEquals(TypeMatcher.getInstance().match(val1, val2), val2);
 
     }
 
     @Test
-    public void testB2P() throws ClassNotFoundException {
+    public void testB2P() throws ClassNotFoundException, IncompatibleTypesException {
 
         var tm = TypeMatcher.getInstance();
 
@@ -44,7 +45,7 @@ public class TypeMatcherTestSuite {
     }
 
     @Test
-    public void testP2B() throws ClassNotFoundException {
+    public void testP2B() throws ClassNotFoundException, IncompatibleTypesException {
 
         var tm = TypeMatcher.getInstance();
 

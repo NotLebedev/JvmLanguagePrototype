@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectMethodInvocation;
 import src.parsing.domain.StaticMethodInvocation;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -56,63 +57,73 @@ public class TypeMatcher {
 
     }
 
-    public Value match(Value sample, Value value) {
+    public Value match(Value sample, Value value) throws IncompatibleTypesException {
 
         if(sample.getType().equals(value.getType()))
             return value;
 
         if(sample.getType().isPrimitive()) {
+            return matchB2P(sample, value);
+        }else {
+            return matchP2B(sample, value);
+        }
 
-            for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
+    }
 
-                if(boxingPair.getKey().equals(sample.getType()) && boxingPair.getValue().equals(value.getType())) {
+    private Value matchB2P(Value sample, Value value) throws IncompatibleTypesException {
 
-                    try {
+        for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
-                        var method = value.getType().getMethod(sample.getType().getName() + "Value", new AbstractClass[0]);
+            if(boxingPair.getKey().equals(sample.getType()) && boxingPair.getValue().equals(value.getType())) {
 
-                        var omi = new ObjectMethodInvocation();
-                        omi.setNames(value, method);
-                        omi.setParamValues(new Value[0]);
+                try {
 
-                        return omi;
+                    var method = value.getType().getMethod(sample.getType().getName() + "Value", new AbstractClass[0]);
 
-                    } catch (NoSuchMethodException e) {
-                        throw new IllegalStateException("Method expected to be found", e);
-                    }
+                    var omi = new ObjectMethodInvocation();
+                    omi.setNames(value, method);
+                    omi.setParamValues(new Value[0]);
 
+                    return omi;
+
+                } catch (NoSuchMethodException e) {
+                    throw new IllegalStateException("Method expected to be found", e);
                 }
-
 
             }
 
-        }else {
 
-            for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
+        }
 
-                if(boxingPair.getKey().equals(value.getType()) && boxingPair.getValue().equals(sample.getType())) {
+        throw new IncompatibleTypesException();
 
-                    try {
+    }
 
-                        var method = sample.getType().getMethod("valueOf", new AbstractClass[]{value.getType()});
+    private Value matchP2B(Value sample, Value value) throws IncompatibleTypesException {
 
-                        var smi = new StaticMethodInvocation();
-                        smi.setNames(sample.getType(), method);
-                        smi.setParamValues(new Value[]{value});
+        for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
-                        return smi;
+            if(boxingPair.getKey().equals(value.getType()) && boxingPair.getValue().equals(sample.getType())) {
 
-                    } catch (NoSuchMethodException e) {
-                        throw new IllegalStateException("Method expected to be found", e);
-                    }
+                try {
 
+                    var method = sample.getType().getMethod("valueOf", new AbstractClass[]{value.getType()});
+
+                    var smi = new StaticMethodInvocation();
+                    smi.setNames(sample.getType(), method);
+                    smi.setParamValues(new Value[]{value});
+
+                    return smi;
+
+                } catch (NoSuchMethodException e) {
+                    throw new IllegalStateException("Method expected to be found", e);
                 }
 
             }
 
         }
 
-        return null;
+        throw new IncompatibleTypesException();
 
     }
 

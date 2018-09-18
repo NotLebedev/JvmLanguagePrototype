@@ -45,7 +45,7 @@ literalCG :    stringCG |
                 floatCG |
                 characterCG ;
 
-className : path ;//TODO : currently all classNames are with absolute path, add imports
+className : path ;
 
 classAccess :  (path |  methodInv)/* (dotS classAccess)? */;
 methodInv : id bracketOpenS (value commaS)* value? bracketCloseS ;
