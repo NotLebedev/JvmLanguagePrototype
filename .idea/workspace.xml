@@ -47,10 +47,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3855" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="41204" />
+          <entry key="java" value="41771" />
           <entry key="lp" value="980" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="6447" />
+          <entry key="txt" value="6490" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -58,8 +58,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3855" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="41204" />
-          <entry key="PLAIN_TEXT" value="7439" />
+          <entry key="JAVA" value="41771" />
+          <entry key="PLAIN_TEXT" value="7482" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -140,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1438">
-              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+            <state relative-caret-position="-137">
+              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,8 +152,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TypeMatcherTestSuite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state relative-caret-position="367">
+              <caret line="112" column="78" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -555,7 +555,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537286261172" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537288097646" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/src/Parsing/antlr4Gen" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -664,8 +664,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TypeMatcherTestSuite" />
-        <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
         <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
+        <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
         <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
         <item itemvalue="JUnit.BytecodeEqualityTest" />
       </list>
@@ -751,14 +751,7 @@
       <workItem from="1536938117561" duration="7865000" />
       <workItem from="1537197734635" duration="3136000" />
       <workItem from="1537200910263" duration="5196000" />
-      <workItem from="1537266409846" duration="13973000" />
-    </task>
-    <task id="LOCAL-00054" summary="Added junit5 support to project, will add tests in future">
-      <created>1534763262757</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1534763262758</updated>
+      <workItem from="1537266409846" duration="15836000" />
     </task>
     <task id="LOCAL-00055" summary="Changed names of get*Name methods in ClassO for better understanding">
       <created>1534770120407</created>
@@ -1096,22 +1089,17 @@
       <option name="project" value="LOCAL" />
       <updated>1537278997296</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="*Added matches() method &#10;*Added tests for it">
+      <created>1537286924680</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1537286924680</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TypeMatcherTestSuite_testB2P - 2018.09.18 at 16h 01m 59s.xml">
-      <configuration name="TypeMatcherTestSuite.testB2P" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeMatcherTestSuite_testB2P - 2018.09.18 at 16h 02m 32s.xml">
-      <configuration name="TypeMatcherTestSuite.testB2P" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeMatcherTestSuite_testB2P - 2018.09.18 at 16h 03m 26s.xml">
-      <configuration name="TypeMatcherTestSuite.testB2P" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TypeMatcherTestSuite_testB2P - 2018.09.18 at 16h 03m 39s.xml">
-      <configuration name="TypeMatcherTestSuite.testB2P" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TypeMatcherTestSuite - 2018.09.18 at 16h 08m 28s.xml">
       <configuration name="TypeMatcherTestSuite" configurationId="JUnit" />
     </history-entry>
@@ -1130,9 +1118,21 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.18 at 16h 55m 06s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TypeMatcherTestSuite_testMatches - 2018.09.18 at 18h 55m 40s.xml">
+      <configuration name="TypeMatcherTestSuite.testMatches" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeMatcherTestSuite - 2018.09.18 at 18h 57m 18s.xml">
+      <configuration name="TypeMatcherTestSuite" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeMatcherTestSuite - 2018.09.18 at 18h 57m 44s.xml">
+      <configuration name="TypeMatcherTestSuite" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TypeMatcherTestSuite - 2018.09.18 at 19h 21m 40s.xml">
+      <configuration name="TypeMatcherTestSuite" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287947000" />
+    <option name="totallyTimeSpent" value="289810000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1147,7 +1147,7 @@
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13791732" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13791732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1158,7 +1158,7 @@
       <window_info anchor="bottom" id="Debug" order="1" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="4" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32917964" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="7" weight="0.32917964" />
@@ -1226,7 +1226,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Made ReflectionClassWrapper package-private&#10;*Documentation for AbstractClass" />
     <MESSAGE value="*Implemented frame for compilation error collection" />
     <MESSAGE value="*Added ErrorCollector.reportFatalError()&#10;*Added try-catch block in Main to process ParseCancellationException&#10;*Added illegal state in ExpressionVisitor" />
     <MESSAGE value="*Added fatal error logic" />
@@ -1251,7 +1250,8 @@
     <MESSAGE value="*Moved Utils to domain\utils" />
     <MESSAGE value="*Created TypeMatcher class&#10;*Implemented match() for equal types and (un)boxing&#10;*Implemented tests for match()" />
     <MESSAGE value="*Moved parts of TypeMatcher.match() to separate methods&#10;*Added exception to match() signature&#10;*Removed todo item" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Moved parts of TypeMatcher.match() to separate methods&#10;*Added exception to match() signature&#10;*Removed todo item" />
+    <MESSAGE value="*Added matches() method &#10;*Added tests for it" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added matches() method &#10;*Added tests for it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1689,8 +1689,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1438">
-          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+        <state relative-caret-position="-137">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1699,8 +1699,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TypeMatcherTestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        <state relative-caret-position="367">
+          <caret line="112" column="78" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

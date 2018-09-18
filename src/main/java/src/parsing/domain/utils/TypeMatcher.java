@@ -16,7 +16,7 @@ import java.util.List;
  * Class used to check if two types match
  * This class checks if assignment is valid (e.g.
  * int to int, Integer to int, int to integer, byte to int, BUT
- * NOT int to byte, Integer to Byte, int to long)
+ * NOT int to float, Integer to Byte, int to long)
  * and does necessary (un)boxing
  *
  * @author NotLebedev
@@ -76,31 +76,36 @@ public class TypeMatcher {
             return true;
 
         if(!(sample.isPrimitive()) && !(value.isPrimitive()))
-            return false;
+            return false; //If two Objects are not of same type they can not be assigned
 
         if(conversionGroup.contains(sample) && conversionGroup.contains(value))
-            return true;
+            return true; //Match by single-word conversion group
         else {
 
             for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
                 if((boxingPair.getKey().equals(sample.getType()) && boxingPair.getValue().equals(value.getType())) ||
                         (boxingPair.getKey().equals(value.getType()) && boxingPair.getValue().equals(sample.getType())))
-                    return true;
+                    return true; //Match by (un)boxing
 
             }
 
         }
 
-        return false;
+        return false; //Not a match ;(
 
 
     }
 
     public Value match(Value sample, Value value) throws IncompatibleTypesException {
 
-        if(sample.getType().equals(value.getType()))
+        if(!matches(sample.getType(), value.getType())) //Throw exception if it`s not a match
+            throw new IncompatibleTypesException();
+
+        if((sample.getType().equals(value.getType())) || //If types are equal no conversion needed
+           (sample.getType().isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed
             return value;
+
 
         if(sample.getType().isPrimitive()) {
             return matchB2P(sample, value);

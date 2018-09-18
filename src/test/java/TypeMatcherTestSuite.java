@@ -102,4 +102,16 @@ public class TypeMatcherTestSuite {
 
     }
 
+    @Test
+    public void testSingleWordGroup() throws ClassNotFoundException, IncompatibleTypesException {
+
+        var tm = TypeMatcher.getInstance();
+
+        assertNotNull(tm.match(new Variable("char", "", 0), new Variable("int", "", 0)));
+        assertNotNull(tm.match(new Variable("byte", "", 0), new Variable("short", "", 0)));
+        assertNotNull(tm.match(new Variable("byte", "", 0), new Variable("int", "", 0)));
+        assertNotNull(tm.match(new Variable("byte", "", 0), new Variable("char", "", 0)));
+
+    }
+
 }
