@@ -1,6 +1,6 @@
 package src.parsing.domain.structure;
 
-import src.parsing.Utils;
+import src.parsing.domain.utils.Utils;
 
 import java.lang.reflect.Method;
 

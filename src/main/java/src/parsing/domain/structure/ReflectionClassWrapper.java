@@ -2,7 +2,7 @@ package src.parsing.domain.structure;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
-import src.parsing.Utils;
+import src.parsing.domain.utils.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.util.ArrayList;

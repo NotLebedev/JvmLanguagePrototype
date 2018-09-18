@@ -1,4 +1,4 @@
-package src.parsing;
+package src.parsing.domain.utils;
 
 public class Utils {
 
