@@ -106,11 +106,24 @@ public class TypeMatcherTestSuite {
     public void testSingleWordGroup() throws ClassNotFoundException, IncompatibleTypesException {
 
         var tm = TypeMatcher.getInstance();
+        final String[] singleWordGroupPrimitives = {"byte", "short", "int", "char"};
+        final String[] singleWordGroupObjects = {"java.lang.Byte", "java.lang.Short", "java.lang.Integer", "java.lang.Character"};
 
-        assertNotNull(tm.match(new Variable("char", "", 0), new Variable("int", "", 0)));
-        assertNotNull(tm.match(new Variable("byte", "", 0), new Variable("short", "", 0)));
-        assertNotNull(tm.match(new Variable("byte", "", 0), new Variable("int", "", 0)));
-        assertNotNull(tm.match(new Variable("byte", "", 0), new Variable("char", "", 0)));
+        for (String primitive : singleWordGroupPrimitives) {
+            for (String object : singleWordGroupObjects) {
+
+                assertNotNull(tm.match(new Variable(primitive, "", 0), new Variable(object, "", 0)));
+
+            }
+        }
+
+        for (String primitive : singleWordGroupPrimitives) {
+            for (String object : singleWordGroupObjects) {
+
+                assertNotNull(tm.match(new Variable(object, "", 0), new Variable(primitive, "", 0)));
+
+            }
+        }
 
     }
 

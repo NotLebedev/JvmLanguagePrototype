@@ -108,22 +108,22 @@ public class TypeMatcher {
 
 
         if(sample.getType().isPrimitive()) {
-            return matchB2P(sample, value);
+            return matchB2P(value);
         }else {
             return matchP2B(sample, value);
         }
 
     }
 
-    private Value matchB2P(Value sample, Value value) throws IncompatibleTypesException {
+    private Value matchB2P(Value value) throws IncompatibleTypesException {
 
         for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
-            if(boxingPair.getKey().equals(sample.getType()) && boxingPair.getValue().equals(value.getType())) {
+            if(boxingPair.getValue().equals(value.getType())) {
 
                 try {
 
-                    var method = value.getType().getMethod(sample.getType().getName() + "Value", new AbstractClass[0]);
+                    var method = value.getType().getMethod(boxingPair.getKey().getName() + "Value", new AbstractClass[0]);
 
                     var omi = new ObjectMethodInvocation();
                     omi.setNames(value, method);
@@ -148,11 +148,12 @@ public class TypeMatcher {
 
         for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
-            if(boxingPair.getKey().equals(value.getType()) && boxingPair.getValue().equals(sample.getType())) {
+            if(boxingPair.getValue().equals(sample.getType())) {
 
                 try {
 
-                    var method = sample.getType().getMethod("valueOf", new AbstractClass[]{value.getType()});
+                    var method = sample.getType().getMethod("valueOf",
+                            new AbstractClass[]{boxingPair.getKey()});
 
                     var smi = new StaticMethodInvocation();
                     smi.setNames(sample.getType(), method);
