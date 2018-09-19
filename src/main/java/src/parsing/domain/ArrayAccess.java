@@ -7,6 +7,7 @@ import src.parsing.domain.exceptions.ArrayExpectedException;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 
 /**
  * Class describing access to arrays
@@ -26,10 +27,7 @@ public class ArrayAccess implements Value {
 
         this.array = array;
 
-        if(!index.getType().equals(INDEX_TYPE)) //TODO : unboxing and type cast
-            throw new IncompatibleTypesException();
-
-        this.index = index;
+        this.index = TypeMatcher.getInstance().match(INDEX_TYPE, index);
 
         if(this.array.getType().getJvmName().length() < 2) //If length of classname is less than 2 it can not be an array
             throw new ArrayExpectedException();

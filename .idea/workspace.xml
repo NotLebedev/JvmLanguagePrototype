@@ -4,22 +4,9 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Migrated match() sample to Abstract class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/Root.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/Root.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/Root.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/Root.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" afterDir="false" />
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added comments to grammar&#10;*added folding regions to source">
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/source.lp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -63,7 +50,7 @@
           <entry key="java" value="42280" />
           <entry key="lp" value="1180" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="6745" />
+          <entry key="txt" value="6806" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -72,7 +59,7 @@
           <entry key="ANTLR v4 grammar file" value="3857" />
           <entry key="Groovy" value="75" />
           <entry key="JAVA" value="42280" />
-          <entry key="PLAIN_TEXT" value="7904" />
+          <entry key="PLAIN_TEXT" value="7965" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -85,7 +72,7 @@
           <entry key="class" value="18" />
           <entry key="g4" value="161" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="756" />
+          <entry key="java" value="757" />
           <entry key="lp" value="31" />
           <entry key="raw" value="3" />
           <entry key="snippet" value="7" />
@@ -97,7 +84,7 @@
           <entry key="ANTLR v4 grammar file" value="161" />
           <entry key="CLASS" value="23" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="756" />
+          <entry key="JAVA" value="757" />
           <entry key="PLAIN_TEXT" value="31" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
@@ -163,7 +150,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -174,6 +161,15 @@
                 <marker date="1537347685936" expanded="false" signature="167:560" ph="..." />
                 <marker date="1537347685936" expanded="false" signature="594:1381" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="63" column="52" lean-forward="true" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -677,19 +673,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BytecodeEqualityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JvmLanguagePrototype" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BytecodeEqualityTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JvmLanguagePrototype" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BytecodeEqualityTest" />
       <option name="METHOD_NAME" value="testBytecodeCompilationIntegrity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BytecodeEqualityTest.test_updateSampleBytecode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JvmLanguagePrototype" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BytecodeEqualityTest" />
+      <option name="METHOD_NAME" value="test_updateSampleBytecode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -726,19 +724,19 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Groovy.JavapExec" />
-      <item itemvalue="JUnit.BytecodeEqualityTest" />
       <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
       <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
       <item itemvalue="JUnit.TypeMatcherTestSuite" />
       <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
+      <item itemvalue="JUnit.BytecodeEqualityTest.test_updateSampleBytecode" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
+        <item itemvalue="JUnit.BytecodeEqualityTest.test_updateSampleBytecode" />
         <item itemvalue="JUnit.TypeMatcherTestSuite" />
         <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
         <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
-        <item itemvalue="JUnit.BytecodeEqualityTest" />
       </list>
     </recent_temporary>
   </component>
@@ -823,14 +821,7 @@
       <workItem from="1537197734635" duration="3136000" />
       <workItem from="1537200910263" duration="5196000" />
       <workItem from="1537266409846" duration="17768000" />
-      <workItem from="1537290185084" duration="4521000" />
-    </task>
-    <task id="LOCAL-00060" summary="Replaced reflection Method usages with ReflectionMethodContainer">
-      <created>1536168300215</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1536168300216</updated>
+      <workItem from="1537290185084" duration="5024000" />
     </task>
     <task id="LOCAL-00061" summary="*Removed getReturnTypeName() and getReturnTypeJvmName()&#10;*Replaced  .getName() with .getJvmName() in ArrayAccess&#10;*Optimized some imports">
       <created>1536254381785</created>
@@ -1168,13 +1159,17 @@
       <option name="project" value="LOCAL" />
       <updated>1537345807597</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="*Added comments to grammar&#10;*added folding regions to source">
+      <created>1537348179175</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1537348179176</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TypeMatcherTestSuite - 2018.09.18 at 19h 52m 28s.xml">
-      <configuration name="TypeMatcherTestSuite" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.18 at 19h 57m 56s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1202,11 +1197,14 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.19 at 12h 01m 29s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.19 at 12h 07m 11s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296263000" />
+    <option name="totallyTimeSpent" value="296766000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -1230,8 +1228,8 @@
       <window_info anchor="bottom" id="Debug" order="1" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32917964" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="TODO" order="5" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="7" weight="0.32917964" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917964" />
@@ -1298,7 +1296,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Implemented error collection in VariableAssignmentVisitor" />
     <MESSAGE value="*Added proper domain exceptions for ArrayAssignment and VariableAssignment&#10;*Implemented IncompatibleTypesException catch clause for VariableAssignmentVisitor" />
     <MESSAGE value="*Removed exception from ArrayAssignment" />
     <MESSAGE value="*Added ArrayAccess exceptions&#10;*Added error collection for arrays in ValueVisitor&#10;*Added ClassFactory.forCorrectName()" />
@@ -1323,7 +1320,8 @@
     <MESSAGE value="*Removed some ugly code from TypeMatcher constructor" />
     <MESSAGE value="*Added another block of tests&#10;*Removed obsolete todo" />
     <MESSAGE value="*Migrated match() sample to Abstract class" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Migrated match() sample to Abstract class" />
+    <MESSAGE value="*Added comments to grammar&#10;*added folding regions to source" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added comments to grammar&#10;*added folding regions to source" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1605,13 +1603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="67" column="146" selection-start-line="67" selection-start-column="146" selection-end-line="67" selection-end-column="146" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -1795,6 +1786,13 @@
             <marker date="1537347685936" expanded="false" signature="167:560" ph="..." />
             <marker date="1537347685936" expanded="false" signature="594:1381" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="63" column="52" lean-forward="true" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
         </state>
       </provider>
     </entry>

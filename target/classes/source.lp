@@ -55,3 +55,7 @@ java.lang.System.out.println(matrix[1][2])
 java.lang.System.out.print(matrix[2][0])
 java.lang.System.out.print(matrix[2][1])
 java.lang.System.out.println(matrix[2][2])
+
+java.lang.Integer qwe = java.lang.Integer.valueOf(2)
+java.lang.Byte ewq = java.lang.Byte.valueOf("0")
+java.lang.System.out.println(matrix[qwe][ewq])
