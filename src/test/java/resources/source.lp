@@ -80,6 +80,6 @@ java.lang.Byte[] bytes = new java.lang.Byte[d]
 bytes[0] = c
 bytes[c] = s
 
-java.lang.System.out.println(bytes[0].intValue())
-java.lang.System.out.println(bytes[c].intValue())
+java.lang.System.out.println(bytes[0])
+java.lang.System.out.println(bytes[c])
 //endregion

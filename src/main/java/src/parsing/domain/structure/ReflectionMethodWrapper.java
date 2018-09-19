@@ -1,9 +1,12 @@
 package src.parsing.domain.structure;
 
+import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.domain.utils.TypeMatcher;
 import src.parsing.domain.utils.Utils;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * @author NotLebedev
@@ -46,6 +49,15 @@ public class ReflectionMethodWrapper {
 
     public int getModifiers() {
         return containedMethod.getModifiers();
+    }
+
+    public AbstractClass[] getParameters() {
+
+        var classFactory = ClassFactory.getInstance();
+
+        return Arrays.stream(containedMethod.getParameterTypes())
+                .map(classFactory::forClass).toArray(AbstractClass[]::new);
+
     }
 
     /**

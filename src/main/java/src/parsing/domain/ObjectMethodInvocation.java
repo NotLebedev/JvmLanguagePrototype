@@ -3,8 +3,10 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 
 /**
  * Class describing invoking methods of objects
@@ -35,10 +37,24 @@ public class ObjectMethodInvocation implements Value {
     /**
      *
      * @param paramValues parameter values
-     * @throws IllegalArgumentException class of value doe not match class of parameter
      */
-    public void setParamValues(Value[] paramValues) throws IllegalArgumentException {
-        this.paramValues = paramValues;
+    public void setParamValues(Value[] paramValues) {
+
+        var tm = TypeMatcher.getInstance();
+        var sampleTypes = method.getParameters();
+
+        this.paramValues = new Value[paramValues.length];
+
+        try {
+
+            for (int i = 0; i < paramValues.length; i++) {
+                    this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
+            }
+
+        } catch (IncompatibleTypesException e) {
+            throw new IllegalStateException("paramValues expected to be correct", e);
+        }
+
     }
 
     @Override
