@@ -68,7 +68,10 @@ short s = matrix[0][2];
 matrix[0][2] = c;
 matrix[0][c] = b;
 
-java.lang.Byte[] bytes = new java.lang.Byte[2]
+java.lang.Short d = 2
+java.lang.Byte[] bytes = new java.lang.Byte[d]
 bytes[0] = c
 bytes[c] = s
 
+java.lang.System.out.println(bytes[0].intValue())
+java.lang.System.out.println(bytes[c].intValue())

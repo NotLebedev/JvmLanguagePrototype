@@ -3,12 +3,14 @@ package src.parsing.visitors;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.ArrayInstantiation;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
+import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import java.util.List;
@@ -77,6 +79,14 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                         new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
                                 ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
                         new ExpressionParseCancelationException());                         //This error fails compilation of expression only
+            } catch (IncompatibleTypesException e) {
+                errorCollector.reportFatalError(
+                        new IncompatibleTypesError(ctx.arrayType().start.getLine(),
+                                ctx.start.getCharPositionInLine(), "[",
+                                e.getTypeExpected(),
+                                e.getTypeFound()),
+                        new ExpressionParseCancelationException()
+                );
             }
 
         }

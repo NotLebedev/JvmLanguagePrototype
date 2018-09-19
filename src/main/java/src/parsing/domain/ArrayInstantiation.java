@@ -3,8 +3,10 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 
 /**
  * Class describing instantiation of array (e.g. {@code new int[][]}
@@ -12,6 +14,8 @@ import src.parsing.domain.structure.interfaces.AbstractClass;
  * @author NotLebedev
  */
 public class ArrayInstantiation implements Value {
+
+    private final static AbstractClass INDEX_TYPE = ClassFactory.getInstance().forCorrectName("int");
 
     private final int freeDimensions;
     private final Value[] sizes;
@@ -26,10 +30,17 @@ public class ArrayInstantiation implements Value {
      * @param freeDimensions how many non-initialized dimensions array has for int[3] it is 0,
      *                       for int[3][][] it is 2
      */
-    public ArrayInstantiation(AbstractClass arrayType, Value[] sizes, int freeDimensions) {
+    public ArrayInstantiation(AbstractClass arrayType, Value[] sizes, int freeDimensions) throws IncompatibleTypesException {
 
         this.arrayType = arrayType;
-        this.sizes = sizes; //TODO : arrayType check
+
+        this.sizes = new Value[sizes.length];
+
+        var tm = TypeMatcher.getInstance();
+        for (int i = 0; i < sizes.length; i++) {
+            this.sizes[i] = tm.match(INDEX_TYPE, sizes[i]);
+        }
+
         this.freeDimensions = freeDimensions;
 
         type = ClassFactory.getInstance().toArray(sizes.length + freeDimensions, arrayType);
