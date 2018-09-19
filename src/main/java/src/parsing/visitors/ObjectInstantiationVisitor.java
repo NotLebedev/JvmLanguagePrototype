@@ -8,6 +8,7 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;
+import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
@@ -50,8 +51,8 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             try {
                 objectInstantiation.setNames(ctx.arrayType().getText(), params.stream()
-                        .map(value -> value.getType().getName())
-                        .toArray(String[]::new));
+                        .map(Value::getType)
+                        .toArray(AbstractClass[]::new));
             } catch (ClassNotFoundException e) {
                 errorCollector.reportFatalError(
                         new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found

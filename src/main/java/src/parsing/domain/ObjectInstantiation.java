@@ -11,14 +11,13 @@ public class ObjectInstantiation implements Value {
     private String constructorOwnerClassName;
     private AbstractClass constructorOwnerClass;
 
-    private String[] paramNames;
     private Value[] paramValues;
     private AbstractClass[] params;
 
-    public void setNames(String constructorOwnerClassName, String[] paramNames) throws ClassNotFoundException {
+    public void setNames(String constructorOwnerClassName, AbstractClass[] params) throws ClassNotFoundException {
 
         this.constructorOwnerClassName = constructorOwnerClassName;
-        this.paramNames = paramNames;
+        this.params = params;
 
         resolveNames();
 
@@ -28,15 +27,11 @@ public class ObjectInstantiation implements Value {
 
         constructorOwnerClass = ClassFactory.getInstance().forName(constructorOwnerClassName);
 
-        params = new AbstractClass[paramNames.length];
-
-        for (int i = 0; i < paramNames.length; i++) {
-            params[i] = ClassFactory.getInstance().forName(paramNames[i]);
-        }
-
     }
 
     /**
+     * Set values of parameters, this method expects
+     * param types to match types of paramValues
      *
      * @param paramValues parameter values
      * @throws IllegalArgumentException class of value doe not match class of parameter
