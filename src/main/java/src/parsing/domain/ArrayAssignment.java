@@ -30,7 +30,6 @@ public class ArrayAssignment implements Expression {
 
         this.array = array;
         this.index = TypeMatcher.getInstance().match(INDEX_TYPE, index);
-        //this.value = value;
 
         String typeString = this.array.getType().getJvmName().substring(1);
 
@@ -43,8 +42,6 @@ public class ArrayAssignment implements Expression {
             throw new IllegalStateException("Array value can not be reduced to non-existing value", e);
         }
 
-        //if(!type.equals(value.getType()))
-        //    throw new IncompatibleTypesException();
         this.value = TypeMatcher.getInstance().match(type, value);
 
     }
