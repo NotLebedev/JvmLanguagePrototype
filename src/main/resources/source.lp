@@ -63,4 +63,4 @@ java.lang.System.out.println(matrix[qwe][ewq])
 char c = 40;
 int i = c;
 java.lang.Byte b = i;
-short s = b;
+short s = matrix[0][2];

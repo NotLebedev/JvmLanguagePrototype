@@ -668,8 +668,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
         <item itemvalue="JUnit.BytecodeEqualityTest.test_updateSampleBytecode" />
+        <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
         <item itemvalue="JUnit.TypeMatcherTestSuite" />
         <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
         <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />

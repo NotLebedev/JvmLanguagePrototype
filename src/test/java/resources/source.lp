@@ -70,4 +70,5 @@ char c = 40;
 int i = c;
 java.lang.Byte b = i;
 short s = b;
+s = matrix[0][2]
 //endregion
