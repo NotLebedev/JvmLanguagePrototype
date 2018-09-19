@@ -109,6 +109,14 @@ public class TypeMatcherTestSuite {
         final String[] singleWordGroupPrimitives = {"byte", "short", "int", "char"};
         final String[] singleWordGroupObjects = {"java.lang.Byte", "java.lang.Short", "java.lang.Integer", "java.lang.Character"};
 
+        for (String primitive1 : singleWordGroupPrimitives) {
+            for (String primitive2 : singleWordGroupPrimitives) {
+
+                assertNotNull(tm.match(new Variable(primitive1, "", 0), new Variable(primitive2, "", 0)));
+
+            }
+        }
+
         for (String primitive : singleWordGroupPrimitives) {
             for (String object : singleWordGroupObjects) {
 
