@@ -59,3 +59,8 @@ java.lang.System.out.println(matrix[2][2])
 java.lang.Integer qwe = java.lang.Integer.valueOf(2)
 java.lang.Byte ewq = java.lang.Byte.valueOf("0")
 java.lang.System.out.println(matrix[qwe][ewq])
+
+char c = 40;
+int i = c;
+java.lang.Byte b = i;
+short s = b;

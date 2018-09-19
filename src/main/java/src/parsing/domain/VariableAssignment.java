@@ -5,6 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.utils.TypeMatcher;
 
 public class VariableAssignment implements Expression {
 
@@ -15,13 +16,7 @@ public class VariableAssignment implements Expression {
     public void setParams(Variable variable, Value value) throws IncompatibleTypesException {
 
         this.variable = variable;
-        this.value = value;
-
-        if(!variable.getType().equals(value.getType())) { // TODO : auto type casting/(un)boxing
-
-            throw new IncompatibleTypesException();
-
-        }
+        this.value = TypeMatcher.getInstance().match(variable.getType(), value);
 
     }
 
