@@ -5,7 +5,6 @@ import org.objectweb.asm.Type;
 import src.parsing.domain.utils.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -85,12 +84,19 @@ class ReflectionClassWrapper implements AbstractClass {
 
         }
 
-        for (ReflectionMethodWrapper method : methods) {
+        for (ReflectionMethodWrapper method : methods) { //First pass, finding strict match
 
-            if(method.matches(methodName, convParams) && (!method.isBridge())) //Method must be not bridge in order
+            if(method.strictMatches(methodName, convParams) && (!method.isBridge())) //Method must be not bridge in order
                 return method;                                                 //to prevent covariant super method selection
             //                                                                   (e.g. select public StringBuilder append(String)
         }                                                                      //instead of public AbstractStringBuilder append(String)
+
+        for (ReflectionMethodWrapper method : methods) { //Second pass, to find if any method matches unstrictly
+
+            if(method.unstrictMatches(methodName, convParams) && (!method.isBridge()))
+                return method;
+
+        }
 
         throw new NoSuchMethodException();
 
