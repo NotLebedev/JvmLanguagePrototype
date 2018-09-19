@@ -71,4 +71,11 @@ int i = c;
 java.lang.Byte b = i;
 short s = b;
 s = matrix[0][2]
+
+matrix[0][2] = c;
+matrix[0][c] = b;
+
+java.lang.Byte[] bytes = new java.lang.Byte[2]
+bytes[0] = c
+bytes[c] = s
 //endregion

@@ -8,6 +8,7 @@ import src.parsing.domain.exceptions.ArrayExpectedException;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 
 /**
@@ -16,6 +17,8 @@ import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
  * @author NotLebedev
  */
 public class ArrayAssignment implements Expression {
+
+    private final static AbstractClass INDEX_TYPE = ClassFactory.getInstance().forCorrectName("int");
 
     private final Value array;
     private final Value index;
@@ -26,13 +29,8 @@ public class ArrayAssignment implements Expression {
     public ArrayAssignment(Value array, Value index, Value value) throws IncompatibleTypesException {
 
         this.array = array;
-        this.index = index; //TODO : type check
-        this.value = value;
-
-        /*if(!this.array.getWrappedType().isArray())
-            throw new Exception(); //TODO : proper exception
-
-        type = this.array.getWrappedType().getArrayElementType();*/
+        this.index = TypeMatcher.getInstance().match(INDEX_TYPE, index);
+        //this.value = value;
 
         String typeString = this.array.getType().getJvmName().substring(1);
 
@@ -45,8 +43,9 @@ public class ArrayAssignment implements Expression {
             throw new IllegalStateException("Array value can not be reduced to non-existing value", e);
         }
 
-        if(!type.equals(value.getType()))
-            throw new IncompatibleTypesException();
+        //if(!type.equals(value.getType()))
+        //    throw new IncompatibleTypesException();
+        this.value = TypeMatcher.getInstance().match(type, value);
 
     }
 

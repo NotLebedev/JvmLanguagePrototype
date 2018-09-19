@@ -103,7 +103,7 @@ public class TypeMatcher {
     public Value match(AbstractClass sample, Value value) throws IncompatibleTypesException {
 
         if(!matches(sample, value.getType())) //Throw exception if it`s not a match
-            throw new IncompatibleTypesException();
+            throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
         if((sample.equals(value.getType())) || //If types are equal no conversion needed
            (sample.isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed

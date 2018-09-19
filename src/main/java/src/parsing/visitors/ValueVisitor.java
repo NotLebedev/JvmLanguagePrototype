@@ -207,8 +207,8 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                         new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
                                 ctx.arrayIndex().value().start.getCharPositionInLine(),
                                 ctx.arrayIndex().value().getText(),
-                                "int",
-                                index.getType().getName()),
+                                e.getTypeExpected(),
+                                e.getTypeFound()),
                         new ExpressionParseCancelationException()
                 );
             }
