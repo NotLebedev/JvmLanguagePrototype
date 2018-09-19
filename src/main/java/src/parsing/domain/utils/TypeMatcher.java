@@ -100,17 +100,17 @@ public class TypeMatcher {
 
     }
 
-    public Value match(Value sample, Value value) throws IncompatibleTypesException {
+    public Value match(AbstractClass sample, Value value) throws IncompatibleTypesException {
 
-        if(!matches(sample.getType(), value.getType())) //Throw exception if it`s not a match
+        if(!matches(sample, value.getType())) //Throw exception if it`s not a match
             throw new IncompatibleTypesException();
 
-        if((sample.getType().equals(value.getType())) || //If types are equal no conversion needed
-           (sample.getType().isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed
+        if((sample.equals(value.getType())) || //If types are equal no conversion needed
+           (sample.isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed
             return value;
 
 
-        if(sample.getType().isPrimitive()) {
+        if(sample.isPrimitive()) {
             return matchB2P(value);
         }else {
             return matchP2B(sample, value);
@@ -147,19 +147,19 @@ public class TypeMatcher {
 
     }
 
-    private Value matchP2B(Value sample, Value value) throws IncompatibleTypesException {
+    private Value matchP2B(AbstractClass sample, Value value) throws IncompatibleTypesException {
 
         for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
-            if(boxingPair.getValue().equals(sample.getType())) {
+            if(boxingPair.getValue().equals(sample)) {
 
                 try {
 
-                    var method = sample.getType().getMethod("valueOf",
+                    var method = sample.getMethod("valueOf",
                             new AbstractClass[]{boxingPair.getKey()});
 
                     var smi = new StaticMethodInvocation();
-                    smi.setNames(sample.getType(), method);
+                    smi.setNames(sample, method);
                     smi.setParamValues(new Value[]{value});
 
                     return smi;
