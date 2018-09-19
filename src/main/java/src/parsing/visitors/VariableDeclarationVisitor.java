@@ -10,7 +10,6 @@ import src.parsing.domain.Variable;
 import src.parsing.domain.VariableAssignment;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
-import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;

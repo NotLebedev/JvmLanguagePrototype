@@ -1,6 +1,9 @@
+//region Method invocation test
 ((java.lang.System).out).println(java.lang.Math.abs(-1));
 src.parsing.Class2.test().printString()
+//endregion
 
+//region variable tests
 java.lang.String str1 = "Hello "
 java.lang.String str2 = "world!";
 
@@ -19,7 +22,9 @@ java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append(5);
         (sb).append(6);
 java.lang.System.out.println(sb.toString());
+//endregion
 
+//region array test
 java.lang.String[] strs1 = new java.lang.String[3]
 
 strs1[0] = "www"
@@ -55,3 +60,4 @@ java.lang.System.out.println(matrix[1][2])
 java.lang.System.out.print(matrix[2][0])
 java.lang.System.out.print(matrix[2][1])
 java.lang.System.out.println(matrix[2][2])
+//endregion

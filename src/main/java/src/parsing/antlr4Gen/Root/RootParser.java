@@ -14,59 +14,61 @@ public class RootParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, WS=2, PUBLIC=3, PRIVATE=4, PROTECTED=5, STATIC=6, ABSTRACT=7, 
-		SYNCHRONIZED=8, TRANSIENT=9, VOLATILE=10, FINAL=11, NATIVE=12, STRICTFP=13, 
-		BOOLEAN=14, BYTE=15, CHAR=16, LONG=17, SHORT=18, INT=19, FLOAT=20, DOUBLE=21, 
-		ID=22, STRINGCG=23, INTEGERCG=24, FLOATCG=25, CHARACTERCG=26, DOT=27, 
-		SEMICOLON=28, EQUALS=29, COMMA=30, INEQUALITYOPEN=31, INEQUALITYCLOSE=32, 
-		BRACEOPEN=33, BRACECLOSE=34, BRACKETOPEN=35, BRACKETCLOSE=36, MINUS=37, 
-		SQUAREBRACKETOPEN=38, SQUAREBRACKETCLOSE=39, PLUS=40, ASTERISK=41, SLASH=42;
+		T__0=1, COMMENT=2, LINE_COMMENT=3, WS=4, PUBLIC=5, PRIVATE=6, PROTECTED=7, 
+		STATIC=8, ABSTRACT=9, SYNCHRONIZED=10, TRANSIENT=11, VOLATILE=12, FINAL=13, 
+		NATIVE=14, STRICTFP=15, BOOLEAN=16, BYTE=17, CHAR=18, LONG=19, SHORT=20, 
+		INT=21, FLOAT=22, DOUBLE=23, ID=24, STRINGCG=25, INTEGERCG=26, FLOATCG=27, 
+		CHARACTERCG=28, DOT=29, SEMICOLON=30, EQUALS=31, COMMA=32, INEQUALITYOPEN=33, 
+		INEQUALITYCLOSE=34, BRACEOPEN=35, BRACECLOSE=36, BRACKETOPEN=37, BRACKETCLOSE=38, 
+		MINUS=39, SQUAREBRACKETOPEN=40, SQUAREBRACKETCLOSE=41, PLUS=42, ASTERISK=43, 
+		SLASH=44;
 	public static final int
 		RULE_code = 0, RULE_methodCode = 1, RULE_expression = 2, RULE_variableDeclaration = 3, 
-		RULE_type = 4, RULE_declarationType = 5, RULE_arrayModifier = 6, RULE_arrayIndex = 7, 
-		RULE_variableAssignment = 8, RULE_assignment = 9, RULE_value = 10, RULE_objectInstantiation = 11, 
-		RULE_literalCG = 12, RULE_className = 13, RULE_classAccess = 14, RULE_methodInv = 15, 
-		RULE_eol = 16, RULE_publicAM = 17, RULE_privateAM = 18, RULE_protectedAM = 19, 
-		RULE_staticAM = 20, RULE_abstractAM = 21, RULE_synchronizedAM = 22, RULE_transientAM = 23, 
-		RULE_volatileAM = 24, RULE_finalAM = 25, RULE_nativeAM = 26, RULE_strrictfpAM = 27, 
-		RULE_booleanT = 28, RULE_byteT = 29, RULE_charT = 30, RULE_longT = 31, 
-		RULE_shortT = 32, RULE_intT = 33, RULE_floatT = 34, RULE_doubleT = 35, 
-		RULE_id = 36, RULE_path = 37, RULE_stringCG = 38, RULE_integerCG = 39, 
-		RULE_floatCG = 40, RULE_characterCG = 41, RULE_dotS = 42, RULE_semicolonS = 43, 
-		RULE_equalsS = 44, RULE_commaS = 45, RULE_inequalityOpenS = 46, RULE_inequalityCloseS = 47, 
-		RULE_braceopenS = 48, RULE_brcecloseS = 49, RULE_bracketOpenS = 50, RULE_bracketCloseS = 51, 
-		RULE_squareBracketOpen = 52, RULE_squareBracketClose = 53, RULE_plusS = 54, 
-		RULE_minusS = 55, RULE_asteriskS = 56, RULE_slashS = 57;
+		RULE_arrayType = 4, RULE_declarationType = 5, RULE_arrayModifier = 6, 
+		RULE_arrayIndex = 7, RULE_variableAssignment = 8, RULE_assignment = 9, 
+		RULE_value = 10, RULE_objectInstantiation = 11, RULE_literalCG = 12, RULE_className = 13, 
+		RULE_classAccess = 14, RULE_methodInv = 15, RULE_eol = 16, RULE_publicAM = 17, 
+		RULE_privateAM = 18, RULE_protectedAM = 19, RULE_staticAM = 20, RULE_abstractAM = 21, 
+		RULE_synchronizedAM = 22, RULE_transientAM = 23, RULE_volatileAM = 24, 
+		RULE_finalAM = 25, RULE_nativeAM = 26, RULE_strrictfpAM = 27, RULE_booleanT = 28, 
+		RULE_byteT = 29, RULE_charT = 30, RULE_longT = 31, RULE_shortT = 32, RULE_intT = 33, 
+		RULE_floatT = 34, RULE_doubleT = 35, RULE_id = 36, RULE_path = 37, RULE_stringCG = 38, 
+		RULE_integerCG = 39, RULE_floatCG = 40, RULE_characterCG = 41, RULE_dotS = 42, 
+		RULE_semicolonS = 43, RULE_equalsS = 44, RULE_commaS = 45, RULE_inequalityOpenS = 46, 
+		RULE_inequalityCloseS = 47, RULE_braceopenS = 48, RULE_brcecloseS = 49, 
+		RULE_bracketOpenS = 50, RULE_bracketCloseS = 51, RULE_squareBracketOpen = 52, 
+		RULE_squareBracketClose = 53, RULE_plusS = 54, RULE_minusS = 55, RULE_asteriskS = 56, 
+		RULE_slashS = 57;
 	public static final String[] ruleNames = {
-		"code", "methodCode", "expression", "variableDeclaration", "type", "declarationType", 
-		"arrayModifier", "arrayIndex", "variableAssignment", "assignment", "value", 
-		"objectInstantiation", "literalCG", "className", "classAccess", "methodInv", 
-		"eol", "publicAM", "privateAM", "protectedAM", "staticAM", "abstractAM", 
-		"synchronizedAM", "transientAM", "volatileAM", "finalAM", "nativeAM", 
-		"strrictfpAM", "booleanT", "byteT", "charT", "longT", "shortT", "intT", 
-		"floatT", "doubleT", "id", "path", "stringCG", "integerCG", "floatCG", 
-		"characterCG", "dotS", "semicolonS", "equalsS", "commaS", "inequalityOpenS", 
+		"code", "methodCode", "expression", "variableDeclaration", "arrayType", 
+		"declarationType", "arrayModifier", "arrayIndex", "variableAssignment", 
+		"assignment", "value", "objectInstantiation", "literalCG", "className", 
+		"classAccess", "methodInv", "eol", "publicAM", "privateAM", "protectedAM", 
+		"staticAM", "abstractAM", "synchronizedAM", "transientAM", "volatileAM", 
+		"finalAM", "nativeAM", "strrictfpAM", "booleanT", "byteT", "charT", "longT", 
+		"shortT", "intT", "floatT", "doubleT", "id", "path", "stringCG", "integerCG", 
+		"floatCG", "characterCG", "dotS", "semicolonS", "equalsS", "commaS", "inequalityOpenS", 
 		"inequalityCloseS", "braceopenS", "brcecloseS", "bracketOpenS", "bracketCloseS", 
 		"squareBracketOpen", "squareBracketClose", "plusS", "minusS", "asteriskS", 
 		"slashS"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'new'", null, "'public'", "'private'", "'protected'", "'static'", 
-		"'abstract'", "'synchronized'", "'transient'", "'volatile'", "'final'", 
-		"'native'", "'strictfp'", "'boolean'", "'byte'", "'char'", "'long'", "'short'", 
-		"'int'", "'float'", "'double'", null, null, null, null, null, "'.'", "';'", 
-		"'='", "','", "'<'", "'>'", "'{'", "'}'", "'('", "')'", "'-'", "'\u005B'", 
-		"'\u005D'", "'+'", "'*'", "'/'"
+		null, "'new'", null, null, null, "'public'", "'private'", "'protected'", 
+		"'static'", "'abstract'", "'synchronized'", "'transient'", "'volatile'", 
+		"'final'", "'native'", "'strictfp'", "'boolean'", "'byte'", "'char'", 
+		"'long'", "'short'", "'int'", "'float'", "'double'", null, null, null, 
+		null, null, "'.'", "';'", "'='", "','", "'<'", "'>'", "'{'", "'}'", "'('", 
+		"')'", "'-'", "'\u005B'", "'\u005D'", "'+'", "'*'", "'/'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, "WS", "PUBLIC", "PRIVATE", "PROTECTED", "STATIC", "ABSTRACT", 
-		"SYNCHRONIZED", "TRANSIENT", "VOLATILE", "FINAL", "NATIVE", "STRICTFP", 
-		"BOOLEAN", "BYTE", "CHAR", "LONG", "SHORT", "INT", "FLOAT", "DOUBLE", 
-		"ID", "STRINGCG", "INTEGERCG", "FLOATCG", "CHARACTERCG", "DOT", "SEMICOLON", 
-		"EQUALS", "COMMA", "INEQUALITYOPEN", "INEQUALITYCLOSE", "BRACEOPEN", "BRACECLOSE", 
-		"BRACKETOPEN", "BRACKETCLOSE", "MINUS", "SQUAREBRACKETOPEN", "SQUAREBRACKETCLOSE", 
-		"PLUS", "ASTERISK", "SLASH"
+		null, null, "COMMENT", "LINE_COMMENT", "WS", "PUBLIC", "PRIVATE", "PROTECTED", 
+		"STATIC", "ABSTRACT", "SYNCHRONIZED", "TRANSIENT", "VOLATILE", "FINAL", 
+		"NATIVE", "STRICTFP", "BOOLEAN", "BYTE", "CHAR", "LONG", "SHORT", "INT", 
+		"FLOAT", "DOUBLE", "ID", "STRINGCG", "INTEGERCG", "FLOATCG", "CHARACTERCG", 
+		"DOT", "SEMICOLON", "EQUALS", "COMMA", "INEQUALITYOPEN", "INEQUALITYCLOSE", 
+		"BRACEOPEN", "BRACECLOSE", "BRACKETOPEN", "BRACKETCLOSE", "MINUS", "SQUAREBRACKETOPEN", 
+		"SQUAREBRACKETCLOSE", "PLUS", "ASTERISK", "SLASH"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -330,7 +332,7 @@ public class RootParser extends Parser {
 		return _localctx;
 	}
 
-	public static class TypeContext extends ParserRuleContext {
+	public static class ArrayTypeContext extends ParserRuleContext {
 		public BooleanTContext booleanT() {
 			return getRuleContext(BooleanTContext.class,0);
 		}
@@ -358,20 +360,20 @@ public class RootParser extends Parser {
 		public ClassNameContext className() {
 			return getRuleContext(ClassNameContext.class,0);
 		}
-		public TypeContext(ParserRuleContext parent, int invokingState) {
+		public ArrayTypeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_type; }
+		@Override public int getRuleIndex() { return RULE_arrayType; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitType(this);
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitArrayType(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final TypeContext type() throws RecognitionException {
-		TypeContext _localctx = new TypeContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_type);
+	public final ArrayTypeContext arrayType() throws RecognitionException {
+		ArrayTypeContext _localctx = new ArrayTypeContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_arrayType);
 		try {
 			setState(145);
 			_errHandler.sync(this);
@@ -455,8 +457,8 @@ public class RootParser extends Parser {
 	}
 
 	public static class DeclarationTypeContext extends ParserRuleContext {
-		public TypeContext type() {
-			return getRuleContext(TypeContext.class,0);
+		public ArrayTypeContext arrayType() {
+			return getRuleContext(ArrayTypeContext.class,0);
 		}
 		public List<ArrayModifierContext> arrayModifier() {
 			return getRuleContexts(ArrayModifierContext.class);
@@ -483,7 +485,7 @@ public class RootParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(147);
-			type();
+			arrayType();
 			setState(151);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -830,8 +832,8 @@ public class RootParser extends Parser {
 	}
 
 	public static class ObjectInstantiationContext extends ParserRuleContext {
-		public TypeContext type() {
-			return getRuleContext(TypeContext.class,0);
+		public ArrayTypeContext arrayType() {
+			return getRuleContext(ArrayTypeContext.class,0);
 		}
 		public BracketOpenSContext bracketOpenS() {
 			return getRuleContext(BracketOpenSContext.class,0);
@@ -885,7 +887,7 @@ public class RootParser extends Parser {
 			setState(189);
 			match(T__0);
 			setState(190);
-			type();
+			arrayType();
 			setState(216);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
@@ -2732,7 +2734,7 @@ public class RootParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3,\u0156\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3.\u0156\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -2813,32 +2815,32 @@ public class RootParser extends Parser {
 		"\u00f0\3\2\2\2\u00f0\u00f3\3\2\2\2\u00f1\u00ef\3\2\2\2\u00f2\u00f4\5\26"+
 		"\f\2\u00f3\u00f2\3\2\2\2\u00f3\u00f4\3\2\2\2\u00f4\u00f5\3\2\2\2\u00f5"+
 		"\u00f6\5h\65\2\u00f6!\3\2\2\2\u00f7\u00fa\5X-\2\u00f8\u00fa\3\2\2\2\u00f9"+
-		"\u00f7\3\2\2\2\u00f9\u00f8\3\2\2\2\u00fa#\3\2\2\2\u00fb\u00fc\7\5\2\2"+
-		"\u00fc%\3\2\2\2\u00fd\u00fe\7\6\2\2\u00fe\'\3\2\2\2\u00ff\u0100\7\7\2"+
-		"\2\u0100)\3\2\2\2\u0101\u0102\7\b\2\2\u0102+\3\2\2\2\u0103\u0104\7\t\2"+
-		"\2\u0104-\3\2\2\2\u0105\u0106\7\n\2\2\u0106/\3\2\2\2\u0107\u0108\7\13"+
-		"\2\2\u0108\61\3\2\2\2\u0109\u010a\7\f\2\2\u010a\63\3\2\2\2\u010b\u010c"+
-		"\7\r\2\2\u010c\65\3\2\2\2\u010d\u010e\7\16\2\2\u010e\67\3\2\2\2\u010f"+
-		"\u0110\7\17\2\2\u01109\3\2\2\2\u0111\u0112\7\20\2\2\u0112;\3\2\2\2\u0113"+
-		"\u0114\7\21\2\2\u0114=\3\2\2\2\u0115\u0116\7\22\2\2\u0116?\3\2\2\2\u0117"+
-		"\u0118\7\23\2\2\u0118A\3\2\2\2\u0119\u011a\7\24\2\2\u011aC\3\2\2\2\u011b"+
-		"\u011c\7\25\2\2\u011cE\3\2\2\2\u011d\u011e\7\26\2\2\u011eG\3\2\2\2\u011f"+
-		"\u0120\7\27\2\2\u0120I\3\2\2\2\u0121\u0122\7\30\2\2\u0122K\3\2\2\2\u0123"+
-		"\u0124\5J&\2\u0124\u0125\7\35\2\2\u0125\u0127\3\2\2\2\u0126\u0123\3\2"+
+		"\u00f7\3\2\2\2\u00f9\u00f8\3\2\2\2\u00fa#\3\2\2\2\u00fb\u00fc\7\7\2\2"+
+		"\u00fc%\3\2\2\2\u00fd\u00fe\7\b\2\2\u00fe\'\3\2\2\2\u00ff\u0100\7\t\2"+
+		"\2\u0100)\3\2\2\2\u0101\u0102\7\n\2\2\u0102+\3\2\2\2\u0103\u0104\7\13"+
+		"\2\2\u0104-\3\2\2\2\u0105\u0106\7\f\2\2\u0106/\3\2\2\2\u0107\u0108\7\r"+
+		"\2\2\u0108\61\3\2\2\2\u0109\u010a\7\16\2\2\u010a\63\3\2\2\2\u010b\u010c"+
+		"\7\17\2\2\u010c\65\3\2\2\2\u010d\u010e\7\20\2\2\u010e\67\3\2\2\2\u010f"+
+		"\u0110\7\21\2\2\u01109\3\2\2\2\u0111\u0112\7\22\2\2\u0112;\3\2\2\2\u0113"+
+		"\u0114\7\23\2\2\u0114=\3\2\2\2\u0115\u0116\7\24\2\2\u0116?\3\2\2\2\u0117"+
+		"\u0118\7\25\2\2\u0118A\3\2\2\2\u0119\u011a\7\26\2\2\u011aC\3\2\2\2\u011b"+
+		"\u011c\7\27\2\2\u011cE\3\2\2\2\u011d\u011e\7\30\2\2\u011eG\3\2\2\2\u011f"+
+		"\u0120\7\31\2\2\u0120I\3\2\2\2\u0121\u0122\7\32\2\2\u0122K\3\2\2\2\u0123"+
+		"\u0124\5J&\2\u0124\u0125\7\37\2\2\u0125\u0127\3\2\2\2\u0126\u0123\3\2"+
 		"\2\2\u0127\u012a\3\2\2\2\u0128\u0126\3\2\2\2\u0128\u0129\3\2\2\2\u0129"+
 		"\u012b\3\2\2\2\u012a\u0128\3\2\2\2\u012b\u012c\5J&\2\u012cM\3\2\2\2\u012d"+
-		"\u012e\7\31\2\2\u012eO\3\2\2\2\u012f\u0130\7\32\2\2\u0130Q\3\2\2\2\u0131"+
-		"\u0132\7\33\2\2\u0132S\3\2\2\2\u0133\u0134\7\34\2\2\u0134U\3\2\2\2\u0135"+
-		"\u0136\7\35\2\2\u0136W\3\2\2\2\u0137\u0138\7\36\2\2\u0138Y\3\2\2\2\u0139"+
-		"\u013a\7\37\2\2\u013a[\3\2\2\2\u013b\u013c\7 \2\2\u013c]\3\2\2\2\u013d"+
-		"\u013e\7!\2\2\u013e_\3\2\2\2\u013f\u0140\7\"\2\2\u0140a\3\2\2\2\u0141"+
-		"\u0142\7#\2\2\u0142c\3\2\2\2\u0143\u0144\7$\2\2\u0144e\3\2\2\2\u0145\u0146"+
-		"\7%\2\2\u0146g\3\2\2\2\u0147\u0148\7&\2\2\u0148i\3\2\2\2\u0149\u014a\7"+
-		"(\2\2\u014ak\3\2\2\2\u014b\u014c\7)\2\2\u014cm\3\2\2\2\u014d\u014e\7*"+
-		"\2\2\u014eo\3\2\2\2\u014f\u0150\7\'\2\2\u0150q\3\2\2\2\u0151\u0152\7+"+
-		"\2\2\u0152s\3\2\2\2\u0153\u0154\7,\2\2\u0154u\3\2\2\2\25}\u0083\u0088"+
-		"\u0093\u0099\u00b2\u00ba\u00bc\u00c4\u00c9\u00d2\u00d6\u00da\u00e0\u00e6"+
-		"\u00ef\u00f3\u00f9\u0128";
+		"\u012e\7\33\2\2\u012eO\3\2\2\2\u012f\u0130\7\34\2\2\u0130Q\3\2\2\2\u0131"+
+		"\u0132\7\35\2\2\u0132S\3\2\2\2\u0133\u0134\7\36\2\2\u0134U\3\2\2\2\u0135"+
+		"\u0136\7\37\2\2\u0136W\3\2\2\2\u0137\u0138\7 \2\2\u0138Y\3\2\2\2\u0139"+
+		"\u013a\7!\2\2\u013a[\3\2\2\2\u013b\u013c\7\"\2\2\u013c]\3\2\2\2\u013d"+
+		"\u013e\7#\2\2\u013e_\3\2\2\2\u013f\u0140\7$\2\2\u0140a\3\2\2\2\u0141\u0142"+
+		"\7%\2\2\u0142c\3\2\2\2\u0143\u0144\7&\2\2\u0144e\3\2\2\2\u0145\u0146\7"+
+		"\'\2\2\u0146g\3\2\2\2\u0147\u0148\7(\2\2\u0148i\3\2\2\2\u0149\u014a\7"+
+		"*\2\2\u014ak\3\2\2\2\u014b\u014c\7+\2\2\u014cm\3\2\2\2\u014d\u014e\7,"+
+		"\2\2\u014eo\3\2\2\2\u014f\u0150\7)\2\2\u0150q\3\2\2\2\u0151\u0152\7-\2"+
+		"\2\u0152s\3\2\2\2\u0153\u0154\7.\2\2\u0154u\3\2\2\2\25}\u0083\u0088\u0093"+
+		"\u0099\u00b2\u00ba\u00bc\u00c4\u00c9\u00d2\u00d6\u00da\u00e0\u00e6\u00ef"+
+		"\u00f3\u00f9\u0128";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

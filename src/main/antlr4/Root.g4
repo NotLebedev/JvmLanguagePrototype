@@ -6,3 +6,11 @@ grammar Root;
 import MethodCode ;
 
 code : methodCode ;
+
+COMMENT
+    : '/*' .*? '*/' -> skip
+;
+
+LINE_COMMENT
+    : '//' ~[\r\n]* -> skip
+;

@@ -47,13 +47,13 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                     .collect(Collectors.toList());
 
             try {
-                objectInstantiation.setNames(ctx.type().getText(), params.stream()
+                objectInstantiation.setNames(ctx.arrayType().getText(), params.stream()
                         .map(value -> value.getType().getName())
                         .toArray(String[]::new));
             } catch (ClassNotFoundException e) {
                 errorCollector.reportFatalError(
-                        new ClassNotFoundError(ctx.type().start.getLine(),                  //Reporting class not found
-                                ctx.start.getCharPositionInLine(), ctx.type().getText()),   //error
+                        new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
+                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
                         new ExpressionParseCancelationException());                         //This error fails compilation of expression only
             }
 
@@ -70,12 +70,12 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
             var freeDimensions = ctx.arrayModifier().size();
 
             try {
-                return new ArrayInstantiation(ClassFactory.getInstance().forName(ctx.type().getText()),
+                return new ArrayInstantiation(ClassFactory.getInstance().forName(ctx.arrayType().getText()),
                         dimensions, freeDimensions);
             } catch (ClassNotFoundException e) {
                 errorCollector.reportFatalError(
-                        new ClassNotFoundError(ctx.type().start.getLine(),                  //Reporting class not found
-                                ctx.start.getCharPositionInLine(), ctx.type().getText()),   //error
+                        new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
+                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
                         new ExpressionParseCancelationException());                         //This error fails compilation of expression only
             }
 
