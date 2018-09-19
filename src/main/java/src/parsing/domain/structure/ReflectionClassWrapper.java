@@ -5,6 +5,7 @@ import org.objectweb.asm.Type;
 import src.parsing.domain.utils.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,7 +24,12 @@ class ReflectionClassWrapper implements AbstractClass {
     private final HashMap<String, ReflectionFieldWrapper> fields = new HashMap<>();
 
     ReflectionClassWrapper(Class<?> cls) {
+
         containedClass = cls;
+
+        Arrays.stream(containedClass.getMethods())
+                .forEach(method -> methods.add(new ReflectionMethodWrapper(method)));
+
     }
 
     /**
@@ -81,17 +87,12 @@ class ReflectionClassWrapper implements AbstractClass {
 
         for (ReflectionMethodWrapper method : methods) {
 
-            if(method.matches(methodName, convParams))
-                return method;
+            if(method.matches(methodName, convParams) && (!method.isBridge())) //Method must be not bridge in order
+                return method;                                                 //to prevent covariant super method selection
+            //                                                                   (e.g. select public StringBuilder append(String)
+        }                                                                      //instead of public AbstractStringBuilder append(String)
 
-        }
-
-        var newMethod = new ReflectionMethodWrapper(containedClass, methodName,
-                Arrays.stream(convParams).map(ReflectionClassWrapper::getContainedClass).toArray(Class[]::new));
-
-        methods.add(newMethod);
-
-        return newMethod;
+        throw new NoSuchMethodException();
 
 
     }

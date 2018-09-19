@@ -11,9 +11,8 @@ public class ReflectionMethodWrapper {
 
     private final Method containedMethod;
 
-    public ReflectionMethodWrapper(Class<?> cls, String methodName, Class<?>[] params) throws NoSuchMethodException {
-        containedMethod = cls.getMethod(methodName, params);
-
+    ReflectionMethodWrapper(Method method) {
+        containedMethod = method;
     }
 
     public String getName() {
@@ -22,6 +21,10 @@ public class ReflectionMethodWrapper {
 
     public ReflectionClassWrapper getReturnType() {
         return ClassFactory.getInstance().forClass(containedMethod.getReturnType());
+    }
+
+    public boolean isBridge() {
+        return containedMethod.isBridge();
     }
 
     public String getDescriptor() {
@@ -50,6 +53,9 @@ public class ReflectionMethodWrapper {
             return false;
 
         var paramTypes = containedMethod.getParameterTypes();
+
+        if(!(paramTypes.length == params.length))
+            return false;
 
         for (int i = 0; i < params.length; i++) {
 
