@@ -5,12 +5,8 @@ package src.parsing.domain.exceptions;
  */
 public class IncompatibleTypesException extends Exception {
 
-    private String typeFound;
-    private String typeExpected;
-
-    @Deprecated (forRemoval = true)
-    public IncompatibleTypesException() {
-    }
+    private final String typeFound;
+    private final String typeExpected;
 
     public IncompatibleTypesException(String typeExpected, String typeFound) {
         this.typeFound = typeFound;

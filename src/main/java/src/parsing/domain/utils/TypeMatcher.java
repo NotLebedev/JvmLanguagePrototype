@@ -111,14 +111,14 @@ public class TypeMatcher {
 
 
         if(sample.isPrimitive()) {
-            return matchB2P(value);
+            return matchB2P(sample, value);
         }else {
             return matchP2B(sample, value);
         }
 
     }
 
-    private Value matchB2P(Value value) throws IncompatibleTypesException {
+    private Value matchB2P(AbstractClass sample, Value value) throws IncompatibleTypesException {
 
         for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
@@ -143,7 +143,7 @@ public class TypeMatcher {
 
         }
 
-        throw new IncompatibleTypesException();
+        throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
     }
 
@@ -172,7 +172,7 @@ public class TypeMatcher {
 
         }
 
-        throw new IncompatibleTypesException();
+        throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
     }
 
