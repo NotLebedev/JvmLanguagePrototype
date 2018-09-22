@@ -3,9 +3,11 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 
 public class StaticMethodInvocation implements Value {
 
@@ -27,7 +29,22 @@ public class StaticMethodInvocation implements Value {
      * @param paramValues parameter values
      */
     public void setParamValues(Value[] paramValues) {
-        this.paramValues = paramValues;
+
+        var tm = TypeMatcher.getInstance();
+        var sampleTypes = method.getParameters();
+
+        this.paramValues = new Value[paramValues.length];
+
+        try {
+
+            for (int i = 0; i < paramValues.length; i++) {
+                this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
+            }
+
+        } catch (IncompatibleTypesException e) {
+            throw new IllegalStateException("paramValues expected to be correct", e);
+        }
+
     }
 
     @Override

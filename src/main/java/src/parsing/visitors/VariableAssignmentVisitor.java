@@ -48,7 +48,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             }catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                variable.getType().getName(), value.getType().getName()),
+                                e.getTypeExpected(), e.getTypeFound()),
                         new ExpressionParseCancelationException()
                 );
             }
@@ -68,7 +68,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             }catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                arrayAccess.getType().getName(), value.getType().getName()),
+                                e.getTypeExpected(), e.getTypeFound()),
                         new ExpressionParseCancelationException()
                 );
             }

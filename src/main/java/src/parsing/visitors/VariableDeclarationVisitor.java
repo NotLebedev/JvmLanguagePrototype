@@ -64,7 +64,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
             } catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.assignment().value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                variable.getType().getName(), value.getType().getName()), //variable can not be null (because of reportFatalError)
+                                e.getTypeExpected(), e.getTypeFound()), //variable can not be null (because of reportFatalError)
                         new ExpressionParseCancelationException()
                 );
             }
