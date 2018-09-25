@@ -3,29 +3,32 @@ package src.parsing.domain;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
+import src.parsing.domain.structure.ReflectionConstructorWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 
 public class ObjectInstantiation implements Value {
 
-    private String constructorOwnerClassName;
     private AbstractClass constructorOwnerClass;
 
     private Value[] paramValues;
     private AbstractClass[] params;
 
-    public void setNames(String constructorOwnerClassName, AbstractClass[] params) throws ClassNotFoundException {
+    private ReflectionConstructorWrapper constructor;
 
-        this.constructorOwnerClassName = constructorOwnerClassName;
-        this.params = params;
+    public void setNames(ReflectionConstructorWrapper constructor) {
+
+        this.constructor = constructor;
 
         resolveNames();
 
     }
 
-    private void resolveNames() throws ClassNotFoundException {
+    private void resolveNames() {
 
-        constructorOwnerClass = ClassFactory.getInstance().forName(constructorOwnerClassName);
+        constructorOwnerClass = constructor.getOwnerClass();
 
     }
 
@@ -36,18 +39,22 @@ public class ObjectInstantiation implements Value {
      * @param paramValues parameter values
      * @throws IllegalArgumentException class of value doe not match class of parameter
      */
-    public void setParamValues(Value[] paramValues) throws IllegalArgumentException {
+    public void setParamValues(Value[] paramValues) {
 
-        for (int i = 0; i < params.length; i++) {
+        var tm = TypeMatcher.getInstance();
+        var sampleTypes = constructor.getParameters();
 
-            if(!paramValues[i].getType().equals(params[i])) { // TODO : auto type casting/(un)boxing
-                throw new IllegalArgumentException("Value " + i + " type of " + paramValues[i].getType().getJvmName() +
-                        " does not match field type of " + params[i].getJvmName());
+        this.paramValues = new Value[paramValues.length];
+
+        try {
+
+            for (int i = 0; i < paramValues.length; i++) {
+                this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
             }
 
+        } catch (IncompatibleTypesException e) {
+            throw new IllegalStateException("paramValues expected to be correct", e);
         }
-
-        this.paramValues = paramValues;
 
     }
 
@@ -64,25 +71,8 @@ public class ObjectInstantiation implements Value {
         methodVisitor.visitMethodInsn(Opcodes.INVOKESPECIAL,
                 constructorOwnerClass.getSlashName(),
                 "<init>",
-                getDescriptor(),
+                constructor.getDescriptor(),
                 false);
-
-    }
-
-    private String getDescriptor() {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-
-        for (AbstractClass param : params) {
-            sb.append(param.getJvmName());
-        }
-
-        sb.append(")");
-
-        sb.append("V");
-
-        return sb.toString();
 
     }
 

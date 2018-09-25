@@ -4,10 +4,12 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.ArrayInstantiation;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.exceptions.NoSuchConstructorException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectInstantiation;
+import src.parsing.domain.structure.ReflectionConstructorWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
@@ -50,14 +52,15 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                     .collect(Collectors.toList());
 
             try {
-                objectInstantiation.setNames(ctx.arrayType().getText(), params.stream()
-                        .map(Value::getType)
-                        .toArray(AbstractClass[]::new));
+                objectInstantiation.setNames(ClassFactory.getInstance().forName(ctx.arrayType().getText())
+                        .getConstructor(params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
             } catch (ClassNotFoundException e) {
                 errorCollector.reportFatalError(
                         new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
                                 ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
                         new ExpressionParseCancelationException());                         //This error fails compilation of expression only
+            } catch (NoSuchConstructorException e) {
+                e.printStackTrace();
             }
 
             objectInstantiation.setParamValues(params.toArray(new Value[0]));
