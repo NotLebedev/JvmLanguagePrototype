@@ -1,17 +1,16 @@
 package src.parsing.domain.structure;
 
 import src.parsing.domain.structure.interfaces.AbstractClass;
-import src.parsing.domain.utils.TypeMatcher;
 import src.parsing.domain.utils.Utils;
 
+import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * @author NotLebedev
  */
-public class ReflectionMethodWrapper {
+public class ReflectionMethodWrapper extends ReflectionExecutable {
 
     private final Method containedMethod;
 
@@ -19,6 +18,12 @@ public class ReflectionMethodWrapper {
         containedMethod = method;
     }
 
+    @Override
+    protected Executable getExecutable() {
+        return containedMethod;
+    }
+
+    @Override
     public String getName() {
         return containedMethod.getName();
     }
@@ -57,62 +62,6 @@ public class ReflectionMethodWrapper {
 
         return Arrays.stream(containedMethod.getParameterTypes())
                 .map(classFactory::forClass).toArray(AbstractClass[]::new);
-
-    }
-
-    /**
-     * Tests if this method has exact same name and parameters as provided
-     * @param methodName name to compare with
-     * @param params parameters to compare with
-     * @return true if matches, false otherwise
-     */
-    public boolean strictMatches(String methodName, ReflectionClassWrapper[] params) {
-
-        if(!getName().equals(methodName))
-            return false;
-
-        var paramTypes = containedMethod.getParameterTypes();
-
-        if(!(paramTypes.length == params.length))
-            return false;
-
-        for (int i = 0; i < params.length; i++) {
-
-            if(!params[i].getName().equals(paramTypes[i].getName()))
-                return false;
-
-        }
-
-        return true;
-
-    }
-
-    /**
-     * Tests if this method has exact same name and matching (according to {@link TypeMatcher}) parameters
-     * @param methodName name to compare with
-     * @param params parameters to compare with
-     * @return true if matches, false otherwise
-     */
-    public boolean unstrictMatches(String methodName, ReflectionClassWrapper[] params) {
-
-        if(!getName().equals(methodName))
-            return false;
-
-        var paramTypes = containedMethod.getParameterTypes();
-
-        if(!(paramTypes.length == params.length))
-            return false;
-
-        var typeMatcher = TypeMatcher.getInstance();
-        var classFactory = ClassFactory.getInstance();
-        for (int i = 0; i < params.length; i++) {
-
-            if(!typeMatcher.matches(classFactory.forClass(paramTypes[i]), params[i]))
-                return false;
-
-        }
-
-        return true;
 
     }
 
