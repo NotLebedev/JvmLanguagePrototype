@@ -1,6 +1,8 @@
 package src.parsing.domain.structure.interfaces;
 
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.exceptions.NoSuchConstructorException;
+import src.parsing.domain.structure.ReflectionConstructorWrapper;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 
@@ -47,6 +49,8 @@ public interface AbstractClass extends Value {
      * @throws NoSuchMethodException method with given names and parameters does not exist
      */
     ReflectionMethodWrapper getMethod(String methodName, AbstractClass[] params) throws NoSuchMethodException;
+
+    ReflectionConstructorWrapper getConstructor(AbstractClass[] params) throws NoSuchConstructorException;
 
     /**
      * Returns a JVM instruction opcode adapted to this class.

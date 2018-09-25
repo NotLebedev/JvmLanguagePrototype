@@ -108,7 +108,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
     }
 
-    public ReflectionConstructorWrapper getConstructor(String constructorName, AbstractClass[] params) throws NoSuchConstructorException {
+    public ReflectionConstructorWrapper getConstructor(AbstractClass[] params) throws NoSuchConstructorException {
 
         var convParams = new ReflectionClassWrapper[params.length];
 
@@ -123,14 +123,14 @@ class ReflectionClassWrapper implements AbstractClass {
 
         for (ReflectionConstructorWrapper constructor : constructors) {
 
-            if(constructor.strictMatches(constructorName, convParams))
+            if(constructor.strictMatches(getName(), convParams))
                 return constructor;
 
         }
 
         for (ReflectionConstructorWrapper constructor : constructors) {
 
-            if(constructor.unstrictMatches(constructorName, convParams))
+            if(constructor.unstrictMatches(getName(), convParams))
                 return constructor;
 
         }
