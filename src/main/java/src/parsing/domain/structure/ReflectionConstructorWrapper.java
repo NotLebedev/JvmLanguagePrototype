@@ -41,7 +41,7 @@ public class ReflectionConstructorWrapper extends ReflectionExecutable {
         sb.append("(");
 
         for (Class<?> param : containedConstructor.getParameterTypes()) {
-            sb.append(Utils.getJvmClassName(param));
+            sb.append(Utils.getClassName(param));
         }
 
         sb.append(")");

@@ -80,8 +80,10 @@ java.lang.Byte[] bytes = new java.lang.Byte[d] //Array index unboxing tests
 bytes[0] = c
 bytes[c] = s
 
-java.lang.System.out.println(bytes[0]) //Method unboxing tests
+java.lang.System.out.println(bytes[0]) //Static method unboxing tests
 java.lang.System.out.println(bytes[c])
 
 src.parsing.Class2 cls2 = new src.parsing.Class2(d) //Constructor unboxing test
+cls2.printString(b) //Object method unboxing tests
+cls2.printString(s)
 //endregion

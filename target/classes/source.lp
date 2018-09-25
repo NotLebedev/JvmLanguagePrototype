@@ -77,3 +77,5 @@ java.lang.System.out.println(bytes[0].intValue())
 java.lang.System.out.println(bytes[c])
 
 src.parsing.Class2 cls2 = new src.parsing.Class2(d)
+cls2.printString(b)
+cls2.printString(s)

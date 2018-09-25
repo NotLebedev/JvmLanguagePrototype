@@ -41,6 +41,12 @@ public class Class2 {
 
     }
 
+    public void printString(short s) {
+
+        System.out.println("short");
+
+    }
+
     public static class InnerClass {
 
         public static void qwe() {}
