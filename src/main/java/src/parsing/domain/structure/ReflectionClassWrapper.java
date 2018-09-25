@@ -123,14 +123,14 @@ class ReflectionClassWrapper implements AbstractClass {
 
         for (ReflectionConstructorWrapper constructor : constructors) {
 
-            if(constructor.strictMatches(getName(), convParams))
+            if(constructor.strictMatches(null, convParams))
                 return constructor;
 
         }
 
         for (ReflectionConstructorWrapper constructor : constructors) {
 
-            if(constructor.unstrictMatches(getName(), convParams))
+            if(constructor.unstrictMatches(null, convParams))
                 return constructor;
 
         }

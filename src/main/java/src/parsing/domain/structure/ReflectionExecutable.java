@@ -2,6 +2,7 @@ package src.parsing.domain.structure;
 
 import src.parsing.domain.utils.TypeMatcher;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Executable;
 
 /**
@@ -26,14 +27,15 @@ abstract class ReflectionExecutable {
 
     /**
      * Tests if this executable has exact same name and parameters as provided
-     * @param name name to compare with
+     * @param name name to compare with, null if should not be compared
      * @param params parameters to compare with
      * @return true if matches, false otherwise
      */
-    public boolean strictMatches(String name, ReflectionClassWrapper[] params) {
+    public boolean strictMatches(@Nullable String name, ReflectionClassWrapper[] params) {
 
-        if(!getName().equals(name))
-            return false;
+        if(name != null)
+            if(!getName().equals(name))
+                return false;
 
         var paramTypes = getExecutable().getParameterTypes();
 
@@ -53,14 +55,15 @@ abstract class ReflectionExecutable {
 
     /**
      * Tests if this executable has exact same name and matching (according to {@link TypeMatcher}) parameters
-     * @param methodName name to compare with
+     * @param name name to compare with
      * @param params parameters to compare with
      * @return true if matches, false otherwise
      */
-    public boolean unstrictMatches(String methodName, ReflectionClassWrapper[] params) {
+    public boolean unstrictMatches(String name, ReflectionClassWrapper[] params) {
 
-        if(!getName().equals(methodName))
-            return false;
+        if(name != null)
+            if(!getName().equals(name))
+                return false;
 
         var paramTypes = getExecutable().getParameterTypes();
 
