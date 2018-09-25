@@ -14,20 +14,12 @@ public class ObjectInstantiation implements Value {
     private AbstractClass constructorOwnerClass;
 
     private Value[] paramValues;
-    private AbstractClass[] params;
 
     private ReflectionConstructorWrapper constructor;
 
     public void setNames(ReflectionConstructorWrapper constructor) {
 
         this.constructor = constructor;
-
-        resolveNames();
-
-    }
-
-    private void resolveNames() {
-
         constructorOwnerClass = constructor.getOwnerClass();
 
     }
