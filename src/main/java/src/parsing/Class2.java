@@ -49,7 +49,8 @@ public class Class2 {
 
     public static class InnerClass {
 
-        public static void qwe() {}
+        public static void qwe() {
+        }
 
     }
 

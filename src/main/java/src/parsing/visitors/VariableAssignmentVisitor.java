@@ -2,10 +2,13 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.*;
+import src.parsing.domain.ArrayAccess;
+import src.parsing.domain.ArrayAssignment;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.Variable;
+import src.parsing.domain.VariableAssignment;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
@@ -45,7 +48,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             try {
                 variableAssignment.setParams(variable, value);
-            }catch (IncompatibleTypesException e) {
+            } catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
                                 e.getTypeExpected(), e.getTypeFound()),
@@ -65,7 +68,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             try {
                 return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
-            }catch (IncompatibleTypesException e) {
+            } catch (IncompatibleTypesException e) {
                 errorCollector.reportFatalError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
                                 e.getTypeExpected(), e.getTypeFound()),

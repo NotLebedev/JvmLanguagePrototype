@@ -22,11 +22,13 @@ public class Method implements Scope {
      * Constructor to use, when method is static and has no fields
      * (In another words, no pre-defined fields exist)
      */
-    public Method(){}
+    public Method() {
+    }
 
     /**
      * Constructor to use, when method is non-static or has fields
      * (In another words, pre-defined fields exist)
+     *
      * @param variablesVisible variables
      */
     public Method(Variable[] variablesVisible) {
@@ -75,7 +77,7 @@ public class Method implements Scope {
         for (Variable variable : variables) {
 
             if(variable.getName().equals(name))
-                return  variable;
+                return variable;
 
         }
 
@@ -89,7 +91,7 @@ public class Method implements Scope {
         for (Variable variable : variables) {
 
             if(variable.getName().equals(name))
-                return  true;
+                return true;
 
         }
 

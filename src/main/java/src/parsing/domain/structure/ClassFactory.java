@@ -1,7 +1,7 @@
 package src.parsing.domain.structure;
 
-import src.parsing.domain.utils.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.Utils;
 
 import java.util.HashMap;
 
@@ -25,8 +25,9 @@ public class ClassFactory {
 
     /**
      * Constructs a multi-dimensional array from given basic type
+     *
      * @param arrayDimension number of dimensions to be added
-     * @param basicType class to be turned into array
+     * @param basicType      class to be turned into array
      * @return the AbstractClass inheritor for specified array type
      */
     public AbstractClass toArray(int arrayDimension, AbstractClass basicType) {
@@ -50,6 +51,7 @@ public class ClassFactory {
 
     /**
      * Returns the AbstractClass inheritor associated with the class or interface with the given string name
+     *
      * @param name the fully qualified name of the desired class
      * @return the AbstractClass inheritor for specified name
      * @throws ClassNotFoundException if the class cannot be located
@@ -65,6 +67,7 @@ public class ClassFactory {
     /**
      * Returns the AbstractClass inheritor associated with the class or interface with the given string name
      * Use this method to load literal classes (e.g. types of literals, array index type)
+     *
      * @param name the fully qualified name of the desired class
      * @return the AbstractClass inheritor for specified name
      */

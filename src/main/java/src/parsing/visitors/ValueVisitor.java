@@ -44,13 +44,13 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     public Value visitValue(RootParser.ValueContext ctx) {
 
         //region literal
-        if (ctx.literalCG() != null) {
+        if(ctx.literalCG() != null) {
             return ctx.literalCG().accept(new LiteralCGVisitor());
         }
         //endregion
 
         //region plain id
-        else if (ctx.id() != null) {
+        else if(ctx.id() != null) {
 
             try {
                 return scope.getVariableByName(ctx.id().getText());
@@ -59,7 +59,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             var packagePart = new PackageO();
 
-            if (packagePart.updatePath(ctx.id().getText()))
+            if(packagePart.updatePath(ctx.id().getText()))
                 return packagePart;
 
             errorCollector.reportFatalError(
@@ -72,31 +72,31 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         //endregion
 
         //region object instantioation
-        else if (ctx.objectInstantiation() != null) {
+        else if(ctx.objectInstantiation() != null) {
             return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope, errorCollector));
         }
         //endregion
 
         //region parenthesis
-        else if (ctx.bracketOpenS() != null) {
+        else if(ctx.bracketOpenS() != null) {
             //Just simple parenthesis
             return ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
         }
         //endregion
 
         //region dotS
-        else if (ctx.dotS() != null) {
+        else if(ctx.dotS() != null) {
 
             var val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
 
-            if (val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
+            if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
                 // only id to go next
                 var packageO = (PackageO) val;
 
                 String id = ctx.value(1).id().getText();
 
                 //region Subpackage
-                if (packageO.updatePath(id))
+                if(packageO.updatePath(id))
                     return packageO;
                 //endregion
 
@@ -112,11 +112,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 }
                 //endregion
 
-            } else if (val instanceof AbstractClass) {
+            } else if(val instanceof AbstractClass) {
 
                 var classO = (AbstractClass) val;
 
-                if (ctx.value(1).id() != null) {
+                if(ctx.value(1).id() != null) {
 
                     String id = ctx.value(1).id().getText();
 
@@ -145,7 +145,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 }
 
-                if (ctx.value(1).methodInv() != null) {
+                if(ctx.value(1).methodInv() != null) {
 
                     //Is static method invocation
                     return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, true, scope));
@@ -155,7 +155,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             } else { // Last case is for any object value
 
-                if (ctx.value(1).id() != null) {
+                if(ctx.value(1).id() != null) {
 
                     //Is object field
                     try {
@@ -175,7 +175,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 }
 
-                if (ctx.value(1).methodInv() != null) {
+                if(ctx.value(1).methodInv() != null) {
 
                     //Is object method invocation
                     return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
@@ -189,7 +189,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         //endregion
 
         //region array
-        else if (ctx.arrayIndex() != null) {
+        else if(ctx.arrayIndex() != null) {
 
             Value val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
             Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope, errorCollector));
@@ -268,7 +268,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
 
-            if (requireStatic && !isStatic) {
+            if(requireStatic && !isStatic) {
 
                 errorCollector.reportFatalError(
                         new WrongContextError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
@@ -278,7 +278,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             }
 
-            if (isStatic) {
+            if(isStatic) {
 
                 var smi = new StaticMethodInvocation();
                 smi.setNames(val.getType(), method);

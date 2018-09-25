@@ -21,7 +21,6 @@ public class ObjectMethodInvocation implements Value {
     private Value[] paramValues;
 
     /**
-     *
      * @param object object owning method
      * @param method method
      */
@@ -35,7 +34,6 @@ public class ObjectMethodInvocation implements Value {
     }
 
     /**
-     *
      * @param paramValues parameter values
      */
     public void setParamValues(Value[] paramValues) {
@@ -48,7 +46,7 @@ public class ObjectMethodInvocation implements Value {
         try {
 
             for (int i = 0; i < paramValues.length; i++) {
-                    this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
+                this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
             }
 
         } catch (IncompatibleTypesException e) {
@@ -67,11 +65,11 @@ public class ObjectMethodInvocation implements Value {
         }
 
 
-        methodVisitor.visitMethodInsn(  Opcodes.INVOKEVIRTUAL,
-                                        objectClass.getSlashName(),
-                                        method.getName(),
-                                        method.getDescriptor(),
-                                        objectClass.isInterface());
+        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
+                objectClass.getSlashName(),
+                method.getName(),
+                method.getDescriptor(),
+                objectClass.isInterface());
 
     }
 

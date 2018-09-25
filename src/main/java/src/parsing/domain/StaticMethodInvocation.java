@@ -4,7 +4,6 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
-import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.domain.utils.TypeMatcher;
@@ -25,7 +24,6 @@ public class StaticMethodInvocation implements Value {
     }
 
     /**
-     *
      * @param paramValues parameter values
      */
     public void setParamValues(Value[] paramValues) {
@@ -54,11 +52,11 @@ public class StaticMethodInvocation implements Value {
             value.generateBytecode(methodVisitor);
         }
 
-        methodVisitor.visitMethodInsn(  Opcodes.INVOKESTATIC,
-                                        methodOwnerClass.getSlashName(),
-                                        method.getName(),
-                                        method.getDescriptor(),
-                                        methodOwnerClass.isInterface());
+        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC,
+                methodOwnerClass.getSlashName(),
+                method.getName(),
+                method.getDescriptor(),
+                methodOwnerClass.isInterface());
 
     }
 

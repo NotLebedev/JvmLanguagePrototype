@@ -19,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try{
+        try {
 
             /*Class<?> cls = Class2.class;
             var method = cls.getMethod("getStr", (Class<?>[]) null);
@@ -95,7 +95,7 @@ public class Main {
             fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             var result = fc.showOpenDialog(null);
 
-            if(result != JFileChooser.APPROVE_OPTION){
+            if(result != JFileChooser.APPROVE_OPTION) {
                 System.err.println("File not choosed");
                 return;
             }
@@ -106,11 +106,11 @@ public class Main {
                 OutputStream os = new FileOutputStream(classPath);
                 os.write(classWriter.toByteArray());
                 os.close();
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

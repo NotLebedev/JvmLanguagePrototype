@@ -13,7 +13,7 @@ public class Utils {
 
             StringBuilder sb = new StringBuilder();
             sb.append(new String(new char[occNum]).replace("\0", "[")); //Add occNum of
-                                                                                        // "[" to start of string
+            // "[" to start of string
             name = name.replace("[", "").replace("]", "");
 
             sb.append(getClassName(Utils.classForName(name)).replace('/', '.'));
@@ -28,13 +28,13 @@ public class Utils {
             case "Z":
                 return boolean.class;
             case "byte":
-            case "B" :
+            case "B":
                 return byte.class;
             case "char":
-            case "C" :
+            case "C":
                 return char.class;
             case "long":
-            case "J" :
+            case "J":
                 return long.class;
             case "short":
             case "S":

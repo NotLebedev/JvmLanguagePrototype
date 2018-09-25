@@ -3,8 +3,8 @@ package src.parsing.domain.structure;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 import src.parsing.domain.exceptions.NoSuchConstructorException;
-import src.parsing.domain.utils.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,6 +142,7 @@ class ReflectionClassWrapper implements AbstractClass {
     /**
      * Returns a JVM instruction opcode adapted to this ReflectionClassWrapper.
      * This method must not be used for method types
+     *
      * @param sample opcode - a JVM instruction opcode for int (e.g. IASTORE)
      * @return opcode that is similar to the given opcode, but adapted to this ReflectionClassWrapper
      */
@@ -151,6 +152,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
     /**
      * Determines if the specified ReflectionClassWrapper object represents an interface type
+     *
      * @return true if is interface false otherwise
      */
     public boolean isInterface() {
@@ -159,6 +161,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
     /**
      * Determines if the specified ReflectionClassWrapper object is primitive type
+     *
      * @return true if primitive, false if reference
      */
     public boolean isPrimitive() {

@@ -1,6 +1,5 @@
 package src.parsing.visitors.errorHandling.errors;
 
-import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.CompilationError;
 
@@ -54,7 +53,7 @@ public class NoSuchMethodError implements CompilationError {
                 sb.append("\n");
             }
 
-        }else {
+        } else {
             sb.append(", and no parameters");
         }
 

@@ -10,6 +10,7 @@ public interface Value extends Expression {
 
     /**
      * Generates bytecode placing this value on stack
+     *
      * @param methodVisitor {@link MethodVisitor}  in which bytecode will be generated
      */
     @Override

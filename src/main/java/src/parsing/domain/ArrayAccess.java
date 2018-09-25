@@ -39,7 +39,7 @@ public class ArrayAccess implements Value {
 
         try {
             type = ClassFactory.getInstance().forName(typeString);
-        }catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             throw new ArrayExpectedException();
         }
 

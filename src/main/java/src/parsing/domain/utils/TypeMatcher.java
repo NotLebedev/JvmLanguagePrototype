@@ -29,17 +29,17 @@ public class TypeMatcher {
     private List<AbstractClass> conversionGroup;
 
     private static final String[] conversionPairTypes = {"byte", "java.lang.Byte",
-                                                        "short", "java.lang.Short",
-                                                        "int", "java.lang.Integer",
-                                                        "char", "java.lang.Character",
-                                                        "long", "java.lang.Long",
-                                                        "boolean", "java.lang.Boolean",
-                                                        "float", "java.lang.Float",
-                                                        "double", "java.lang.Double"};
+            "short", "java.lang.Short",
+            "int", "java.lang.Integer",
+            "char", "java.lang.Character",
+            "long", "java.lang.Long",
+            "boolean", "java.lang.Boolean",
+            "float", "java.lang.Float",
+            "double", "java.lang.Double"};
     private static final String[] singleWordGroup = {"byte", "java.lang.Byte",
-                                                     "short", "java.lang.Short",
-                                                     "int", "java.lang.Integer",
-                                                     "char", "java.lang.Character"};
+            "short", "java.lang.Short",
+            "int", "java.lang.Integer",
+            "char", "java.lang.Character"};
 
     private TypeMatcher() {
 
@@ -49,8 +49,8 @@ public class TypeMatcher {
 
         final var cf = ClassFactory.getInstance();
 
-        for (int i = 0; i < 16; i+=2) {
-            boxingPairs.add(new Pair<>(cf.forCorrectName(conversionPairTypes[i]), cf.forCorrectName(conversionPairTypes[i+1])));
+        for (int i = 0; i < 16; i += 2) {
+            boxingPairs.add(new Pair<>(cf.forCorrectName(conversionPairTypes[i]), cf.forCorrectName(conversionPairTypes[i + 1])));
         }
 
         //endregion
@@ -106,13 +106,13 @@ public class TypeMatcher {
             throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
         if((sample.equals(value.getType())) || //If types are equal no conversion needed
-           (sample.isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed
+                (sample.isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed
             return value;
 
 
         if(sample.isPrimitive()) {
             return matchB2P(sample, value);
-        }else {
+        } else {
             return matchP2B(sample, value);
         }
 

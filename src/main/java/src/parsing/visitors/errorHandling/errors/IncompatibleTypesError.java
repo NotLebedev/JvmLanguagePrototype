@@ -5,7 +5,7 @@ import src.parsing.visitors.errorHandling.CompilationError;
 /**
  * @author NotLebedev
  */
-public class IncompatibleTypesError  implements CompilationError {
+public class IncompatibleTypesError implements CompilationError {
 
     private int line;
     private int symbol;

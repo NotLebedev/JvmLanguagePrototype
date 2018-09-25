@@ -8,6 +8,7 @@ import src.parsing.domain.structure.ReflectionMethodWrapper;
 
 /**
  * Interface for all class containers
+ *
  * @author NotLebedev
  */
 public interface AbstractClass extends Value {
@@ -35,6 +36,7 @@ public interface AbstractClass extends Value {
 
     /**
      * Returns a {@link ReflectionFieldWrapper} object that reflects the specified field of the class or interface represented by this object
+     *
      * @param fieldName field name
      * @return {@link ReflectionFieldWrapper} for specified name
      * @throws NoSuchFieldException field with given name does not exist
@@ -43,8 +45,9 @@ public interface AbstractClass extends Value {
 
     /**
      * Returns a {@link ReflectionMethodWrapper} object that reflects the specified field of the class or interface represented by this object
+     *
      * @param methodName method name
-     * @param params parameter types
+     * @param params     parameter types
      * @return {@link ReflectionMethodWrapper} for specified name
      * @throws NoSuchMethodException method with given names and parameters does not exist
      */
@@ -55,6 +58,7 @@ public interface AbstractClass extends Value {
     /**
      * Returns a JVM instruction opcode adapted to this class.
      * This method must not be used for method types
+     *
      * @param sample opcode - a JVM instruction opcode for int (e.g. IASTORE)
      * @return opcode that is similar to the given opcode, but adapted to this class
      */
@@ -62,12 +66,14 @@ public interface AbstractClass extends Value {
 
     /**
      * Determines if the specified class object represents an interface type
+     *
      * @return true if is interface false otherwise
      */
     boolean isInterface();
 
     /**
      * Determines if the specified class object is primitive type
+     *
      * @return true if primitive, false if reference
      */
     boolean isPrimitive();

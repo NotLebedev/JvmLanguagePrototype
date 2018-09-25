@@ -1,7 +1,6 @@
 package src.parsing.visitors;
 
 /**
- *
  * @author NotLebedev
  */
 public class SymbolNotFoundException extends Exception {

@@ -15,19 +15,22 @@ abstract class ReflectionExecutable {
 
     /**
      * Returns contained executable of any subclass
+     *
      * @return contained executable
      */
     protected abstract Executable getExecutable();
 
     /**
      * Returns name of any executable of subclass
+     *
      * @return contained executable name
      */
     public abstract String getName();
 
     /**
      * Tests if this executable has exact same name and parameters as provided
-     * @param name name to compare with, null if should not be compared
+     *
+     * @param name   name to compare with, null if should not be compared
      * @param params parameters to compare with
      * @return true if matches, false otherwise
      */
@@ -55,7 +58,8 @@ abstract class ReflectionExecutable {
 
     /**
      * Tests if this executable has exact same name and matching (according to {@link TypeMatcher}) parameters
-     * @param name name to compare with
+     *
+     * @param name   name to compare with
      * @param params parameters to compare with
      * @return true if matches, false otherwise
      */

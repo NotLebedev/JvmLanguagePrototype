@@ -40,7 +40,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
         Variable variable = null;
 
         try {
-             variable = new Variable(type, name, 0);
+            variable = new Variable(type, name, 0);
         } catch (ClassNotFoundException e) {
             errorCollector.reportFatalError(
                     new ClassNotFoundError(ctx.declarationType().start.getLine(), ctx.declarationType().start.getCharPositionInLine(),
@@ -74,6 +74,6 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
         }
 
         return null; //Returning null is expected here, as variable
-                     // declaration may not produce any bytecode
+        // declaration may not produce any bytecode
     }
 }

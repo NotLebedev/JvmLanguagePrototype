@@ -28,7 +28,7 @@ public class PackageO implements Value {
             path = newPath;
             return true;
 
-        }else
+        } else
             return false;
 
     }

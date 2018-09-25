@@ -24,9 +24,8 @@ public class ArrayInstantiation implements Value {
     private final AbstractClass type;
 
     /**
-     *
-     * @param arrayType Type contained in upper most array, e.g. for String[3][4][] it is String
-     * @param sizes sizes of the initialized part of array
+     * @param arrayType      Type contained in upper most array, e.g. for String[3][4][] it is String
+     * @param sizes          sizes of the initialized part of array
      * @param freeDimensions how many non-initialized dimensions array has for int[3] it is 0,
      *                       for int[3][][] it is 2
      */
@@ -60,7 +59,7 @@ public class ArrayInstantiation implements Value {
 
                 methodVisitor.visitVarInsn(Opcodes.NEWARRAY, typeI);
 
-            }else {
+            } else {
 
                 methodVisitor.visitTypeInsn(Opcodes.ANEWARRAY, arrayType.getSlashName());
 

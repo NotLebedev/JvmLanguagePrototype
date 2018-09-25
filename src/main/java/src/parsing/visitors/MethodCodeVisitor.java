@@ -35,7 +35,7 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
                 if(expression != null)
                     method.addExpression(expression);
 
-            }catch (ExpressionParseCancelationException ignored){
+            } catch (ExpressionParseCancelationException ignored) {
             }
 
         });

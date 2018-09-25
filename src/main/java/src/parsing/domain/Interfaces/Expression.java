@@ -9,6 +9,7 @@ public interface Expression {
 
     /**
      * Generates bytecode executing this expression
+     *
      * @param methodVisitor {@link MethodVisitor}  in which bytecode will be generated
      */
     void generateBytecode(MethodVisitor methodVisitor);

@@ -4,12 +4,10 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Value;
-import src.parsing.domain.exceptions.ArrayExpectedException;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.domain.utils.TypeMatcher;
-import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 
 /**
  * Class describing storing to array elements
