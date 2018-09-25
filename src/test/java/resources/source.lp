@@ -66,20 +66,22 @@ java.lang.System.out.println(matrix[2][2])
 java.lang.Integer qwe = java.lang.Integer.valueOf(2)
 java.lang.Byte ewq = java.lang.Byte.valueOf("0")
 
-char c = 40;
+char c = 40; //Assignment unboxing tests
 int i = c;
 java.lang.Byte b = i;
 short s = b;
 s = matrix[0][2]
 
-matrix[0][2] = c;
+matrix[0][2] = c; //Array assignment unboxing tests
 matrix[0][c] = b;
 
 java.lang.Short d = 2
-java.lang.Byte[] bytes = new java.lang.Byte[d]
+java.lang.Byte[] bytes = new java.lang.Byte[d] //Array index unboxing tests
 bytes[0] = c
 bytes[c] = s
 
-java.lang.System.out.println(bytes[0])
+java.lang.System.out.println(bytes[0]) //Method unboxing tests
 java.lang.System.out.println(bytes[c])
+
+src.parsing.Class2 cls2 = new src.parsing.Class2(d) //Constructor unboxing test
 //endregion

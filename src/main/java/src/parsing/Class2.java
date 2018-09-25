@@ -5,6 +5,10 @@ public class Class2 {
     public Class2 field;
     public static Class2 sf;
 
+    public Class2(char c) {
+
+    }
+
     public static void print(String[] str) {
 
         for (String s : str) {
@@ -27,7 +31,7 @@ public class Class2 {
 
     public static Class2 test() {
 
-        return new Class2();
+        return new Class2('c');
 
     }
 
