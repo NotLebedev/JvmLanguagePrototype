@@ -20,6 +20,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
     //Lazy initialized lists of methods and fields
     private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
+    private final List<ReflectionConstructorWrapper> constructors = new ArrayList<>();
     private final HashMap<String, ReflectionFieldWrapper> fields = new HashMap<>();
 
     ReflectionClassWrapper(Class<?> cls) {
@@ -28,6 +29,9 @@ class ReflectionClassWrapper implements AbstractClass {
 
         Arrays.stream(containedClass.getMethods())
                 .forEach(method -> methods.add(new ReflectionMethodWrapper(method)));
+
+        Arrays.stream(containedClass.getConstructors())
+                .forEach(constructor -> constructors.add(new ReflectionConstructorWrapper(constructor, this)));
 
     }
 
