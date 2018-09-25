@@ -26,13 +26,13 @@ abstract class ReflectionExecutable {
 
     /**
      * Tests if this executable has exact same name and parameters as provided
-     * @param methodName name to compare with
+     * @param name name to compare with
      * @param params parameters to compare with
      * @return true if matches, false otherwise
      */
-    public boolean strictMatches(String methodName, ReflectionClassWrapper[] params) {
+    public boolean strictMatches(String name, ReflectionClassWrapper[] params) {
 
-        if(!getName().equals(methodName))
+        if(!getName().equals(name))
             return false;
 
         var paramTypes = getExecutable().getParameterTypes();

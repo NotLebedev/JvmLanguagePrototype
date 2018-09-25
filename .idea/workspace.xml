@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added ReflectionConstructorWrapper">
       <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/NoSuchConstructorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionExecutable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionExecutable.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,10 +48,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3857" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="45205" />
+          <entry key="java" value="45290" />
           <entry key="lp" value="1576" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="7559" />
+          <entry key="txt" value="7677" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -61,8 +59,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3857" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="45205" />
-          <entry key="PLAIN_TEXT" value="8718" />
+          <entry key="JAVA" value="45290" />
+          <entry key="PLAIN_TEXT" value="8836" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -75,7 +73,7 @@
           <entry key="class" value="24" />
           <entry key="g4" value="162" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="825" />
+          <entry key="java" value="826" />
           <entry key="lp" value="40" />
           <entry key="raw" value="3" />
           <entry key="snippet" value="7" />
@@ -87,7 +85,7 @@
           <entry key="ANTLR v4 grammar file" value="162" />
           <entry key="CLASS" value="29" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="825" />
+          <entry key="JAVA" value="826" />
           <entry key="PLAIN_TEXT" value="31" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
@@ -153,11 +151,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="514">
-                  <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="47" />
+                <state relative-caret-position="306">
+                  <caret line="117" column="33" selection-start-line="117" selection-start-column="33" selection-end-line="117" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -177,19 +175,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/reflect/Constructor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="312">
-                  <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionExecutable.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
-                  <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+                <state relative-caret-position="483">
+                  <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -204,7 +193,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="399">
+                <state relative-caret-position="-72">
                   <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
                   <folding>
                     <element signature="e#437#438#0" expanded="true" />
@@ -360,11 +349,11 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/Matchable.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/AbstractCallable.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/AbstractReflectionCallable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/AbstractReflectionExecutable.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionExecutable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java" />
       </list>
     </option>
   </component>
@@ -842,14 +831,7 @@
       <workItem from="1537290185084" duration="18732000" />
       <workItem from="1537366867649" duration="779000" />
       <workItem from="1537626831778" duration="1642000" />
-      <workItem from="1537882831803" duration="3281000" />
-    </task>
-    <task id="LOCAL-00074" summary="*Fixed type conversion in ReflectionClassWrapper.getMethod()&#10;*Migrated some usages outside of structure package from ReflectionClassWrapper to AbstractClass">
-      <created>1536688146258</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1536688146259</updated>
+      <workItem from="1537882831803" duration="4205000" />
     </task>
     <task id="LOCAL-00075" summary="*Migrated some more usages outside of structure package from ReflectionClassWrapper to AbstractClass&#10;*Optimized imports">
       <created>1536688652030</created>
@@ -1187,13 +1169,17 @@
       <option name="project" value="LOCAL" />
       <updated>1537884934286</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="*Added ReflectionExecutable class&#10;*Changed superclass of ReflectionConstructorWrapper and ReflectionMethodWrapper to ReflectionExecutable">
+      <created>1537886791234</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1537886791234</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_test_updateSampleBytecode - 2018.09.19 at 15h 53m 50s.xml">
-      <configuration name="BytecodeEqualityTest.test_updateSampleBytecode" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.19 at 15h 54m 02s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1221,9 +1207,12 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.25 at 17h 36m 39s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.25 at 17h 43m 11s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316176000" />
+    <option name="totallyTimeSpent" value="317100000" />
   </component>
   <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
@@ -1238,7 +1227,7 @@
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1426868" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1426868" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1317,7 +1306,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Collapsed two streams into single one&#10;*Changed error type in VariableDeclarationVisitor" />
     <MESSAGE value="*Collapsed two streams into single one in MethodCodeVisitor&#10;*Changed error type in VariableDeclarationVisitor" />
     <MESSAGE value="*Moved Utils to domain\utils" />
     <MESSAGE value="*Created TypeMatcher class&#10;*Implemented match() for equal types and (un)boxing&#10;*Implemented tests for match()" />
@@ -1342,7 +1330,8 @@
     <MESSAGE value="*Applied TypeMatcher to StaticMethodInvocation&#10;*Added corresponding code to bytecode equality test&#10;*Changes to error collection" />
     <MESSAGE value="*Removed deprecated IncompatibleTypesException constructor from use&#10;*Applied final modifiers to IncompatibleTypesException" />
     <MESSAGE value="*Added ReflectionConstructorWrapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Added ReflectionConstructorWrapper" />
+    <MESSAGE value="*Added ReflectionExecutable class&#10;*Changed superclass of ReflectionConstructorWrapper and ReflectionMethodWrapper to ReflectionExecutable" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added ReflectionExecutable class&#10;*Changed superclass of ReflectionConstructorWrapper and ReflectionMethodWrapper to ReflectionExecutable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1763,13 +1752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/reflect/Constructor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1777,28 +1759,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="-72">
           <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
           <folding>
             <element signature="e#437#438#0" expanded="true" />
@@ -1815,13 +1778,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/reflect/Constructor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#692#693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionExecutable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        <state relative-caret-position="483">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="117" column="33" selection-start-line="117" selection-start-column="33" selection-end-line="117" selection-end-column="33" />
         </state>
       </provider>
     </entry>

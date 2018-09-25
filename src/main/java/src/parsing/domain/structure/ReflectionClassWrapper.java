@@ -2,6 +2,7 @@ package src.parsing.domain.structure;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
+import src.parsing.domain.exceptions.NoSuchConstructorException;
 import src.parsing.domain.utils.Utils;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
@@ -18,7 +19,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
     private final Class<?> containedClass;
 
-    //Lazy initialized lists of methods and fields
+    //Lists of methods and fields
     private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
     private final List<ReflectionConstructorWrapper> constructors = new ArrayList<>();
     private final HashMap<String, ReflectionFieldWrapper> fields = new HashMap<>();
@@ -104,6 +105,37 @@ class ReflectionClassWrapper implements AbstractClass {
 
         throw new NoSuchMethodException();
 
+
+    }
+
+    public ReflectionConstructorWrapper getConstructor(String constructorName, AbstractClass[] params) throws NoSuchConstructorException {
+
+        var convParams = new ReflectionClassWrapper[params.length];
+
+        for (int i = 0; i < params.length; i++) {
+
+            if(!(params[i] instanceof ReflectionClassWrapper))
+                throw new NoSuchConstructorException(); //For obvious reasons classes from libraries can not be type-linked to code being compiled
+            else
+                convParams[i] = ((ReflectionClassWrapper) params[i]);
+
+        }
+
+        for (ReflectionConstructorWrapper constructor : constructors) {
+
+            if(constructor.strictMatches(constructorName, convParams))
+                return constructor;
+
+        }
+
+        for (ReflectionConstructorWrapper constructor : constructors) {
+
+            if(constructor.unstrictMatches(constructorName, convParams))
+                return constructor;
+
+        }
+
+        throw new NoSuchConstructorException();
 
     }
 
