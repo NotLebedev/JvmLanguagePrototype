@@ -6,10 +6,8 @@ import src.parsing.domain.exceptions.NoSuchConstructorException;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.domain.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Object containing class, no value-like access expected
@@ -20,19 +18,19 @@ class ReflectionClassWrapper implements AbstractClass {
     private final Class<?> containedClass;
 
     //Lists of methods and fields
-    private final List<ReflectionMethodWrapper> methods = new ArrayList<>();
-    private final List<ReflectionConstructorWrapper> constructors = new ArrayList<>();
+    private final ReflectionMethodWrapper[] methods;
+    private final ReflectionConstructorWrapper[] constructors;
     private final HashMap<String, ReflectionFieldWrapper> fields = new HashMap<>();
 
     ReflectionClassWrapper(Class<?> cls) {
 
         containedClass = cls;
 
-        Arrays.stream(containedClass.getMethods())
-                .forEach(method -> methods.add(new ReflectionMethodWrapper(method)));
+        methods = Arrays.stream(containedClass.getMethods())
+                .map(ReflectionMethodWrapper::new).toArray(ReflectionMethodWrapper[]::new);
 
-        Arrays.stream(containedClass.getConstructors())
-                .forEach(constructor -> constructors.add(new ReflectionConstructorWrapper(constructor, this)));
+        constructors = Arrays.stream(containedClass.getConstructors())
+                .map(constructor -> new ReflectionConstructorWrapper(constructor, this)).toArray(ReflectionConstructorWrapper[]::new);
 
     }
 
