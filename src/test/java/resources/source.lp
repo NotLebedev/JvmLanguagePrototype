@@ -66,7 +66,7 @@ java.lang.System.out.println(matrix[2][2])
 java.lang.Integer qwe = java.lang.Integer.valueOf(2)
 java.lang.Byte ewq = java.lang.Byte.valueOf("0")
 
-char c = 40; //Assignment unboxing tests
+char c = 1; //Assignment unboxing tests
 int i = c;
 java.lang.Byte b = i;
 short s = b;
@@ -87,3 +87,5 @@ src.parsing.Class2 cls2 = new src.parsing.Class2(d) //Constructor unboxing test
 cls2.printString(b) //Object method unboxing tests
 cls2.printString(s)
 //endregion
+
+src.parsing.Class2.sf = cls2 //Static field assignment test
