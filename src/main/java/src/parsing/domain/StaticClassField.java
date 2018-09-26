@@ -33,6 +33,10 @@ public class StaticClassField implements Value {
 
     }
 
+    public ReflectionFieldWrapper getField() {
+        return field;
+    }
+
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 

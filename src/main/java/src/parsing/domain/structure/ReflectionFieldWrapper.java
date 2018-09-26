@@ -1,5 +1,7 @@
 package src.parsing.domain.structure;
 
+import src.parsing.domain.structure.interfaces.AbstractClass;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -9,9 +11,13 @@ import java.lang.reflect.Modifier;
 public class ReflectionFieldWrapper {
 
     private final Field containedField;
+    private final AbstractClass ownerClass;
 
-    public ReflectionFieldWrapper(Class<?> cls, String fieldName) throws NoSuchFieldException {
+    public ReflectionFieldWrapper(Class<?> cls, AbstractClass ownerClass, String fieldName) throws NoSuchFieldException {
+
         containedField = cls.getField(fieldName);
+        this.ownerClass = ownerClass;
+
     }
 
     public String getName() {
@@ -22,6 +28,10 @@ public class ReflectionFieldWrapper {
 
         return (containedField.getModifiers() & Modifier.STATIC) != 0;
 
+    }
+
+    public AbstractClass getOwnerClass() {
+        return ownerClass;
     }
 
     public ReflectionClassWrapper getType() {

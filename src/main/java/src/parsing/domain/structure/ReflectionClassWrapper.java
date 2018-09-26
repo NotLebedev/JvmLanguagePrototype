@@ -67,7 +67,7 @@ class ReflectionClassWrapper implements AbstractClass {
             return fields.get(fieldName);
         }
 
-        var newField = new ReflectionFieldWrapper(containedClass, fieldName);
+        var newField = new ReflectionFieldWrapper(containedClass, this, fieldName);
         fields.put(fieldName, newField);
 
         return newField;

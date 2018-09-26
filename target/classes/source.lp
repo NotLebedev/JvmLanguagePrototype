@@ -1,4 +1,4 @@
-((java.lang.System).out).println(java.lang.Math.abs(-1));
+/*((java.lang.System).out).println(java.lang.Math.abs(-1));
 src.parsing.Class2.test().printString()
 
 java.lang.String str1 = "Hello "
@@ -78,4 +78,6 @@ java.lang.System.out.println(bytes[c])
 
 src.parsing.Class2 cls2 = new src.parsing.Class2(d)
 cls2.printString(b)
-cls2.printString(s)
+cls2.printString(s)*/
+
+src.parsing.Class2.sf = cls2
