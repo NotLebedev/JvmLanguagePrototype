@@ -88,6 +88,22 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
         }
 
+        if(val instanceof ObjectField) {
+
+            var objectField = ((ObjectField) val);
+
+            try {
+                return new ObjectFieldAssignment(objectField, value);
+            } catch (IncompatibleTypesException e) {
+                errorCollector.reportFatalError(
+                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                                e.getTypeExpected(), e.getTypeFound()),
+                        new ExpressionParseCancelationException()
+                );
+            }
+
+        }
+
         throw new IllegalStateException("I forgot to implement all cases in VariableAssignment"); //TODO : implement other cases
 
     }

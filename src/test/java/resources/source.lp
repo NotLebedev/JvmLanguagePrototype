@@ -89,3 +89,4 @@ cls2.printString(s)
 //endregion
 
 src.parsing.Class2.sf = cls2 //Static field assignment test
+cls2.field = cls2 //Object field assignment test

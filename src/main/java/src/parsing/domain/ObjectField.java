@@ -31,6 +31,14 @@ public class ObjectField implements Value {
 
     }
 
+    public ReflectionFieldWrapper getField() {
+        return field;
+    }
+
+    public Value getObject() {
+        return object;
+    }
+
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 

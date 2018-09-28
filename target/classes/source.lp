@@ -1,6 +1,9 @@
-/*((java.lang.System).out).println(java.lang.Math.abs(-1));
+//region Method invocation test
+((java.lang.System).out).println(java.lang.Math.abs(-1));
 src.parsing.Class2.test().printString()
+//endregion
 
+//region variable tests
 java.lang.String str1 = "Hello "
 java.lang.String str2 = "world!";
 
@@ -19,7 +22,9 @@ java.lang.StringBuilder sb = new java.lang.StringBuilder();
         sb.append(5);
         (sb).append(6);
 java.lang.System.out.println(sb.toString());
+//endregion
 
+//region array test
 java.lang.String[] strs1 = new java.lang.String[3]
 
 strs1[0] = "www"
@@ -55,29 +60,33 @@ java.lang.System.out.println(matrix[1][2])
 java.lang.System.out.print(matrix[2][0])
 java.lang.System.out.print(matrix[2][1])
 java.lang.System.out.println(matrix[2][2])
+//endregion
 
+//region (un)boxing test
 java.lang.Integer qwe = java.lang.Integer.valueOf(2)
 java.lang.Byte ewq = java.lang.Byte.valueOf("0")
-java.lang.System.out.println(matrix[qwe][ewq])
 
-char c = 1;
+char c = 1; //Assignment unboxing tests
 int i = c;
 java.lang.Byte b = i;
-short s = matrix[0][2];
+short s = b;
+s = matrix[0][2]
 
-matrix[0][2] = c;
+matrix[0][2] = c; //Array assignment unboxing tests
 matrix[0][c] = b;
 
 java.lang.Short d = 2
-java.lang.Byte[] bytes = new java.lang.Byte[d]
+java.lang.Byte[] bytes = new java.lang.Byte[d] //Array index unboxing tests
 bytes[0] = c
 bytes[c] = s
 
-java.lang.System.out.println(bytes[0].intValue())
+java.lang.System.out.println(bytes[0]) //Static method unboxing tests
 java.lang.System.out.println(bytes[c])
 
-src.parsing.Class2 cls2 = new src.parsing.Class2(d)
-cls2.printString(b)
-cls2.printString(s)*/
+src.parsing.Class2 cls2 = new src.parsing.Class2(d) //Constructor unboxing test
+cls2.printString(b) //Object method unboxing tests
+cls2.printString(s)
+//endregion
 
 src.parsing.Class2.sf = cls2
+cls2.field = cls2

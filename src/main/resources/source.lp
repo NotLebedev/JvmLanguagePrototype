@@ -89,3 +89,4 @@ cls2.printString(s)
 //endregion
 
 src.parsing.Class2.sf = cls2
+cls2.field = cls2
