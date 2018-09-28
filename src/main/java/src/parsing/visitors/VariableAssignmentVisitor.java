@@ -9,6 +9,7 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.errors.VariableExpectedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 /**
@@ -104,7 +105,12 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        throw new IllegalStateException("I forgot to implement all cases in VariableAssignment"); //TODO : implement other cases
+        errorCollector.reportFatalError(
+                new VariableExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText()),
+                new ExpressionParseCancelationException()
+        );
+
+        throw new IllegalStateException("Exception expected to be thrown before this, check ErrorCollector");
 
     }
 }
