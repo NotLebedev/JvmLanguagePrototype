@@ -7,7 +7,6 @@
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,10 +47,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3857" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="47893" />
+          <entry key="java" value="47937" />
           <entry key="lp" value="2122" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="8404" />
+          <entry key="txt" value="8414" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -59,8 +58,8 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3857" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="47893" />
-          <entry key="PLAIN_TEXT" value="9563" />
+          <entry key="JAVA" value="47937" />
+          <entry key="PLAIN_TEXT" value="9573" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
@@ -150,11 +149,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+            <state relative-caret-position="397">
+              <caret line="111" column="81" lean-forward="true" selection-start-line="111" selection-start-column="81" selection-end-line="111" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -177,10 +176,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
+            <state relative-caret-position="474">
               <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
             </state>
           </provider>
@@ -640,7 +639,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="10" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -824,14 +823,7 @@
       <workItem from="1538150648184" duration="6226000" />
       <workItem from="1538229224789" duration="202000" />
       <workItem from="1538229458493" duration="10000" />
-      <workItem from="1538409638964" duration="2010000" />
-    </task>
-    <task id="LOCAL-00090" summary="*Added error collection for PackageO in ValueVisitor">
-      <created>1536938878807</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1536938878808</updated>
+      <workItem from="1538409638964" duration="2911000" />
     </task>
     <task id="LOCAL-00091" summary="*Added error collection for AbstractClass case in ValueVisitor">
       <created>1536939514709</created>
@@ -1169,13 +1161,17 @@
       <option name="project" value="LOCAL" />
       <updated>1538411576702</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="*Renamed TypeMatcher.hardMatches() method">
+      <created>1538411743812</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1538411743812</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.01 at 19h 03m 40s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.01 at 19h 09m 37s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1203,9 +1199,12 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.01 at 19h 32m 37s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.01 at 19h 34m 45s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340299000" />
+    <option name="totallyTimeSpent" value="341200000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1220,7 +1219,7 @@
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13036565" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13036565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1236,7 +1235,7 @@
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="7" weight="0.32917964" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32917964" />
+      <window_info anchor="bottom" id="Messages" order="9" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32917964" />
       <window_info anchor="bottom" id="ANTLR Preview" order="12" weight="0.32917964" />
@@ -1302,7 +1301,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Applied TypeMatcher to ArrayAssignment&#10;*Added corresponding code to bytecode equality test&#10;*Changed IncompatibleTypesException to return type expected and found&#10;*Marked empty constructor as deprecated and for removal" />
     <MESSAGE value="*Removed unused code from ArrayAssignment" />
     <MESSAGE value="*Applied TypeMatcher to ArrayInstantiation&#10;*Added error collection&#10;*Added corresponding code to bytecode equality test" />
     <MESSAGE value="*Migrated paramNames in ObjectInstantiation to AbstractClass[]" />
@@ -1327,7 +1325,8 @@
     <MESSAGE value="*Renamed TypeMatcher.match() to TypeMatcher.softMatch()" />
     <MESSAGE value="*Added rule for superclass matching (assignment of sub to super) to TypeMatcher&#10;*Added hasSuperclass() to AbstractClass and ReflectionClassWrapper" />
     <MESSAGE value="*Renamed TypeMatcher.matches() to TypeMatcher.softMatches()" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Renamed TypeMatcher.matches() to TypeMatcher.softMatches()" />
+    <MESSAGE value="*Renamed TypeMatcher.hardMatches() method" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Renamed TypeMatcher.hardMatches() method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1358,13 +1357,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java</url>
-          <line>81</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java</url>
-          <line>121</line>
+          <line>127</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
@@ -1778,13 +1771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -1801,8 +1787,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+        <state relative-caret-position="397">
+          <caret line="111" column="81" lean-forward="true" selection-start-line="111" selection-start-column="81" selection-end-line="111" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
         </state>
       </provider>
     </entry>

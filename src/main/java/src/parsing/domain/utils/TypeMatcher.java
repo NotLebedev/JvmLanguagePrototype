@@ -106,6 +106,15 @@ public class TypeMatcher {
 
     }
 
+    public Value hardMatch(AbstractClass sample, Value value) throws IncompatibleTypesException {
+
+        if(!hardMatches(sample, value.getType()))
+            throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
+
+        return value;
+
+    }
+
     /**
      * Try matching value to sample with (un)boxing and single-word conversion.
      * Usually used in assignment
