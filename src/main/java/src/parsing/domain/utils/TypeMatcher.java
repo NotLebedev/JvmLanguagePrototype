@@ -75,10 +75,7 @@ public class TypeMatcher {
 
     public boolean softMatches(AbstractClass sample, AbstractClass value) {
 
-        if(sample.equals(value))
-            return true;
-
-        if(value.hasSuperclass(sample))
+        if(hardMatches(sample, value))
             return true;
 
         if(!(sample.isPrimitive()) && !(value.isPrimitive()))
@@ -100,6 +97,12 @@ public class TypeMatcher {
 
         return false; //Not a match ;(
 
+
+    }
+
+    public boolean hardMatches(AbstractClass sample, AbstractClass value) {
+
+        return sample.equals(value) || value.hasSuperclass(sample);
 
     }
 
