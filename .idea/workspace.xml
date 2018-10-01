@@ -4,11 +4,22 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/VariableExpectedError.java" afterDir="false" />
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Renamed TypeMatcher.match() to TypeMatcher.softMatch()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectFieldAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectFieldAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TypeMatcherTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TypeMatcherTestSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,13 +33,13 @@
     <session id="-2061069121">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="72" />
+          <entry key="project.closed" value="75" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="13" />
           <entry key="project.open.time.16" value="15" />
-          <entry key="project.open.time.17" value="10" />
+          <entry key="project.open.time.17" value="12" />
           <entry key="project.open.time.18" value="8" />
           <entry key="project.open.time.19" value="8" />
           <entry key="project.open.time.20" value="5" />
@@ -36,10 +47,11 @@
           <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="77" />
+          <entry key="project.opened" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -48,10 +60,10 @@
           <entry key="ft" value="13" />
           <entry key="g4" value="3857" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="47047" />
-          <entry key="lp" value="1975" />
+          <entry key="java" value="47444" />
+          <entry key="lp" value="2054" />
           <entry key="snippet" value="104" />
-          <entry key="txt" value="8154" />
+          <entry key="txt" value="8234" />
           <entry key="xml" value="41" />
         </counts>
       </usages-collector>
@@ -59,12 +71,12 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="3857" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="47047" />
-          <entry key="PLAIN_TEXT" value="9313" />
+          <entry key="JAVA" value="47444" />
+          <entry key="PLAIN_TEXT" value="9393" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
-          <entry key="prototypeGrammar" value="828" />
+          <entry key="prototypeGrammar" value="907" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -74,8 +86,8 @@
           <entry key="g4" value="164" />
           <entry key="gitignore" value="1" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="892" />
-          <entry key="lp" value="51" />
+          <entry key="java" value="893" />
+          <entry key="lp" value="52" />
           <entry key="raw" value="3" />
           <entry key="snippet" value="7" />
           <entry key="xml" value="4" />
@@ -86,11 +98,11 @@
           <entry key="ANTLR v4 grammar file" value="164" />
           <entry key="CLASS" value="30" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="892" />
+          <entry key="JAVA" value="893" />
           <entry key="PLAIN_TEXT" value="32" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
-          <entry key="prototypeGrammar" value="20" />
+          <entry key="prototypeGrammar" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -140,127 +152,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5118505">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="791">
-                  <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="35">
-                  <caret line="32" selection-start-line="32" selection-end-line="32" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="481">
-                  <caret line="52" selection-start-line="52" selection-end-line="52" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectFieldAssignment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="441">
-                  <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="630">
-                  <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#863#864#0" expanded="true" />
-                    <element signature="e#890#891#0" expanded="true" />
-                    <element signature="e#927#928#0" expanded="true" />
-                    <element signature="e#955#956#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="609">
-                  <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="460">
-                  <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="376">
-                  <caret line="34" selection-start-line="34" selection-end-line="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ArrayExpectedError.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="34" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="63">
-                  <caret line="3" selection-start-line="3" selection-end-line="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="819">
+              <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -363,7 +265,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/IncompatibleTypesException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/NoSuchConstructorException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/Matchable.java" />
@@ -378,7 +279,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java" />
@@ -387,11 +287,13 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectFieldAssignment.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/VariableExpectedError.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/source.lp" />
+        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" />
       </list>
     </option>
   </component>
@@ -419,63 +321,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope">
-          <expand>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="domain" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -572,18 +417,6 @@
               <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
-              <item name="visitors" type="462c0819:PsiDirectoryNode" />
-              <item name="errorHandling" type="462c0819:PsiDirectoryNode" />
-              <item name="errors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -629,6 +462,63 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope">
+          <expand>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="domain" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -679,6 +569,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="src.Main" />
       <module name="JvmLanguagePrototype" />
+      <RunnerSettings RunnerId="Debug with VisualVM">
+        <option name="visualVMId" value="78840386201252" />
+      </RunnerSettings>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -851,14 +744,10 @@
       <workItem from="1537976782569" duration="5560000" />
       <workItem from="1537982383243" duration="157000" />
       <workItem from="1537982569360" duration="877000" />
-      <workItem from="1538150648184" duration="3837000" />
-    </task>
-    <task id="LOCAL-00086" summary="*Added proper domain exceptions for ArrayAssignment and VariableAssignment&#10;*Implemented IncompatibleTypesException catch clause for VariableAssignmentVisitor">
-      <created>1536778097224</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1536778097225</updated>
+      <workItem from="1538150648184" duration="6226000" />
+      <workItem from="1538229224789" duration="202000" />
+      <workItem from="1538229458493" duration="10000" />
+      <workItem from="1538409638964" duration="531000" />
     </task>
     <task id="LOCAL-00087" summary="*Removed exception from ArrayAssignment">
       <created>1536778978475</created>
@@ -1196,16 +1085,17 @@
       <option name="project" value="LOCAL" />
       <updated>1538152772902</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="*Added VariableExpectedError&#10;*Added variable expected error collection to VariableAssignmentVisitor">
+      <created>1538155388005</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1538155388005</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.26 at 19h 54m 04s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.26 at 20h 00m 15s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.26 at 20h 02m 26s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1230,9 +1120,15 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.28 at 20h 14m 28s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.09.28 at 20h 22m 05s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.01 at 19h 03m 40s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335688000" />
+    <option name="totallyTimeSpent" value="338820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1247,7 +1143,7 @@
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12798092" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13036565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1272,6 +1168,8 @@
       <window_info anchor="bottom" x="458" y="545" width="763" height="312" id="Find" order="15" weight="0.32398754" />
       <window_info anchor="bottom" id="Inspection Results" order="16" weight="0.32917964" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="17" weight="0.32917964" />
+      <window_info anchor="bottom" id="Run with VisualVM" order="18" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="19" weight="0.32917964" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1327,7 +1225,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Added comments to grammar&#10;*added folding regions to source" />
     <MESSAGE value="*Applied TypeMatcher to ArrayAccess&#10;*Added corresponding code to bytecode equality test" />
     <MESSAGE value="*Applied TypeMatcher to VariableAssignment&#10;*Added corresponding code to bytecode equality test" />
     <MESSAGE value="*Updated sample bytecode and source for equalityTest" />
@@ -1352,7 +1249,8 @@
     <MESSAGE value="*Implemented StaticClassFieldAssignment&#10;*Added ReflectionFieldWrapper.getOwnerClass()&#10;*Changed ReflectionFieldWrapper constructor&#10;*Added StaticClassField.getField()" />
     <MESSAGE value="*Added static field assignment to VariableAssignmentVisitor&#10;*Changed tests" />
     <MESSAGE value="*Implemented ObjectFieldAssignment&#10;*Added getField() and getObject() methods to ObjectField&#10;*Added ObjectField case to VariableAssignmentVisitor&#10;*Updated tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Implemented ObjectFieldAssignment&#10;*Added getField() and getObject() methods to ObjectField&#10;*Added ObjectField case to VariableAssignmentVisitor&#10;*Updated tests" />
+    <MESSAGE value="*Added VariableExpectedError&#10;*Added variable expected error collection to VariableAssignmentVisitor" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added VariableExpectedError&#10;*Added variable expected error collection to VariableAssignmentVisitor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1500,13 +1398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3423">
-          <caret line="173" selection-start-line="173" selection-end-line="173" />
         </state>
       </provider>
     </entry>
@@ -1713,82 +1604,10 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectFieldAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-          <folding>
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#890#891#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/VariableExpectedError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ArrayExpectedError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -1803,17 +1622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="818" selection-start-line="818" selection-end-line="818" />
-          <folding>
-            <element signature="e#24050#24051#0" expanded="true" />
-            <element signature="e#24118#24119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1824,20 +1632,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="791">
+          <caret line="91" column="48" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1953">
+          <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectFieldAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/ArrayExpectedError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="649">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="42" selection-start-line="42" selection-end-line="43" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
         </state>
       </provider>
     </entry>

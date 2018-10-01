@@ -18,7 +18,7 @@ public class StaticClassFieldAssignment implements Expression {
     public StaticClassFieldAssignment(StaticClassField field, Value value) throws IncompatibleTypesException {
 
         this.field = field;
-        this.value = TypeMatcher.getInstance().match(field.getType(), value);
+        this.value = TypeMatcher.getInstance().softMatch(field.getType(), value);
 
     }
 

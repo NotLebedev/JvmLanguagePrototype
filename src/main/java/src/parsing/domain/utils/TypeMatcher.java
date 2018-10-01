@@ -100,9 +100,17 @@ public class TypeMatcher {
 
     }
 
-    public Value match(AbstractClass sample, Value value) throws IncompatibleTypesException {
+    /**
+     * Try matching value to sample with (un)boxing and single-word conversion.
+     * Usually used in assignment
+     * @param sample type to be matched to
+     * @param value value to be matched
+     * @return value with all necessary conversions
+     * @throws IncompatibleTypesException thrown if two types can not be matched
+     */
+    public Value softMatch(AbstractClass sample, Value value) throws IncompatibleTypesException {
 
-        if(!matches(sample, value.getType())) //Throw exception if it`s not a match
+        if(!matches(sample, value.getType())) //Throw exception if it`s not a softMatch
             throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
         if((sample.equals(value.getType())) || //If types are equal no conversion needed

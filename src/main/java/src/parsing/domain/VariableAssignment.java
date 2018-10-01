@@ -16,7 +16,7 @@ public class VariableAssignment implements Expression {
     public void setParams(Variable variable, Value value) throws IncompatibleTypesException {
 
         this.variable = variable;
-        this.value = TypeMatcher.getInstance().match(variable.getType(), value);
+        this.value = TypeMatcher.getInstance().softMatch(variable.getType(), value);
 
     }
 

@@ -25,10 +25,10 @@ public class ObjectInstantiation implements Value {
 
     /**
      * Set values of parameters, this method expects
-     * param types to match types of paramValues
+     * param types to softMatch types of paramValues
      *
      * @param paramValues parameter values
-     * @throws IllegalArgumentException class of value doe not match class of parameter
+     * @throws IllegalArgumentException class of value doe not softMatch class of parameter
      */
     public void setParamValues(Value[] paramValues) {
 
@@ -40,7 +40,7 @@ public class ObjectInstantiation implements Value {
         try {
 
             for (int i = 0; i < paramValues.length; i++) {
-                this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
+                this.paramValues[i] = tm.softMatch(sampleTypes[i], paramValues[i]);
             }
 
         } catch (IncompatibleTypesException e) {

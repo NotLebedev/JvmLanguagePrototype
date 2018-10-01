@@ -27,7 +27,7 @@ public class ArrayAssignment implements Expression {
     public ArrayAssignment(Value array, Value index, Value value) throws IncompatibleTypesException {
 
         this.array = array;
-        this.index = TypeMatcher.getInstance().match(INDEX_TYPE, index);
+        this.index = TypeMatcher.getInstance().softMatch(INDEX_TYPE, index);
 
         String typeString = this.array.getType().getJvmName().substring(1);
 
@@ -40,7 +40,7 @@ public class ArrayAssignment implements Expression {
             throw new IllegalStateException("Array value can not be reduced to non-existing value", e);
         }
 
-        this.value = TypeMatcher.getInstance().match(type, value);
+        this.value = TypeMatcher.getInstance().softMatch(type, value);
 
     }
 

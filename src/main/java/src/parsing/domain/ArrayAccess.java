@@ -27,7 +27,7 @@ public class ArrayAccess implements Value {
 
         this.array = array;
 
-        this.index = TypeMatcher.getInstance().match(INDEX_TYPE, index);
+        this.index = TypeMatcher.getInstance().softMatch(INDEX_TYPE, index);
 
         if(this.array.getType().getJvmName().length() < 2) //If length of classname is less than 2 it can not be an array
             throw new ArrayExpectedException();

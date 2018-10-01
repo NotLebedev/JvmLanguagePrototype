@@ -37,7 +37,7 @@ public class ArrayInstantiation implements Value {
 
         var tm = TypeMatcher.getInstance();
         for (int i = 0; i < sizes.length; i++) {
-            this.sizes[i] = tm.match(INDEX_TYPE, sizes[i]);
+            this.sizes[i] = tm.softMatch(INDEX_TYPE, sizes[i]);
         }
 
         this.freeDimensions = freeDimensions;

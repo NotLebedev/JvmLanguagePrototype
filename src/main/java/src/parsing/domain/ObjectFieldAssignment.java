@@ -20,7 +20,7 @@ public class ObjectFieldAssignment implements Expression {
 
         this.field = field;
         this.object = field.getObject();
-        this.value = TypeMatcher.getInstance().match(field.getType(), value);
+        this.value = TypeMatcher.getInstance().softMatch(field.getType(), value);
 
     }
 

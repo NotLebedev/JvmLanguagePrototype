@@ -66,7 +66,7 @@ public class TypeMatcherTestSuite {
 
     private void testSingleEqual(Value val1, Value val2) throws IncompatibleTypesException {
 
-        assertEquals(TypeMatcher.getInstance().match(val1.getType(), val2), val2);
+        assertEquals(TypeMatcher.getInstance().softMatch(val1.getType(), val2), val2);
 
     }
 
@@ -75,14 +75,14 @@ public class TypeMatcherTestSuite {
 
         var tm = TypeMatcher.getInstance();
 
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("int"), new Variable("java.lang.Integer", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("byte"), new Variable("java.lang.Byte", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("short"), new Variable("java.lang.Short", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("long"), new Variable("java.lang.Long", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("char"), new Variable("java.lang.Character", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("boolean"), new Variable("java.lang.Boolean", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("float"), new Variable("java.lang.Float", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("double"), new Variable("java.lang.Double", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("int"), new Variable("java.lang.Integer", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("byte"), new Variable("java.lang.Byte", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("short"), new Variable("java.lang.Short", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("long"), new Variable("java.lang.Long", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("char"), new Variable("java.lang.Character", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("boolean"), new Variable("java.lang.Boolean", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("float"), new Variable("java.lang.Float", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("double"), new Variable("java.lang.Double", "", 0)));
 
     }
 
@@ -91,14 +91,14 @@ public class TypeMatcherTestSuite {
 
         var tm = TypeMatcher.getInstance();
 
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Integer"), new Variable("int", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Byte"), new Variable("byte", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Short"), new Variable("short", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Long"), new Variable("long", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Character"), new Variable("char", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Boolean"), new Variable("boolean", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Float"), new Variable("float", "", 0)));
-        assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName("java.lang.Double"), new Variable("double", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Integer"), new Variable("int", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Byte"), new Variable("byte", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Short"), new Variable("short", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Long"), new Variable("long", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Character"), new Variable("char", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Boolean"), new Variable("boolean", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Float"), new Variable("float", "", 0)));
+        assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Double"), new Variable("double", "", 0)));
 
     }
 
@@ -112,7 +112,7 @@ public class TypeMatcherTestSuite {
         for (String primitive1 : singleWordGroupPrimitives) {
             for (String primitive2 : singleWordGroupPrimitives) {
 
-                assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName(primitive1), new Variable(primitive2, "", 0)));
+                assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName(primitive1), new Variable(primitive2, "", 0)));
 
             }
         }
@@ -120,7 +120,7 @@ public class TypeMatcherTestSuite {
         for (String primitive : singleWordGroupPrimitives) {
             for (String object : singleWordGroupObjects) {
 
-                assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName(primitive), new Variable(object, "", 0)));
+                assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName(primitive), new Variable(object, "", 0)));
 
             }
         }
@@ -128,7 +128,7 @@ public class TypeMatcherTestSuite {
         for (String primitive : singleWordGroupPrimitives) {
             for (String object : singleWordGroupObjects) {
 
-                assertNotNull(tm.match(ClassFactory.getInstance().forCorrectName(object), new Variable(primitive, "", 0)));
+                assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName(object), new Variable(primitive, "", 0)));
 
             }
         }

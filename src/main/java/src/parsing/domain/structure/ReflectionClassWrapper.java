@@ -87,7 +87,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
         }
 
-        for (ReflectionMethodWrapper method : methods) { //First pass, finding strict match
+        for (ReflectionMethodWrapper method : methods) { //First pass, finding strict softMatch
 
             if(method.strictMatches(methodName, convParams) && (!method.isBridge())) //Method must be not bridge in order
                 return method;                                                 //to prevent covariant super method selection

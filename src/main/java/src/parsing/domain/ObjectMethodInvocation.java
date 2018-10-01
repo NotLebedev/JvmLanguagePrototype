@@ -46,7 +46,7 @@ public class ObjectMethodInvocation implements Value {
         try {
 
             for (int i = 0; i < paramValues.length; i++) {
-                this.paramValues[i] = tm.match(sampleTypes[i], paramValues[i]);
+                this.paramValues[i] = tm.softMatch(sampleTypes[i], paramValues[i]);
             }
 
         } catch (IncompatibleTypesException e) {
