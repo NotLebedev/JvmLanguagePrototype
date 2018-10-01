@@ -40,7 +40,7 @@ public class ObjectInstantiation implements Value {
         try {
 
             for (int i = 0; i < paramValues.length; i++) {
-                this.paramValues[i] = tm.softMatch(sampleTypes[i], paramValues[i]);
+                this.paramValues[i] = tm.hardMatch(sampleTypes[i], paramValues[i]);
             }
 
         } catch (IncompatibleTypesException e) {
