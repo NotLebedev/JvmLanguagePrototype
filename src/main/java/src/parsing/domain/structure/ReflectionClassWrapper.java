@@ -138,6 +138,21 @@ class ReflectionClassWrapper implements AbstractClass {
     }
 
     /**
+     * Check if specified superclass is superclass of this class
+     * @param superclass expected superclass
+     * @return true if it is, false if not
+     */
+    @Override
+    public boolean hasSuperclass(AbstractClass superclass) {
+
+        if(containedClass.getSuperclass() == null)
+            return false;
+
+        return ClassFactory.getInstance().forClass(containedClass.getSuperclass()).equals(superclass);
+
+    }
+
+    /**
      * Returns a JVM instruction opcode adapted to this ReflectionClassWrapper.
      * This method must not be used for method types
      *

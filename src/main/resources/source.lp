@@ -91,4 +91,4 @@ cls2.printString(s)
 src.parsing.Class2.sf = cls2
 cls2.field = cls2
 
-java.lang.String euwfhefuhwefui = 25;
+java.lang.Object obj = "qwe"

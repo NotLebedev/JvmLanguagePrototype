@@ -78,6 +78,9 @@ public class TypeMatcher {
         if(sample.equals(value))
             return true;
 
+        if(value.hasSuperclass(sample))
+            return true;
+
         if(!(sample.isPrimitive()) && !(value.isPrimitive()))
             return false; //If two Objects are not of same type they can not be assigned
 
@@ -114,7 +117,8 @@ public class TypeMatcher {
             throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
         if((sample.equals(value.getType())) || //If types are equal no conversion needed
-                (sample.isPrimitive() && value.getType().isPrimitive())) //If both are primitives, also no conversion needed
+                (sample.isPrimitive() && value.getType().isPrimitive()) ||  //If both are primitives, also no conversion needed
+                value.getType().hasSuperclass(sample)) //If assigning to superclass no conversion is needed
             return value;
 
 

@@ -78,4 +78,11 @@ public interface AbstractClass extends Value {
      */
     boolean isPrimitive();
 
+    /**
+     * Check if specified superclass is superclass of this class
+     * @param superclass expected superclass
+     * @return true if it is, false if not
+     */
+    boolean hasSuperclass(AbstractClass superclass);
+
 }
