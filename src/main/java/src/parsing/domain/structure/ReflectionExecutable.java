@@ -78,7 +78,7 @@ abstract class ReflectionExecutable {
         var classFactory = ClassFactory.getInstance();
         for (int i = 0; i < params.length; i++) {
 
-            if(!typeMatcher.softMatches(classFactory.forClass(paramTypes[i]), params[i]))
+            if(!typeMatcher.hardMatches(classFactory.forClass(paramTypes[i]), params[i]))
                 return false;
 
         }

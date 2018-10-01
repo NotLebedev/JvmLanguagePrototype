@@ -145,10 +145,16 @@ class ReflectionClassWrapper implements AbstractClass {
     @Override
     public boolean hasSuperclass(AbstractClass superclass) {
 
-        if(containedClass.getSuperclass() == null)
+        if((!(superclass instanceof ReflectionClassWrapper)) || isPrimitive())
             return false;
 
-        return ClassFactory.getInstance().forClass(containedClass.getSuperclass()).equals(superclass);
+        try {
+            containedClass.asSubclass(((ReflectionClassWrapper) superclass).getContainedClass());
+        }catch (ClassCastException e) {
+            return false;
+        }
+
+        return true;
 
     }
 
