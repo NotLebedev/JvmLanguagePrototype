@@ -94,7 +94,7 @@ class ReflectionClassWrapper implements AbstractClass {
             //                                                                   (e.g. select public StringBuilder append(String)
         }                                                                      //instead of public AbstractStringBuilder append(String)
 
-        for (ReflectionMethodWrapper method : methods) { //Second pass, to find if any method matches unstrictly
+        for (ReflectionMethodWrapper method : methods) { //Second pass, to find if any method softMatches unstrictly
 
             if(method.unstrictMatches(methodName, convParams) && (!method.isBridge()))
                 return method;

@@ -32,7 +32,7 @@ abstract class ReflectionExecutable {
      *
      * @param name   name to compare with, null if should not be compared
      * @param params parameters to compare with
-     * @return true if matches, false otherwise
+     * @return true if softMatches, false otherwise
      */
     public boolean strictMatches(@Nullable String name, ReflectionClassWrapper[] params) {
 
@@ -61,7 +61,7 @@ abstract class ReflectionExecutable {
      *
      * @param name   name to compare with
      * @param params parameters to compare with
-     * @return true if matches, false otherwise
+     * @return true if softMatches, false otherwise
      */
     public boolean unstrictMatches(String name, ReflectionClassWrapper[] params) {
 
@@ -78,7 +78,7 @@ abstract class ReflectionExecutable {
         var classFactory = ClassFactory.getInstance();
         for (int i = 0; i < params.length; i++) {
 
-            if(!typeMatcher.matches(classFactory.forClass(paramTypes[i]), params[i]))
+            if(!typeMatcher.softMatches(classFactory.forClass(paramTypes[i]), params[i]))
                 return false;
 
         }

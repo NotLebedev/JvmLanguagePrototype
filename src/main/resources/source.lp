@@ -1,3 +1,4 @@
+/*
 //region Method invocation test
 ((java.lang.System).out).println(java.lang.Math.abs(-1));
 src.parsing.Class2.test().printString()
@@ -91,4 +92,7 @@ cls2.printString(s)
 src.parsing.Class2.sf = cls2
 cls2.field = cls2
 
-java.lang.Object obj = "qwe"
+java.lang.Object obj = "qwe"*/
+
+java.lang.Byte b = 10
+java.lang.System.out.println(b)

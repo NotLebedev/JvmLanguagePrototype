@@ -42,7 +42,7 @@ public class TypeMatcherTestSuite {
 
         var tm = TypeMatcher.getInstance();
 
-        assertTrue(tm.matches(ClassFactory.getInstance().forCorrectName(class1), ClassFactory.getInstance().forCorrectName(class2)));
+        assertTrue(tm.softMatches(ClassFactory.getInstance().forCorrectName(class1), ClassFactory.getInstance().forCorrectName(class2)));
 
     }
 
@@ -50,7 +50,7 @@ public class TypeMatcherTestSuite {
 
         var tm = TypeMatcher.getInstance();
 
-        assertFalse(tm.matches(ClassFactory.getInstance().forCorrectName(class1), ClassFactory.getInstance().forCorrectName(class2)));
+        assertFalse(tm.softMatches(ClassFactory.getInstance().forCorrectName(class1), ClassFactory.getInstance().forCorrectName(class2)));
 
     }
 

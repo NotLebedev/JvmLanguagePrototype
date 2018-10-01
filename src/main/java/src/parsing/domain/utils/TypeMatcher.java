@@ -73,7 +73,7 @@ public class TypeMatcher {
 
     }
 
-    public boolean matches(AbstractClass sample, AbstractClass value) {
+    public boolean softMatches(AbstractClass sample, AbstractClass value) {
 
         if(sample.equals(value))
             return true;
@@ -113,7 +113,7 @@ public class TypeMatcher {
      */
     public Value softMatch(AbstractClass sample, Value value) throws IncompatibleTypesException {
 
-        if(!matches(sample, value.getType())) //Throw exception if it`s not a softMatch
+        if(!softMatches(sample, value.getType())) //Throw exception if it`s not a softMatch
             throw new IncompatibleTypesException(sample.getName(), value.getType().getName());
 
         if((sample.equals(value.getType())) || //If types are equal no conversion needed
