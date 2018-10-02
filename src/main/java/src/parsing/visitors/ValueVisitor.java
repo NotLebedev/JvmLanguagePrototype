@@ -43,45 +43,31 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitValue(RootParser.ValueContext ctx) {
 
-        //region literal
-        if(ctx.literalCG() != null) {
-            return visitLiteral(ctx);
-        }
-        //endregion
-
-        //region plain id
-        else if(ctx.id() != null) {
-            return visitId(ctx);
-        }
-        //endregion
-
-        //region object instantioation
-        else if(ctx.objectInstantiation() != null) {
-            return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope, errorCollector));
-        }
-        //endregion
-
-        //region parenthesis
-        else if(ctx.bracketOpenS() != null) {
-            //Just simple parenthesis
-            return ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
-        }
-        //endregion
-
-        //region dotS
-        else if(ctx.dotS() != null) {
+        if(ctx.dotS() != null) { ///////////////////////Dot
 
             return visitDotS(ctx);
 
-        }
-        //endregion
+        } else if(ctx.id() != null) { //////////////////ID
 
-        //region array
-        else if(ctx.arrayIndex() != null) {
+            return visitId(ctx);
+
+        } else if(ctx.bracketOpenS() != null) {/////////Parenthesis
+
+            return ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+
+        } else if(ctx.objectInstantiation() != null) {//Object instantiation
+
+            return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope, errorCollector));
+
+        } else if(ctx.arrayIndex() != null) {///////////Array
 
             return visitArray(ctx);
 
-        } //endregion
+        } else if(ctx.literalCG() != null) {////////////LiteralCG
+
+            return visitLiteral(ctx);
+
+        }
 
         throw new IllegalStateException("visitValue execution should not reach this point, if " +
                 "it does, than one of cases is not implemented");
