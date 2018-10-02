@@ -63,30 +63,6 @@ java.lang.System.out.println(matrix[2][2])
 //endregion
 
 //region (un)boxing test
-java.lang.Integer qwe = java.lang.Integer.valueOf(2)
-java.lang.Byte ewq = java.lang.Byte.valueOf("0")
+java.lang.Integer qwe = 1
+java.lang.System.out.println(qwe)
 
-char c = 1; //Assignment unboxing tests
-int i = c;
-java.lang.Byte b = i;
-short s = b;
-s = matrix[0][2]
-
-matrix[0][2] = c; //Array assignment unboxing tests
-matrix[0][c] = b;
-
-java.lang.Short d = 2
-java.lang.Byte[] bytes = new java.lang.Byte[d] //Array index unboxing tests
-bytes[0] = c
-bytes[c] = s
-
-java.lang.System.out.println(bytes[0]) //Static method unboxing tests
-java.lang.System.out.println(bytes[c])
-
-src.parsing.Class2 cls2 = new src.parsing.Class2(d) //Constructor unboxing test
-cls2.printString(b) //Object method unboxing tests
-cls2.printString(s)
-//endregion
-
-src.parsing.Class2.sf = cls2 //Static field assignment test
-cls2.field = cls2 //Object field assignment test

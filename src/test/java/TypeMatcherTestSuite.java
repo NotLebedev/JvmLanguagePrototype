@@ -18,17 +18,17 @@ public class TypeMatcherTestSuite {
         assertSingleMatch("int", "int");
         assertSingleMatch("long", "long");
 
-        assertSingleMatch("char", "int");
-        assertSingleMatch("int", "short");
-        assertSingleMatch("byte", "short");
+        assertSingleNotMatch("char", "int");
+        assertSingleNotMatch("int", "short");
+        assertSingleNotMatch("byte", "short");
 
         assertSingleMatch("int", "java.lang.Integer");
         assertSingleMatch("byte", "java.lang.Byte");
         assertSingleMatch("boolean", "java.lang.Boolean");
 
-        assertSingleMatch("int", "java.lang.Short");
-        assertSingleMatch("short", "java.lang.Character");
-        assertSingleMatch("byte", "java.lang.Integer");
+        assertSingleNotMatch("int", "java.lang.Short");
+        assertSingleNotMatch("short", "java.lang.Character");
+        assertSingleNotMatch("byte", "java.lang.Integer");
 
         assertSingleNotMatch("int", "long");
         assertSingleNotMatch("boolean", "java.lang.String");
@@ -99,39 +99,6 @@ public class TypeMatcherTestSuite {
         assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Boolean"), new Variable("boolean", "", 0)));
         assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Float"), new Variable("float", "", 0)));
         assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName("java.lang.Double"), new Variable("double", "", 0)));
-
-    }
-
-    @Test
-    public void testSingleWordGroup() throws ClassNotFoundException, IncompatibleTypesException {
-
-        var tm = TypeMatcher.getInstance();
-        final String[] singleWordGroupPrimitives = {"byte", "short", "int", "char"};
-        final String[] singleWordGroupObjects = {"java.lang.Byte", "java.lang.Short", "java.lang.Integer", "java.lang.Character"};
-
-        for (String primitive1 : singleWordGroupPrimitives) {
-            for (String primitive2 : singleWordGroupPrimitives) {
-
-                assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName(primitive1), new Variable(primitive2, "", 0)));
-
-            }
-        }
-
-        for (String primitive : singleWordGroupPrimitives) {
-            for (String object : singleWordGroupObjects) {
-
-                assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName(primitive), new Variable(object, "", 0)));
-
-            }
-        }
-
-        for (String primitive : singleWordGroupPrimitives) {
-            for (String object : singleWordGroupObjects) {
-
-                assertNotNull(tm.softMatch(ClassFactory.getInstance().forCorrectName(object), new Variable(primitive, "", 0)));
-
-            }
-        }
 
     }
 
