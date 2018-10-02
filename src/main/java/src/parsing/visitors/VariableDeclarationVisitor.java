@@ -14,6 +14,8 @@ import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
+import javax.annotation.Nullable;
+
 /**
  * Class responsible for visiting variable assignments (e.g. {@code String str})
  *
@@ -32,6 +34,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
     }
 
     @Override
+    @Nullable
     public Expression visitVariableDeclaration(RootParser.VariableDeclarationContext ctx) {
 
         var type = ctx.declarationType().getText();
@@ -42,11 +45,13 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
         try {
             variable = new Variable(type, name, 0);
         } catch (ClassNotFoundException e) {
-            errorCollector.reportFatalError(
+
+            errorCollector.reportError(
                     new ClassNotFoundError(ctx.declarationType().start.getLine(), ctx.declarationType().start.getCharPositionInLine(),
-                            ctx.declarationType().getText()),
-                    new ParseCancellationException()
-            );
+                            ctx.declarationType().getText()));
+
+            throw new ParseCancellationException();
+
         }
 
         scope.addVariable(variable);
@@ -62,11 +67,12 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
             try {
                 variableAssignment.setParams(variable, value);
             } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
+
+                errorCollector.reportError(
                         new IncompatibleTypesError(ctx.assignment().value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                e.getTypeExpected(), e.getTypeFound()), //variable can not be null (because of reportFatalError)
-                        new ExpressionParseCancelationException()
-                );
+                                e.getTypeExpected(), e.getTypeFound())); //variable can not be null (because of reportFatalError)
+                throw new ExpressionParseCancelationException();
+
             }
 
             return variableAssignment;

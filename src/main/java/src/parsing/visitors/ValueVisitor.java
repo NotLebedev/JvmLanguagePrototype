@@ -92,13 +92,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         if(packagePart.updatePath(ctx.id().getText()))
             return packagePart;
 
-        errorCollector.reportFatalError(
+        errorCollector.reportError(
                 new CanNotResolveSymbolError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
-                        ctx.id().getText()),
-                new ExpressionParseCancelationException()
-        );
-
-        throw new IllegalStateException("errorCollector must throw exception");
+                        ctx.id().getText()));
+        throw new ExpressionParseCancelationException();
 
     }
 

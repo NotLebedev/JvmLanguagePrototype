@@ -46,11 +46,13 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             try {
                 variableAssignment.setParams(variable, value);
             } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
+
+                errorCollector.reportError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                e.getTypeExpected(), e.getTypeFound()),
-                        new ExpressionParseCancelationException()
-                );
+                                e.getTypeExpected(), e.getTypeFound()));
+
+                throw new ExpressionParseCancelationException();
+
             }
 
             return variableAssignment;
@@ -64,11 +66,13 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             try {
                 return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
             } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
+
+                errorCollector.reportError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                e.getTypeExpected(), e.getTypeFound()),
-                        new ExpressionParseCancelationException()
-                );
+                                e.getTypeExpected(), e.getTypeFound()));
+
+                throw new ExpressionParseCancelationException();
+
             }
 
         }
@@ -80,11 +84,13 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             try {
                 return new StaticClassFieldAssignment(staticField, value);
             } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
+
+                errorCollector.reportError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                e.getTypeExpected(), e.getTypeFound()),
-                        new ExpressionParseCancelationException()
-                );
+                                e.getTypeExpected(), e.getTypeFound()));
+
+                throw new ExpressionParseCancelationException();
+
             }
 
         }
@@ -96,21 +102,21 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             try {
                 return new ObjectFieldAssignment(objectField, value);
             } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
+
+                errorCollector.reportError(
                         new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
-                                e.getTypeExpected(), e.getTypeFound()),
-                        new ExpressionParseCancelationException()
-                );
+                                e.getTypeExpected(), e.getTypeFound()));
+
+                throw new ExpressionParseCancelationException();
+
             }
 
         }
 
-        errorCollector.reportFatalError(
-                new VariableExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText()),
-                new ExpressionParseCancelationException()
-        );
+        errorCollector.reportError(
+                new VariableExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText()));
 
-        throw new IllegalStateException("Exception expected to be thrown before this, check ErrorCollector");
+        throw new ExpressionParseCancelationException();
 
     }
 }

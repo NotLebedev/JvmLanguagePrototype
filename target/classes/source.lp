@@ -73,7 +73,7 @@ java.lang.System.out.println(seq)
 src.parsing.Class2.print("And once again")
 
 int i = qwe //Kind of (un)boxing test
-qwe = "qwe" //TODO : implement for rest of types
+qwe = i //TODO : implement for rest of types
 
 //endregion
 
