@@ -45,29 +45,13 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         //region literal
         if(ctx.literalCG() != null) {
-            return ctx.literalCG().accept(new LiteralCGVisitor());
+            return visitLiteral(ctx);
         }
         //endregion
 
         //region plain id
         else if(ctx.id() != null) {
-
-            try {
-                return scope.getVariableByName(ctx.id().getText());
-            } catch (VariableNotFoundException ignored) {
-            }
-
-            var packagePart = new PackageO();
-
-            if(packagePart.updatePath(ctx.id().getText()))
-                return packagePart;
-
-            errorCollector.reportFatalError(
-                    new CanNotResolveSymbolError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
-                            ctx.id().getText()),
-                    new ExpressionParseCancelationException()
-            );
-
+            return visitId(ctx);
         }
         //endregion
 
@@ -87,23 +71,101 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         //region dotS
         else if(ctx.dotS() != null) {
 
-            var val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+            return visitDotS(ctx);
 
-            if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
-                // only id to go next
-                var packageO = (PackageO) val;
+        }
+        //endregion
+
+        //region array
+        else if(ctx.arrayIndex() != null) {
+
+            return visitArray(ctx);
+
+        } //endregion
+
+        throw new IllegalStateException("visitValue execution should not reach this point, if " +
+                "it does, than one of cases is not implemented");
+
+    }
+
+    private Value visitLiteral(RootParser.ValueContext ctx) {
+
+        return ctx.literalCG().accept(new LiteralCGVisitor());
+
+    }
+
+    private Value visitId(RootParser.ValueContext ctx) {
+
+        try {
+            return scope.getVariableByName(ctx.id().getText());
+        } catch (VariableNotFoundException ignored) {
+        }
+
+        var packagePart = new PackageO();
+
+        if(packagePart.updatePath(ctx.id().getText()))
+            return packagePart;
+
+        errorCollector.reportFatalError(
+                new CanNotResolveSymbolError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
+                        ctx.id().getText()),
+                new ExpressionParseCancelationException()
+        );
+
+        throw new IllegalStateException("errorCollector must throw exception");
+
+    }
+
+    private Value visitDotS(RootParser.ValueContext ctx) {
+
+        var val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+
+        if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
+            // only id to go next
+            var packageO = (PackageO) val;
+
+            String id = ctx.value(1).id().getText();
+
+            //region Subpackage
+            if(packageO.updatePath(id))
+                return packageO;
+            //endregion
+
+            //region Class
+            try {
+                return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
+            } catch (ClassNotFoundException ignored) {
+                errorCollector.reportFatalError(
+                        new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
+                                ctx.value(1).id().getText()),
+                        new ExpressionParseCancelationException()
+                );
+            }
+            //endregion
+
+        } else if(val instanceof AbstractClass) {
+
+            var classO = (AbstractClass) val;
+
+            if(ctx.value(1).id() != null) {
 
                 String id = ctx.value(1).id().getText();
 
-                //region Subpackage
-                if(packageO.updatePath(id))
-                    return packageO;
+                //region Nested class
+                try {
+                    return ClassFactory.getInstance().forName(classO.getName() + "$" + id);
+                } catch (ClassNotFoundException ignored) {
+                }
                 //endregion
 
-                //region Class
+                //region Static field
                 try {
-                    return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
-                } catch (ClassNotFoundException ignored) {
+
+                    var staticClassField = new StaticClassField();
+                    staticClassField.setNames(classO, id);
+                    return staticClassField;
+
+                } catch (NoSuchFieldException e) {
                     errorCollector.reportFatalError(
                             new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
                                     ctx.value(1).id().getText()),
@@ -112,111 +174,77 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 }
                 //endregion
 
-            } else if(val instanceof AbstractClass) {
+            }
 
-                var classO = (AbstractClass) val;
+            if(ctx.value(1).methodInv() != null) {
 
-                if(ctx.value(1).id() != null) {
+                //Is static method invocation
+                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, true, scope));
+                //Is static method invocation
 
-                    String id = ctx.value(1).id().getText();
+            }
 
-                    //region Nested class
-                    try {
-                        return ClassFactory.getInstance().forName(classO.getName() + "$" + id);
-                    } catch (ClassNotFoundException ignored) {
-                    }
-                    //endregion
+        } else { // Last case is for any object value
 
-                    //region Static field
-                    try {
+            if(ctx.value(1).id() != null) {
 
-                        var staticClassField = new StaticClassField();
-                        staticClassField.setNames(classO, id);
-                        return staticClassField;
+                //Is object field
+                try {
 
-                    } catch (NoSuchFieldException e) {
-                        errorCollector.reportFatalError(
-                                new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                        ctx.value(1).id().getText()),
-                                new ExpressionParseCancelationException()
-                        );
-                    }
-                    //endregion
+                    var objectField = new ObjectField();
+                    objectField.setNames(val, ctx.value(1).id().getText());
+                    return objectField;
 
+                } catch (NoSuchFieldException e) {
+                    errorCollector.reportFatalError(
+                            new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
+                                    ctx.value(1).id().getText()),
+                            new ExpressionParseCancelationException()
+                    );
                 }
+                //Is object field
 
-                if(ctx.value(1).methodInv() != null) {
+            }
 
-                    //Is static method invocation
-                    return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, true, scope));
-                    //Is static method invocation
+            if(ctx.value(1).methodInv() != null) {
 
-                }
-
-            } else { // Last case is for any object value
-
-                if(ctx.value(1).id() != null) {
-
-                    //Is object field
-                    try {
-
-                        var objectField = new ObjectField();
-                        objectField.setNames(val, ctx.value(1).id().getText());
-                        return objectField;
-
-                    } catch (NoSuchFieldException e) {
-                        errorCollector.reportFatalError(
-                                new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                        ctx.value(1).id().getText()),
-                                new ExpressionParseCancelationException()
-                        );
-                    }
-                    //Is object field
-
-                }
-
-                if(ctx.value(1).methodInv() != null) {
-
-                    //Is object method invocation
-                    return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
-                    //Is object method invocation
-
-                }
+                //Is object method invocation
+                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
+                //Is object method invocation
 
             }
 
         }
-        //endregion
 
-        //region array
-        else if(ctx.arrayIndex() != null) {
+        throw new IllegalStateException("errorCollector must throw exception");
 
-            Value val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
-            Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope, errorCollector));
+    }
 
-            try {
-                return new ArrayAccess(val, index);
-            } catch (ArrayExpectedException e) {
-                errorCollector.reportFatalError(
-                        new ArrayExpectedError(ctx.value(0).start.getLine(), ctx.value(0).start.getCharPositionInLine(), ctx.value(0).getText(),
-                                val.getType().getName()),
-                        new ExpressionParseCancelationException()
-                );
-            } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
-                        new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
-                                ctx.arrayIndex().value().start.getCharPositionInLine(),
-                                ctx.arrayIndex().value().getText(),
-                                e.getTypeExpected(),
-                                e.getTypeFound()),
-                        new ExpressionParseCancelationException()
-                );
-            }
+    private Value visitArray(RootParser.ValueContext ctx) {
 
-        } //endregion
+        Value val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+        Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope, errorCollector));
 
-        throw new IllegalStateException("visitValue execution should not reach this point, if " +
-                "it does, than one of cases is not implemented");
+        try {
+            return new ArrayAccess(val, index);
+        } catch (ArrayExpectedException e) {
+            errorCollector.reportFatalError(
+                    new ArrayExpectedError(ctx.value(0).start.getLine(), ctx.value(0).start.getCharPositionInLine(), ctx.value(0).getText(),
+                            val.getType().getName()),
+                    new ExpressionParseCancelationException()
+            );
+        } catch (IncompatibleTypesException e) {
+            errorCollector.reportFatalError(
+                    new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
+                            ctx.arrayIndex().value().start.getCharPositionInLine(),
+                            ctx.arrayIndex().value().getText(),
+                            e.getTypeExpected(),
+                            e.getTypeFound()),
+                    new ExpressionParseCancelationException()
+            );
+        }
+
+        throw new IllegalStateException("errorCollector must throw exception");
 
     }
 
