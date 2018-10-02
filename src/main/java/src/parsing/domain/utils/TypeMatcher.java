@@ -26,7 +26,7 @@ public class TypeMatcher {
     private static TypeMatcher instance;
 
     private List<Pair<AbstractClass, AbstractClass>> boxingPairs;
-    private List<AbstractClass> conversionGroup;
+    //private List<AbstractClass> conversionGroup;
 
     private static final String[] conversionPairTypes = {"byte", "java.lang.Byte",
             "short", "java.lang.Short",
@@ -57,8 +57,8 @@ public class TypeMatcher {
 
         //region init conversionGroups
 
-        conversionGroup = new ArrayList<>();
-        Arrays.stream(singleWordGroup).forEach(s -> conversionGroup.add(cf.forCorrectName(s)));
+        //conversionGroup = new ArrayList<>();
+        //Arrays.stream(singleWordGroup).forEach(s -> conversionGroup.add(cf.forCorrectName(s)));
 
         //endregion
 
@@ -81,9 +81,9 @@ public class TypeMatcher {
         if(!(sample.isPrimitive()) && !(value.isPrimitive()))
             return false; //If two Objects are not of same type they can not be assigned
 
-        if(conversionGroup.contains(sample) && conversionGroup.contains(value))
-            return true; //Match by single-word conversion group
-        else {
+        //if(conversionGroup.contains(sample) && conversionGroup.contains(value))
+        //    return true; //Match by single-word conversion group
+        //else {
 
             for (Pair<AbstractClass, AbstractClass> boxingPair : boxingPairs) {
 
@@ -93,7 +93,7 @@ public class TypeMatcher {
 
             }
 
-        }
+        //}
 
         return false; //Not a match ;(
 

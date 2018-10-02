@@ -13,6 +13,7 @@ import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import java.util.List;
@@ -59,7 +60,11 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                                 ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
                         new ExpressionParseCancelationException());                         //This error fails compilation of expression only
             } catch (NoSuchConstructorException e) {
-                e.printStackTrace();
+                errorCollector.reportFatalError(
+                        new NoSuchMethodError(ctx.arrayType().start.getLine(), ctx.arrayType().start.getCharPositionInLine(),
+                                "<init>", params.stream().map(Value::getType).toArray(AbstractClass[]::new)),
+                        new ExpressionParseCancelationException()
+                );
             }
 
             objectInstantiation.setParamValues(params.toArray(new Value[0]));
