@@ -17,7 +17,7 @@ public class Class2 {
 
     }
 
-    public static void print(String str) {
+    public static void print(CharSequence str) {
 
         System.out.println(str);
 

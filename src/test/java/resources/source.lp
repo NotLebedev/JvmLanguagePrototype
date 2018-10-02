@@ -70,6 +70,7 @@ java.lang.System.out.println(obj)
 
 java.lang.CharSequence seq = "Interface matching"
 java.lang.System.out.println(seq)
+src.parsing.Class2.print("And once again")
 
 int i = qwe //Kind of (un)boxing test
 qwe = i //TODO : implement for rest of types
