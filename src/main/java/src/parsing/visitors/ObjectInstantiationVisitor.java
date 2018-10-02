@@ -55,16 +55,14 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                 objectInstantiation.setNames(ClassFactory.getInstance().forName(ctx.arrayType().getText())
                         .getConstructor(params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
             } catch (ClassNotFoundException e) {
-                errorCollector.reportFatalError(
-                        new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
-                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
-                        new ExpressionParseCancelationException());                         //This error fails compilation of expression only
+                errorCollector.reportError(new ClassNotFoundError(ctx.arrayType().start.getLine(),
+                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));
+                throw new ExpressionParseCancelationException();
             } catch (NoSuchConstructorException e) {
-                errorCollector.reportFatalError(
+                errorCollector.reportError(
                         new NoSuchMethodError(ctx.arrayType().start.getLine(), ctx.arrayType().start.getCharPositionInLine(),
-                                "<init>", params.stream().map(Value::getType).toArray(AbstractClass[]::new)),
-                        new ExpressionParseCancelationException()
-                );
+                                "<init>", params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
+                throw new ExpressionParseCancelationException();
             }
 
             objectInstantiation.setParamValues(params.toArray(new Value[0]));
@@ -83,23 +81,20 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                 return new ArrayInstantiation(ClassFactory.getInstance().forName(ctx.arrayType().getText()),
                         dimensions, freeDimensions);
             } catch (ClassNotFoundException e) {
-                errorCollector.reportFatalError(
+                errorCollector.reportError(
                         new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
-                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()),   //error
-                        new ExpressionParseCancelationException());                         //This error fails compilation of expression only
+                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));   //error
+                throw new ExpressionParseCancelationException();                         //This error fails compilation of expression only
             } catch (IncompatibleTypesException e) {
-                errorCollector.reportFatalError(
+                errorCollector.reportError(
                         new IncompatibleTypesError(ctx.arrayType().start.getLine(),
                                 ctx.start.getCharPositionInLine(), "[",
                                 e.getTypeExpected(),
-                                e.getTypeFound()),
-                        new ExpressionParseCancelationException()
-                );
+                                e.getTypeFound()));
+                throw new ExpressionParseCancelationException();
             }
 
         }
-
-        throw new IllegalStateException("visitObjectInstantiation execution should not reach this point");
 
     }
 }

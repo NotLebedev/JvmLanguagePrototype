@@ -121,11 +121,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             try {
                 return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
             } catch (ClassNotFoundException ignored) {
-                errorCollector.reportFatalError(
+                errorCollector.reportError(
                         new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                ctx.value(1).id().getText()),
-                        new ExpressionParseCancelationException()
-                );
+                                ctx.value(1).id().getText()));
+                throw new ExpressionParseCancelationException();
             }
             //endregion
 
@@ -152,11 +151,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     return staticClassField;
 
                 } catch (NoSuchFieldException e) {
-                    errorCollector.reportFatalError(
+                    errorCollector.reportError(
                             new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                    ctx.value(1).id().getText()),
-                            new ExpressionParseCancelationException()
-                    );
+                                    ctx.value(1).id().getText()));
+                    throw new ExpressionParseCancelationException();
                 }
                 //endregion
 
@@ -182,11 +180,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     return objectField;
 
                 } catch (NoSuchFieldException e) {
-                    errorCollector.reportFatalError(
+                    errorCollector.reportError(
                             new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                    ctx.value(1).id().getText()),
-                            new ExpressionParseCancelationException()
-                    );
+                                    ctx.value(1).id().getText()));
+                    throw new ExpressionParseCancelationException();
                 }
                 //Is object field
 
@@ -214,23 +211,19 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         try {
             return new ArrayAccess(val, index);
         } catch (ArrayExpectedException e) {
-            errorCollector.reportFatalError(
+            errorCollector.reportError(
                     new ArrayExpectedError(ctx.value(0).start.getLine(), ctx.value(0).start.getCharPositionInLine(), ctx.value(0).getText(),
-                            val.getType().getName()),
-                    new ExpressionParseCancelationException()
-            );
+                            val.getType().getName()));
+            throw new ExpressionParseCancelationException();
         } catch (IncompatibleTypesException e) {
-            errorCollector.reportFatalError(
+            errorCollector.reportError(
                     new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
                             ctx.arrayIndex().value().start.getCharPositionInLine(),
                             ctx.arrayIndex().value().getText(),
                             e.getTypeExpected(),
-                            e.getTypeFound()),
-                    new ExpressionParseCancelationException()
-            );
+                            e.getTypeFound()));
+            throw new ExpressionParseCancelationException();
         }
-
-        throw new IllegalStateException("errorCollector must throw exception");
 
     }
 
@@ -271,24 +264,21 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 method = val.getType().getMethod(ctx.id().getText(),
                         paramTypes);
             } catch (NoSuchMethodException e) {
-                errorCollector.reportFatalError(
+                errorCollector.reportError(
                         new NoSuchMethodError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
                                 ctx.id().getText(),
-                                paramTypes),
-                        new ExpressionParseCancelationException()
-
-                );
+                                paramTypes));
+                throw new ExpressionParseCancelationException();
             }
 
             boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
 
             if(requireStatic && !isStatic) {
 
-                errorCollector.reportFatalError(
+                errorCollector.reportError(
                         new WrongContextError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
-                                ctx.id().getText()),
-                        new ExpressionParseCancelationException()
-                );
+                                ctx.id().getText()));
+                throw new ExpressionParseCancelationException();
 
             }
 

@@ -12,7 +12,8 @@ public class ErrorCollector {
     private final List<CompilationError> errors = new ArrayList<>();
 
     /**
-     * Report error that is not fatal for compilation process
+     * Report error
+     * Suggested to throw exception manually
      *
      * @param error {@link CompilationError} to be reported
      */
@@ -28,7 +29,8 @@ public class ErrorCollector {
      * @param error {@link CompilationError} to be reported
      * @param e     exception to be thrown
      */
-    public void reportFatalError(CompilationError error, CancellationException e) {
+    @Deprecated
+    public void reportFatalError(CompilationError error, CancellationException e) throws CancellationException {
 
         errors.add(error);
         throw e;
