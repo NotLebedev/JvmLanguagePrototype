@@ -62,7 +62,19 @@ java.lang.System.out.print(matrix[2][1])
 java.lang.System.out.println(matrix[2][2])
 //endregion
 
-//region (un)boxing test
-java.lang.Integer qwe = 1
-java.lang.System.out.println(qwe)
+//region type matching test
+
+java.lang.Integer qwe = 1234 //Superclass matching
+java.lang.Object obj = qwe
+java.lang.System.out.println(obj)
+
+java.lang.CharSequence seq = "Interface matching"
+java.lang.System.out.println(seq)
+
+int i = qwe //Kind of (un)boxing test
+qwe = i //TODO : implement for rest of types
+
+//endregion
+
+
 
