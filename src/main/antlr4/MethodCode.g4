@@ -39,7 +39,7 @@ value   : literalCG
         | value dotS value
         | value arrayIndex ;
 
-cast : bracketOpenS value bracketCloseS value;
+cast : bracketOpenS (value | arrayType) bracketCloseS value;
 
 objectInstantiation : 'new' arrayType (arrayIndex+ arrayModifier* | bracketOpenS (value commaS)* value? bracketCloseS) ;
 
