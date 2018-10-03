@@ -79,6 +79,13 @@ public interface AbstractClass extends Value {
     boolean isPrimitive();
 
     /**
+     * Determines if the specified ReflectionClassWrapper object is array
+     *
+     * @return true if array, false if reference
+     */
+    boolean isArray();
+
+    /**
      * Check if specified superclass is superclass of this class
      * @param superclass expected superclass
      * @return true if it is, false if not

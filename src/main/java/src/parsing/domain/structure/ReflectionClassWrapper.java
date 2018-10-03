@@ -187,6 +187,17 @@ class ReflectionClassWrapper implements AbstractClass {
         return containedClass.isPrimitive();
     }
 
+    /**
+     * Determines if the specified ReflectionClassWrapper object is array
+     *
+     * @return true if array, false if reference
+     */
+    public boolean isArray() {
+
+        return containedClass.isArray();
+
+    }
+
     @Override
     public boolean equals(Object obj) {
 
