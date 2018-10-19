@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.exceptions.ArrayExpectedException;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.exceptions.WrongCastException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
@@ -62,6 +63,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         } else if(ctx.arrayIndex() != null) {///////////Array
 
             return visitArray(ctx);
+
+        } else if(ctx.cast() != null) {/////////////////Cast
+
+            return visitCast(ctx);
 
         } else if(ctx.literalCG() != null) {////////////LiteralCG
 
@@ -219,6 +224,26 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                             ctx.arrayIndex().value().getText(),
                             e.getTypeExpected(),
                             e.getTypeFound()));
+            throw new ExpressionParseCancelationException();
+        }
+
+    }
+
+    private Value visitCast(RootParser.ValueContext ctx) {
+
+        var value = ctx.cast().value().accept(new ValueVisitor(scope, errorCollector));
+
+        try {
+            var type = ClassFactory.getInstance().forName(ctx.cast().declarationType().getText());
+
+            return new TypeCast(type, value);
+
+        } catch (ClassNotFoundException e) {
+            errorCollector.reportError(
+                    new CanNotResolveSymbolError(ctx.cast().declarationType().start.getLine(), ctx.cast().declarationType().start.getCharPositionInLine(),
+                            ctx.cast().declarationType().getText()));
+            throw new ExpressionParseCancelationException();
+        } catch (WrongCastException e) {
             throw new ExpressionParseCancelationException();
         }
 

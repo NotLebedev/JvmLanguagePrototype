@@ -77,5 +77,8 @@ qwe = i //TODO : implement for rest of types
 
 //endregion
 
+java.lang.Integer castTest = (java.lang.Integer)obj
+java.lang.System.out.println(castTest)
+
 
 

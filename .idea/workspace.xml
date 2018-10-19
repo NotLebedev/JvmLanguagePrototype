@@ -4,12 +4,15 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added TypeCast class&#10;*Added WrongCastException&#10;*Added AbstractClass.isArray() and ReflectionClassWrapper.isArray() methods">
-      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/WrongCastException.java" afterDir="false" />
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,17 +26,17 @@
     <session id="-2061069121">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="78" />
+          <entry key="project.closed" value="82" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="2" />
-          <entry key="project.open.time.15" value="13" />
-          <entry key="project.open.time.16" value="15" />
+          <entry key="project.open.time.15" value="14" />
+          <entry key="project.open.time.16" value="16" />
           <entry key="project.open.time.17" value="14" />
-          <entry key="project.open.time.18" value="9" />
+          <entry key="project.open.time.18" value="10" />
           <entry key="project.open.time.19" value="8" />
           <entry key="project.open.time.20" value="5" />
-          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="2" />
@@ -41,17 +44,17 @@
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="83" />
+          <entry key="project.opened" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="12" />
           <entry key="ft" value="13" />
-          <entry key="g4" value="3883" />
+          <entry key="g4" value="3936" />
           <entry key="groovy" value="75" />
-          <entry key="java" value="49911" />
-          <entry key="lp" value="2649" />
+          <entry key="java" value="50282" />
+          <entry key="lp" value="2723" />
           <entry key="snippet" value="104" />
           <entry key="txt" value="9155" />
           <entry key="xml" value="41" />
@@ -59,14 +62,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="3883" />
+          <entry key="ANTLR v4 grammar file" value="3936" />
           <entry key="Groovy" value="75" />
-          <entry key="JAVA" value="49911" />
+          <entry key="JAVA" value="50282" />
           <entry key="PLAIN_TEXT" value="10314" />
           <entry key="Scratch" value="104" />
           <entry key="VTL" value="13" />
           <entry key="XML" value="41" />
-          <entry key="prototypeGrammar" value="1502" />
+          <entry key="prototypeGrammar" value="1576" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -76,8 +79,8 @@
           <entry key="g4" value="167" />
           <entry key="gitignore" value="1" />
           <entry key="groovy" value="3" />
-          <entry key="java" value="939" />
-          <entry key="lp" value="60" />
+          <entry key="java" value="942" />
+          <entry key="lp" value="61" />
           <entry key="raw" value="3" />
           <entry key="snippet" value="7" />
           <entry key="xml" value="4" />
@@ -88,11 +91,11 @@
           <entry key="ANTLR v4 grammar file" value="167" />
           <entry key="CLASS" value="30" />
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="939" />
+          <entry key="JAVA" value="942" />
           <entry key="PLAIN_TEXT" value="32" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="4" />
-          <entry key="prototypeGrammar" value="29" />
+          <entry key="prototypeGrammar" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -144,53 +147,56 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="283">
+              <caret line="245" column="40" selection-start-line="245" selection-start-column="40" selection-end-line="245" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
+                <element signature="method#visitId#0;class#ValueVisitor#0" />
+                <element signature="method#visitArray#0;class#ValueVisitor#0" />
+                <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="777">
               <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1499#1500#0" expanded="true" />
-                <element signature="e#1530#1531#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="189" column="4" lean-forward="true" selection-start-line="189" selection-start-column="4" selection-end-line="198" selection-end-column="5" />
-              <folding>
-                <element signature="docComment;method#getName#0;class#ReflectionClassWrapper#0" />
-                <element signature="docComment;method#getSlashName#0;class#ReflectionClassWrapper#0" />
-                <element signature="e#1570#1571#0" expanded="true" />
-                <element signature="e#1630#1631#0" expanded="true" />
-                <element signature="docComment;method#getJvmName#0;class#ReflectionClassWrapper#0" />
-                <element signature="method#getField#0;class#ReflectionClassWrapper#0" />
-                <element signature="method#getMethod#0;class#ReflectionClassWrapper#0" />
-                <element signature="method#getConstructor#0;class#ReflectionClassWrapper#0" />
-                <element signature="method#hasSuperclass#0;class#ReflectionClassWrapper#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -198,14 +204,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/WrongCastException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
+            <state relative-caret-position="462">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
-              <folding>
-                <element signature="e#491#492#0" expanded="true" />
-                <element signature="e#522#523#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -213,8 +213,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="945">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -233,8 +233,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/antlr4/MethodCode.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-259">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="840">
+              <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -244,15 +244,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-426">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -377,18 +368,18 @@
         <option value="$PROJECT_DIR$/src/test/java/TypeMatcherTestSuite.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
-        <option value="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/PrimitiveCast.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/WrongCastException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" />
+        <option value="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
       </list>
     </option>
   </component>
@@ -416,6 +407,63 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope">
+          <expand>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="domain" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -473,29 +521,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="parsing" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="structure" type="462c0819:PsiDirectoryNode" />
+              <item name="visitors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
@@ -506,6 +532,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="parsing" type="462c0819:PsiDirectoryNode" />
               <item name="visitors" type="462c0819:PsiDirectoryNode" />
+              <item name="errorHandling" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="visitors" type="462c0819:PsiDirectoryNode" />
+              <item name="errorHandling" type="462c0819:PsiDirectoryNode" />
+              <item name="errors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
@@ -569,63 +608,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope">
-          <expand>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="JvmLanguagePrototype" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="JvmLanguagePrototype" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="parsing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="domain" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -670,7 +652,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
+  <component name="RunManager" selected="Groovy.JavapExec">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="10" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -857,14 +839,11 @@
       <workItem from="1538409638964" duration="6509000" />
       <workItem from="1538485946214" duration="8306000" />
       <workItem from="1538497982177" duration="1154000" />
-      <workItem from="1538499171829" duration="5375000" />
-    </task>
-    <task id="LOCAL-00104" summary="*Changed match() method to match single word primitives conversion&#10;*Added corresponding tests">
-      <created>1537288109108</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1537288109108</updated>
+      <workItem from="1538499171829" duration="6695000" />
+      <workItem from="1538581985237" duration="1080000" />
+      <workItem from="1538675128664" duration="89000" />
+      <workItem from="1539958168415" duration="850000" />
+      <workItem from="1539959058582" duration="1027000" />
     </task>
     <task id="LOCAL-00105" summary="*Changed match() method to match single word primitive to object conversion&#10;*Added corresponding tests">
       <created>1537289885373</created>
@@ -1202,19 +1181,17 @@
       <option name="project" value="LOCAL" />
       <updated>1538578060256</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="*Added TypeCast class&#10;*Added WrongCastException&#10;*Added AbstractClass.isArray() and ReflectionClassWrapper.isArray() methods">
+      <created>1538580196102</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1538580196102</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.02 at 19h 49m 38s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.02 at 19h 50m 40s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.02 at 19h 51m 31s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.02 at 19h 57m 28s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1236,9 +1213,18 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.03 at 17h 46m 38s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.19 at 17h 11m 38s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.19 at 17h 16m 53s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.19 at 17h 30m 38s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359633000" />
+    <option name="totallyTimeSpent" value="363999000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1252,7 +1238,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13275039" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13593005" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1265,10 +1251,10 @@
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Run" order="4" weight="0.32917964" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32917964" />
-      <window_info anchor="bottom" id="Terminal" order="6" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="6" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="7" weight="0.32917964" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Messages" order="9" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32917964" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32917964" />
       <window_info anchor="bottom" id="ANTLR Preview" order="12" weight="0.32917964" />
@@ -1493,13 +1479,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/function/Function.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1758,24 +1737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="71" column="33" lean-forward="true" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1783,10 +1744,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1617">
+          <caret line="189" column="4" selection-start-line="189" selection-start-column="4" selection-end-line="198" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1701">
+          <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        <state relative-caret-position="651">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/WrongCastException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1799,17 +1812,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/antlr4/MethodCode.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/ErrorCollector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="840">
+          <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1820,60 +1826,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/antlr4/MethodCode.g4">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-259">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/WrongCastException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#522#523#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="189" column="4" lean-forward="true" selection-start-line="189" selection-start-column="4" selection-end-line="198" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;method#getName#0;class#ReflectionClassWrapper#0" />
-            <element signature="docComment;method#getSlashName#0;class#ReflectionClassWrapper#0" />
-            <element signature="e#1570#1571#0" expanded="true" />
-            <element signature="e#1630#1631#0" expanded="true" />
-            <element signature="docComment;method#getJvmName#0;class#ReflectionClassWrapper#0" />
-            <element signature="method#getField#0;class#ReflectionClassWrapper#0" />
-            <element signature="method#getMethod#0;class#ReflectionClassWrapper#0" />
-            <element signature="method#getConstructor#0;class#ReflectionClassWrapper#0" />
-            <element signature="method#hasSuperclass#0;class#ReflectionClassWrapper#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+        <state relative-caret-position="283">
+          <caret line="245" column="40" selection-start-line="245" selection-start-column="40" selection-end-line="245" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1499#1500#0" expanded="true" />
-            <element signature="e#1530#1531#0" expanded="true" />
+            <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
+            <element signature="method#visitId#0;class#ValueVisitor#0" />
+            <element signature="method#visitArray#0;class#ValueVisitor#0" />
+            <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
         </state>
       </provider>
     </entry>
