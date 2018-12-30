@@ -4,6 +4,7 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
+import src.parsing.domain.exceptions.VariableNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Arrays;

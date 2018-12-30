@@ -9,7 +9,6 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,8 +24,7 @@ public class TypeMatcher {
 
     private static TypeMatcher instance;
 
-    private List<Pair<AbstractClass, AbstractClass>> boxingPairs; //TODO : replace Pair class
-    //private List<AbstractClass> conversionGroup;
+    private List<Pair<AbstractClass, AbstractClass>> boxingPairs;
 
     private static final String[] conversionPairTypes = {"byte", "java.lang.Byte",
             "short", "java.lang.Short",

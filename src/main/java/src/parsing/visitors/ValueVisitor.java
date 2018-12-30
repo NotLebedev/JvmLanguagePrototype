@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.exceptions.ArrayExpectedException;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.exceptions.VariableNotFoundException;
 import src.parsing.domain.exceptions.WrongCastException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;
@@ -280,7 +281,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                     .map(Value::getType)
                     .collect(Collectors.toList()).toArray(new AbstractClass[0]);
 
-            ReflectionMethodWrapper method = null;
+            ReflectionMethodWrapper method;
 
             try {
                 method = val.getType().getMethod(ctx.id().getText(),

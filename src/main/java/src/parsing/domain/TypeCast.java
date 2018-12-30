@@ -4,6 +4,7 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.exceptions.WrongCastException;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
@@ -24,6 +25,12 @@ public class TypeCast implements Value {
 
     }
 
+    /**
+     * Check if this cast can be theoretically preformed
+     * @param castType initial type
+     * @param valueType destination type
+     * @return true if cast can be preformed false otherwise
+     */
     private boolean checkCast(AbstractClass castType, AbstractClass valueType)  {
 
         //Check if both types are same category
@@ -57,4 +64,56 @@ public class TypeCast implements Value {
     public AbstractClass getType() {
         return castType;
     }
+
+    private class Conversion {
+
+        private AbstractClass fromType;
+        private AbstractClass toType;
+
+        private int opcode;
+
+        public Conversion(AbstractClass fromType, AbstractClass toType, int opcode) {
+            this.fromType = fromType;
+            this.toType = toType;
+            this.opcode = opcode;
+        }
+
+        /**
+         * Checks if this conversion is suitable for specified types
+         * @param from initial type
+         * @param to target type
+         * @return whether conversion is suitable or not
+         */
+        public boolean isMatching(AbstractClass from, AbstractClass to) {
+
+            from = groupOneWord(from);
+            to = groupOneWord(to);
+
+            return fromType.equals(from) && toType.equals(to);
+
+        }
+
+        /**
+         * Replaces all one word primitives (int short byte char) with int, because they share same
+         * i2* opcode
+         * @param abstractClass class to be grouped
+         * @return replaced type
+         */
+        private AbstractClass groupOneWord(AbstractClass abstractClass) {
+
+            switch (abstractClass.getName()) {
+                case "int":
+                case "short":
+                case "byte":
+                case "char":
+                    return ClassFactory.getInstance().forCorrectName("int");
+                default:
+                    return abstractClass;
+
+            }
+
+        }
+
+    }
+
 }

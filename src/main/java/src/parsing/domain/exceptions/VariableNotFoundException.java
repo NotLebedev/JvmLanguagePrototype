@@ -1,4 +1,4 @@
-package src.parsing.domain;
+package src.parsing.domain.exceptions;
 
 public class VariableNotFoundException extends Exception {
 

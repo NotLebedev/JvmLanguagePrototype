@@ -80,5 +80,7 @@ qwe = i //TODO : implement for rest of types
 java.lang.Integer castTest = (java.lang.Integer)obj
 java.lang.System.out.println(castTest)
 
+ewfwe = 1
+
 
 
