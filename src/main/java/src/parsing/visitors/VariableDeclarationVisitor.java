@@ -13,6 +13,7 @@ import src.parsing.domain.exceptions.VariableAlreadyDefinedException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.errors.VariableAlreadyDefinedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import javax.annotation.Nullable;
@@ -58,7 +59,14 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
         try {
             scope.addVariable(variable);
         } catch (VariableAlreadyDefinedException e) {
-            e.printStackTrace();
+
+            errorCollector.reportError(
+                    new VariableAlreadyDefinedError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
+                            ctx.id().start.getText())
+            );
+
+            throw new ParseCancellationException();
+
         }
 
         if(ctx.assignment() != null) {
