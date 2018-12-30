@@ -5,6 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.exceptions.VariableNotFoundException;
+import src.parsing.domain.utils.VariableController;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,18 +13,18 @@ import java.util.Arrays;
 /**
  * TODO: documentation, when class is more finished
  */
-public class Method implements Scope {
+public class Method extends VariableController implements Scope {
 
     String name;
 
     private final ArrayList<Expression> expressions = new ArrayList<>();
-    private final ArrayList<Variable> variables = new ArrayList<>();
 
     /**
      * Constructor to use, when method is static and has no fields
      * (In another words, no pre-defined fields exist)
      */
     public Method() {
+        super();
     }
 
     /**
@@ -32,8 +33,8 @@ public class Method implements Scope {
      *
      * @param variablesVisible variables
      */
-    public Method(Variable[] variablesVisible) {
-        this.variables.addAll(Arrays.asList(variablesVisible));
+    public Method(ArrayList<Variable> variablesVisible) {
+        super(variablesVisible);
     }
 
     public void addExpression(Expression e) {
@@ -59,44 +60,5 @@ public class Method implements Scope {
 
     }
 
-    @Override
-    public void addVariable(Variable v) {
 
-        v.setId(variables.size());
-        variables.add(v);
-
-    }
-
-    @Override
-    public int getVariableCount() {
-        return variables.size();
-    }
-
-    @Override
-    public Variable getVariableByName(String name) throws VariableNotFoundException {
-
-        for (Variable variable : variables) {
-
-            if(variable.getName().equals(name))
-                return variable;
-
-        }
-
-        throw new VariableNotFoundException("Variable " + name + " has not been declared in this scope");
-
-    }
-
-    @Override
-    public boolean hasVariable(String name) {
-
-        for (Variable variable : variables) {
-
-            if(variable.getName().equals(name))
-                return true;
-
-        }
-
-        return false;
-
-    }
 }
