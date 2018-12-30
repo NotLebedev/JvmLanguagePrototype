@@ -4,10 +4,10 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*implemented TypeCast.Conversion.getOpcode()">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+            <state relative-caret-position="399">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,8 +161,8 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" />
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" />
       </list>
     </option>
   </component>
@@ -362,7 +362,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546178429045" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546179254482" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/groovy-2.5.5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -390,7 +390,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -596,14 +596,7 @@
       <workItem from="1546162196257" duration="1000" />
       <workItem from="1546162444342" duration="2832000" />
       <workItem from="1546167261546" duration="2757000" />
-      <workItem from="1546173100497" duration="5250000" />
-    </task>
-    <task id="LOCAL-00107" summary="*Added another block of tests&#10;*Removed obsolete todo">
-      <created>1537345364528</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1537345364528</updated>
+      <workItem from="1546173100497" duration="6241000" />
     </task>
     <task id="LOCAL-00108" summary="*Migrated match() sample to Abstract class">
       <created>1537345807597</created>
@@ -941,13 +934,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546176000993</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="*Implemented TypeCast.Conversion.getOpcode()&#10;*Added conversion array and initializer">
+      <created>1546178582134</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1546178582134</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.03 at 17h 46m 38s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.10.19 at 17h 11m 38s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -975,9 +972,12 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.12.30 at 16h 49m 46s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2018.12.30 at 17h 14m 20s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="376756000" />
+    <option name="totallyTimeSpent" value="377747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -992,7 +992,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2140625" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2140625" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1001,7 +1001,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32642487" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32642487" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1011,7 +1011,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3277202" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.34974092" />
       <window_info anchor="bottom" id="Tool Output" order="13" />
       <window_info anchor="bottom" id="ANTLR Preview" order="14" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1035,7 +1035,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32642487" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32642487" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1045,7 +1045,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3277202" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.34974092" />
       <window_info anchor="bottom" id="Tool Output" order="13" />
       <window_info anchor="bottom" id="ANTLR Preview" order="14" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1114,7 +1114,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Added static field assignment to VariableAssignmentVisitor&#10;*Changed tests" />
     <MESSAGE value="*Implemented ObjectFieldAssignment&#10;*Added getField() and getObject() methods to ObjectField&#10;*Added ObjectField case to VariableAssignmentVisitor&#10;*Updated tests" />
     <MESSAGE value="*Added VariableExpectedError&#10;*Added variable expected error collection to VariableAssignmentVisitor" />
     <MESSAGE value="*Renamed TypeMatcher.match() to TypeMatcher.softMatch()" />
@@ -1139,7 +1138,8 @@
     <MESSAGE value="*Updated to java 11" />
     <MESSAGE value="*Moved VariableNotFoundException&#10;*Added Conversion nested class to TypeCast&#10;*Implemented TypeCast.Conversion.isMatching()&#10;*Some documentation for TypeCast" />
     <MESSAGE value="*Moved VariableNotFoundException&#10;*Added Conversion nested class to TypeCast&#10;*Implemented TypeCast.Conversion.isMatching()&#10;*Some documentation for TypeCast&#10;*Removed redundant null initializer in ValueVisitor" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Moved VariableNotFoundException&#10;*Added Conversion nested class to TypeCast&#10;*Implemented TypeCast.Conversion.isMatching()&#10;*Some documentation for TypeCast&#10;*Removed redundant null initializer in ValueVisitor" />
+    <MESSAGE value="*Implemented TypeCast.Conversion.getOpcode()&#10;*Added conversion array and initializer" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Implemented TypeCast.Conversion.getOpcode()&#10;*Added conversion array and initializer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1603,8 +1603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+        <state relative-caret-position="399">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -14,9 +14,10 @@ public class TypeCast implements Value {
 
     private final AbstractClass castType;
     private final Value value;
+    private Conversion conversion = null;
 
     private static Conversion[] conversions = null;
-    private static final String[] conversiosnTypes = {
+    private static final String[] conversionTypes = {
         "double", "float",
         "double", "int",
         "double", "long",
@@ -52,8 +53,8 @@ public class TypeCast implements Value {
             conversions = new Conversion[conversionOpcodes.length];
 
             for (int i = 0; i < conversionOpcodes.length; i++) {
-                conversions[i] = new Conversion(cf.forCorrectName(conversiosnTypes[i*2]),
-                        cf.forCorrectName(conversiosnTypes[i*2 + 1]),
+                conversions[i] = new Conversion(cf.forCorrectName(conversionTypes[i*2]),
+                        cf.forCorrectName(conversionTypes[i*2 + 1]),
                         conversionOpcodes[i]);
             }
         }
@@ -79,6 +80,21 @@ public class TypeCast implements Value {
         //Chack if both types are (not) arrays
         boolean arrayOk = castType.isArray() == valueType.isArray();
 
+        //If cast is valid and primitive cast is expected
+        if(primitiveOk && arrayOk && castType.isPrimitive()) {
+
+            for (Conversion iter : conversions) { //Check if such primitive cast exists
+                if(iter.isMatching(valueType, castType)) {
+                    conversion = iter;
+                    break;
+                }
+            }
+
+            if(conversion == null)
+                return false;
+
+        }
+
         return primitiveOk && arrayOk; //Must follow all rules
 
     }
@@ -87,7 +103,11 @@ public class TypeCast implements Value {
     public void generateBytecode(MethodVisitor methodVisitor) {
 
         if(castType.isPrimitive()) {
-            //TODO : implement primitive cast
+
+            //Select conversion opcode previously selected by check cast
+            value.generateBytecode(methodVisitor);
+            methodVisitor.visitInsn(conversion.getOpcode());
+
         } else if(value.getType().hasSuperclass(castType)) {
             //Upcast is always correct, no checking required
             value.generateBytecode(methodVisitor);
