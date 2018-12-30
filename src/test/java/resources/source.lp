@@ -77,5 +77,11 @@ qwe = i //TODO : implement for rest of types
 
 //endregion
 
-
+//region cast test
+java.lang.Integer castTest = (java.lang.Integer)obj
+int i83 = 83
+double d84 = (double) i83
+long l85 = (long) d84
+short s86 = (short) l85
+//endregion
 

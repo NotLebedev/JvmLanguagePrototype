@@ -80,5 +80,7 @@ qwe = i //TODO : implement for rest of types
 java.lang.Integer castTest = (java.lang.Integer)obj
 java.lang.System.out.println(castTest)
 
-
-
+int i83 = 83
+double d84 = (double) i83
+long l85 = (long) d84
+short s86 = (short) l85

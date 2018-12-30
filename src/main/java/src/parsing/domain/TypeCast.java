@@ -8,6 +8,8 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**
+ * Class describing conversion of types (e.g. {@code (int) var1})
+ *
  * @author NotLebedev
  */
 public class TypeCast implements Value {

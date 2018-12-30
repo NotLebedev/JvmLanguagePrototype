@@ -4,9 +4,11 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added condition to TypeCast.checkCast()&#10;*Added primitive conversion case for TypeCast.generateBytecode()&#10;*Fixed typo in TypeCast field name">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/source.lp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,15 +20,90 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+            <state relative-caret-position="147">
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="79" selection-start-line="79" selection-end-line="79" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1134">
+              <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="861">
+              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -132,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassFieldAssignment.java" />
@@ -144,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/test/java/TypeMatcherTestSuite.java" />
-        <option value="$PROJECT_DIR$/src/test/java/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" />
@@ -161,8 +236,10 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java" />
+        <option value="$PROJECT_DIR$/src/test/java/resources/source.lp" />
       </list>
     </option>
   </component>
@@ -319,6 +396,16 @@
               <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="visitors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -341,6 +428,24 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -362,7 +467,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546179254482" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546182599140" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/groovy-2.5.5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -399,6 +504,18 @@
       <RunnerSettings RunnerId="Debug with VisualVM">
         <option name="visualVMId" value="78840386201252" />
       </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -462,23 +579,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypeMatcherTestSuite.testMatches" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JvmLanguagePrototype" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TypeMatcherTestSuite" />
-      <option name="METHOD_NAME" value="testMatches" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Test" />
       <item itemvalue="Groovy.JavapExec" />
       <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
-      <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
       <item itemvalue="JUnit.TypeMatcherTestSuite" />
       <item itemvalue="JUnit.BytecodeEqualityTest.test_updateSampleBytecode" />
       <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
@@ -486,10 +591,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
-        <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
         <item itemvalue="JUnit.BytecodeEqualityTest.test_updateSampleBytecode" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
         <item itemvalue="JUnit.TypeMatcherTestSuite" />
-        <item itemvalue="JUnit.TypeMatcherTestSuite.testMatches" />
       </list>
     </recent_temporary>
   </component>
@@ -596,14 +701,8 @@
       <workItem from="1546162196257" duration="1000" />
       <workItem from="1546162444342" duration="2832000" />
       <workItem from="1546167261546" duration="2757000" />
-      <workItem from="1546173100497" duration="6241000" />
-    </task>
-    <task id="LOCAL-00108" summary="*Migrated match() sample to Abstract class">
-      <created>1537345807597</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1537345807597</updated>
+      <workItem from="1546173100497" duration="8130000" />
+      <workItem from="1546182890102" duration="298000" />
     </task>
     <task id="LOCAL-00109" summary="*Added comments to grammar&#10;*added folding regions to source">
       <created>1537348179175</created>
@@ -941,7 +1040,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546178582134</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="*Added condition to TypeCast.checkCast()&#10;*Added primitive conversion case for TypeCast.generateBytecode()&#10;*Fixed typo in TypeCast field name">
+      <created>1546179571270</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1546179571270</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -977,7 +1083,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="377747000" />
+    <option name="totallyTimeSpent" value="379934000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -992,7 +1098,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2140625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23462783" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1001,13 +1107,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32642487" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36133334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32933334" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -1026,7 +1132,7 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2140625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2140625" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1035,7 +1141,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32642487" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34974092" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1114,7 +1220,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Implemented ObjectFieldAssignment&#10;*Added getField() and getObject() methods to ObjectField&#10;*Added ObjectField case to VariableAssignmentVisitor&#10;*Updated tests" />
     <MESSAGE value="*Added VariableExpectedError&#10;*Added variable expected error collection to VariableAssignmentVisitor" />
     <MESSAGE value="*Renamed TypeMatcher.match() to TypeMatcher.softMatch()" />
     <MESSAGE value="*Added rule for superclass matching (assignment of sub to super) to TypeMatcher&#10;*Added hasSuperclass() to AbstractClass and ReflectionClassWrapper" />
@@ -1139,7 +1244,8 @@
     <MESSAGE value="*Moved VariableNotFoundException&#10;*Added Conversion nested class to TypeCast&#10;*Implemented TypeCast.Conversion.isMatching()&#10;*Some documentation for TypeCast" />
     <MESSAGE value="*Moved VariableNotFoundException&#10;*Added Conversion nested class to TypeCast&#10;*Implemented TypeCast.Conversion.isMatching()&#10;*Some documentation for TypeCast&#10;*Removed redundant null initializer in ValueVisitor" />
     <MESSAGE value="*Implemented TypeCast.Conversion.getOpcode()&#10;*Added conversion array and initializer" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Implemented TypeCast.Conversion.getOpcode()&#10;*Added conversion array and initializer" />
+    <MESSAGE value="*Added condition to TypeCast.checkCast()&#10;*Added primitive conversion case for TypeCast.generateBytecode()&#10;*Fixed typo in TypeCast field name" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added condition to TypeCast.checkCast()&#10;*Added primitive conversion case for TypeCast.generateBytecode()&#10;*Fixed typo in TypeCast field name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1273,34 +1379,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionConstructorWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="78" column="51" selection-start-line="78" selection-start-column="51" selection-end-line="80" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="31" column="71" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionFieldWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -1392,20 +1470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
           <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1502,16 +1566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="91" column="61" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1587,27 +1641,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar!/org/objectweb/asm/ClassWriter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+        <state relative-caret-position="105">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        <state relative-caret-position="147">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayInstantiation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ArrayAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="79" selection-start-line="79" selection-end-line="79" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
         </state>
       </provider>
     </entry>
