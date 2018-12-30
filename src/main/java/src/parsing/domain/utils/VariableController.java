@@ -1,6 +1,7 @@
 package src.parsing.domain.utils;
 
 import src.parsing.domain.Variable;
+import src.parsing.domain.exceptions.VariableAlreadyDefinedException;
 import src.parsing.domain.exceptions.VariableNotFoundException;
 
 import java.util.ArrayList;
@@ -22,7 +23,10 @@ public class VariableController {
      */
     public VariableController(){}
 
-    public void addVariable(Variable v) {
+    public void addVariable(Variable v) throws VariableAlreadyDefinedException {
+
+        if(hasVariable(v.getName()))
+            throw new VariableAlreadyDefinedException();
 
         v.setId(variables.size());
         variables.add(v);
@@ -36,10 +40,8 @@ public class VariableController {
     public Variable getVariableByName(String name) throws VariableNotFoundException {
 
         for (Variable variable : variables) {
-
             if(variable.getName().equals(name))
                 return variable;
-
         }
 
         throw new VariableNotFoundException("Variable " + name + " has not been declared in this scope");

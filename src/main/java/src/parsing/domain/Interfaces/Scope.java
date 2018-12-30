@@ -1,6 +1,7 @@
 package src.parsing.domain.Interfaces;
 
 import src.parsing.domain.Variable;
+import src.parsing.domain.exceptions.VariableAlreadyDefinedException;
 import src.parsing.domain.exceptions.VariableNotFoundException;
 
 /**
@@ -8,7 +9,7 @@ import src.parsing.domain.exceptions.VariableNotFoundException;
  */
 public interface Scope {
 
-    void addVariable(Variable v);
+    void addVariable(Variable v) throws VariableAlreadyDefinedException;
 
     int getVariableCount();
 

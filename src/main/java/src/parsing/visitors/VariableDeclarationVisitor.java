@@ -9,6 +9,7 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Variable;
 import src.parsing.domain.VariableAssignment;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.exceptions.VariableAlreadyDefinedException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
@@ -54,7 +55,11 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        scope.addVariable(variable);
+        try {
+            scope.addVariable(variable);
+        } catch (VariableAlreadyDefinedException e) {
+            e.printStackTrace();
+        }
 
         if(ctx.assignment() != null) {
 
