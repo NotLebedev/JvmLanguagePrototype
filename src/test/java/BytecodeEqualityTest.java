@@ -24,10 +24,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class BytecodeEqualityTest {
 
-    private final String bytecodePath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources\\sample.byt";
-    private final String backupPath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources\\backup.byt";
+    private final String bytecodePath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources\\sample.byt";
+    private final String backupPath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources\\backup.byt";
 
-    private final String testCodePath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources\\source.lp";
+    private final String testCodePath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources\\source.lp";
 
     @Test
     public void testBytecodeCompilationIntegrity() throws IOException {
