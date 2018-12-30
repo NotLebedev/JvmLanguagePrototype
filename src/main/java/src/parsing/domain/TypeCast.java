@@ -15,7 +15,48 @@ public class TypeCast implements Value {
     private final AbstractClass castType;
     private final Value value;
 
+    private static Conversion[] conversions = null;
+    private static final String[] conversiosnTypes = {
+        "double", "float",
+        "double", "int",
+        "double", "long",
+        "float", "double",
+        "float", "int",
+        "float", "long",
+        "int", "long",
+        "int", "float",
+        "int", "double",
+        "long", "double",
+        "long", "float",
+        "long", "int"
+    };
+    private static final int[] conversionOpcodes = {
+        Opcodes.D2F,
+        Opcodes.D2I,
+        Opcodes.D2L,
+        Opcodes.F2D,
+        Opcodes.F2I,
+        Opcodes.F2L,
+        Opcodes.I2L,
+        Opcodes.I2F,
+        Opcodes.I2D,
+        Opcodes.L2D,
+        Opcodes.L2F,
+        Opcodes.L2I
+    };
+
     public TypeCast(AbstractClass castType, Value value) throws WrongCastException {
+
+        if(conversions == null) {
+            ClassFactory cf = ClassFactory.getInstance();
+            conversions = new Conversion[conversionOpcodes.length];
+
+            for (int i = 0; i < conversionOpcodes.length; i++) {
+                conversions[i] = new Conversion(cf.forCorrectName(conversiosnTypes[i*2]),
+                        cf.forCorrectName(conversiosnTypes[i*2 + 1]),
+                        conversionOpcodes[i]);
+            }
+        }
 
         this.castType = castType;
         this.value = value;
@@ -91,6 +132,10 @@ public class TypeCast implements Value {
 
             return fromType.equals(from) && toType.equals(to);
 
+        }
+
+        public int getOpcode() {
+            return opcode;
         }
 
         /**
