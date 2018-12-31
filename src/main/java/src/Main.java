@@ -21,42 +21,6 @@ public class Main {
 
         try {
 
-            /*Class<?> cls = Class2.class;
-            var method = cls.getMethod("getStr", (Class<?>[]) null);
-
-
-            System.out.println(Utils.getJvmName(method.getReturnType()));*/
-            /*StaticMethodInvocation smi = new StaticMethodInvocation();
-            smi.setNames("src.parsing.Class2", "getStr", new String[]{"[I", "java.lang.String", "[[J"});
-
-            System.out.println(smi.getDescriptor());*/
-
-            /*var classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES); // No need to use COMPUTE_MAXS as COMPUTE_FRAMES implies it
-
-            classWriter.visit(54, ACC_PUBLIC + ACC_SUPER, "src/Test", null, "java/lang/Object", null);
-
-            String [] str = new String[2];
-            System.out.println(str.getClass().getName());
-
-            Method method = new Method();
-
-            Variable v = new Variable("java.lang.String", "str", 0);
-
-            StaticMethodInvocation printSmi = new StaticMethodInvocation();
-            printSmi.setNames("src.parsing.Class2", "print", new String[]{"[Ljava.lang.String;"});
-            printSmi.setParamValues(new Value[]{v});
-
-            method.addExpression(printSmi);*/
-
-            /*method.generateBytecode(classWriter);
-
-            classWriter.visitEnd();*/
-
-            ///////////////////////////
-
-            /*RootLexer rootLexer = new RootLexer(CharStreams.fromString("java.lang.System.out.println(\"Hello world!\")\n" +
-                    "src.parsing.Class2.test().printString()"));*/
-
             RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\source.lp"));
 
             CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);

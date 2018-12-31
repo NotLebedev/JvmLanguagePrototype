@@ -9,21 +9,19 @@ public class FloatLiteral implements Value {
 
     private final float aFloat;
 
-    private static AbstractClass type = null;
+    private static AbstractClass type;
+
+    static {
+        try {
+            type = ClassFactory.getInstance().forName("float");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("Literal type must be available", e);
+        }
+    }
 
     public FloatLiteral(float aFloat) {
 
         this.aFloat = aFloat;
-
-        if(type == null) {
-
-            try {
-                type = ClassFactory.getInstance().forName("float");
-            } catch (ClassNotFoundException e) {
-                throw new IllegalStateException("Literal type must be available", e);
-            }
-
-        }
 
     }
 

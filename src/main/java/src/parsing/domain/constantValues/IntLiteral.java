@@ -13,21 +13,19 @@ public class IntLiteral implements Value {
 
     private final int integer;
 
-    private static AbstractClass type = null;
+    private static AbstractClass type;
+
+    static {
+        try {
+            type = ClassFactory.getInstance().forName("int");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("Literal type must be available", e);
+        }
+    }
 
     public IntLiteral(int integer) {
 
         this.integer = integer;
-
-        if(type == null) {
-
-            try {
-                type = ClassFactory.getInstance().forName("int");
-            } catch (ClassNotFoundException e) {
-                throw new IllegalStateException("Literal type must be available", e);
-            }
-
-        }
 
     }
 
