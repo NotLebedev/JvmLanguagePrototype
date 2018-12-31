@@ -60,7 +60,17 @@ public class LiteralCGVisitor extends RootBaseVisitor<Value> {
 
         @Override
         public Float visitFloatCG(RootParser.FloatCGContext ctx) {
-            return Float.valueOf(ctx.FLOATCG().getText());
+
+            var numberStr = ctx.FLOATCG().getText();
+
+            if(!Character.isDigit(numberStr.charAt(numberStr.length()-1))) {
+
+                numberStr = numberStr.substring(0, numberStr.length() - 1);
+
+            }
+
+            return Float.valueOf(numberStr);
+
         }
 
     }
@@ -71,7 +81,7 @@ public class LiteralCGVisitor extends RootBaseVisitor<Value> {
         public Long visitLongCG(RootParser.LongCGContext ctx) {
 
             var numberStr = ctx.LONGCG().getText();
-            numberStr = numberStr.substring(0, numberStr.length() - 2);
+            numberStr = numberStr.substring(0, numberStr.length() - 1);
 
             return Long.valueOf(numberStr);
         }

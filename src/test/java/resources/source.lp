@@ -86,3 +86,5 @@ short s86 = (short) l85
 //endregion
 
 float f = 123.123
+f = 2019F
+long lng = 2019L

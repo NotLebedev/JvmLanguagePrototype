@@ -60,7 +60,7 @@ ID : (LOWCHAR|HIGHCHAR) (LOWCHAR|HIGHCHAR|DIGIT)* ;
 STRINGCG : '"'.*?'"' ;
 INTEGERCG : MINUS? [0-9]+ ;
 LONGCG : INTEGERCG ('l'|'L') ;
-FLOATCG : MINUS? [0-9]+ DOT? [0-9]* ;
+FLOATCG : (MINUS? [0-9]+ DOT? [0-9]* ('f' | 'F' | )) | (MINUS? [0-9]+ ('f' | 'F')) ;
 CHARACTERCG : '\''.'\'' ;
 //End types capture groups
 
