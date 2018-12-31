@@ -7,18 +7,22 @@ import src.parsing.domain.structure.interfaces.AbstractClass;
 
 public class FloatLiteral implements Value {
 
-    private final float f;
+    private final float aFloat;
 
-    private AbstractClass type;
+    private static AbstractClass type = null;
 
-    public FloatLiteral(float f) {
+    public FloatLiteral(float aFloat) {
 
-        this.f = f;
+        this.aFloat = aFloat;
 
-        try {
-            this.type = ClassFactory.getInstance().forName("float");
-        } catch (ClassNotFoundException e) {
-            throw new IllegalStateException("Literal type must be available", e);
+        if(type == null) {
+
+            try {
+                type = ClassFactory.getInstance().forName("float");
+            } catch (ClassNotFoundException e) {
+                throw new IllegalStateException("Literal type must be available", e);
+            }
+
         }
 
     }
@@ -26,7 +30,7 @@ public class FloatLiteral implements Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        methodVisitor.visitLdcInsn(f);
+        methodVisitor.visitLdcInsn(aFloat);
 
     }
 

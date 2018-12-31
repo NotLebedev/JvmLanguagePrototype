@@ -12,16 +12,20 @@ public class StringLiteral implements Value {
 
     private final String string;
 
-    private AbstractClass type;
+    private static AbstractClass type = null;
 
     public StringLiteral(String string) {
 
         this.string = string;
 
-        try {
-            this.type = ClassFactory.getInstance().forName("java.lang.String");
-        } catch (ClassNotFoundException e) {
-            throw new IllegalStateException("Literal type must be available", e);
+        if(type == null) {
+
+            try {
+                type = ClassFactory.getInstance().forName("java.lang.String");
+            } catch (ClassNotFoundException e) {
+                throw new IllegalStateException("Literal type must be available", e);
+            }
+
         }
 
     }

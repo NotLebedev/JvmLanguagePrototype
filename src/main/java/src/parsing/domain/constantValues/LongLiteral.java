@@ -9,16 +9,20 @@ public class LongLiteral implements Value {
 
     private final long aLong;
 
-    private AbstractClass type;
+    private static AbstractClass type = null;
 
     public LongLiteral(long aLong) {
 
         this.aLong = aLong;
 
-        try {
-            this.type = ClassFactory.getInstance().forName("long");
-        } catch (ClassNotFoundException e) {
-            throw new IllegalStateException("Literal type must be available", e);
+        if(type == null) {
+
+            try {
+                type = ClassFactory.getInstance().forName("long");
+            } catch (ClassNotFoundException e) {
+                throw new IllegalStateException("Literal type must be available", e);
+            }
+
         }
 
     }
