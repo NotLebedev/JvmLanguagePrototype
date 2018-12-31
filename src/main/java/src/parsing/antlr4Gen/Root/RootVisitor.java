@@ -1,4 +1,4 @@
-// Generated from E:/Work/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7
+// Generated from C:/Users/Tema/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
 package src.parsing.antlr4Gen.Root;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -118,6 +118,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEol(RootParser.EolContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#newKW}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNewKW(RootParser.NewKWContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link RootParser#publicAM}.
 	 * @param ctx the parse tree

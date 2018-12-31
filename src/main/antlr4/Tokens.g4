@@ -5,6 +5,10 @@ lexer grammar Tokens;
 
 //Tokens
 
+//Key words
+NEW : 'new' ;
+//End key words
+
 //Access modifiers
 PUBLIC : 'public' ;
 PRIVATE : 'private' ;

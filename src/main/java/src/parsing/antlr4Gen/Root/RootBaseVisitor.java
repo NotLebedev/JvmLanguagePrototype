@@ -1,4 +1,4 @@
-// Generated from E:/Work/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7
+// Generated from C:/Users/Tema/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
 package src.parsing.antlr4Gen.Root;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -137,6 +137,13 @@ public class RootBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements R
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitEol(RootParser.EolContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitNewKW(RootParser.NewKWContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

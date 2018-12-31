@@ -7,6 +7,10 @@ import Tokens ;
 
 //Tokens
 
+//Key words
+newKW : NEW ;
+//End key words
+
 //Access modifiers
 publicAM : PUBLIC ;
 privateAM : PRIVATE ;

@@ -1,4 +1,4 @@
-// Generated from E:/Work/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7
+// Generated from C:/Users/Tema/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
 package src.parsing.antlr4Gen.Root;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -8,13 +8,13 @@ import org.antlr.v4.runtime.dfa.DFA;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class RootLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, COMMENT=2, LINE_COMMENT=3, WS=4, PUBLIC=5, PRIVATE=6, PROTECTED=7, 
+		COMMENT=1, LINE_COMMENT=2, WS=3, NEW=4, PUBLIC=5, PRIVATE=6, PROTECTED=7, 
 		STATIC=8, ABSTRACT=9, SYNCHRONIZED=10, TRANSIENT=11, VOLATILE=12, FINAL=13, 
 		NATIVE=14, STRICTFP=15, BOOLEAN=16, BYTE=17, CHAR=18, LONG=19, SHORT=20, 
 		INT=21, FLOAT=22, DOUBLE=23, ID=24, STRINGCG=25, INTEGERCG=26, FLOATCG=27, 
@@ -30,34 +30,43 @@ public class RootLexer extends Lexer {
 		"DEFAULT_MODE"
 	};
 
-	public static final String[] ruleNames = {
-		"T__0", "COMMENT", "LINE_COMMENT", "WS", "PUBLIC", "PRIVATE", "PROTECTED", 
-		"STATIC", "ABSTRACT", "SYNCHRONIZED", "TRANSIENT", "VOLATILE", "FINAL", 
-		"NATIVE", "STRICTFP", "BOOLEAN", "BYTE", "CHAR", "LONG", "SHORT", "INT", 
-		"FLOAT", "DOUBLE", "LOWCHAR", "HIGHCHAR", "DIGIT", "ID", "STRINGCG", "INTEGERCG", 
-		"FLOATCG", "CHARACTERCG", "DOT", "SEMICOLON", "EQUALS", "COMMA", "INEQUALITYOPEN", 
-		"INEQUALITYCLOSE", "BRACEOPEN", "BRACECLOSE", "BRACKETOPEN", "BRACKETCLOSE", 
-		"MINUS", "SQUAREBRACKETOPEN", "SQUAREBRACKETCLOSE", "PLUS", "ASTERISK", 
-		"SLASH"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"COMMENT", "LINE_COMMENT", "WS", "NEW", "PUBLIC", "PRIVATE", "PROTECTED", 
+			"STATIC", "ABSTRACT", "SYNCHRONIZED", "TRANSIENT", "VOLATILE", "FINAL", 
+			"NATIVE", "STRICTFP", "BOOLEAN", "BYTE", "CHAR", "LONG", "SHORT", "INT", 
+			"FLOAT", "DOUBLE", "LOWCHAR", "HIGHCHAR", "DIGIT", "ID", "STRINGCG", 
+			"INTEGERCG", "FLOATCG", "CHARACTERCG", "DOT", "SEMICOLON", "EQUALS", 
+			"COMMA", "INEQUALITYOPEN", "INEQUALITYCLOSE", "BRACEOPEN", "BRACECLOSE", 
+			"BRACKETOPEN", "BRACKETCLOSE", "MINUS", "SQUAREBRACKETOPEN", "SQUAREBRACKETCLOSE", 
+			"PLUS", "ASTERISK", "SLASH"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, "'new'", null, null, null, "'public'", "'private'", "'protected'", 
-		"'static'", "'abstract'", "'synchronized'", "'transient'", "'volatile'", 
-		"'final'", "'native'", "'strictfp'", "'boolean'", "'byte'", "'char'", 
-		"'long'", "'short'", "'int'", "'float'", "'double'", null, null, null, 
-		null, null, "'.'", "';'", "'='", "','", "'<'", "'>'", "'{'", "'}'", "'('", 
-		"')'", "'-'", "'\u005B'", "'\u005D'", "'+'", "'*'", "'/'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, "COMMENT", "LINE_COMMENT", "WS", "PUBLIC", "PRIVATE", "PROTECTED", 
-		"STATIC", "ABSTRACT", "SYNCHRONIZED", "TRANSIENT", "VOLATILE", "FINAL", 
-		"NATIVE", "STRICTFP", "BOOLEAN", "BYTE", "CHAR", "LONG", "SHORT", "INT", 
-		"FLOAT", "DOUBLE", "ID", "STRINGCG", "INTEGERCG", "FLOATCG", "CHARACTERCG", 
-		"DOT", "SEMICOLON", "EQUALS", "COMMA", "INEQUALITYOPEN", "INEQUALITYCLOSE", 
-		"BRACEOPEN", "BRACECLOSE", "BRACKETOPEN", "BRACKETCLOSE", "MINUS", "SQUAREBRACKETOPEN", 
-		"SQUAREBRACKETCLOSE", "PLUS", "ASTERISK", "SLASH"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, null, null, "'new'", "'public'", "'private'", "'protected'", 
+			"'static'", "'abstract'", "'synchronized'", "'transient'", "'volatile'", 
+			"'final'", "'native'", "'strictfp'", "'boolean'", "'byte'", "'char'", 
+			"'long'", "'short'", "'int'", "'float'", "'double'", null, null, null, 
+			null, null, "'.'", "';'", "'='", "','", "'<'", "'>'", "'{'", "'}'", "'('", 
+			"')'", "'-'", "'\u005B'", "'\u005D'", "'+'", "'*'", "'/'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "COMMENT", "LINE_COMMENT", "WS", "NEW", "PUBLIC", "PRIVATE", "PROTECTED", 
+			"STATIC", "ABSTRACT", "SYNCHRONIZED", "TRANSIENT", "VOLATILE", "FINAL", 
+			"NATIVE", "STRICTFP", "BOOLEAN", "BYTE", "CHAR", "LONG", "SHORT", "INT", 
+			"FLOAT", "DOUBLE", "ID", "STRINGCG", "INTEGERCG", "FLOATCG", "CHARACTERCG", 
+			"DOT", "SEMICOLON", "EQUALS", "COMMA", "INEQUALITYOPEN", "INEQUALITYCLOSE", 
+			"BRACEOPEN", "BRACECLOSE", "BRACKETOPEN", "BRACKETCLOSE", "MINUS", "SQUAREBRACKETOPEN", 
+			"SQUAREBRACKETCLOSE", "PLUS", "ASTERISK", "SLASH"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -122,9 +131,9 @@ public class RootLexer extends Lexer {
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
 		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
 		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
-		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3j"+
-		"\n\3\f\3\16\3m\13\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\7\4x\n\4\f\4\16"+
-		"\4{\13\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3"+
+		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\3\2\3\2\3\2\3\2\7\2f\n\2\f\2\16\2i\13"+
+		"\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3t\n\3\f\3\16\3w\13\3\3\3\3\3"+
+		"\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3"+
 		"\7\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\t\3\t"+
 		"\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13"+
 		"\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f"+
@@ -140,7 +149,7 @@ public class RootLexer extends Lexer {
 		"\5\37\u0134\n\37\3\37\6\37\u0137\n\37\r\37\16\37\u0138\3\37\5\37\u013c"+
 		"\n\37\3\37\7\37\u013f\n\37\f\37\16\37\u0142\13\37\3 \3 \3 \3 \3!\3!\3"+
 		"\"\3\"\3#\3#\3$\3$\3%\3%\3&\3&\3\'\3\'\3(\3(\3)\3)\3*\3*\3+\3+\3,\3,\3"+
-		"-\3-\3.\3.\3/\3/\3\60\3\60\4k\u0125\2\61\3\3\5\4\7\5\t\6\13\7\r\b\17\t"+
+		"-\3-\3.\3.\3/\3/\3\60\3\60\4g\u0125\2\61\3\3\5\4\7\5\t\6\13\7\r\b\17\t"+
 		"\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37\21!\22#\23%\24\'\25)\26+\27"+
 		"-\30/\31\61\2\63\2\65\2\67\329\33;\34=\35?\36A\37C E!G\"I#K$M%O&Q\'S("+
 		"U)W*Y+[,]-_.\3\2\5\4\2\f\f\17\17\5\2\13\f\17\17\"\"\3\2\62;\2\u0170\2"+
@@ -151,7 +160,7 @@ public class RootLexer extends Lexer {
 		"\2\67\3\2\2\2\29\3\2\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3\2\2\2\2A\3\2\2\2\2"+
 		"C\3\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I\3\2\2\2\2K\3\2\2\2\2M\3\2\2\2\2O\3"+
 		"\2\2\2\2Q\3\2\2\2\2S\3\2\2\2\2U\3\2\2\2\2W\3\2\2\2\2Y\3\2\2\2\2[\3\2\2"+
-		"\2\2]\3\2\2\2\2_\3\2\2\2\3a\3\2\2\2\5e\3\2\2\2\7s\3\2\2\2\t~\3\2\2\2\13"+
+		"\2\2]\3\2\2\2\2_\3\2\2\2\3a\3\2\2\2\5o\3\2\2\2\7z\3\2\2\2\t~\3\2\2\2\13"+
 		"\u0082\3\2\2\2\r\u0089\3\2\2\2\17\u0091\3\2\2\2\21\u009b\3\2\2\2\23\u00a2"+
 		"\3\2\2\2\25\u00ab\3\2\2\2\27\u00b8\3\2\2\2\31\u00c2\3\2\2\2\33\u00cb\3"+
 		"\2\2\2\35\u00d1\3\2\2\2\37\u00d8\3\2\2\2!\u00e1\3\2\2\2#\u00e9\3\2\2\2"+
@@ -161,13 +170,13 @@ public class RootLexer extends Lexer {
 		"\3\2\2\2A\u0147\3\2\2\2C\u0149\3\2\2\2E\u014b\3\2\2\2G\u014d\3\2\2\2I"+
 		"\u014f\3\2\2\2K\u0151\3\2\2\2M\u0153\3\2\2\2O\u0155\3\2\2\2Q\u0157\3\2"+
 		"\2\2S\u0159\3\2\2\2U\u015b\3\2\2\2W\u015d\3\2\2\2Y\u015f\3\2\2\2[\u0161"+
-		"\3\2\2\2]\u0163\3\2\2\2_\u0165\3\2\2\2ab\7p\2\2bc\7g\2\2cd\7y\2\2d\4\3"+
-		"\2\2\2ef\7\61\2\2fg\7,\2\2gk\3\2\2\2hj\13\2\2\2ih\3\2\2\2jm\3\2\2\2kl"+
-		"\3\2\2\2ki\3\2\2\2ln\3\2\2\2mk\3\2\2\2no\7,\2\2op\7\61\2\2pq\3\2\2\2q"+
-		"r\b\3\2\2r\6\3\2\2\2st\7\61\2\2tu\7\61\2\2uy\3\2\2\2vx\n\2\2\2wv\3\2\2"+
-		"\2x{\3\2\2\2yw\3\2\2\2yz\3\2\2\2z|\3\2\2\2{y\3\2\2\2|}\b\4\2\2}\b\3\2"+
-		"\2\2~\177\t\3\2\2\177\u0080\3\2\2\2\u0080\u0081\b\5\2\2\u0081\n\3\2\2"+
-		"\2\u0082\u0083\7r\2\2\u0083\u0084\7w\2\2\u0084\u0085\7d\2\2\u0085\u0086"+
+		"\3\2\2\2]\u0163\3\2\2\2_\u0165\3\2\2\2ab\7\61\2\2bc\7,\2\2cg\3\2\2\2d"+
+		"f\13\2\2\2ed\3\2\2\2fi\3\2\2\2gh\3\2\2\2ge\3\2\2\2hj\3\2\2\2ig\3\2\2\2"+
+		"jk\7,\2\2kl\7\61\2\2lm\3\2\2\2mn\b\2\2\2n\4\3\2\2\2op\7\61\2\2pq\7\61"+
+		"\2\2qu\3\2\2\2rt\n\2\2\2sr\3\2\2\2tw\3\2\2\2us\3\2\2\2uv\3\2\2\2vx\3\2"+
+		"\2\2wu\3\2\2\2xy\b\3\2\2y\6\3\2\2\2z{\t\3\2\2{|\3\2\2\2|}\b\4\2\2}\b\3"+
+		"\2\2\2~\177\7p\2\2\177\u0080\7g\2\2\u0080\u0081\7y\2\2\u0081\n\3\2\2\2"+
+		"\u0082\u0083\7r\2\2\u0083\u0084\7w\2\2\u0084\u0085\7d\2\2\u0085\u0086"+
 		"\7n\2\2\u0086\u0087\7k\2\2\u0087\u0088\7e\2\2\u0088\f\3\2\2\2\u0089\u008a"+
 		"\7r\2\2\u008a\u008b\7t\2\2\u008b\u008c\7k\2\2\u008c\u008d\7x\2\2\u008d"+
 		"\u008e\7c\2\2\u008e\u008f\7v\2\2\u008f\u0090\7g\2\2\u0090\16\3\2\2\2\u0091"+
@@ -230,7 +239,7 @@ public class RootLexer extends Lexer {
 		"\2\u015aT\3\2\2\2\u015b\u015c\7/\2\2\u015cV\3\2\2\2\u015d\u015e\7]\2\2"+
 		"\u015eX\3\2\2\2\u015f\u0160\7_\2\2\u0160Z\3\2\2\2\u0161\u0162\7-\2\2\u0162"+
 		"\\\3\2\2\2\u0163\u0164\7,\2\2\u0164^\3\2\2\2\u0165\u0166\7\61\2\2\u0166"+
-		"`\3\2\2\2\17\2ky\u0117\u011c\u011e\u0125\u012b\u0130\u0133\u0138\u013b"+
+		"`\3\2\2\2\17\2gu\u0117\u011c\u011e\u0125\u012b\u0130\u0133\u0138\u013b"+
 		"\u0140\3\b\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

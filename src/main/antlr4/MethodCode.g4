@@ -41,7 +41,7 @@ value   : literalCG
 
 cast : bracketOpenS declarationType bracketCloseS value;
 
-objectInstantiation : 'new' arrayType (arrayIndex+ arrayModifier* | bracketOpenS (value commaS)* value? bracketCloseS) ;
+objectInstantiation : newKW arrayType (arrayIndex+ arrayModifier* | bracketOpenS (value commaS)* value? bracketCloseS) ;
 
 literalCG :    stringCG |
                 integerCG |
