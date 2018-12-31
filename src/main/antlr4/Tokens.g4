@@ -59,6 +59,7 @@ ID : (LOWCHAR|HIGHCHAR) (LOWCHAR|HIGHCHAR|DIGIT)* ;
 //Types capture groups
 STRINGCG : '"'.*?'"' ;
 INTEGERCG : MINUS? [0-9]+ ;
+LONGCG : INTEGERCG ('l'|'L') ;
 FLOATCG : MINUS? [0-9]+ DOT? [0-9]* ;
 CHARACTERCG : '\''.'\'' ;
 //End types capture groups

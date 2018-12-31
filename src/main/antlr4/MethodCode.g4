@@ -45,6 +45,7 @@ objectInstantiation : newKW arrayType (arrayIndex+ arrayModifier* | bracketOpenS
 
 literalCG :    stringCG |
                 integerCG |
+                longCG |
                 floatCG |
                 characterCG ;
 

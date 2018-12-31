@@ -87,3 +87,5 @@ short s86 = (short) l85
 
 float f = 123.123
 java.lang.System.out.println(f)
+
+java.lang.System.out.println(123123123123L)

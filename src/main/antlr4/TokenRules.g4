@@ -54,6 +54,7 @@ path : (id '.')* id ;
 //Types capture groups
 stringCG : STRINGCG ;
 integerCG : INTEGERCG ;
+longCG : LONGCG;
 floatCG : FLOATCG ;
 characterCG : CHARACTERCG ;
 //End types capture groups

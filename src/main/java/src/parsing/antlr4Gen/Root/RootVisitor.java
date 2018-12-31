@@ -263,6 +263,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntegerCG(RootParser.IntegerCGContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#longCG}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLongCG(RootParser.LongCGContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#floatCG}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
