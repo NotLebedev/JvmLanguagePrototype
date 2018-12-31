@@ -3,6 +3,7 @@ package src.parsing.visitors;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.constantValues.FloatLiteral;
 import src.parsing.domain.constantValues.IntLiteral;
 import src.parsing.domain.constantValues.StringLiteral;
 
@@ -28,6 +29,12 @@ public class LiteralCGVisitor extends RootBaseVisitor<Value> {
 
         }
 
+        if(ctx.floatCG() != null) {
+
+            return new FloatLiteral(ctx.accept(new FloatCGVisitor()));
+
+        }
+
         throw new IllegalStateException("Some of visitLiteralCG cases is not implemented");
 
     }
@@ -46,6 +53,15 @@ public class LiteralCGVisitor extends RootBaseVisitor<Value> {
         @Override
         public Integer visitIntegerCG(RootParser.IntegerCGContext ctx) {
             return Integer.valueOf(ctx.INTEGERCG().getText());
+        }
+
+    }
+
+    private class FloatCGVisitor extends RootBaseVisitor<Float> {
+
+        @Override
+        public Float visitFloatCG(RootParser.FloatCGContext ctx) {
+            return Float.valueOf(ctx.FLOATCG().getText());
         }
     }
 

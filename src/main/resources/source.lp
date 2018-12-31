@@ -84,3 +84,6 @@ int i83 = 83
 double d84 = (double) i83
 long l85 = (long) d84
 short s86 = (short) l85
+
+float f = 123.123
+java.lang.System.out.println(f)

@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added VariableAlreadyDefinedError&#10;*Implemented catch clause in VariableDeclarationVisitor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/TokenRules.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/TokenRules.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/Root.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/Root.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,10 +30,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+            <state relative-caret-position="462">
+              <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
               <folding>
                 <element signature="e#1548#1549#0" expanded="true" />
                 <element signature="e#1602#1603#0" expanded="true" />
@@ -184,12 +186,12 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Scope.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/VariableAlreadyDefinedError.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" />
         <option value="$PROJECT_DIR$/src/main/antlr4/TokenRules.g4" />
         <option value="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
       </list>
     </option>
   </component>
@@ -403,7 +405,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546245044528" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546245743087" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/antlr4" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -639,14 +641,7 @@
       <workItem from="1546167261546" duration="2757000" />
       <workItem from="1546173100497" duration="8130000" />
       <workItem from="1546182890102" duration="6585000" />
-      <workItem from="1546243106407" duration="1400000" />
-    </task>
-    <task id="LOCAL-00113" summary="*Applied TypeMatcher to ArrayAssignment&#10;*Added corresponding code to bytecode equality test&#10;*Changed IncompatibleTypesException to return type expected and found&#10;*Marked empty constructor as deprecated and for removal">
-      <created>1537350939206</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1537350939206</updated>
+      <workItem from="1546243106407" duration="1712000" />
     </task>
     <task id="LOCAL-00114" summary="*Removed unused code from ArrayAssignment">
       <created>1537350977896</created>
@@ -984,7 +979,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546193774774</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="*Added new key word">
+      <created>1546245420655</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1546245420655</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1020,7 +1022,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387621000" />
+    <option name="totallyTimeSpent" value="387933000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1035,7 +1037,7 @@
     <frame x="-8" y="-8" width="1296" height="816" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2815534" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2815534" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1050,7 +1052,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32933334" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -1157,7 +1159,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Renamed TypeMatcher.hardMatches() method" />
     <MESSAGE value="*Added TypeMatcher.hardMatch() method" />
     <MESSAGE value="*Started replacing softMatches with hardMatches in certain places, testing it, not finished yet" />
     <MESSAGE value="*Started replacing softMatches with hardMatches in certain places, testing it, not finished yet&#10;*Updated hasSuperclass() code" />
@@ -1182,7 +1183,8 @@
     <MESSAGE value="*Created class VariableController&#10;*Moved variable-related code from Method to VariableController&#10;*Made Method extend VariableController" />
     <MESSAGE value="*Added VariableAlreadyDefinedException class&#10;*Added exception to VariableController and Scope" />
     <MESSAGE value="*Added VariableAlreadyDefinedError&#10;*Implemented catch clause in VariableDeclarationVisitor" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Added VariableAlreadyDefinedError&#10;*Implemented catch clause in VariableDeclarationVisitor" />
+    <MESSAGE value="*Added new key word" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added new key word" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1594,13 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -1662,12 +1657,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="56" column="57" selection-start-line="56" selection-start-column="57" selection-end-line="56" selection-end-column="57" />
+        <state relative-caret-position="462">
+          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
           <folding>
             <element signature="e#1548#1549#0" expanded="true" />
             <element signature="e#1602#1603#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
         </state>
       </provider>
     </entry>

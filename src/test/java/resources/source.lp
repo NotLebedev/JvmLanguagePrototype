@@ -85,3 +85,4 @@ long l85 = (long) d84
 short s86 = (short) l85
 //endregion
 
+float f = 123.123
