@@ -233,9 +233,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     private Value visitCast(RootParser.ValueContext ctx) {
 
         var value = ctx.cast().value().accept(new ValueVisitor(scope, errorCollector));
+        AbstractClass type = null;
 
         try {
-            var type = ClassFactory.getInstance().forName(ctx.cast().declarationType().getText());
+            type = ClassFactory.getInstance().forName(ctx.cast().declarationType().getText());
 
             return new TypeCast(type, value);
 
@@ -245,6 +246,13 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                             ctx.cast().declarationType().getText()));
             throw new ExpressionParseCancelationException();
         } catch (WrongCastException e) {
+
+            errorCollector.reportError(
+                    new WrongCastError(ctx.cast().declarationType().start.getLine(), ctx.cast().declarationType().start.getCharPositionInLine(),
+                            ctx.cast().declarationType().getText(),
+                            type.getName(), value.getType().getName())
+            );
+
             throw new ExpressionParseCancelationException();
         }
 
@@ -278,8 +286,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             var paramTypes = new AbstractClass[params.size()];
 
             paramTypes = params.stream()
-                    .map(Value::getType)
-                    .collect(Collectors.toList()).toArray(new AbstractClass[0]);
+                    .map(Value::getType).toArray(AbstractClass[]::new);
 
             ReflectionMethodWrapper method;
 
