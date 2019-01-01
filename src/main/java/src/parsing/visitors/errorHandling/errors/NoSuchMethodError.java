@@ -11,7 +11,7 @@ public class NoSuchMethodError implements CompilationError {
     private int line;
     private int symbol;
     private String offendingSymbol;
-    AbstractClass[] params;
+    private AbstractClass[] params;
 
     public NoSuchMethodError(int line, int symbol, String offendingSymbol, AbstractClass[] params) {
         this.line = line;
