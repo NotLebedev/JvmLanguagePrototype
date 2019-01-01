@@ -210,7 +210,7 @@ class ReflectionClassWrapper implements AbstractClass {
 
     }
 
-    private Class getContainedClass() {
+    private Class<?> getContainedClass() {
         return containedClass;
     }
 
