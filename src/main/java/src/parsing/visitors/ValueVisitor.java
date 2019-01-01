@@ -73,6 +73,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             return visitLiteral(ctx);
 
+        } else if(ctx.incrementS() != null) {
+
+            return visitPostIncrement(ctx);
+
+        } else if(ctx.decrementS() != null) {
+
+            return visitPostDecrement(ctx);
+
         }
 
         throw new IllegalStateException("visitValue execution should not reach this point, if " +
@@ -251,6 +259,19 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             throw new ExpressionParseCancelationException();
         }
+
+    }
+
+    private Value visitPostIncrement(RootParser.ValueContext ctx) {
+
+        throw new IllegalStateException("visitPostIncrement has not been implemented yet");
+
+    }
+
+    private Value visitPostDecrement(RootParser.ValueContext ctx) {
+
+        throw new IllegalStateException("visitPostDecrement has not been implemented yet");
+
 
     }
 

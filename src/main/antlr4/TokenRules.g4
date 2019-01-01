@@ -78,6 +78,8 @@ plusS : PLUS ;
 minusS : MINUS ;
 asteriskS : ASTERISK ;
 slashS : SLASH ;
+incrementS : INCREMENT ;
+decrementS : DECREMENT ;
 //End symbols
 
 //End tokens

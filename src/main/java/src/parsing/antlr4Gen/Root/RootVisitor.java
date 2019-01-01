@@ -376,4 +376,16 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSlashS(RootParser.SlashSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#incrementS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIncrementS(RootParser.IncrementSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#decrementS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDecrementS(RootParser.DecrementSContext ctx);
 }

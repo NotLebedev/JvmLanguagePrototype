@@ -83,4 +83,6 @@ SQUAREBRACKETCLOSE : '\u005D' ;
 PLUS : '+' ;
 ASTERISK : '*' ;
 SLASH : '/' ;
+INCREMENT : '++' ;
+DECREMENT : '--' ;
 //End symbols

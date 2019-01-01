@@ -37,7 +37,9 @@ value   : literalCG
         | cast
         | bracketOpenS value bracketCloseS
         | value dotS value
-        | value arrayIndex ;
+        | value arrayIndex
+        | value incrementS
+        | value decrementS ;
 
 cast : bracketOpenS declarationType bracketCloseS value;
 
