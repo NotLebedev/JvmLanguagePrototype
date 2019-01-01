@@ -3,8 +3,10 @@ package src.parsing.visitors;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.*;
+import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.Math.MathUnaryOperator;
 import src.parsing.domain.exceptions.ArrayExpectedException;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.exceptions.VariableNotFoundException;
@@ -264,7 +266,13 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitPostIncrement(RootParser.ValueContext ctx) {
 
-        throw new IllegalStateException("visitPostIncrement has not been implemented yet");
+        var value = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+
+        if(!(value instanceof Accessible))
+            throw new IllegalStateException("Not implemented yet");
+
+        return new MathUnaryOperator(MathUnaryOperator.Type.POST_INCREMENT,
+                ((Accessible) value));
 
     }
 

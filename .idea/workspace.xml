@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="83" column="55" selection-start-line="83" selection-start-column="55" selection-end-line="83" selection-end-column="55" />
+            <state relative-caret-position="327">
+              <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,37 +33,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/VariableAssignment.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+            <state relative-caret-position="305">
+              <caret line="274" column="38" selection-start-line="274" selection-start-column="38" selection-end-line="274" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
+                <element signature="method#visitId#0;class#ValueVisitor#0" />
+                <element signature="method#visitDotS#0;class#ValueVisitor#0" />
+                <element signature="method#visitArray#0;class#ValueVisitor#0" />
+                <element signature="method#visitCast#0;class#ValueVisitor#0" />
+                <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
+                <element signature="method#MethodInvVisitor#0;class#MethodInvVisitor#0;class#ValueVisitor#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Expression.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Value.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="442">
+              <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -102,6 +95,7 @@
       <find>, &quot;&quot;, 0),</find>
       <find>AbstractString</find>
       <find>CanNotResolveSymbol</find>
+      <find>floats\[.\] =</find>
     </findStrings>
     <replaceStrings>
       <replace>AM</replace>
@@ -113,6 +107,8 @@
       <replace>ClassFactory.getInstance().forName(</replace>
       <replace>ClassFactory.getInstance().forCorrectName</replace>
       <replace>),</replace>
+      <replace>ints.set(0,</replace>
+      <replace>floats.set(0,</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\Work\JvmLanguagePrototype\src\main\java\src\parsing</dir>
@@ -183,14 +179,12 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionClassWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/CanNotResolveSymbolError.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/IncompatibleTypesError.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" />
         <option value="$PROJECT_DIR$/Accessories/src/productExec.groovy" />
         <option value="$PROJECT_DIR$/src/main/antlr4/Tokens.g4" />
         <option value="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" />
         <option value="$PROJECT_DIR$/src/main/antlr4/TokenRules.g4" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnary.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOpeerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
@@ -199,6 +193,8 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" />
       </list>
     </option>
@@ -302,6 +298,23 @@
               <item name="domain" type="462c0819:PsiDirectoryNode" />
               <item name="Math" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="visitors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -378,7 +391,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546350641049" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546352843101" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-11.0.1+13/bin/java.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -399,6 +412,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
+      <command value="Main" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -413,7 +427,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -625,14 +639,7 @@
       <workItem from="1546246288770" duration="12646000" />
       <workItem from="1546332116492" duration="6499000" />
       <workItem from="1546339489744" duration="326000" />
-      <workItem from="1546339890010" duration="6227000" />
-    </task>
-    <task id="LOCAL-00133" summary="*Added static field assignment to VariableAssignmentVisitor&#10;*Changed tests">
-      <created>1537982184139</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1537982184139</updated>
+      <workItem from="1546339890010" duration="7156000" />
     </task>
     <task id="LOCAL-00134" summary="*Implemented ObjectFieldAssignment&#10;*Added getField() and getObject() methods to ObjectField&#10;*Added ObjectField case to VariableAssignmentVisitor&#10;*Updated tests">
       <created>1538152772901</created>
@@ -970,13 +977,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546348120558</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="*Implemented part of MathUnaryOperator">
+      <created>1546351168840</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1546351168840</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.01 at 12h 58m 40s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.01 at 13h 00m 18s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1004,9 +1015,12 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.01 at 16h 06m 41s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.01 at 17h 04m 19s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414170000" />
+    <option name="totallyTimeSpent" value="415099000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1021,7 +1035,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22815534" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23624596" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1031,7 +1045,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.8293333" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.364" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.388" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39733332" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1056,7 +1070,7 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22087379" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22815534" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1066,7 +1080,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.8293333" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.364" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.364" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39733332" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1145,7 +1159,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Documentation for TypeCast&#10;*Updated source.lp for TestBytecodeCompilationIntegrity test" />
     <MESSAGE value="*Created class VariableController&#10;*Moved variable-related code from Method to VariableController&#10;*Made Method extend VariableController" />
     <MESSAGE value="*Added VariableAlreadyDefinedException class&#10;*Added exception to VariableController and Scope" />
     <MESSAGE value="*Added VariableAlreadyDefinedError&#10;*Implemented catch clause in VariableDeclarationVisitor" />
@@ -1170,7 +1183,8 @@
     <MESSAGE value="*Added post decrement and increment to grammar&#10;*Updated antlr4Gen&#10;*Added template methods to ValueVisitor" />
     <MESSAGE value="*Created class MathUnaryOperator&#10;*Implemented some of it" />
     <MESSAGE value="*Created Accessible interface&#10;*Made ObjectField StaticClassField and Variable implement this interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Created Accessible interface&#10;*Made ObjectField StaticClassField and Variable implement this interface" />
+    <MESSAGE value="*Implemented part of MathUnaryOperator" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Implemented part of MathUnaryOperator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1534,13 +1548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1911">
-          <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/IncompatibleTypesError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -1627,23 +1634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
-            <element signature="method#visitId#0;class#ValueVisitor#0" />
-            <element signature="method#visitDotS#0;class#ValueVisitor#0" />
-            <element signature="method#visitArray#0;class#ValueVisitor#0" />
-            <element signature="method#visitCast#0;class#ValueVisitor#0" />
-            <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
-            <element signature="method#MethodInvVisitor#0;class#MethodInvVisitor#0;class#ValueVisitor#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/Class2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1672,10 +1662,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="274" column="38" selection-start-line="274" selection-start-column="38" selection-end-line="274" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
+            <element signature="method#visitId#0;class#ValueVisitor#0" />
+            <element signature="method#visitDotS#0;class#ValueVisitor#0" />
+            <element signature="method#visitArray#0;class#ValueVisitor#0" />
+            <element signature="method#visitCast#0;class#ValueVisitor#0" />
+            <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
+            <element signature="method#MethodInvVisitor#0;class#MethodInvVisitor#0;class#ValueVisitor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="83" column="55" selection-start-line="83" selection-start-column="55" selection-end-line="83" selection-end-column="55" />
+        <state relative-caret-position="327">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

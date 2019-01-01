@@ -8,38 +8,39 @@ import src.parsing.domain.Variable;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MathUnaryOperator implements Value {
 
-    private final MathUnaryOperatorType operatorType;
+    private final Type operatorType;
 
     private Accessible accessible;
     private final AbstractClass type;
 
-    private final static AbstractClass[] ints;
-    private final static AbstractClass[] floats;
+    private final static ArrayList<AbstractClass> ints;
+    private final static ArrayList<AbstractClass> floats;
     private final static AbstractClass longT;
 
     static {
 
         var cf = ClassFactory.getInstance();
 
-        ints = new AbstractClass[4];
-        ints[0] = cf.forCorrectName("int");
-        ints[1] = cf.forCorrectName("short");
-        ints[2] = cf.forCorrectName("byte");
-        ints[3] = cf.forCorrectName("char");
+        ints = new ArrayList<>(4);
+        ints.add(cf.forCorrectName("int"));
+        ints.add(cf.forCorrectName("short"));
+        ints.add(cf.forCorrectName("byte"));
+        ints.add(cf.forCorrectName("char"));
 
-        floats = new AbstractClass[2];
-        floats[0] = cf.forCorrectName("float");
-        floats[1] = cf.forCorrectName("double");
+        floats = new ArrayList<>(2);
+        floats.add(cf.forCorrectName("float"));
+        floats.add(cf.forCorrectName("double"));
 
         longT = cf.forCorrectName("long");
 
     }
 
-    public MathUnaryOperator(MathUnaryOperatorType operatorType, Accessible accessible) {
+    public MathUnaryOperator(Type operatorType, Accessible accessible) {
         this.operatorType = operatorType;
         this.accessible = accessible;
         this.type = accessible.getType();
@@ -66,12 +67,12 @@ public class MathUnaryOperator implements Value {
 
         if(accessible instanceof Variable) {
 
-            if(Arrays.binarySearch(ints, accessible.getType()) > 0)
+            if(ints.contains(accessible.getType()))
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), 1);
             else {
-                if(accessible.getType().equals(floats[0]))
+                if(accessible.getType().equals(floats.get(0)))
                     methodVisitor.visitLdcInsn(1f);
-                else if(accessible.getType().equals(floats[1]))
+                else if(accessible.getType().equals(floats.get(0)))
                     methodVisitor.visitLdcInsn(1d);
                 else if(accessible.getType().equals(longT))
                     methodVisitor.visitLdcInsn(1L);
@@ -99,7 +100,7 @@ public class MathUnaryOperator implements Value {
         return type;
     }
 
-    enum MathUnaryOperatorType {
+    public enum Type {
 
         POST_INCREMENT,
         POST_DECREMENT,
