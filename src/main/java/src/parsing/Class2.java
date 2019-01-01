@@ -6,9 +6,10 @@ public class Class2 {
     public static Class2 sf;
 
     public Class2(char c) {
-        short s = 1;
-        int i = (int)s;
-        long l = (long)s;
+        int i = 1;
+
+        int b = (i + 2) * (i++);
+
     }
 
     public static void print(String[] str) {
