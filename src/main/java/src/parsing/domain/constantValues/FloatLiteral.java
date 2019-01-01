@@ -9,7 +9,7 @@ public class FloatLiteral implements Value {
 
     private final float aFloat;
 
-    private static AbstractClass type;
+    private static final AbstractClass type;
 
     static {
         try {

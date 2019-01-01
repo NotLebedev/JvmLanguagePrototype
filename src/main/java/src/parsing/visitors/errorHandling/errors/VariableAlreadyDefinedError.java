@@ -4,9 +4,9 @@ import src.parsing.visitors.errorHandling.CompilationError;
 
 public class VariableAlreadyDefinedError implements CompilationError {
 
-    private int line;
-    private int symbol;
-    private String offendingSymbol;
+    private final int line;
+    private final int symbol;
+    private final String offendingSymbol;
 
     public VariableAlreadyDefinedError(int line, int symbol, String offendingSymbol) {
         this.line = line;

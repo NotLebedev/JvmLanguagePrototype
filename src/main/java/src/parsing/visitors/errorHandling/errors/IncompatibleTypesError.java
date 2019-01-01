@@ -7,11 +7,11 @@ import src.parsing.visitors.errorHandling.CompilationError;
  */
 public class IncompatibleTypesError implements CompilationError {
 
-    private int line;
-    private int symbol;
-    private String offendingSymbol;
-    private String expectedType;
-    private String foundType;
+    private final int line;
+    private final int symbol;
+    private final String offendingSymbol;
+    private final String expectedType;
+    private final String foundType;
 
     public IncompatibleTypesError(int line, int symbol, String offendingSymbol, String expectedType, String foundType) {
 

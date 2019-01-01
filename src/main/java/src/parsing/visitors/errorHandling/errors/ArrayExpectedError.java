@@ -7,10 +7,10 @@ import src.parsing.visitors.errorHandling.CompilationError;
  */
 public class ArrayExpectedError implements CompilationError {
 
-    private int line;
-    private int symbol;
-    private String offendingSymbol;
-    private String foundType;
+    private final int line;
+    private final int symbol;
+    private final String offendingSymbol;
+    private final String foundType;
 
     public ArrayExpectedError(int line, int symbol, String offendingSymbol, String foundType) {
 

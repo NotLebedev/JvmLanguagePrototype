@@ -9,7 +9,7 @@ public class LongLiteral implements Value {
 
     private final long aLong;
 
-    private static AbstractClass type;
+    private static final AbstractClass type;
 
     static {
         try {

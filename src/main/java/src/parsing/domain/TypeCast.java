@@ -18,7 +18,7 @@ public class TypeCast implements Value {
     private final Value value;
     private Conversion conversion = null;
 
-    private static Conversion[] conversions;
+    private static final Conversion[] conversions;
     private static final String[] conversionTypes = {
         "double", "float",
         "double", "int",
@@ -132,10 +132,10 @@ public class TypeCast implements Value {
 
     private static class Conversion {
 
-        private AbstractClass fromType;
-        private AbstractClass toType;
+        private final AbstractClass fromType;
+        private final AbstractClass toType;
 
-        private int opcode;
+        private final int opcode;
 
         private Conversion(AbstractClass fromType, AbstractClass toType, int opcode) {
             this.fromType = fromType;

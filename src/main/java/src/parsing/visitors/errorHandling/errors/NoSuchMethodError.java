@@ -8,10 +8,10 @@ import src.parsing.visitors.errorHandling.CompilationError;
  */
 public class NoSuchMethodError implements CompilationError {
 
-    private int line;
-    private int symbol;
-    private String offendingSymbol;
-    private AbstractClass[] params;
+    private final int line;
+    private final int symbol;
+    private final String offendingSymbol;
+    private final AbstractClass[] params;
 
     public NoSuchMethodError(int line, int symbol, String offendingSymbol, AbstractClass[] params) {
         this.line = line;

@@ -13,7 +13,7 @@ public class IntLiteral implements Value {
 
     private final int integer;
 
-    private static AbstractClass type;
+    private static final AbstractClass type;
 
     static {
         try {

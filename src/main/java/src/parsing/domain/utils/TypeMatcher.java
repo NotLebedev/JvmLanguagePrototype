@@ -24,7 +24,7 @@ public class TypeMatcher {
 
     private static TypeMatcher instance;
 
-    private List<Pair<AbstractClass, AbstractClass>> boxingPairs;
+    private final List<Pair<AbstractClass, AbstractClass>> boxingPairs;
 
     private static final String[] conversionPairTypes = {"byte", "java.lang.Byte",
             "short", "java.lang.Short",

@@ -7,9 +7,9 @@ import src.parsing.visitors.errorHandling.CompilationError;
  */
 public class CanNotResolveSymbolError implements CompilationError {
 
-    private int line;
-    private int symbol;
-    private String offendingSymbol;
+    private final int line;
+    private final int symbol;
+    private final String offendingSymbol;
 
     public CanNotResolveSymbolError(int line, int symbol, String offendingSymbol) {
         this.line = line;

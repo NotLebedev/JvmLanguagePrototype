@@ -12,7 +12,7 @@ public class StringLiteral implements Value {
 
     private final String string;
 
-    private static AbstractClass type;
+    private static final AbstractClass type;
 
     static {
         try {
