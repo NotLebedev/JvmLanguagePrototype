@@ -12,6 +12,8 @@ public class Class2 {
         int b = (i + 2) * (i++);
         this.i ++;
 
+
+
     }
 
     public static void print(String[] str) {
