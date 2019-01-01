@@ -2,7 +2,6 @@ package src.parsing.visitors.errorHandling;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CancellationException;
 
 /**
  * @author NotLebedev

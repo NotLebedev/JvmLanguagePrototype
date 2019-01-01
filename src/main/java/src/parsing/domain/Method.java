@@ -4,11 +4,9 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
-import src.parsing.domain.exceptions.VariableNotFoundException;
 import src.parsing.domain.utils.VariableController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * TODO: documentation, when class is more finished

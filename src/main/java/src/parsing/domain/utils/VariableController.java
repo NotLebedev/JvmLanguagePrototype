@@ -48,7 +48,7 @@ public class VariableController {
 
     }
 
-    private boolean hasVariable(String name) {
+    public boolean hasVariable(String name) {
 
         for (Variable variable : variables) {
 

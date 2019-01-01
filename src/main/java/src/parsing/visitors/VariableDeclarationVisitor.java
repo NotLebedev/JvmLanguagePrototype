@@ -42,7 +42,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
         var type = ctx.declarationType().getText();
         var name = ctx.id().getText();
 
-        Variable variable = null;
+        Variable variable;
 
         try {
             variable = new Variable(type, name, 0);

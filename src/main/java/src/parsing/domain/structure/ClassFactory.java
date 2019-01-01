@@ -73,7 +73,7 @@ public class ClassFactory {
      */
     public AbstractClass forCorrectName(String name) {
 
-        Class<?> cls = null;
+        Class<?> cls;
         try {
             cls = Utils.classForName(name);
         } catch (ClassNotFoundException e) {
