@@ -99,8 +99,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             return packagePart;
 
         errorCollector.reportError(
-                new CanNotResolveSymbolError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
-                        ctx.id().getText()));
+                new CanNotResolveSymbolError(ctx.id()));
         throw new ExpressionParseCancelationException();
 
     }
@@ -125,8 +124,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                 return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
             } catch (ClassNotFoundException ignored) {
                 errorCollector.reportError(
-                        new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                ctx.value(1).id().getText()));
+                        new CanNotResolveSymbolError(ctx.value(1).id()));
                 throw new ExpressionParseCancelationException();
             }
             //endregion
@@ -155,8 +153,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 } catch (NoSuchFieldException e) {
                     errorCollector.reportError(
-                            new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                    ctx.value(1).id().getText()));
+                            new CanNotResolveSymbolError(ctx.value(1).id()));
                     throw new ExpressionParseCancelationException();
                 }
                 //endregion
@@ -184,8 +181,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
                 } catch (NoSuchFieldException e) {
                     errorCollector.reportError(
-                            new CanNotResolveSymbolError(ctx.value(1).id().start.getLine(), ctx.value(1).id().start.getCharPositionInLine(),
-                                    ctx.value(1).id().getText()));
+                            new CanNotResolveSymbolError(ctx.value(1).id()));
                     throw new ExpressionParseCancelationException();
                 }
                 //Is object field
