@@ -2,12 +2,13 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 
-public class StaticClassField implements Value {
+public class StaticClassField implements Accessible {
 
     private AbstractClass fieldOwnerClass;
 
