@@ -275,11 +275,9 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         @Override
         public Value visitMethodInv(RootParser.MethodInvContext ctx) {
 
-            List<Value> params;
-
             var valueVisitor = new ValueVisitor(scope, errorCollector);
 
-            params = ctx.value().stream()
+            List<Value> params = ctx.value().stream()
                     .map(valueContext -> valueContext.accept(valueVisitor))
                     .collect(Collectors.toList());
 
