@@ -48,7 +48,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             } catch (IncompatibleTypesException e) {
 
                 errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                        new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
                 throw new ExpressionParseCancelationException();
@@ -68,7 +68,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             } catch (IncompatibleTypesException e) {
 
                 errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                        new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
                 throw new ExpressionParseCancelationException();
@@ -86,7 +86,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             } catch (IncompatibleTypesException e) {
 
                 errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                        new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
                 throw new ExpressionParseCancelationException();
@@ -104,7 +104,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
             } catch (IncompatibleTypesException e) {
 
                 errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.value().start.getLine(), ctx.assignment().value().start.getCharPositionInLine(), ctx.assignment().value().getText(),
+                        new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
                 throw new ExpressionParseCancelationException();
