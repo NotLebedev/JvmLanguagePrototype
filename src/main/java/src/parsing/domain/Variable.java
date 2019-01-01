@@ -11,7 +11,7 @@ public class Variable implements Value {
     private int id;
     private final String name;
 
-    private AbstractClass type;
+    private final AbstractClass type;
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
 

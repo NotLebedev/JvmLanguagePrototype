@@ -18,7 +18,7 @@ public class TypeCast implements Value {
     private final Value value;
     private Conversion conversion = null;
 
-    private static Conversion[] conversions = null;
+    private static Conversion[] conversions;
     private static final String[] conversionTypes = {
         "double", "float",
         "double", "int",
@@ -48,18 +48,20 @@ public class TypeCast implements Value {
         Opcodes.L2I
     };
 
-    public TypeCast(AbstractClass castType, Value value) throws WrongCastException {
+    static {
 
-        if(conversions == null) {
-            ClassFactory cf = ClassFactory.getInstance();
-            conversions = new Conversion[conversionOpcodes.length];
+        ClassFactory cf = ClassFactory.getInstance();
+        conversions = new Conversion[conversionOpcodes.length];
 
-            for (int i = 0; i < conversionOpcodes.length; i++) {
-                conversions[i] = new Conversion(cf.forCorrectName(conversionTypes[i*2]),
-                        cf.forCorrectName(conversionTypes[i*2 + 1]),
-                        conversionOpcodes[i]);
-            }
+        for (int i = 0; i < conversionOpcodes.length; i++) {
+            conversions[i] = new Conversion(cf.forCorrectName(conversionTypes[i*2]),
+                    cf.forCorrectName(conversionTypes[i*2 + 1]),
+                    conversionOpcodes[i]);
         }
+
+    }
+
+    public TypeCast(AbstractClass castType, Value value) throws WrongCastException {
 
         this.castType = castType;
         this.value = value;
@@ -128,14 +130,14 @@ public class TypeCast implements Value {
         return castType;
     }
 
-    private class Conversion {
+    private static class Conversion {
 
         private AbstractClass fromType;
         private AbstractClass toType;
 
         private int opcode;
 
-        public Conversion(AbstractClass fromType, AbstractClass toType, int opcode) {
+        private Conversion(AbstractClass fromType, AbstractClass toType, int opcode) {
             this.fromType = fromType;
             this.toType = toType;
             this.opcode = opcode;
@@ -147,7 +149,7 @@ public class TypeCast implements Value {
          * @param to target type
          * @return whether conversion is suitable or not
          */
-        public boolean isMatching(AbstractClass from, AbstractClass to) {
+        private boolean isMatching(AbstractClass from, AbstractClass to) {
 
             from = groupOneWord(from);
             to = groupOneWord(to);
@@ -156,7 +158,7 @@ public class TypeCast implements Value {
 
         }
 
-        public int getOpcode() {
+        private int getOpcode() {
             return opcode;
         }
 
