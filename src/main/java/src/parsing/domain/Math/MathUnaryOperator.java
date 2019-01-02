@@ -71,29 +71,7 @@ public class MathUnaryOperator implements Value {
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), 1);
             else {
 
-                if(accessible.getType().equals(floats.get(0))) {
-
-                    methodVisitor.visitInsn(Opcodes.DUP);
-                    methodVisitor.visitLdcInsn(1f);
-
-                } else if(accessible.getType().equals(floats.get(0))) {
-
-                    methodVisitor.visitInsn(Opcodes.DUP2);
-                    methodVisitor.visitLdcInsn(1d);
-
-                } else if(accessible.getType().equals(longT)) {
-
-                    methodVisitor.visitInsn(Opcodes.DUP2);
-                    methodVisitor.visitLdcInsn(1L);
-
-                } else {
-
-                    methodVisitor.visitInsn(Opcodes.DUP);
-                    methodVisitor.visitLdcInsn(1); //Int
-
-                }
-
-                methodVisitor.visitInsn(accessible.getType().getOpcode(Opcodes.IADD));
+                dupUpdate(methodVisitor, accessible, Opcodes.IADD);
 
                 methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
                         ((Variable) accessible).getId());
@@ -102,10 +80,37 @@ public class MathUnaryOperator implements Value {
 
         }else {
 
-            //methodVisitor.visitInsn(Opcodes.ICONST_1);
-            //methodVisitor.visitInsn(Opcodes);
+
 
         }
+
+    }
+
+    private void dupUpdate(MethodVisitor methodVisitor, Accessible accessible, int sample) {
+
+        if(accessible.getType().equals(floats.get(0))) {
+
+            methodVisitor.visitInsn(Opcodes.DUP);
+            methodVisitor.visitLdcInsn(1f);
+
+        } else if(accessible.getType().equals(floats.get(0))) {
+
+            methodVisitor.visitInsn(Opcodes.DUP2);
+            methodVisitor.visitLdcInsn(1d);
+
+        } else if(accessible.getType().equals(longT)) {
+
+            methodVisitor.visitInsn(Opcodes.DUP2);
+            methodVisitor.visitLdcInsn(1L);
+
+        } else {
+
+            methodVisitor.visitInsn(Opcodes.DUP);
+            methodVisitor.visitLdcInsn(1); //Int
+
+        }
+
+        methodVisitor.visitInsn(accessible.getType().getOpcode(sample));
 
     }
 
