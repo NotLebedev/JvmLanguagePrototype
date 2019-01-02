@@ -100,6 +100,7 @@ java.lang.System.out.println(c95.i)*/
 int i1 = 1;
 long l2 = (long)2;
 double d3 = (double)3;
+short s4 = (short)4;
 
 java.lang.System.out.println(i1++)
 java.lang.System.out.println(i1)
@@ -107,5 +108,8 @@ java.lang.System.out.println(i1)
 java.lang.System.out.println(l2++)
 java.lang.System.out.println(l2)
 
-//java.lang.System.out.println(d3++)
-//java.lang.System.out.println(d3)
+java.lang.System.out.println(d3++)
+java.lang.System.out.println(d3)
+
+java.lang.System.out.println((int)(s4++))
+java.lang.System.out.println((int)s4)

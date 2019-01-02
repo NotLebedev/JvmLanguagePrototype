@@ -31,7 +31,11 @@ public class TypeCast implements Value {
         "int", "double",
         "long", "double",
         "long", "float",
-        "long", "int"
+        "long", "int",
+
+        "int", "byte",
+        "int", "char",
+        "int", "short"
     };
     private static final int[] conversionOpcodes = {
         Opcodes.D2F,
@@ -45,7 +49,11 @@ public class TypeCast implements Value {
         Opcodes.I2D,
         Opcodes.L2D,
         Opcodes.L2F,
-        Opcodes.L2I
+        Opcodes.L2I,
+
+        Opcodes.I2B,
+        Opcodes.I2C,
+        Opcodes.I2S
     };
 
     static {
@@ -87,15 +95,19 @@ public class TypeCast implements Value {
         //If cast is valid and primitive cast is expected
         if(primitiveOk && arrayOk && castType.isPrimitive()) {
 
-            for (Conversion iter : conversions) { //Check if such primitive cast exists
-                if(iter.isMatching(valueType, castType)) {
-                    conversion = iter;
-                    break;
-                }
-            }
+            if(!Conversion.groupOneWord(value.getType()).equals(castType)) {
 
-            if(conversion == null)
-                return false;
+                for (Conversion iter : conversions) { //Check if such primitive cast exists
+                    if (iter.isMatching(valueType, castType)) {
+                        conversion = iter;
+                        break;
+                    }
+                }
+
+                if (conversion == null)
+                    return false;
+
+            }
 
         }
 
@@ -106,21 +118,16 @@ public class TypeCast implements Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        if(castType.isPrimitive()) {
+        value.generateBytecode(methodVisitor);
 
-            //Select conversion opcode previously selected by check cast
-            value.generateBytecode(methodVisitor);
-            methodVisitor.visitInsn(conversion.getOpcode());
-
-        } else if(value.getType().hasSuperclass(castType)) {
-            //Upcast is always correct, no checking required
-            value.generateBytecode(methodVisitor);
-        } else {
-
-            //Downcast, needs checkcast opcode to validate
-            value.generateBytecode(methodVisitor);
-            methodVisitor.visitTypeInsn(Opcodes.CHECKCAST, castType.getSlashName());
-
+        if (!Conversion.groupOneWord(value.getType()).equals(castType)) {
+            if(castType.isPrimitive()) {
+                //Select conversion opcode previously selected by check cast
+                methodVisitor.visitInsn(conversion.getOpcode());
+            } else if (!value.getType().hasSuperclass(castType)) {
+                //Downcast, needs checkcast opcode to validate
+                methodVisitor.visitTypeInsn(Opcodes.CHECKCAST, castType.getSlashName());
+            }
         }
 
     }
@@ -151,10 +158,16 @@ public class TypeCast implements Value {
          */
         private boolean isMatching(AbstractClass from, AbstractClass to) {
 
-            from = groupOneWord(from);
-            to = groupOneWord(to);
+            if(fromType.equals(from) && toType.equals(to)) {
+                return true;
+            }else {
 
-            return fromType.equals(from) && toType.equals(to);
+                from = groupOneWord(from);
+                to = groupOneWord(to);
+
+                return fromType.equals(from) && toType.equals(to);
+
+            }
 
         }
 
@@ -168,7 +181,7 @@ public class TypeCast implements Value {
          * @param abstractClass class to be grouped
          * @return replaced type
          */
-        private AbstractClass groupOneWord(AbstractClass abstractClass) {
+        private static AbstractClass groupOneWord(AbstractClass abstractClass) {
 
             switch (abstractClass.getName()) {
                 case "int":
