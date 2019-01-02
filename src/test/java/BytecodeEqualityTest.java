@@ -48,12 +48,15 @@ public class BytecodeEqualityTest {
     @Test
     public void testBytecodeCompilationIntegrity() throws IOException {
 
+        System.out.println();
+        System.out.println("\tExecuting " + directory);
+
         byte[] newBytecode = compile(CharStreams.fromFileName(path + "\\" + sourceName));
         byte[] oldBytecode = readBytes(path + "\\" + bytecodeName);
 
         assertArrayEquals(oldBytecode, newBytecode);
-        System.out.println();
         System.out.println("\tSuccess for " + directory);
+        System.out.println();
 
     }
 
