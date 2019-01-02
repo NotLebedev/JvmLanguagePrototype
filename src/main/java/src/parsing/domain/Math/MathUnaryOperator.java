@@ -4,6 +4,8 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.ObjectField;
+import src.parsing.domain.StaticClassField;
 import src.parsing.domain.Variable;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
@@ -80,7 +82,29 @@ public class MathUnaryOperator implements Value {
 
         }else {
 
+            dupUpdate(methodVisitor, accessible, Opcodes.IADD);
 
+            if(accessible instanceof StaticClassField) {
+
+                var field = ((StaticClassField) accessible);
+
+                methodVisitor.visitFieldInsn(Opcodes.PUTSTATIC,
+                        field.getField().getOwnerClass().getSlashName(),
+                        field.getField().getName(),
+                        field.getType().getJvmName());
+
+            } else { //Object field
+
+                var field = ((ObjectField) accessible);
+
+                field.getObject().generateBytecode(methodVisitor);
+                methodVisitor.visitInsn(Opcodes.SWAP);
+                methodVisitor.visitFieldInsn(Opcodes.PUTFIELD,
+                        field.getField().getOwnerClass().getSlashName(),
+                        field.getField().getName(),
+                        field.getType().getJvmName());
+
+            }
 
         }
 

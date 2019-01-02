@@ -1,4 +1,4 @@
-//region Method invocation test
+/*//region Method invocation test
 ((java.lang.System).out).println(java.lang.Math.abs(-1));
 src.parsing.Class2.test().printString()
 //endregion
@@ -90,4 +90,9 @@ f=2018F
 java.lang.System.out.println(f++)
 java.lang.System.out.println(f)
 
-java.lang.System.out.println(123123123123L)
+java.lang.System.out.println(123123123123L)*/
+
+src.parsing.Class2 c95 = new src.parsing.Class2()
+
+java.lang.System.out.println(c95.i++)
+java.lang.System.out.println(c95.i)

@@ -5,14 +5,15 @@ public class Class2 {
     public Class2 field;
     public static Class2 sf;
     public int i = 0;
+    public static int j = 0;
+
+    public Class2(){}
 
     public Class2(char c) {
         int i = 1;
 
         int b = (i + 2) * (i++);
         this.i ++;
-
-
 
     }
 
