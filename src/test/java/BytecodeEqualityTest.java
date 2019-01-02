@@ -3,6 +3,8 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.objectweb.asm.ClassWriter;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
@@ -13,8 +15,12 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Objects;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -22,20 +28,53 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author NotLebedev
  */
+@RunWith(Parameterized.class)
 public class BytecodeEqualityTest {
 
-    private final String bytecodePath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources\\sample.byt";
-    private final String backupPath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources\\backup.byt";
+    private final static String resourcesPath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources";
 
-    private final String testCodePath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources\\source.lp";
+    private final static String sourceName = "source.lp";
+    private final static String bytecodeName = "sample.byt";
+    private final static String backupName = "backup.byt";
+
+    private final String path;
+    private final String directory;
+
+    public BytecodeEqualityTest(String directory) {
+        this.directory = directory;
+        this.path = resourcesPath + "\\" + directory;
+    }
 
     @Test
     public void testBytecodeCompilationIntegrity() throws IOException {
 
-        byte[] newBytecode = compile(CharStreams.fromFileName(testCodePath));
-        byte[] oldBytecode = readBytes(bytecodePath);
+        byte[] newBytecode = compile(CharStreams.fromFileName(path + "\\" + sourceName));
+        byte[] oldBytecode = readBytes(path + "\\" + bytecodeName);
 
-        assertTrue(Arrays.equals(oldBytecode, newBytecode));
+        assertArrayEquals(oldBytecode, newBytecode);
+        System.out.println();
+        System.out.println("\tSuccess for " + directory);
+
+    }
+
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+
+        var startDirectory = new File(resourcesPath);
+        String[] directories = startDirectory.list((dir, name) -> new File(dir, name).isDirectory());
+
+        Collection<Object[]> data = new ArrayList<>(Objects.requireNonNull(directories).length);
+
+        System.out.println("Found directories : ");
+
+        for (String directory : directories) {
+            System.out.println(directory);
+            data.add(new Object[] {directory});
+        }
+
+        System.out.println("Trying executing sources contained");
+
+        return data;
 
     }
 
@@ -48,12 +87,12 @@ public class BytecodeEqualityTest {
     public void test_updateSampleBytecode() {
 
         try {
-            writeBytes(readBytes(bytecodePath), backupPath); //Backup if old bytecode exists
+            writeBytes(readBytes(path + "\\" + bytecodeName), path + "\\" + backupName); //Backup if old bytecode exists
         } catch (IOException ignored) {
         }
 
         try {
-            writeBytes(compile(CharStreams.fromFileName(testCodePath)), bytecodePath);
+            writeBytes(compile(CharStreams.fromFileName(path + "\\" + sourceName)), path + "\\" + bytecodeName);
         } catch (IOException e) {
             e.printStackTrace();
         }
