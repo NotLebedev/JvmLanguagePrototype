@@ -70,14 +70,28 @@ public class MathUnaryOperator implements Value {
             if(ints.contains(accessible.getType()))
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), 1);
             else {
-                if(accessible.getType().equals(floats.get(0)))
+
+                if(accessible.getType().equals(floats.get(0))) {
+
+                    methodVisitor.visitInsn(Opcodes.DUP);
                     methodVisitor.visitLdcInsn(1f);
-                else if(accessible.getType().equals(floats.get(0)))
+
+                } else if(accessible.getType().equals(floats.get(0))) {
+
+                    methodVisitor.visitInsn(Opcodes.DUP2);
                     methodVisitor.visitLdcInsn(1d);
-                else if(accessible.getType().equals(longT))
+
+                } else if(accessible.getType().equals(longT)) {
+
+                    methodVisitor.visitInsn(Opcodes.DUP2);
                     methodVisitor.visitLdcInsn(1L);
-                else
+
+                } else {
+
+                    methodVisitor.visitInsn(Opcodes.DUP);
                     methodVisitor.visitLdcInsn(1); //Int
+
+                }
 
                 methodVisitor.visitInsn(accessible.getType().getOpcode(Opcodes.IADD));
 
