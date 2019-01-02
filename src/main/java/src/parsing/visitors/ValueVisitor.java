@@ -77,11 +77,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         } else if(ctx.incrementS() != null) {
 
-            return visitPostIncrement(ctx);
+            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_INCREMENT);
 
         } else if(ctx.decrementS() != null) {
 
-            return visitPostDecrement(ctx);
+            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_DECREMENT);
 
         }
 
@@ -277,22 +277,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value visitPostIncrement(RootParser.ValueContext ctx) {
+    private Value visitMathUnaryOperator(RootParser.ValueContext ctx, MathUnaryOperator.Type type) {
 
         var value = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
 
         if(!(value instanceof Accessible))
             throw new IllegalStateException("Not implemented yet");
 
-        return new MathUnaryOperator(MathUnaryOperator.Type.POST_INCREMENT,
-                ((Accessible) value));
-
-    }
-
-    private Value visitPostDecrement(RootParser.ValueContext ctx) {
-
-        throw new IllegalStateException("visitPostDecrement has not been implemented yet");
-
+        return new MathUnaryOperator(type, ((Accessible) value));
 
     }
 

@@ -84,32 +84,39 @@ int i83 = 83
 double d84 = (double) i83
 long l85 = (long) d84
 short s86 = (short) l85
+*/
+//Unary operator test
 
-float f = 123.123
-f=2018F
-java.lang.System.out.println(f++)
-java.lang.System.out.println(f)
+    //Post increment
+        int i1 = 1;
+        long l2 = 2L;
+        double d3 = (double)3;
+        short s4 = (short)4;
 
-java.lang.System.out.println(123123123123L)*/
+        i1++
+        l2++
+        d3++
+        s4++
 
-/*src.parsing.Class2 c95 = new src.parsing.Class2()
+        src.parsing.Class2 c95 = new src.parsing.Class2()
 
-java.lang.System.out.println(c95.i++)
-java.lang.System.out.println(c95.i)*/
+        java.lang.System.out.println(c95.i++)
+        java.lang.System.out.println(c95.i)
 
-int i1 = 1;
-long l2 = (long)2;
-double d3 = (double)3;
-short s4 = (short)4;
+        java.lang.System.out.println(c95.j++)
+        java.lang.System.out.println(src.parsing.Class2.j)
+    //Post increment
 
-java.lang.System.out.println(i1++)
-java.lang.System.out.println(i1)
+    //Post decrement
+        i1--
+        l2--
+        d3--
+        s4--
 
-java.lang.System.out.println(l2++)
-java.lang.System.out.println(l2)
+        java.lang.System.out.println(c95.i--)
+        java.lang.System.out.println(c95.i)
 
-java.lang.System.out.println(d3++)
-java.lang.System.out.println(d3)
-
-java.lang.System.out.println((int)(s4++))
-java.lang.System.out.println((int)s4)
+        java.lang.System.out.println(c95.j--)
+        java.lang.System.out.println(src.parsing.Class2.j)
+    //Post increment
+//Unary operator test

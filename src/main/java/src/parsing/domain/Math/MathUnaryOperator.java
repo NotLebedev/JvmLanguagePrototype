@@ -11,7 +11,6 @@ import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MathUnaryOperator implements Value {
 
@@ -54,7 +53,10 @@ public class MathUnaryOperator implements Value {
         switch (operatorType) {
 
             case POST_INCREMENT:
-                generatePostIncrement(methodVisitor);
+                generatePost(methodVisitor, Opcodes.IADD, 1);
+                break;
+            case POST_DECREMENT:
+                generatePost(methodVisitor, Opcodes.ISUB, -1);
                 break;
             default:
                 throw new IllegalStateException("Not implemented yet");
@@ -63,17 +65,17 @@ public class MathUnaryOperator implements Value {
 
     }
 
-    private void generatePostIncrement(MethodVisitor methodVisitor) {
+    private void generatePost(MethodVisitor methodVisitor, int opcode, int iincN) {
 
         accessible.generateBytecode(methodVisitor);
 
         if(accessible instanceof Variable) {
 
             if(ints.contains(accessible.getType()))
-                methodVisitor.visitIincInsn(((Variable) accessible).getId(), 1);
+                methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
             else {
 
-                dupUpdate(methodVisitor, accessible, Opcodes.IADD);
+                dupUpdate(methodVisitor, accessible, opcode);
 
                 methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
                         ((Variable) accessible).getId());
@@ -82,7 +84,7 @@ public class MathUnaryOperator implements Value {
 
         }else {
 
-            dupUpdate(methodVisitor, accessible, Opcodes.IADD);
+            dupUpdate(methodVisitor, accessible, opcode);
 
             if(accessible instanceof StaticClassField) {
 
