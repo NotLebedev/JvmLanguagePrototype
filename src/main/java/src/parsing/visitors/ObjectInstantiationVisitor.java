@@ -54,7 +54,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
             try {
                 objectInstantiation.setNames(ClassFactory.getInstance().forName(ctx.arrayType().getText())
                         .getConstructor(params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
-            } catch (ClassNotFoundException e) {
+            } catch (ClassNotFoundException | NoClassDefFoundError ignored) {
                 errorCollector.reportError(new ClassNotFoundError(ctx.arrayType().start.getLine(),
                                 ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));
                 throw new ExpressionParseCancelationException();
