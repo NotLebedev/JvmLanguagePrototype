@@ -182,6 +182,19 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             if(ctx.value(1).id() != null) {
 
+
+                //region Is static field
+                try {
+
+                    var staticField = new StaticClassField();
+                    staticField.setNames(val.getType(), ctx.value(1).id().getText());
+                    return staticField;
+
+                } catch (NoSuchFieldException ignored) {
+                } //This exception will be thrown if no such static field exists
+                //In this case search for object fields will happen
+                //endregion
+
                 //Is object field
                 try {
 
