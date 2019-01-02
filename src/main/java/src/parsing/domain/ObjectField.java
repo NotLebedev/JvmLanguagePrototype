@@ -45,7 +45,7 @@ public class ObjectField implements Accessible {
 
         object.generateBytecode(methodVisitor);
 
-        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getJvmName(), field.getName(), getType().getJvmName());
+        methodVisitor.visitFieldInsn(Opcodes.GETFIELD, fieldOwnerClass.getSlashName(), field.getName(), getType().getJvmName());
 
     }
 
