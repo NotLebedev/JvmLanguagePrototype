@@ -117,7 +117,7 @@ public class MathUnaryOperator implements Value {
             methodVisitor.visitInsn(Opcodes.DUP);
             methodVisitor.visitLdcInsn(1f);
 
-        } else if(accessible.getType().equals(floats.get(0))) {
+        } else if(accessible.getType().equals(floats.get(1))) {
 
             methodVisitor.visitInsn(Opcodes.DUP2);
             methodVisitor.visitLdcInsn(1d);
