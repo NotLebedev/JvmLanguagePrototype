@@ -4,14 +4,16 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Updated BytecodeEqualityTest to run multiple test sources">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added separate UpdateSampleBytecode class, so no need to use that ignored test for TestBytecodeCompilationIntegrity, it also now has a dialog with choice and confirmation&#10;*Removed BytecodeEqualityTest.test_updateSampleBytecode()">
       <change afterPath="$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resources/MathTest/backup.byt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/MathTest/backup.byt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resources/MathTest/sample.byt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/MathTest/sample.byt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/resources/MathTest/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/MathTest/source.lp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resources/OldTest/backup.byt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/OldTest/backup.byt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resources/OldTest/sample.byt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/OldTest/sample.byt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,83 +26,45 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1302">
-              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="101" selection-start-line="101" selection-end-line="101" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
               <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
               <folding>
-                <element signature="e#1225#1226#0" expanded="true" />
-                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1201#1202#0" expanded="true" />
+                <element signature="e#1440#1441#0" expanded="true" />
+                <element signature="e#1467#1468#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="247">
+              <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/resources/OldTest/source.lp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/resources/MathTest/source.lp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            <state relative-caret-position="249">
+              <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -235,14 +199,14 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/OldTest/source.lp" />
         <option value="$PROJECT_DIR$/src/test/java/resources/UpdateSampleBytecode.java" />
-        <option value="$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java" />
-        <option value="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectMethodInvocation.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/MathTest/source.lp" />
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java" />
       </list>
     </option>
   </component>
@@ -466,7 +430,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546439664265" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546440864612" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-11.0.1+13/bin/java.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -508,7 +472,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -730,14 +694,7 @@
       <workItem from="1546246288770" duration="12646000" />
       <workItem from="1546332116492" duration="6499000" />
       <workItem from="1546339489744" duration="326000" />
-      <workItem from="1546339890010" duration="19787000" />
-    </task>
-    <task id="LOCAL-00143" summary="*Removed single-word conversion group&#10;*Implemented catch clause in ObjectInstantiationVisitor">
-      <created>1538486561751</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1538486561752</updated>
+      <workItem from="1546339890010" duration="21246000" />
     </task>
     <task id="LOCAL-00144" summary="*Updated tests">
       <created>1538487486151</created>
@@ -1075,19 +1032,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546435886395</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="*Fix variable count was not processed correctly for two-word variables, they were treated as single word. Added dedicated variable counter">
+      <created>1546439738288</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1546439738288</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 13h 57m 46s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 13h 59m 58s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_test_updateSampleBytecode - 2019.01.02 at 14h 00m 29s.xml">
-      <configuration name="BytecodeEqualityTest.test_updateSampleBytecode" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_test_updateSampleBytecode - 2019.01.02 at 14h 01m 01s.xml">
       <configuration name="BytecodeEqualityTest.test_updateSampleBytecode" configurationId="JUnit" />
     </history-entry>
@@ -1109,9 +1064,18 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 16h 30m 26s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 17h 43m 01s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 17h 49m 37s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 17h 51m 24s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427730000" />
+    <option name="totallyTimeSpent" value="429189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1126,7 +1090,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27022654" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27022654" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1141,12 +1105,12 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32933334" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32933334" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.328" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.42" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.42" />
       <window_info anchor="bottom" id="Tool Output" order="14" weight="0.3286119" />
       <window_info anchor="bottom" id="ANTLR Preview" order="15" weight="0.328" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1250,8 +1214,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*OMG it`s december 31st 22:43 and I`m doing a commit, what a time to be alive!&#10;*Happy new 2019 year programmers!&#10;*Deleted bunch of commented code in main&#10;*Used static initializers int FloatLiteral and IntLiteral" />
-    <MESSAGE value="*Used static blocks in two more classes&#10;*Happy new year, hope 2019 will be much better for everybody, than ever before" />
     <MESSAGE value="*Added error collection for wrong casts" />
     <MESSAGE value="*Added error collection for wrong casts&#10;*Fused toArray int stream chain" />
     <MESSAGE value="*Moved initializer to static block&#10;*Added final modifier to Variable class field" />
@@ -1275,7 +1237,9 @@
     <MESSAGE value="*Implemented field incrementation in MathUnaryOperator" />
     <MESSAGE value="*Updated BytecodeEqualityTest to run multiple test sources" />
     <MESSAGE value="*Added MathTest&#10;*Updated console output text for BytecodeEqualityTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Added MathTest&#10;*Updated console output text for BytecodeEqualityTest" />
+    <MESSAGE value="*Fix variable count was not processed correctly for two-word variables, they were treated as single word. Added dedicated variable counter" />
+    <MESSAGE value="*Added separate UpdateSampleBytecode class, so no need to use that ignored test for TestBytecodeCompilationIntegrity, it also now has a dialog with choice and confirmation&#10;*Removed BytecodeEqualityTest.test_updateSampleBytecode()" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added separate UpdateSampleBytecode class, so no need to use that ignored test for TestBytecodeCompilationIntegrity, it also now has a dialog with choice and confirmation&#10;*Removed BytecodeEqualityTest.test_updateSampleBytecode()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1690,32 +1654,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/resources/OldTest/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.kts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/resources/MathTest/sample.byt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticMethodInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1731,6 +1674,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1302">
@@ -1741,10 +1701,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        <state relative-caret-position="105">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1755,28 +1715,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding>
-            <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1467#1468#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/VariableController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/resources/OldTest/source.lp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state relative-caret-position="249">
+          <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

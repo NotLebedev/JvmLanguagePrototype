@@ -81,39 +81,6 @@ public class BytecodeEqualityTest {
 
     }
 
-    /**
-     * Use this method to change sample to which bytecode is compared,
-     * also stores backup of old bytecode
-     */
-    @Test
-    @Ignore
-    public void test_updateSampleBytecode() {
-
-        try {
-            writeBytes(readBytes(path + "\\" + bytecodeName), path + "\\" + backupName); //Backup if old bytecode exists
-        } catch (IOException ignored) {
-        }
-
-        try {
-            writeBytes(compile(CharStreams.fromFileName(path + "\\" + sourceName)), path + "\\" + bytecodeName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void writeBytes(byte[] bytes, String path) {
-
-        try {
-            OutputStream os = new FileOutputStream(path);
-            os.write(bytes);
-            os.close();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
     private byte[] readBytes(String path) throws IOException {
 
         Path fileLocation = Paths.get(path);

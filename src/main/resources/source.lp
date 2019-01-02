@@ -92,7 +92,20 @@ java.lang.System.out.println(f)
 
 java.lang.System.out.println(123123123123L)*/
 
-src.parsing.Class2 c95 = new src.parsing.Class2()
+/*src.parsing.Class2 c95 = new src.parsing.Class2()
 
 java.lang.System.out.println(c95.i++)
-java.lang.System.out.println(c95.i)
+java.lang.System.out.println(c95.i)*/
+
+int i1 = 1;
+long l2 = (long)2;
+double d3 = (double)3;
+
+java.lang.System.out.println(i1++)
+java.lang.System.out.println(i1)
+
+java.lang.System.out.println(l2++)
+java.lang.System.out.println(l2)
+
+//java.lang.System.out.println(d3++)
+//java.lang.System.out.println(d3)
