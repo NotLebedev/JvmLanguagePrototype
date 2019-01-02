@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class VariableController {
 
     private final ArrayList<Variable> variables = new ArrayList<>();
+    private int variableCount = 0;
 
     /**
      * Initializer with additional variables
@@ -28,13 +29,14 @@ public class VariableController {
         if(hasVariable(v.getName()))
             throw new VariableAlreadyDefinedException();
 
-        v.setId(variables.size());
+        v.setId(variableCount);
         variables.add(v);
+        variableCount += v.isTwoWord() ? 2 : 1;
 
     }
 
     public int getVariableCount() {
-        return variables.size();
+        return variableCount;
     }
 
     public Variable getVariableByName(String name) throws VariableNotFoundException {

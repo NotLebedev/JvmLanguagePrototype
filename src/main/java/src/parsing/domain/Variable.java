@@ -2,6 +2,7 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import src.parsing.Class2;
 import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
@@ -13,6 +14,17 @@ public class Variable implements Accessible {
     private final String name;
 
     private final AbstractClass type;
+
+    private final static AbstractClass longT;
+    private final static AbstractClass doubleT;
+
+    static {
+
+        var cf = ClassFactory.getInstance();
+
+        longT = cf.forCorrectName("long");
+        doubleT = cf.forCorrectName("double");
+    }
 
     public Variable(String typeName, String name, int id) throws ClassNotFoundException {
 
@@ -33,6 +45,10 @@ public class Variable implements Accessible {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isTwoWord() {
+        return type.equals(longT) || type.equals(doubleT);
     }
 
     @Override
