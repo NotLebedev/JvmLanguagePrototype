@@ -4,13 +4,9 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Added post decrement to MathUnaryOperator&#10;*Generified ValueVisitor.visitPostDecrement() to work with any MathUnaryOperator&#10;*Added post decrement option to ValueVisitor&#10;*Updated MathTest">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/source.lp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/source.lp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+            <state relative-caret-position="375">
+              <caret line="81" column="70" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#visitLiteral#0;class#ValueVisitor#0" />
@@ -180,7 +176,6 @@
         <option value="$PROJECT_DIR$/src/test/java/UpdateSampleBytecode.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/TypeCast.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/MathTest/source.lp" />
         <option value="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/StaticAccessTest/source.lp" />
@@ -188,6 +183,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/Class2.java" />
         <option value="$PROJECT_DIR$/src/main/antlr4/MethodCode.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
       </list>
     </option>
   </component>
@@ -376,7 +372,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546512345236" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546516061209" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-11.0.1+13/bin/java.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -642,14 +638,7 @@
       <workItem from="1546332116492" duration="6499000" />
       <workItem from="1546339489744" duration="326000" />
       <workItem from="1546339890010" duration="30413000" />
-      <workItem from="1546505568839" duration="4926000" />
-    </task>
-    <task id="LOCAL-00148" summary="*Moved ValueVisitor.visitValue() parts into separate methods">
-      <created>1538497941350</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1538497941350</updated>
+      <workItem from="1546505568839" duration="5606000" />
     </task>
     <task id="LOCAL-00149" summary="*Rearranged ValueVisitor.visitValue() if-else selector according to rule frequency">
       <created>1538498534297</created>
@@ -987,13 +976,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546463778377</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="*Added preIncrement and preDecrement to grammar&#10;*Updated antlr4Gen">
+      <created>1546512418884</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1546512418884</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 19h 48m 48s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 20h 50m 00s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1021,9 +1014,12 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 13h 36m 11s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 13h 45m 49s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="443282000" />
+    <option name="totallyTimeSpent" value="443962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1048,7 +1044,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.8293333" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.4957507" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.4957507" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39733332" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1162,7 +1158,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Fixed warning ReflectionClassWrapper Unchecked assignment 'java.lang.Class' to 'java.lang.Class&lt;java.lang.Object'" />
     <MESSAGE value="*Fixed warning VaribaleController.hasVariable() is now private&#10;*Fixed warning NoSuchMethodError.params is now private" />
     <MESSAGE value="*Fixed warning applied a lot of final modifiers" />
     <MESSAGE value="*Removed redundant initializers&#10;*Optimized imports" />
@@ -1187,7 +1182,8 @@
     <MESSAGE value="*Changed TypeCast logic to follow normal (java-like)" />
     <MESSAGE value="*Fix MathUnaryOperator used DUP instead of DUP2 command when working with doubles&#10;*Updated MathTest" />
     <MESSAGE value="*Added post decrement to MathUnaryOperator&#10;*Generified ValueVisitor.visitPostDecrement() to work with any MathUnaryOperator&#10;*Added post decrement option to ValueVisitor&#10;*Updated MathTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Added post decrement to MathUnaryOperator&#10;*Generified ValueVisitor.visitPostDecrement() to work with any MathUnaryOperator&#10;*Added post decrement option to ValueVisitor&#10;*Updated MathTest" />
+    <MESSAGE value="*Added preIncrement and preDecrement to grammar&#10;*Updated antlr4Gen" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Added preIncrement and preDecrement to grammar&#10;*Updated antlr4Gen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1677,8 +1673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        <state relative-caret-position="375">
+          <caret line="81" column="70" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#visitLiteral#0;class#ValueVisitor#0" />

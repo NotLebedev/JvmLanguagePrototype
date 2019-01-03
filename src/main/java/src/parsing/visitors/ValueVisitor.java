@@ -75,13 +75,21 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             return visitLiteral(ctx);
 
-        } else if(ctx.incrementS() != null) {
+        } else if(ctx.incrementS() != null) {///////////Post increment
 
             return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_INCREMENT);
 
-        } else if(ctx.decrementS() != null) {
+        } else if(ctx.decrementS() != null) {///////////Post decrement
 
             return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_DECREMENT);
+
+        } else if(ctx.preIncrement() != null) {
+
+            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_INCREMENT);
+
+        } else if(ctx.preDecrement() != null) {
+
+            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_DECREMENT);
 
         }
 
