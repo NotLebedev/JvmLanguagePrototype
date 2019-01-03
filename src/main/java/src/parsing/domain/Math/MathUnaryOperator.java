@@ -114,28 +114,41 @@ public class MathUnaryOperator implements Value {
 
     private void dupUpdate(MethodVisitor methodVisitor, Accessible accessible, int sample) {
 
+        int opcode;
+        Object constant;
+
         if(accessible.getType().equals(floats.get(0))) {
 
-            methodVisitor.visitInsn(Opcodes.DUP);
-            methodVisitor.visitLdcInsn(1f);
+            //methodVisitor.visitInsn(Opcodes.DUP);
+            //methodVisitor.visitLdcInsn(1f);
+            opcode = Opcodes.DUP;
+            constant = 1f;
 
         } else if(accessible.getType().equals(floats.get(1))) {
 
-            methodVisitor.visitInsn(Opcodes.DUP2);
-            methodVisitor.visitLdcInsn(1d);
+            //methodVisitor.visitInsn(Opcodes.DUP2);
+            //methodVisitor.visitLdcInsn(1d);
+            opcode = Opcodes.DUP2;
+            constant = 1d;
 
         } else if(accessible.getType().equals(longT)) {
 
-            methodVisitor.visitInsn(Opcodes.DUP2);
-            methodVisitor.visitLdcInsn(1L);
+            //methodVisitor.visitInsn(Opcodes.DUP2);
+            //methodVisitor.visitLdcInsn(1L);
+            opcode = Opcodes.DUP2;
+            constant = 1L;
 
         } else {
 
-            methodVisitor.visitInsn(Opcodes.DUP);
-            methodVisitor.visitLdcInsn(1); //Int
+            //methodVisitor.visitInsn(Opcodes.DUP);
+            //methodVisitor.visitLdcInsn(1); //Int
+            opcode = Opcodes.DUP;
+            constant = 1; //int
 
         }
 
+        methodVisitor.visitInsn(opcode);
+        methodVisitor.visitLdcInsn(constant);
         methodVisitor.visitInsn(accessible.getType().getOpcode(sample));
 
     }
