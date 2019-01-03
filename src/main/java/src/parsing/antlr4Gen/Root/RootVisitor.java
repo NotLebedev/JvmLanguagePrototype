@@ -77,6 +77,18 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitValue(RootParser.ValueContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#preIncrement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreIncrement(RootParser.PreIncrementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#preDecrement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreDecrement(RootParser.PreDecrementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#cast}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

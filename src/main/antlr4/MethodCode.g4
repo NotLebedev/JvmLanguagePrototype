@@ -39,7 +39,12 @@ value   : literalCG
         | value dotS value
         | value arrayIndex
         | value incrementS
-        | value decrementS ;
+        | value decrementS
+        | preIncrement
+        | preDecrement ;
+
+preIncrement : incrementS value;
+preDecrement : decrementS value;
 
 cast : bracketOpenS declarationType bracketCloseS value;
 
