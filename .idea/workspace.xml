@@ -51,7 +51,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
+            <state relative-caret-position="140">
               <caret line="166" column="43" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -407,7 +407,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546516982967" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546519977333" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-11.0.1+13/bin/java.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -645,14 +645,7 @@
       <workItem from="1546332116492" duration="6499000" />
       <workItem from="1546339489744" duration="326000" />
       <workItem from="1546339890010" duration="30413000" />
-      <workItem from="1546505568839" duration="6703000" />
-    </task>
-    <task id="LOCAL-00150" summary="*Marked ErrorCollector.reportFatalError() as deprecated, now reportError() + throw should be used&#10;*Replaced usages of reportFatalError() in some places">
-      <created>1538499374153</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1538499374154</updated>
+      <workItem from="1546505568839" duration="7539000" />
     </task>
     <task id="LOCAL-00151" summary="*Replaced remaining usages of reportFatalError()&#10;*Removed ErrorCollector.reportFatalError()">
       <created>1538500261840</created>
@@ -990,13 +983,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546516088758</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="*Changed MathUnaryOperator.dupUpdate() algorithm, functionality is still the same">
+      <created>1546517064976</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1546517064976</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 20h 50m 00s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.02 at 21h 24m 54s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1024,9 +1021,12 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 13h 45m 49s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 15h 03m 11s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="445059000" />
+    <option name="totallyTimeSpent" value="445895000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1039,9 +1039,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="816" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28398058" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28398058" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1165,7 +1164,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Fixed warning applied a lot of final modifiers" />
     <MESSAGE value="*Removed redundant initializers&#10;*Optimized imports" />
     <MESSAGE value="*Merged declaration and assignment in ValueVisitor.visitMethodInv()" />
     <MESSAGE value="*Added new constructor for CanNotResolveSymbolError" />
@@ -1190,7 +1188,8 @@
     <MESSAGE value="*Added post decrement to MathUnaryOperator&#10;*Generified ValueVisitor.visitPostDecrement() to work with any MathUnaryOperator&#10;*Added post decrement option to ValueVisitor&#10;*Updated MathTest" />
     <MESSAGE value="*Added preIncrement and preDecrement to grammar&#10;*Updated antlr4Gen" />
     <MESSAGE value="*Added preIncrement and preDecrement cases for ValueVisitor" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Added preIncrement and preDecrement cases for ValueVisitor" />
+    <MESSAGE value="*Changed MathUnaryOperator.dupUpdate() algorithm, functionality is still the same" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Changed MathUnaryOperator.dupUpdate() algorithm, functionality is still the same" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1689,7 +1688,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
+        <state relative-caret-position="140">
           <caret line="166" column="43" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />

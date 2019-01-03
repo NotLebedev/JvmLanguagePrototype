@@ -65,6 +65,22 @@ public class MathUnaryOperator implements Value {
 
     }
 
+    private void generatePre(MethodVisitor methodVisitor, int opcode, int iincN) {
+
+        accessible.generateBytecode(methodVisitor);
+
+        if(accessible instanceof Variable) {
+
+            if(ints.contains(accessible.getType()))
+                methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
+            else {
+
+            }
+
+        }
+
+    }
+
     private void generatePost(MethodVisitor methodVisitor, int opcode, int iincN) {
 
         accessible.generateBytecode(methodVisitor);
