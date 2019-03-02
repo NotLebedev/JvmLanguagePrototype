@@ -45,7 +45,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    public ValueVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
+    public static ValueVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
         return new ValueVisitor(scope, errorCollector);
     }
 
@@ -62,7 +62,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         } else if(ctx.bracketOpenS() != null) {/////////Parenthesis
 
-            return ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+            return ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
 
         } else if(ctx.objectInstantiation() != null) {//Object instantiation
 
@@ -129,7 +129,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitDotS(RootParser.ValueContext ctx) {
 
-        var val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+        var val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
 
         if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
             // only id to go next
@@ -240,8 +240,8 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitArray(RootParser.ValueContext ctx) {
 
-        Value val = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
-        Value index = ctx.arrayIndex().value().accept(new ValueVisitor(scope, errorCollector));
+        Value val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
+        Value index = ctx.arrayIndex().value().accept(ValueVisitor.getInstance(scope, errorCollector));
 
         try {
             return new ArrayAccess(val, index);
@@ -264,7 +264,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitCast(RootParser.ValueContext ctx) {
 
-        var value = ctx.cast().value().accept(new ValueVisitor(scope, errorCollector));
+        var value = ctx.cast().value().accept(ValueVisitor.getInstance(scope, errorCollector));
         AbstractClass type = null;
 
         try {
@@ -292,7 +292,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitMathUnaryOperator(RootParser.ValueContext ctx, MathUnaryOperator.Type type) {
 
-        var value = ctx.value(0).accept(new ValueVisitor(scope, errorCollector));
+        var value = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
 
         if(!(value instanceof Accessible))
             throw new IllegalStateException("Not implemented yet");
@@ -318,7 +318,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         @Override
         public Value visitMethodInv(RootParser.MethodInvContext ctx) {
 
-            var valueVisitor = new ValueVisitor(scope, errorCollector);
+            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
             List<Value> params = ctx.value().stream()
                     .map(valueContext -> valueContext.accept(valueVisitor))

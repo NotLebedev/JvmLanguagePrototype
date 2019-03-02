@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,19 +23,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+            <state relative-caret-position="5555">
+              <caret line="320" column="55" selection-start-line="320" selection-start-column="55" selection-end-line="320" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#visitValue#0;class#ValueVisitor#0" />
-                <element signature="method#visitId#0;class#ValueVisitor#0" />
-                <element signature="method#visitDotS#0;class#ValueVisitor#0" />
-                <element signature="method#visitArray#0;class#ValueVisitor#0" />
-                <element signature="method#visitCast#0;class#ValueVisitor#0" />
-                <element signature="method#visitMathUnaryOperator#0;class#ValueVisitor#0" />
-                <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
-                <element signature="method#MethodInvVisitor#0;class#MethodInvVisitor#0;class#ValueVisitor#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="75" column="86" selection-start-line="75" selection-start-column="86" selection-end-line="75" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -125,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Method.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/VariableAlreadyDefinedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Scope.java" />
@@ -151,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Accesible.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Interfaces/Accessible.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectField.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/OldTest/source.lp" />
         <option value="$PROJECT_DIR$/src/test/java/resources/UpdateSampleBytecode.java" />
@@ -175,6 +185,8 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VisitorFlyweight.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
       </list>
     </option>
@@ -461,8 +473,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TypeMatcherTestSuite" />
         <item itemvalue="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity" />
+        <item itemvalue="JUnit.TypeMatcherTestSuite" />
         <item itemvalue="JUnit.TypeMatcherTestSuite.testB2P" />
       </list>
     </recent_temporary>
@@ -584,14 +596,7 @@
       <workItem from="1548490965483" duration="23000" />
       <workItem from="1548492812913" duration="67000" />
       <workItem from="1548492911372" duration="6000" />
-      <workItem from="1551536200269" duration="3541000" />
-    </task>
-    <task id="LOCAL-00155" summary="*Moved VariableNotFoundException&#10;*Added Conversion nested class to TypeCast&#10;*Implemented TypeCast.Conversion.isMatching()&#10;*Some documentation for TypeCast&#10;*Removed redundant null initializer in ValueVisitor">
-      <created>1546176000993</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1546176000993</updated>
+      <workItem from="1551536200269" duration="3986000" />
     </task>
     <task id="LOCAL-00156" summary="*Implemented TypeCast.Conversion.getOpcode()&#10;*Added conversion array and initializer">
       <created>1546178582134</created>
@@ -929,7 +934,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551539539428</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="+Added ValueVisitor.getInstance()&#10;*Marked constructor as deprecated">
+      <created>1551539786563</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1551539786563</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -965,7 +977,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="454863000" />
+    <option name="totallyTimeSpent" value="455308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -978,9 +990,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15222576" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15222576" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -989,7 +1000,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.8293333" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32780084" />
+      <window_info active="true" anchor="bottom" id="Find" order="2" visible="true" weight="0.32780084" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.28838176" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39733332" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -1104,7 +1115,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Added post decrement and increment to grammar&#10;*Updated antlr4Gen&#10;*Added template methods to ValueVisitor" />
     <MESSAGE value="*Created class MathUnaryOperator&#10;*Implemented some of it" />
     <MESSAGE value="*Created Accessible interface&#10;*Made ObjectField StaticClassField and Variable implement this interface" />
     <MESSAGE value="*Implemented part of MathUnaryOperator" />
@@ -1129,7 +1139,8 @@
     <MESSAGE value="*Replaced accessor singleton in ClassFactory with on demand holder" />
     <MESSAGE value="+Made LiteralCGVisitor singleton&#10;-Marked constructor as deprecated" />
     <MESSAGE value="*Replaced all usages of LiteralCGVisitor as non-singleton&#10;*Made LiteralCGVisitor constructor private" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Replaced all usages of LiteralCGVisitor as non-singleton&#10;*Made LiteralCGVisitor constructor private" />
+    <MESSAGE value="+Added ValueVisitor.getInstance()&#10;*Marked constructor as deprecated" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Added ValueVisitor.getInstance()&#10;*Marked constructor as deprecated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1172,7 +1183,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java</url>
-          <line>131</line>
+          <line>126</line>
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
@@ -1252,13 +1263,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/CanNotResolveSymbolError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/errorHandling/errors/IncompatibleTypesError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -1341,13 +1345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1470">
           <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="58" column="68" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1543,13 +1540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VisitorFlyweight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1588,20 +1578,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="75" column="86" selection-start-line="75" selection-start-column="86" selection-end-line="75" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Deprecated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+        <state relative-caret-position="5555">
+          <caret line="320" column="55" selection-start-line="320" selection-start-column="55" selection-end-line="320" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#visitValue#0;class#ValueVisitor#0" />
-            <element signature="method#visitId#0;class#ValueVisitor#0" />
-            <element signature="method#visitDotS#0;class#ValueVisitor#0" />
-            <element signature="method#visitArray#0;class#ValueVisitor#0" />
-            <element signature="method#visitCast#0;class#ValueVisitor#0" />
-            <element signature="method#visitMathUnaryOperator#0;class#ValueVisitor#0" />
-            <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
-            <element signature="method#MethodInvVisitor#0;class#MethodInvVisitor#0;class#ValueVisitor#0" />
           </folding>
         </state>
       </provider>

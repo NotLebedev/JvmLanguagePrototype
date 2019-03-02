@@ -45,7 +45,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             List<Value> params;
 
-            var valueVisitor = new ValueVisitor(scope, errorCollector);
+            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
             params = ctx.value().stream()
                     .map(valueContext -> valueContext.accept(valueVisitor))
@@ -73,7 +73,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
 
             var dimensions = ctx.arrayIndex().stream()
                     .map(arrayIndexContext ->
-                            arrayIndexContext.value().accept(new ValueVisitor(scope, errorCollector)))
+                            arrayIndexContext.value().accept(ValueVisitor.getInstance(scope, errorCollector)))
                     .toArray(Value[]::new);
             var freeDimensions = ctx.arrayModifier().size();
 

@@ -44,7 +44,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.value() != null) {
 
-            var valueVisitor = new ValueVisitor(scope, errorCollector);
+            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
             return ctx.value().accept(valueVisitor);
 
