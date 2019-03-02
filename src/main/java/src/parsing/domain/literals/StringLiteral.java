@@ -1,4 +1,4 @@
-package src.parsing.domain.constantValues;
+package src.parsing.domain.literals;
 
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.Interfaces.Value;

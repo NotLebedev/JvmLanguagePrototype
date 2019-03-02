@@ -67,8 +67,6 @@ public class MathUnaryOperator implements Value {
 
     private void generatePre(MethodVisitor methodVisitor, int opcode, int iincN) {
 
-        accessible.generateBytecode(methodVisitor);
-
         if(accessible instanceof Variable) {
 
             if(ints.contains(accessible.getType()))
@@ -79,8 +77,16 @@ public class MathUnaryOperator implements Value {
 
         }
 
+        accessible.generateBytecode(methodVisitor);
+
     }
 
+    /**
+     * Generate a post increment decrement
+     * @param methodVisitor method visitor to use
+     * @param opcode {@code Opcodes.IADD} to increment, {@code Opcodes.ISUB} to decrement
+     * @param iincN 1 to increment, -1 to decrement
+     */
     private void generatePost(MethodVisitor methodVisitor, int opcode, int iincN) {
 
         accessible.generateBytecode(methodVisitor);
@@ -135,29 +141,21 @@ public class MathUnaryOperator implements Value {
 
         if(accessible.getType().equals(floats.get(0))) {
 
-            //methodVisitor.visitInsn(Opcodes.DUP);
-            //methodVisitor.visitLdcInsn(1f);
             opcode = Opcodes.DUP;
             constant = 1f;
 
         } else if(accessible.getType().equals(floats.get(1))) {
 
-            //methodVisitor.visitInsn(Opcodes.DUP2);
-            //methodVisitor.visitLdcInsn(1d);
             opcode = Opcodes.DUP2;
             constant = 1d;
 
         } else if(accessible.getType().equals(longT)) {
 
-            //methodVisitor.visitInsn(Opcodes.DUP2);
-            //methodVisitor.visitLdcInsn(1L);
             opcode = Opcodes.DUP2;
             constant = 1L;
 
         } else {
 
-            //methodVisitor.visitInsn(Opcodes.DUP);
-            //methodVisitor.visitLdcInsn(1); //Int
             opcode = Opcodes.DUP;
             constant = 1; //int
 

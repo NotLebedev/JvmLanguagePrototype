@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @RunWith(Parameterized.class)
 public class BytecodeEqualityTest {
 
-    private final static String resourcesPath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources";
+    private final static String resourcesPath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources";
 
     private final static String sourceName = "source.lp";
     private final static String bytecodeName = "sample.byt";

@@ -1,32 +1,34 @@
-package src.parsing.domain.constantValues;
+package src.parsing.domain.literals;
 
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
-public class LongLiteral implements Value {
+public class FloatLiteral implements Value {
 
-    private final long aLong;
+    private final float aFloat;
 
     private static final AbstractClass type;
 
     static {
         try {
-            type = ClassFactory.getInstance().forName("long");
+            type = ClassFactory.getInstance().forName("float");
         } catch (ClassNotFoundException e) {
             throw new IllegalStateException("Literal type must be available", e);
         }
     }
 
-    public LongLiteral(long aLong) {
-        this.aLong = aLong;
+    public FloatLiteral(float aFloat) {
+
+        this.aFloat = aFloat;
+
     }
 
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        methodVisitor.visitLdcInsn(aLong);
+        methodVisitor.visitLdcInsn(aFloat);
 
     }
 
