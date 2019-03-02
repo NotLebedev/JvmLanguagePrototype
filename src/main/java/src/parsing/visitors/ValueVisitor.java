@@ -37,11 +37,16 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
+    @Deprecated
     public ValueVisitor(Scope scope, ErrorCollector errorCollector) {
 
         this.scope = scope;
         this.errorCollector = errorCollector;
 
+    }
+
+    public ValueVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
+        return new ValueVisitor(scope, errorCollector);
     }
 
     @Override
