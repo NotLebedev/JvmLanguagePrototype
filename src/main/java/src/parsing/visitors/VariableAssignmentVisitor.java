@@ -32,8 +32,8 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
     @Override
     public Expression visitVariableAssignment(RootParser.VariableAssignmentContext ctx) {
 
-        Value val = ctx.value().accept(new ValueVisitor(scope, errorCollector));
-        var value = ctx.assignment().accept(new ValueVisitor(scope, errorCollector));
+        Value val = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
+        var value = ctx.assignment().accept(ValueVisitor.getInstance(scope, errorCollector));
 
         if(val instanceof Variable) {
 
@@ -41,7 +41,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             var variable = ((Variable) val);
 
-            var valueVisitor = new ValueVisitor(scope, errorCollector);
+            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
             try {
                 variableAssignment.setParams(variable, value);

@@ -73,7 +73,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
             var variableAssignment = new VariableAssignment();
 
-            var valueVisitor = new ValueVisitor(scope, errorCollector);
+            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
             Value value = ctx.assignment().accept(valueVisitor);
 
