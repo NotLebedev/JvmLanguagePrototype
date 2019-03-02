@@ -15,6 +15,17 @@ import src.parsing.domain.literals.StringLiteral;
  */
 public class LiteralCGVisitor extends RootBaseVisitor<Value> {
 
+    @Deprecated
+    public LiteralCGVisitor(){}
+
+    private static class SingletonHolder {
+        private static LiteralCGVisitor HOLDER_INSTANCE = new LiteralCGVisitor();
+    }
+
+    public static LiteralCGVisitor getInstance() {
+        return SingletonHolder.HOLDER_INSTANCE;
+    }
+
     @Override
     public Value visitLiteralCG(RootParser.LiteralCGContext ctx) {
 
