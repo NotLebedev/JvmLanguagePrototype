@@ -100,7 +100,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitLiteral(RootParser.ValueContext ctx) {
 
-        return ctx.literalCG().accept(new LiteralCGVisitor());
+        return ctx.literalCG().accept(LiteralCGVisitor.getInstance());
 
     }
 

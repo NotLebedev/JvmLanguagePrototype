@@ -21,7 +21,7 @@ public class Main {
 
         try {
 
-            RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\source.lp"));
+            RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("E:\\Work\\JvmLanguagePrototype\\target\\classes\\source.lp"));
 
             CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
             RootParser rootParser = new RootParser(tokenStream);
@@ -53,7 +53,7 @@ public class Main {
 
             ///////////////////////////
 
-            String startPath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\src";
+            String startPath = "E:\\Work\\JvmLanguagePrototype\\target\\classes\\src";
 
             JFileChooser fc = new JFileChooser(startPath);
             fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
