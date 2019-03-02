@@ -21,8 +21,7 @@ import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 
 import java.lang.reflect.Modifier;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -37,8 +36,9 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    @Deprecated
-    public ValueVisitor(Scope scope, ErrorCollector errorCollector) {
+    private static List<ValueVisitor> valueVisitorList = new ArrayList<>();
+
+    private ValueVisitor(Scope scope, ErrorCollector errorCollector) {
 
         this.scope = scope;
         this.errorCollector = errorCollector;
@@ -46,7 +46,19 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     }
 
     public static ValueVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
-        return new ValueVisitor(scope, errorCollector);
+
+        Optional<ValueVisitor> result = valueVisitorList.stream().filter(valueVisitor -> valueVisitor.matches(scope, errorCollector)).findFirst();
+
+        if(result.isPresent())
+            return result.get();
+        else {
+
+            ValueVisitor visitor = new ValueVisitor(scope, errorCollector);
+            valueVisitorList.add(visitor);
+            return visitor;
+
+        }
+
     }
 
     @Override
@@ -375,6 +387,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         }
 
+    }
+
+    private boolean matches(Scope scope, ErrorCollector errorCollector) {
+        return this.scope == scope && this.errorCollector == errorCollector;
     }
 
 }
