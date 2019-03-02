@@ -4,17 +4,9 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="*Renamed constantValues packgae to literals">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accessories/Accessories.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Accessories/Accessories.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accessories/src/JavapExec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Accessories/src/JavapExec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/literals/FloatLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/literals/IntLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/LongLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/literals/LongLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/StringLiteral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/literals/StringLiteral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,12 +48,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Accessories/src/JavapExec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="336">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+              <folding>
+                <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2205" />
           </provider>
         </entry>
       </file>
@@ -152,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/exceptions/WrongCastException.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/interfaces/AbstractClass.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/utils/TypeMatcher.java" />
@@ -203,6 +226,7 @@
         <option value="$PROJECT_DIR$/Accessories/src/JavapExec.groovy" />
         <option value="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java" />
       </list>
     </option>
   </component>
@@ -337,6 +361,17 @@
               <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JvmLanguagePrototype" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JvmLanguagePrototype" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -426,7 +461,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Groovy.JavapExec">
+  <component name="RunManager" selected="JUnit.BytecodeEqualityTest.testBytecodeCompilationIntegrity">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -629,14 +664,7 @@
       <workItem from="1548490965483" duration="23000" />
       <workItem from="1548492812913" duration="67000" />
       <workItem from="1548492911372" duration="6000" />
-      <workItem from="1551536200269" duration="294000" />
-    </task>
-    <task id="LOCAL-00151" summary="*Replaced remaining usages of reportFatalError()&#10;*Removed ErrorCollector.reportFatalError()">
-      <created>1538500261840</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1538500261840</updated>
+      <workItem from="1551536200269" duration="684000" />
     </task>
     <task id="LOCAL-00152" summary="*Added primitives to parser rule &quot;cast&quot;&#10;*Updated antlr4Gen">
       <created>1538578060256</created>
@@ -974,16 +1002,17 @@
       <option name="project" value="LOCAL" />
       <updated>1546517064976</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="*Renamed constantValues packgae to literals">
+      <created>1551536640471</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1551536640474</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 12h 44m 42s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 12h 48m 36s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 12h 49m 56s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1008,9 +1037,15 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.01.03 at 19h 22m 39s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.02 at 17h 20m 09s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.02 at 17h 27m 47s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="451616000" />
+    <option name="totallyTimeSpent" value="452006000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1045,7 +1080,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50046426" side_tool="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.41908714" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.2614108" />
       <window_info anchor="bottom" id="Tool Output" order="14" weight="0.3286119" />
       <window_info anchor="bottom" id="ANTLR Preview" order="15" weight="0.32719547" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1297,13 +1332,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/SymbolNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/ObjectInstantiation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -1322,13 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1605,16 +1626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="104" column="13" lean-forward="true" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
@@ -1641,10 +1652,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2205" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Accessories/src/JavapExec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="336">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/Math/MathUnaryOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="73" column="12" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ClassFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding>
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

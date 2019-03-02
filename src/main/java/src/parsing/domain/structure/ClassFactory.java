@@ -7,17 +7,14 @@ import java.util.HashMap;
 
 public class ClassFactory {
 
-    private static ClassFactory ourInstance;
-
     private final HashMap<Class<?>, ReflectionClassWrapper> reflectionClassMap = new HashMap<>();
 
+    private static class SingletonHolder {
+        private static ClassFactory HOLDER_INSTANCE = new ClassFactory();
+    }
+
     public static ClassFactory getInstance() {
-
-        if(ourInstance == null)
-            ourInstance = new ClassFactory();
-
-        return ourInstance;
-
+        return SingletonHolder.HOLDER_INSTANCE;
     }
 
     private ClassFactory() {
