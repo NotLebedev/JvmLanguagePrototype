@@ -58,7 +58,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.variableDeclaration() != null) {
 
-            var variableDeclarationVisitor = new VariableDeclarationVisitor(scope, errorCollector);
+            var variableDeclarationVisitor = VariableDeclarationVisitor.getInstance(scope, errorCollector);
 
             return ctx.variableDeclaration().accept(variableDeclarationVisitor);
 

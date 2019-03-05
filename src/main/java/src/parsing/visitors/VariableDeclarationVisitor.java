@@ -15,6 +15,8 @@ import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableAlreadyDefinedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.utils.InvalidKeyTypesException;
+import src.parsing.visitors.utils.MultiKeyHashMap;
 
 import javax.annotation.Nullable;
 
@@ -28,10 +30,34 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    public VariableDeclarationVisitor(Scope scope, ErrorCollector errorCollector) {
+    private static MultiKeyHashMap<VariableDeclarationVisitor> variableDeclarationVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+
+    private VariableDeclarationVisitor(Scope scope, ErrorCollector errorCollector) {
 
         this.scope = scope;
         this.errorCollector = errorCollector;
+
+    }
+
+    public static VariableDeclarationVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
+
+        try {
+
+            VariableDeclarationVisitor result = variableDeclarationVisitorMap.get(scope, errorCollector);
+
+            if(result != null)
+                return result;
+            else {
+
+                VariableDeclarationVisitor visitor = new VariableDeclarationVisitor(scope, errorCollector);
+                variableDeclarationVisitorMap.put(visitor, scope, errorCollector);
+                return visitor;
+
+            }
+
+        }catch (InvalidKeyTypesException e) {
+            throw new IllegalStateException("Key types expected to be correct", e);
+        }
 
     }
 
