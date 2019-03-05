@@ -19,6 +19,8 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.*;
 import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.utils.InvalidKeyTypesException;
+import src.parsing.visitors.utils.MultiKeyHashMap;
 
 import java.lang.reflect.Modifier;
 import java.util.*;
@@ -36,7 +38,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static List<ValueVisitor> valueVisitorList = new ArrayList<>();
+    private static MultiKeyHashMap<ValueVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private ValueVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -47,16 +49,22 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     public static ValueVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
 
-        Optional<ValueVisitor> result = valueVisitorList.stream().filter(valueVisitor -> valueVisitor.matches(scope, errorCollector)).findFirst();
+        try {
 
-        if(result.isPresent())
-            return result.get();
-        else {
+            ValueVisitor result = valueVisitorMap.get(scope, errorCollector);
 
-            ValueVisitor visitor = new ValueVisitor(scope, errorCollector);
-            valueVisitorList.add(visitor);
-            return visitor;
+            if(result != null)
+                return result;
+            else {
 
+                ValueVisitor visitor = new ValueVisitor(scope, errorCollector);
+                valueVisitorMap.put(visitor, scope, errorCollector);
+                return visitor;
+
+            }
+
+        }catch (InvalidKeyTypesException e) {
+            throw new IllegalStateException("Key types expected to be correct", e);
         }
 
     }

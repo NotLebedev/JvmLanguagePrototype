@@ -10,7 +10,7 @@ public class MultiKeyHashMap <T> {
     private final HashMap<Object[], T> map;
     private final Class<?>[] keyTypes;
 
-    public MultiKeyHashMap(Class<?>[] keyTypes) {
+    public MultiKeyHashMap(Class<?>... keyTypes) {
 
         this.keyTypes = keyTypes;
         this.map = new HashMap<>();
@@ -37,8 +37,13 @@ public class MultiKeyHashMap <T> {
             throw new InvalidKeyTypesException();
 
         for(int i = 0; i < keys.length; i++) {
-            if(!keys[i].getClass().equals(keyTypes[i]))
+
+            try {
+                keys[i].getClass().asSubclass(keyTypes[i]);
+            }catch (ClassCastException ignored) {
                 throw new InvalidKeyTypesException(i, keyTypes[i], keys[i].getClass());
+            }
+
         }
 
     }
