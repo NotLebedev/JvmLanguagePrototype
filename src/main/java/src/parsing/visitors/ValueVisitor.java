@@ -397,8 +397,4 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private boolean matches(Scope scope, ErrorCollector errorCollector) {
-        return this.scope == scope && this.errorCollector == errorCollector;
-    }
-
 }

@@ -66,7 +66,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         if(ctx.variableAssignment() != null) {
 
-            var variableAssignmentVisitor = new VariableAssignmentVisitor(scope, errorCollector);
+            var variableAssignmentVisitor = VariableAssignmentVisitor.getInstance(scope, errorCollector);
 
             return ctx.variableAssignment().accept(variableAssignmentVisitor);
 
@@ -82,10 +82,6 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         throw new IllegalStateException("Some expression type is not implemented");
 
-    }
-
-    private boolean matches(Scope scope, ErrorCollector errorCollector) {
-        return this.scope == scope && this.errorCollector == errorCollector;
     }
 
 }

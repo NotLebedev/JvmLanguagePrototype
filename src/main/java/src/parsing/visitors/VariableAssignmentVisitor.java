@@ -11,6 +11,8 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableExpectedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.utils.InvalidKeyTypesException;
+import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class responsible for visiting assignments (e.g. {@code str1 = str2})
@@ -22,10 +24,34 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    public VariableAssignmentVisitor(Scope scope, ErrorCollector errorCollector) {
+    private static MultiKeyHashMap<VariableAssignmentVisitor> variableAssignmentVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+
+    private VariableAssignmentVisitor(Scope scope, ErrorCollector errorCollector) {
 
         this.scope = scope;
         this.errorCollector = errorCollector;
+
+    }
+
+    public static VariableAssignmentVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
+
+        try {
+
+            VariableAssignmentVisitor result = variableAssignmentVisitorMap.get(scope, errorCollector);
+
+            if(result != null)
+                return result;
+            else {
+
+                VariableAssignmentVisitor visitor = new VariableAssignmentVisitor(scope, errorCollector);
+                variableAssignmentVisitorMap.put(visitor, scope, errorCollector);
+                return visitor;
+
+            }
+
+        }catch (InvalidKeyTypesException e) {
+            throw new IllegalStateException("Key types expected to be correct", e);
+        }
 
     }
 
