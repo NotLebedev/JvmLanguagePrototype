@@ -5,6 +5,8 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.utils.InvalidKeyTypesException;
+import src.parsing.visitors.utils.MultiKeyHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static List<ExpressionVisitor> expressionVisitorList = new ArrayList<>();
+    private static MultiKeyHashMap<ExpressionVisitor> expressionVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private ExpressionVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -31,16 +33,22 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
     public static ExpressionVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
 
-        Optional<ExpressionVisitor> result = expressionVisitorList.stream().filter(expressionVisitor -> expressionVisitor.matches(scope, errorCollector)).findFirst();
+        try {
 
-        if(result.isPresent())
-            return result.get();
-        else {
+            ExpressionVisitor result = expressionVisitorMap.get(scope, errorCollector);
 
-            ExpressionVisitor visitor = new ExpressionVisitor(scope, errorCollector);
-            expressionVisitorList.add(visitor);
-            return visitor;
+            if(result != null)
+                return result;
+            else {
 
+                ExpressionVisitor visitor = new ExpressionVisitor(scope, errorCollector);
+                expressionVisitorMap.put(visitor, scope, errorCollector);
+                return visitor;
+
+            }
+
+        }catch (InvalidKeyTypesException e) {
+            throw new IllegalStateException("Key types expected to be correct", e);
         }
 
     }
