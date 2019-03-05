@@ -15,6 +15,8 @@ import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.utils.InvalidKeyTypesException;
+import src.parsing.visitors.utils.MultiKeyHashMap;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,10 +31,34 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    public ObjectInstantiationVisitor(Scope scope, ErrorCollector errorCollector) {
+    private static MultiKeyHashMap<ObjectInstantiationVisitor> objectInstantiationVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+
+    private ObjectInstantiationVisitor(Scope scope, ErrorCollector errorCollector) {
 
         this.scope = scope;
         this.errorCollector = errorCollector;
+
+    }
+
+    public static ObjectInstantiationVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
+
+        try {
+
+            ObjectInstantiationVisitor result = objectInstantiationVisitorMap.get(scope, errorCollector);
+
+            if(result != null)
+                return result;
+            else {
+
+                ObjectInstantiationVisitor visitor = new ObjectInstantiationVisitor(scope, errorCollector);
+                objectInstantiationVisitorMap.put(visitor, scope, errorCollector);
+                return visitor;
+
+            }
+
+        }catch (InvalidKeyTypesException e) {
+            throw new IllegalStateException("Key types expected to be correct", e);
+        }
 
     }
 

@@ -86,7 +86,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         } else if(ctx.objectInstantiation() != null) {//Object instantiation
 
-            return ctx.objectInstantiation().accept(new ObjectInstantiationVisitor(scope, errorCollector));
+            return ctx.objectInstantiation().accept(ObjectInstantiationVisitor.getInstance(scope, errorCollector));
 
         } else if(ctx.arrayIndex() != null) {///////////Array
 
