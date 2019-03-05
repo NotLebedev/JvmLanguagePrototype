@@ -30,7 +30,7 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
 
             try {
 
-                var expression = expressionContext.accept(new ExpressionVisitor(method, errorCollector));
+                var expression = expressionContext.accept(ExpressionVisitor.getInstance(method, errorCollector));
 
                 if(expression != null)
                     method.addExpression(expression);

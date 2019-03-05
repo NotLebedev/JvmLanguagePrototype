@@ -6,6 +6,10 @@ import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 /**
  * Class responsible for visiting single expressions in code
  *
@@ -16,10 +20,28 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    public ExpressionVisitor(Scope scope, ErrorCollector errorCollector) {
+    private static List<ExpressionVisitor> expressionVisitorList = new ArrayList<>();
+
+    private ExpressionVisitor(Scope scope, ErrorCollector errorCollector) {
 
         this.scope = scope;
         this.errorCollector = errorCollector;
+
+    }
+
+    public static ExpressionVisitor getInstance(Scope scope, ErrorCollector errorCollector) {
+
+        Optional<ExpressionVisitor> result = expressionVisitorList.stream().filter(expressionVisitor -> expressionVisitor.matches(scope, errorCollector)).findFirst();
+
+        if(result.isPresent())
+            return result.get();
+        else {
+
+            ExpressionVisitor visitor = new ExpressionVisitor(scope, errorCollector);
+            expressionVisitorList.add(visitor);
+            return visitor;
+
+        }
 
     }
 
@@ -52,6 +74,10 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         throw new IllegalStateException("Some expression type is not implemented");
 
+    }
+
+    private boolean matches(Scope scope, ErrorCollector errorCollector) {
+        return this.scope == scope && this.errorCollector == errorCollector;
     }
 
 }
