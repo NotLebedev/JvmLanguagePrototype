@@ -31,7 +31,7 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static MultiKeyHashMap<ObjectInstantiationVisitor> objectInstantiationVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final MultiKeyHashMap<ObjectInstantiationVisitor> objectInstantiationVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private ObjectInstantiationVisitor(Scope scope, ErrorCollector errorCollector) {
 

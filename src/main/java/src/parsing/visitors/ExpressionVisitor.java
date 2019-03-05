@@ -8,10 +8,6 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 /**
  * Class responsible for visiting single expressions in code
  *
@@ -22,7 +18,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static MultiKeyHashMap<ExpressionVisitor> expressionVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final MultiKeyHashMap<ExpressionVisitor> expressionVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private ExpressionVisitor(Scope scope, ErrorCollector errorCollector) {
 

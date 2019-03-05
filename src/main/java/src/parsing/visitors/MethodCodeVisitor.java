@@ -2,7 +2,6 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Method;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
@@ -19,7 +18,7 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
     private final Method method;
     private final ErrorCollector errorCollector;
 
-    private static MultiKeyHashMap<MethodCodeVisitor> methodCodeVisitorMap = new MultiKeyHashMap<>(Method.class, ErrorCollector.class);
+    private static final MultiKeyHashMap<MethodCodeVisitor> methodCodeVisitorMap = new MultiKeyHashMap<>(Method.class, ErrorCollector.class);
 
     private MethodCodeVisitor(Method method, ErrorCollector errorCollector) {
 

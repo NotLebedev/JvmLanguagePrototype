@@ -38,7 +38,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static MultiKeyHashMap<ValueVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final MultiKeyHashMap<ValueVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private ValueVisitor(Scope scope, ErrorCollector errorCollector) {
 

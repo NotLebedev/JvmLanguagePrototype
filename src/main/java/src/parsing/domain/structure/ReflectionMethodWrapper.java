@@ -32,6 +32,7 @@ public class ReflectionMethodWrapper extends ReflectionExecutable {
         return ClassFactory.getInstance().forClass(containedMethod.getReturnType());
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isBridge() {
         return containedMethod.isBridge();
     }

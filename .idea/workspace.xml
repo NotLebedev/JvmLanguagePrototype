@@ -4,10 +4,19 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="+Implemented flyweight holder, variableDeclarationVisitor is flyweight now">
+    <list default="true" id="5b8430b8-2417-42ad-a518-a299a1f705ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/antlr4Gen/Root/RootLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/StaticClassField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/domain/structure/ReflectionMethodWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableAssignmentVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BytecodeEqualityTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,7 +28,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -39,10 +48,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="113">
-              <caret line="32" column="152" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="152" />
+              <caret line="32" column="158" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="158" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="20" column="111" selection-start-line="20" selection-start-column="111" selection-end-line="20" selection-end-column="111" />
             </state>
           </provider>
         </entry>
@@ -50,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="586">
+              <caret line="49" column="5" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -155,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/resources/source.lp" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/FloatLiteral.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/IntLiteral.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/domain/constantValues/LongLiteral.java" />
@@ -196,7 +222,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/utils/FlyweightFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/VisitorFlyweight.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/LiteralCGVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet" />
         <option value="$PROJECT_DIR$/src/main/java/src/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/utils/InvalidKeyTypesException.java" />
@@ -206,6 +231,8 @@
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ObjectInstantiationVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/ValueVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java" />
       </list>
     </option>
   </component>
@@ -656,21 +683,7 @@
       <workItem from="1548492812913" duration="67000" />
       <workItem from="1548492911372" duration="6000" />
       <workItem from="1551536200269" duration="6697000" />
-      <workItem from="1551800501545" duration="6306000" />
-    </task>
-    <task id="LOCAL-00165" summary="*Changed type initialization for Literals&#10;*Renamed field in FloatLiteral">
-      <created>1546262501844</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1546262501844</updated>
-    </task>
-    <task id="LOCAL-00166" summary="*Added LONGCG to grammar&#10;*Updated antlr4Gen&#10;*Created LiteralCGVisitor.LongCGVisitor&#10;*Implemented all of its methods&#10;*Added long case to LiteralCGVisitor">
-      <created>1546265959999</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1546265959999</updated>
+      <workItem from="1551800501545" duration="7009000" />
     </task>
     <task id="LOCAL-00167" summary="*Added optional &quot;f&quot; postfix for floats&#10;*Changed LiteralCGVisitor.visitFloatCG to correctly work with optional &quot;f&quot; postfix&#10;*Fixed bug, that made postfix-followed numbers lose last digit&#10;*Updated compilation integrity test">
       <created>1546277675328</created>
@@ -1001,16 +1014,24 @@
       <option name="project" value="LOCAL" />
       <updated>1551805890507</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="+Implemented flyweight holder, ObjectInstantiationVisitor is flyweight now">
+      <created>1551807102612</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1551807102612</updated>
+    </task>
+    <task id="LOCAL-00215" summary="+Implemented flyweight holder, MethodCodeVisitor is flyweight now">
+      <created>1551807527204</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1551807527204</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.02 at 18h 52m 58s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.05 at 18h 48m 28s.xml">
-      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.05 at 19h 16m 44s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
@@ -1035,9 +1056,15 @@
     <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.05 at 20h 29m 59s.xml">
       <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.05 at 20h 33m 52s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BytecodeEqualityTest_testBytecodeCompilationIntegrity - 2019.03.05 at 20h 38m 26s.xml">
+      <configuration name="BytecodeEqualityTest.testBytecodeCompilationIntegrity" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="464325000" />
+    <option name="totallyTimeSpent" value="465028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1058,10 +1085,10 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.8293333" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="0" visible="true" weight="0.44087136" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32780084" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.28838176" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.28838176" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39733332" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1175,8 +1202,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Implemented field incrementation in MathUnaryOperator" />
-    <MESSAGE value="*Updated BytecodeEqualityTest to run multiple test sources" />
     <MESSAGE value="*Added MathTest&#10;*Updated console output text for BytecodeEqualityTest" />
     <MESSAGE value="*Fix variable count was not processed correctly for two-word variables, they were treated as single word. Added dedicated variable counter" />
     <MESSAGE value="*Added separate UpdateSampleBytecode class, so no need to use that ignored test for TestBytecodeCompilationIntegrity, it also now has a dialog with choice and confirmation&#10;*Removed BytecodeEqualityTest.test_updateSampleBytecode()" />
@@ -1200,7 +1225,9 @@
     <MESSAGE value="+Replaced in ExpressionVisitor" />
     <MESSAGE value="+Implemented flyweight holder, VariableAssignmentVisitor is flyweight now" />
     <MESSAGE value="+Implemented flyweight holder, variableDeclarationVisitor is flyweight now" />
-    <option name="LAST_COMMIT_MESSAGE" value="+Implemented flyweight holder, variableDeclarationVisitor is flyweight now" />
+    <MESSAGE value="+Implemented flyweight holder, ObjectInstantiationVisitor is flyweight now" />
+    <MESSAGE value="+Implemented flyweight holder, MethodCodeVisitor is flyweight now" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Implemented flyweight holder, MethodCodeVisitor is flyweight now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1516,13 +1543,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/utils/FlyweightFactory.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VisitorFlyweight.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/source.lp">
       <provider selected="true" editor-type-id="text-editor">
@@ -1576,13 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="32" column="88" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -1624,14 +1637,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/VariableDeclarationVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
-          <caret line="32" column="152" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+          <caret line="32" column="158" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="158" />
         </state>
       </provider>
     </entry>
@@ -1656,6 +1662,27 @@
             <element signature="method#visitMathUnaryOperator#0;class#ValueVisitor#0" />
             <element signature="class#MethodInvVisitor#0;class#ValueVisitor#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/ExpressionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="49" column="5" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/CodeVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/parsing/visitors/MethodCodeVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="20" column="111" selection-start-line="20" selection-start-column="111" selection-end-line="20" selection-end-column="111" />
         </state>
       </provider>
     </entry>

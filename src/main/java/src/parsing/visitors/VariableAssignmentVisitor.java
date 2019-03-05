@@ -24,7 +24,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static MultiKeyHashMap<VariableAssignmentVisitor> variableAssignmentVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final MultiKeyHashMap<VariableAssignmentVisitor> variableAssignmentVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private VariableAssignmentVisitor(Scope scope, ErrorCollector errorCollector) {
 

@@ -2,7 +2,6 @@ package src.parsing.domain;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.Class2;
 import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.structure.ClassFactory;
