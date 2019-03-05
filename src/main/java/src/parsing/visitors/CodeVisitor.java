@@ -29,7 +29,7 @@ public class CodeVisitor extends RootBaseVisitor<ClassWriter> {
 
         var method = new Method();
 
-        method = ctx.methodCode().accept(new MethodCodeVisitor(method, errorCollector));
+        method = ctx.methodCode().accept(MethodCodeVisitor.getInstance(method, errorCollector));
 
         method.generateBytecode(classWriter);
 
