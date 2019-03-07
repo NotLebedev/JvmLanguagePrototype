@@ -312,7 +312,15 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     private Value visitMathUnaryOperator(RootParser.ValueContext ctx, MathUnaryOperator.Type type) {
 
-        var value = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
+        Value value;
+
+        if(type == MathUnaryOperator.Type.POST_INCREMENT
+                || type == MathUnaryOperator.Type.POST_DECREMENT)
+            value = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
+        else if (type == MathUnaryOperator.Type.PRE_INCREMENT)
+            value = ctx.preIncrement().value().accept(ValueVisitor.getInstance(scope, errorCollector));
+        else
+            value = ctx.preDecrement().value().accept(ValueVisitor.getInstance(scope, errorCollector));
 
         if(!(value instanceof Accessible))
             throw new IllegalStateException("Not implemented yet");

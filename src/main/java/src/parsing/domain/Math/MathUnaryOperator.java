@@ -58,8 +58,14 @@ public class MathUnaryOperator implements Value {
             case POST_DECREMENT:
                 generatePost(methodVisitor, Opcodes.ISUB, -1);
                 break;
+            case PRE_INCREMENT:
+                generatePre(methodVisitor, Opcodes.IADD, 1);
+                break;
+            case PRE_DECREMENT:
+                generatePre(methodVisitor, Opcodes.ISUB, -1);
+                break;
             default:
-                throw new IllegalStateException("Not implemented yet");
+                throw new IllegalStateException("Unexpected operatorType");
 
         }
 
