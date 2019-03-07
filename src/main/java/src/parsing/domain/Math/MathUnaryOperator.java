@@ -65,6 +65,12 @@ public class MathUnaryOperator implements Value {
 
     }
 
+    /**
+     * Generate a pre increment/decrement
+     * @param methodVisitor method visitor to use
+     * @param opcode {@code Opcodes.IADD} to increment, {@code Opcodes.ISUB} to decrement
+     * @param iincN 1 to increment, -1 to decrement
+     */
     private void generatePre(MethodVisitor methodVisitor, int opcode, int iincN) {
 
         if(accessible instanceof Variable) {
@@ -73,16 +79,26 @@ public class MathUnaryOperator implements Value {
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
             else {
 
+                accessible.generateBytecode(methodVisitor);
+                dupUpdate(methodVisitor, accessible, opcode, false);
+
+                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
+                        ((Variable)accessible).getId());
+
             }
 
-        }
+        }else {
 
-        accessible.generateBytecode(methodVisitor);
+            accessible.generateBytecode(methodVisitor);
+
+
+
+        }
 
     }
 
     /**
-     * Generate a post increment decrement
+     * Generate a post increment/decrement
      * @param methodVisitor method visitor to use
      * @param opcode {@code Opcodes.IADD} to increment, {@code Opcodes.ISUB} to decrement
      * @param iincN 1 to increment, -1 to decrement
@@ -97,7 +113,7 @@ public class MathUnaryOperator implements Value {
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
             else {
 
-                dupUpdate(methodVisitor, accessible, opcode);
+                dupUpdate(methodVisitor, accessible, opcode, true);
 
                 methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
                         ((Variable) accessible).getId());
@@ -106,7 +122,7 @@ public class MathUnaryOperator implements Value {
 
         }else {
 
-            dupUpdate(methodVisitor, accessible, opcode);
+            dupUpdate(methodVisitor, accessible, opcode, true);
 
             if(accessible instanceof StaticClassField) {
 
@@ -134,36 +150,49 @@ public class MathUnaryOperator implements Value {
 
     }
 
-    private void dupUpdate(MethodVisitor methodVisitor, Accessible accessible, int sample) {
+    /**
+     * Dup value and update it
+     * @param methodVisitor method visitor to use
+     * @param accessible accessible to preform action on
+     * @param sample sample of opcode (IADD/ISUB) to be used
+     * @param dupFirst true if value must be first duped than only
+     *                 one should be incremented false otherwise
+     */
+    private void dupUpdate(MethodVisitor methodVisitor, Accessible accessible, int sample, boolean dupFirst) {
 
-        int opcode;
+        int dupOpcode;
         Object constant;
 
         if(accessible.getType().equals(floats.get(0))) {
 
-            opcode = Opcodes.DUP;
+            dupOpcode = Opcodes.DUP;
             constant = 1f;
 
         } else if(accessible.getType().equals(floats.get(1))) {
 
-            opcode = Opcodes.DUP2;
+            dupOpcode = Opcodes.DUP2;
             constant = 1d;
 
         } else if(accessible.getType().equals(longT)) {
 
-            opcode = Opcodes.DUP2;
+            dupOpcode = Opcodes.DUP2;
             constant = 1L;
 
         } else {
 
-            opcode = Opcodes.DUP;
+            dupOpcode = Opcodes.DUP;
             constant = 1; //int
 
         }
 
-        methodVisitor.visitInsn(opcode);
+        if(dupFirst)
+            methodVisitor.visitInsn(dupOpcode);
+
         methodVisitor.visitLdcInsn(constant);
         methodVisitor.visitInsn(accessible.getType().getOpcode(sample));
+
+        if(!dupFirst)
+            methodVisitor.visitInsn(dupOpcode);
 
     }
 
