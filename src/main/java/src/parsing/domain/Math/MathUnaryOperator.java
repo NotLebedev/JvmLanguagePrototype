@@ -75,9 +75,12 @@ public class MathUnaryOperator implements Value {
 
         if(accessible instanceof Variable) {
 
-            if(ints.contains(accessible.getType()))
+            if(ints.contains(accessible.getType())) {
+
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
-            else {
+                accessible.generateBytecode(methodVisitor);
+
+            }else {
 
                 accessible.generateBytecode(methodVisitor);
                 dupUpdate(methodVisitor, accessible, opcode, false);
@@ -90,8 +93,9 @@ public class MathUnaryOperator implements Value {
         }else {
 
             accessible.generateBytecode(methodVisitor);
+            dupUpdate(methodVisitor, accessible, opcode, false);
 
-
+            storeField(methodVisitor, accessible);
 
         }
 
@@ -124,27 +128,7 @@ public class MathUnaryOperator implements Value {
 
             dupUpdate(methodVisitor, accessible, opcode, true);
 
-            if(accessible instanceof StaticClassField) {
-
-                var field = ((StaticClassField) accessible);
-
-                methodVisitor.visitFieldInsn(Opcodes.PUTSTATIC,
-                        field.getField().getOwnerClass().getSlashName(),
-                        field.getField().getName(),
-                        field.getType().getJvmName());
-
-            } else { //Object field
-
-                var field = ((ObjectField) accessible);
-
-                field.getObject().generateBytecode(methodVisitor);
-                methodVisitor.visitInsn(Opcodes.SWAP);
-                methodVisitor.visitFieldInsn(Opcodes.PUTFIELD,
-                        field.getField().getOwnerClass().getSlashName(),
-                        field.getField().getName(),
-                        field.getType().getJvmName());
-
-            }
+            storeField(methodVisitor, accessible);
 
         }
 
@@ -193,6 +177,33 @@ public class MathUnaryOperator implements Value {
 
         if(!dupFirst)
             methodVisitor.visitInsn(dupOpcode);
+
+    }
+
+    private void storeField(MethodVisitor methodVisitor, Accessible accessible) {
+
+        if(accessible instanceof StaticClassField) {
+
+            var field = ((StaticClassField) accessible);
+
+            methodVisitor.visitFieldInsn(Opcodes.PUTSTATIC,
+                    field.getField().getOwnerClass().getSlashName(),
+                    field.getField().getName(),
+                    field.getType().getJvmName());
+
+        } else if(accessible instanceof ObjectField) {
+
+            var field = ((ObjectField) accessible);
+
+            field.getObject().generateBytecode(methodVisitor);
+            methodVisitor.visitInsn(Opcodes.SWAP);
+            methodVisitor.visitFieldInsn(Opcodes.PUTFIELD,
+                    field.getField().getOwnerClass().getSlashName(),
+                    field.getField().getName(),
+                    field.getType().getJvmName());
+
+        } else
+            throw new IllegalStateException("Expected to have a field in storeField");
 
     }
 
