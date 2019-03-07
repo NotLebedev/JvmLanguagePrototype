@@ -61,6 +61,6 @@ className : path ;
 classAccess :  (path |  methodInv)/* (dotS classAccess)? */;
 methodInv : id bracketOpenS (value commaS)* value? bracketCloseS ;
 
-eol : semicolonS | ;
+eol : semicolonS;
 
 WS : [ \n\t\r] -> skip ;

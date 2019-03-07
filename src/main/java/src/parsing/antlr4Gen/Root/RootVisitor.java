@@ -1,4 +1,4 @@
-// Generated from C:/Users/Tema/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
+// Generated from E:/Work/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
 package src.parsing.antlr4Gen.Root;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
