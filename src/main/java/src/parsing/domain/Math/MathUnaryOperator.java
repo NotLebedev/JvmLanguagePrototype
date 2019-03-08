@@ -23,6 +23,8 @@ public class MathUnaryOperator implements Value {
     private final static ArrayList<AbstractClass> floats;
     private final static AbstractClass longT;
 
+    private final static ArrayList<AbstractClass> boxed;
+
     static {
 
         var cf = ClassFactory.getInstance();
@@ -39,6 +41,9 @@ public class MathUnaryOperator implements Value {
 
         longT = cf.forCorrectName("long");
 
+        boxed = new ArrayList<>(7);
+        boxed.add(cf.forCorrectName("java.lang.Integer"));
+
     }
 
     public MathUnaryOperator(Type operatorType, Accessible accessible) {
@@ -50,22 +55,26 @@ public class MathUnaryOperator implements Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        switch (operatorType) {
+        if(floats.contains(accessible.getType()) || ints.contains(accessible.getType()) || longT.equals(accessible.getType())) {
 
-            case POST_INCREMENT:
-                generatePost(methodVisitor, Opcodes.IADD, 1);
-                break;
-            case POST_DECREMENT:
-                generatePost(methodVisitor, Opcodes.ISUB, -1);
-                break;
-            case PRE_INCREMENT:
-                generatePre(methodVisitor, Opcodes.IADD, 1);
-                break;
-            case PRE_DECREMENT:
-                generatePre(methodVisitor, Opcodes.ISUB, -1);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected operatorType");
+            switch(operatorType) {
+
+                case POST_INCREMENT:
+                    generatePost(methodVisitor, Opcodes.IADD, 1);
+                    break;
+                case POST_DECREMENT:
+                    generatePost(methodVisitor, Opcodes.ISUB, -1);
+                    break;
+                case PRE_INCREMENT:
+                    generatePre(methodVisitor, Opcodes.IADD, 1);
+                    break;
+                case PRE_DECREMENT:
+                    generatePre(methodVisitor, Opcodes.ISUB, -1);
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected operatorType");
+
+            }
 
         }
 
