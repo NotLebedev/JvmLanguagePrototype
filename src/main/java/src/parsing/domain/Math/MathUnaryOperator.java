@@ -8,6 +8,7 @@ import src.parsing.domain.ObjectField;
 import src.parsing.domain.StaticClassField;
 import src.parsing.domain.Variable;
 import src.parsing.domain.exceptions.NotBoxedTypeException;
+import src.parsing.domain.exceptions.OperatorCanNotBeAppliedException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.domain.utils.TypeMatcher;
@@ -54,7 +55,7 @@ public class MathUnaryOperator implements Value {
 
     }
 
-    public MathUnaryOperator(Type operatorType, Accessible accessible) {
+    public MathUnaryOperator(Type operatorType, Accessible accessible) throws OperatorCanNotBeAppliedException {
 
         this.operatorType = operatorType;
         this.accessible = accessible;
@@ -68,6 +69,31 @@ public class MathUnaryOperator implements Value {
         }
 
         this.type = abstractClass;
+
+        checkType();
+
+    }
+
+    private void checkType() throws OperatorCanNotBeAppliedException {
+
+        if(!(floats.contains(type) || longT.equals(type) || ints.contains(type))) {
+
+            switch(operatorType) {
+
+                case POST_INCREMENT:
+                    throw new OperatorCanNotBeAppliedException("++", type);
+                case POST_DECREMENT:
+                    throw new OperatorCanNotBeAppliedException("--", type);
+                case PRE_INCREMENT:
+                    throw new OperatorCanNotBeAppliedException("++", type);
+                case PRE_DECREMENT:
+                    throw new OperatorCanNotBeAppliedException("--", type);
+                default:
+                    throw new IllegalStateException("Unexpected operatorType");
+
+            }
+
+        }
 
     }
 

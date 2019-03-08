@@ -7,10 +7,7 @@ import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Math.MathUnaryOperator;
-import src.parsing.domain.exceptions.ArrayExpectedException;
-import src.parsing.domain.exceptions.IncompatibleTypesException;
-import src.parsing.domain.exceptions.VariableNotFoundException;
-import src.parsing.domain.exceptions.WrongCastException;
+import src.parsing.domain.exceptions.*;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;
 import src.parsing.domain.structure.ReflectionMethodWrapper;
@@ -322,10 +319,20 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         else
             value = ctx.preDecrement().value().accept(ValueVisitor.getInstance(scope, errorCollector));
 
-        if(!(value instanceof Accessible))
-            throw new IllegalStateException("Not implemented yet");
+        if(!(value instanceof Accessible)) {
+            errorCollector.reportError(new VariableExpectedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
+                            ctx.getText()));
+            throw new ExpressionParseCancelationException();
+        }
 
-        return new MathUnaryOperator(type, ((Accessible) value));
+        try {
+            return new MathUnaryOperator(type, ((Accessible) value));
+        } catch (OperatorCanNotBeAppliedException e) {
+            errorCollector.reportError(new OperatorCanNotBeAppliedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
+                    ctx.getText(),
+                    e.getMessage()));
+            throw new ExpressionParseCancelationException();
+        }
 
     }
 
