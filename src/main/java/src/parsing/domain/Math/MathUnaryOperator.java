@@ -43,19 +43,27 @@ public class MathUnaryOperator implements Value {
 
         boxed = new ArrayList<>(7);
         boxed.add(cf.forCorrectName("java.lang.Integer"));
+        boxed.add(cf.forCorrectName("java.lang.Short"));
+        boxed.add(cf.forCorrectName("java.lang.Byte"));
+        boxed.add(cf.forCorrectName("java.lang.Character"));
+        boxed.add(cf.forCorrectName("java.lang.Float"));
+        boxed.add(cf.forCorrectName("java.lang.Double"));
+        boxed.add(cf.forCorrectName("java.lang.Long"));
 
     }
 
     public MathUnaryOperator(Type operatorType, Accessible accessible) {
+
         this.operatorType = operatorType;
         this.accessible = accessible;
         this.type = accessible.getType();
+
     }
 
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        if(floats.contains(accessible.getType()) || ints.contains(accessible.getType()) || longT.equals(accessible.getType())) {
+        if(floats.contains(type) || ints.contains(type) || longT.equals(type)) {
 
             switch(operatorType) {
 
@@ -90,7 +98,7 @@ public class MathUnaryOperator implements Value {
 
         if(accessible instanceof Variable) {
 
-            if(ints.contains(accessible.getType())) {
+            if(ints.contains(type)) {
 
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
                 accessible.generateBytecode(methodVisitor);
@@ -100,7 +108,7 @@ public class MathUnaryOperator implements Value {
                 accessible.generateBytecode(methodVisitor);
                 dupUpdate(methodVisitor, accessible, opcode, false);
 
-                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
+                methodVisitor.visitVarInsn(type.getOpcode(Opcodes.ISTORE),
                         ((Variable)accessible).getId());
 
             }
@@ -128,13 +136,13 @@ public class MathUnaryOperator implements Value {
 
         if(accessible instanceof Variable) {
 
-            if(ints.contains(accessible.getType()))
+            if(ints.contains(type))
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
             else {
 
                 dupUpdate(methodVisitor, accessible, opcode, true);
 
-                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
+                methodVisitor.visitVarInsn(type.getOpcode(Opcodes.ISTORE),
                         ((Variable) accessible).getId());
 
             }
@@ -162,17 +170,17 @@ public class MathUnaryOperator implements Value {
         int dupOpcode;
         Object constant;
 
-        if(accessible.getType().equals(floats.get(0))) {
+        if(type.equals(floats.get(0))) {
 
             dupOpcode = Opcodes.DUP;
             constant = 1f;
 
-        } else if(accessible.getType().equals(floats.get(1))) {
+        } else if(type.equals(floats.get(1))) {
 
             dupOpcode = Opcodes.DUP2;
             constant = 1d;
 
-        } else if(accessible.getType().equals(longT)) {
+        } else if(type.equals(longT)) {
 
             dupOpcode = Opcodes.DUP2;
             constant = 1L;
@@ -188,7 +196,7 @@ public class MathUnaryOperator implements Value {
             methodVisitor.visitInsn(dupOpcode);
 
         methodVisitor.visitLdcInsn(constant);
-        methodVisitor.visitInsn(accessible.getType().getOpcode(sample));
+        methodVisitor.visitInsn(type.getOpcode(sample));
 
         if(!dupFirst)
             methodVisitor.visitInsn(dupOpcode);
