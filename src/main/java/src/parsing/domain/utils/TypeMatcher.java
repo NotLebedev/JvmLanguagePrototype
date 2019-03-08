@@ -5,11 +5,13 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectMethodInvocation;
 import src.parsing.domain.StaticMethodInvocation;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.parsing.domain.exceptions.NotBoxedTypeException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Class used to check if two types match
@@ -136,6 +138,37 @@ public class TypeMatcher {
             return matchB2P(sample, value);
         } else {
             return matchP2B(sample, value);
+        }
+
+    }
+
+    /**
+     * Convert boxed type to primitive and visa-versa
+     * @param value value to be (un)boxed
+     * @return (un)boxed value
+     * @throws NotBoxedTypeException the type can not be (un)boxed
+     */
+    public Value doBoxing(Value value) throws NotBoxedTypeException {
+
+        var type = value.getType();
+
+        Optional<Pair<AbstractClass, AbstractClass>> result = boxingPairs.stream()
+                .filter(classPair ->
+                        classPair.getKey().equals(type) || classPair.getValue().equals(type))
+                .findFirst();
+
+        if(!result.isPresent())
+            throw new NotBoxedTypeException(type.getName());
+
+        try {
+
+            if(result.get().getKey().equals(type)) //Value is primitive
+                return matchP2B(result.get().getValue(), value);
+            else //Value is box
+                return matchB2P(result.get().getKey(), value);
+
+        }catch (IncompatibleTypesException ignored) {
+            throw new IllegalStateException("Expected correct boxing pair");
         }
 
     }
