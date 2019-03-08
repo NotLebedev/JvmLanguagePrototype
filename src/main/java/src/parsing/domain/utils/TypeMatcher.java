@@ -147,10 +147,10 @@ public class TypeMatcher {
     /**
      * Convert value on stack from boxed type to primitive and visa-versa
      * @param value value to be (un)boxed
-     * @return (un)boxed value
+     * @return new type
      * @throws NotBoxedTypeException the type can not be (un)boxed
      */
-    public void doStackBoxing(AbstractClass type, MethodVisitor methodVisitor) throws NotBoxedTypeException {
+    public AbstractClass doStackBoxing(AbstractClass type, MethodVisitor methodVisitor) throws NotBoxedTypeException {
 
         Optional<Pair<AbstractClass, AbstractClass>> result = boxingPairs.stream()
                 .filter(classPair ->
@@ -164,14 +164,16 @@ public class TypeMatcher {
 
             if(result.get().getKey().equals(type)) { //Value is primitive
 
-                var method = type.getMethod("valueOf",
+                var method = result.get().getValue().getMethod("valueOf",
                         new AbstractClass[]{result.get().getKey()});
 
                 methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC,
-                        type.getSlashName(),
+                        result.get().getValue().getSlashName(),
                         method.getName(),
                         method.getDescriptor(),
-                        type.isInterface());
+                        result.get().getValue().isInterface());
+
+                return result.get().getValue();
 
             } else { //Value is box
 
@@ -184,11 +186,27 @@ public class TypeMatcher {
                         method.getDescriptor(),
                         type.isInterface());
 
+                return result.get().getKey();
+
             }
 
         } catch (NoSuchMethodException e) {
             throw new IllegalStateException("Method expected to be found", e);
         }
+
+    }
+
+    public AbstractClass getUnboxed(AbstractClass type) throws NotBoxedTypeException {
+
+        Optional<Pair<AbstractClass, AbstractClass>> result = boxingPairs.stream()
+                .filter(classPair ->
+                        classPair.getKey().equals(type) || classPair.getValue().equals(type))
+                .findFirst();
+
+        if(!result.isPresent() || type.equals(result.get().getKey()))
+            throw new NotBoxedTypeException(type.getName());
+
+        return result.get().getKey();
 
     }
 

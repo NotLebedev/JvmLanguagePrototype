@@ -58,35 +58,40 @@ public class MathUnaryOperator implements Value {
 
         this.operatorType = operatorType;
         this.accessible = accessible;
-        this.type = accessible.getType();
+
+        AbstractClass abstractClass;
+
+        try {
+            abstractClass = TypeMatcher.getInstance().getUnboxed(accessible.getType());
+        } catch (NotBoxedTypeException ignored) {
+            abstractClass = accessible.getType();
+        }
+
+        this.type = abstractClass;
 
     }
 
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        //if(floats.contains(type) || ints.contains(type) || longT.equals(type)) {
+        switch(operatorType) {
 
-            switch(operatorType) {
+            case POST_INCREMENT:
+                generatePost(methodVisitor, Opcodes.IADD, 1);
+                break;
+            case POST_DECREMENT:
+                generatePost(methodVisitor, Opcodes.ISUB, -1);
+                break;
+            case PRE_INCREMENT:
+                generatePre(methodVisitor, Opcodes.IADD, 1);
+                break;
+            case PRE_DECREMENT:
+                generatePre(methodVisitor, Opcodes.ISUB, -1);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected operatorType");
 
-                case POST_INCREMENT:
-                    generatePost(methodVisitor, Opcodes.IADD, 1);
-                    break;
-                case POST_DECREMENT:
-                    generatePost(methodVisitor, Opcodes.ISUB, -1);
-                    break;
-                case PRE_INCREMENT:
-                    generatePre(methodVisitor, Opcodes.IADD, 1);
-                    break;
-                case PRE_DECREMENT:
-                    generatePre(methodVisitor, Opcodes.ISUB, -1);
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected operatorType");
-
-            }
-
-        //}
+        }
 
     }
 
@@ -100,7 +105,7 @@ public class MathUnaryOperator implements Value {
 
         if(accessible instanceof Variable) {
 
-            if(ints.contains(type)) {
+            if(ints.contains(accessible.getType())) {
 
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
                 accessible.generateBytecode(methodVisitor);
@@ -110,7 +115,7 @@ public class MathUnaryOperator implements Value {
                 accessible.generateBytecode(methodVisitor);
                 dupUpdate(methodVisitor, accessible, opcode, false);
 
-                methodVisitor.visitVarInsn(type.getOpcode(Opcodes.ISTORE),
+                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
                         ((Variable)accessible).getId());
 
             }
@@ -136,15 +141,23 @@ public class MathUnaryOperator implements Value {
 
         accessible.generateBytecode(methodVisitor);
 
+        if(boxed.contains(accessible.getType())) {
+            boxTo(accessible.getType(), methodVisitor);
+        }
+
         if(accessible instanceof Variable) {
 
-            if(ints.contains(type))
+            if(ints.contains(accessible.getType()))
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
             else {
 
                 dupUpdate(methodVisitor, accessible, opcode, true);
 
-                methodVisitor.visitVarInsn(type.getOpcode(Opcodes.ISTORE),
+                if(boxed.contains(accessible.getType())) {
+                    boxTo(type, methodVisitor);
+                }
+
+                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
                         ((Variable) accessible).getId());
 
             }
@@ -152,6 +165,10 @@ public class MathUnaryOperator implements Value {
         }else {
 
             dupUpdate(methodVisitor, accessible, opcode, true);
+
+            if(boxed.contains(accessible.getType())) {
+                boxTo(type, methodVisitor);
+            }
 
             storeField(methodVisitor, accessible);
 
@@ -172,17 +189,17 @@ public class MathUnaryOperator implements Value {
         int dupOpcode;
         Object constant;
 
-        if(type.equals(floats.get(0))) {
+        if(accessible.getType().equals(floats.get(0))) {
 
             dupOpcode = Opcodes.DUP;
             constant = 1f;
 
-        } else if(type.equals(floats.get(1))) {
+        } else if(accessible.getType().equals(floats.get(1))) {
 
             dupOpcode = Opcodes.DUP2;
             constant = 1d;
 
-        } else if(type.equals(longT)) {
+        } else if(accessible.getType().equals(longT)) {
 
             dupOpcode = Opcodes.DUP2;
             constant = 1L;
@@ -198,7 +215,7 @@ public class MathUnaryOperator implements Value {
             methodVisitor.visitInsn(dupOpcode);
 
         methodVisitor.visitLdcInsn(constant);
-        methodVisitor.visitInsn(type.getOpcode(sample));
+        methodVisitor.visitInsn(accessible.getType().getOpcode(sample));
 
         if(!dupFirst)
             methodVisitor.visitInsn(dupOpcode);
@@ -229,6 +246,16 @@ public class MathUnaryOperator implements Value {
 
         } else
             throw new IllegalStateException("Expected to have a field in storeField");
+
+    }
+
+    private AbstractClass boxTo(AbstractClass type, MethodVisitor methodVisitor) {
+
+        try {
+            return TypeMatcher.getInstance().doStackBoxing(type, methodVisitor);
+        } catch (NotBoxedTypeException e) {
+            throw new IllegalStateException("Expected to be boxed", e);
+        }
 
     }
 
