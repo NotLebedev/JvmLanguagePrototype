@@ -95,3 +95,13 @@ java.lang.System.out.println(i152);
 --i152;
 java.lang.System.out.println(--i152);
 java.lang.System.out.println(i152);
+
+java.lang.Double d99 = (double)1234;
+
+d99--;
+java.lang.System.out.println(d99--);
+java.lang.System.out.println(d99);
+
+++d99;
+java.lang.System.out.println(++d99);
+java.lang.System.out.println(d99);
