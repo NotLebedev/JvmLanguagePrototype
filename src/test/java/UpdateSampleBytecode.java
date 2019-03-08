@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 public class UpdateSampleBytecode {
 
-    private final static String resourcesPath = "C:\\Users\\Tema\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources";
+    private final static String resourcesPath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources";
 
     private final static String sourceName = "source.lp";
     private final static String bytecodeName = "sample.byt";
