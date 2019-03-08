@@ -103,47 +103,29 @@ public class MathUnaryOperator implements Value {
      */
     private void generatePre(MethodVisitor methodVisitor, int opcode, int iincN) {
 
-        if(accessible instanceof Variable) {
+        if(accessible instanceof Variable && ints.contains(accessible.getType())) {
 
-            if(ints.contains(accessible.getType())) {
-
-                methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
-                accessible.generateBytecode(methodVisitor);
-
-            }else {
-
-                accessible.generateBytecode(methodVisitor);
-
-                if(boxed.contains(accessible.getType())) {
-                    boxTo(accessible.getType(), methodVisitor);
-                }
-
-                dupUpdate(methodVisitor, accessible, opcode, false);
-
-                if(boxed.contains(accessible.getType())) {
-                    boxTo(type, methodVisitor);
-                }
-
-                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
-                        ((Variable)accessible).getId());
-
-            }
+            methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
+            accessible.generateBytecode(methodVisitor);
 
         }else {
 
             accessible.generateBytecode(methodVisitor);
 
-            if(boxed.contains(accessible.getType())) {
+            if(boxed.contains(accessible.getType()))
                 boxTo(accessible.getType(), methodVisitor);
-            }
 
             dupUpdate(methodVisitor, accessible, opcode, false);
 
-            if(boxed.contains(accessible.getType())) {
+            if(boxed.contains(accessible.getType()))
                 boxTo(type, methodVisitor);
-            }
 
-            storeField(methodVisitor, accessible);
+            if(accessible instanceof Variable) {
+                methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
+                        ((Variable)accessible).getId());
+            }else {
+                storeField(methodVisitor, accessible);
+            }
 
         }
 
