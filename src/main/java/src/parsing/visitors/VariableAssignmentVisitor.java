@@ -2,10 +2,10 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.*;
 import src.parsing.domain.Interfaces.Expression;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.access.*;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;

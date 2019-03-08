@@ -1,4 +1,4 @@
-package src.parsing.domain;
+package src.parsing.domain.access;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;

@@ -1,6 +1,6 @@
 package src.parsing.domain.Interfaces;
 
-import src.parsing.domain.Variable;
+import src.parsing.domain.access.Variable;
 import src.parsing.domain.exceptions.VariableAlreadyDefinedException;
 import src.parsing.domain.exceptions.VariableNotFoundException;
 

@@ -7,6 +7,7 @@ import src.parsing.domain.Interfaces.Accessible;
 import src.parsing.domain.Interfaces.Scope;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.Math.MathUnaryOperator;
+import src.parsing.domain.access.*;
 import src.parsing.domain.exceptions.*;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;

@@ -86,22 +86,4 @@ long l85 = (long) d84
 short s86 = (short) l85
 */
 
-java.lang.Integer i152 = 1234;
-
-i152++;
-java.lang.System.out.println(i152++);
-java.lang.System.out.println(i152);
-
---i152;
-java.lang.System.out.println(--i152);
-java.lang.System.out.println(i152);
-
-java.lang.Double d99 = (double)1234;
-
-d99--;
-java.lang.System.out.println(d99--);
-java.lang.System.out.println(d99);
-
-++d99;
-java.lang.System.out.println(++d99);
-java.lang.System.out.println(d99);
+src.parsing.Class2.sf++;

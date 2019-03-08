@@ -1,4 +1,4 @@
-package src.parsing.domain;
+package src.parsing.domain.access;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -10,14 +10,16 @@ import src.parsing.domain.utils.TypeMatcher;
 /**
  * @author NotLebedev
  */
-public class StaticClassFieldAssignment implements Expression {
+public class ObjectFieldAssignment implements Expression {
 
-    private final StaticClassField field;
+    private final Value object;
+    private final ObjectField field;
     private final Value value;
 
-    public StaticClassFieldAssignment(StaticClassField field, Value value) throws IncompatibleTypesException {
+    public ObjectFieldAssignment(ObjectField field, Value value) throws IncompatibleTypesException {
 
         this.field = field;
+        this.object = field.getObject();
         this.value = TypeMatcher.getInstance().softMatch(field.getType(), value);
 
     }
@@ -27,12 +29,12 @@ public class StaticClassFieldAssignment implements Expression {
     public void generateBytecode(MethodVisitor methodVisitor) {
 
         value.generateBytecode(methodVisitor);
+        object.generateBytecode(methodVisitor);
 
-        methodVisitor.visitFieldInsn(Opcodes.PUTSTATIC,
+        methodVisitor.visitFieldInsn(Opcodes.PUTFIELD,
                 field.getField().getOwnerClass().getSlashName(),
                 field.getField().getName(),
                 field.getType().getJvmName());
 
     }
-
 }
