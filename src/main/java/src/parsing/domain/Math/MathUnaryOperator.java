@@ -113,7 +113,16 @@ public class MathUnaryOperator implements Value {
             }else {
 
                 accessible.generateBytecode(methodVisitor);
+
+                if(boxed.contains(accessible.getType())) {
+                    boxTo(accessible.getType(), methodVisitor);
+                }
+
                 dupUpdate(methodVisitor, accessible, opcode, false);
+
+                if(boxed.contains(accessible.getType())) {
+                    boxTo(type, methodVisitor);
+                }
 
                 methodVisitor.visitVarInsn(accessible.getType().getOpcode(Opcodes.ISTORE),
                         ((Variable)accessible).getId());
@@ -123,7 +132,16 @@ public class MathUnaryOperator implements Value {
         }else {
 
             accessible.generateBytecode(methodVisitor);
+
+            if(boxed.contains(accessible.getType())) {
+                boxTo(accessible.getType(), methodVisitor);
+            }
+
             dupUpdate(methodVisitor, accessible, opcode, false);
+
+            if(boxed.contains(accessible.getType())) {
+                boxTo(type, methodVisitor);
+            }
 
             storeField(methodVisitor, accessible);
 
@@ -189,17 +207,17 @@ public class MathUnaryOperator implements Value {
         int dupOpcode;
         Object constant;
 
-        if(accessible.getType().equals(floats.get(0))) {
+        if(type.equals(floats.get(0))) {
 
             dupOpcode = Opcodes.DUP;
             constant = 1f;
 
-        } else if(accessible.getType().equals(floats.get(1))) {
+        } else if(type.equals(floats.get(1))) {
 
             dupOpcode = Opcodes.DUP2;
             constant = 1d;
 
-        } else if(accessible.getType().equals(longT)) {
+        } else if(type.equals(longT)) {
 
             dupOpcode = Opcodes.DUP2;
             constant = 1L;
@@ -215,7 +233,7 @@ public class MathUnaryOperator implements Value {
             methodVisitor.visitInsn(dupOpcode);
 
         methodVisitor.visitLdcInsn(constant);
-        methodVisitor.visitInsn(accessible.getType().getOpcode(sample));
+        methodVisitor.visitInsn(type.getOpcode(sample));
 
         if(!dupFirst)
             methodVisitor.visitInsn(dupOpcode);

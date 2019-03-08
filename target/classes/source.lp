@@ -85,66 +85,13 @@ double d84 = (double) i83
 long l85 = (long) d84
 short s86 = (short) l85
 */
-//Unary operator test
 
-    //Post increment
-        int i1 = 1;
-        long l2 = 2L;
-        double d3 = (double)3;
-        short s4 = (short)4;
+java.lang.Integer i152 = 1234;
 
-        i1++;
-        l2++;
-        d3++;
-        s4++;
+i152++;
+java.lang.System.out.println(i152++);
+java.lang.System.out.println(i152);
 
-        src.parsing.Class2 c95 = new src.parsing.Class2();
-
-        java.lang.System.out.println(c95.i++);
-        java.lang.System.out.println(c95.i);
-
-        java.lang.System.out.println(c95.j++);
-        java.lang.System.out.println(src.parsing.Class2.j);
-    //Post increment
-
-    //Post decrement
-        i1--;
-        l2--;
-        d3--;
-        s4--;
-
-        java.lang.System.out.println(c95.i--);
-        java.lang.System.out.println(c95.i);
-
-        java.lang.System.out.println(c95.j--);
-        java.lang.System.out.println(src.parsing.Class2.j);
-    //Post increment
-
-    //Pre increment
-
-        ++i1;
-        ++l2;
-        ++d3;
-        ++s4;
-
-        java.lang.System.out.println(++c95.i);
-        java.lang.System.out.println(c95.i);
-
-        java.lang.System.out.println(++c95.j);
-        java.lang.System.out.println(src.parsing.Class2.j);
-    //Pre increment
-
-    //Pre decrement
-
-        --i1;
-        --l2;
-        --d3;
-        --s4;
-
-        java.lang.System.out.println(--c95.i);
-        java.lang.System.out.println(c95.i);
-
-        java.lang.System.out.println(--c95.j);
-        java.lang.System.out.println(src.parsing.Class2.j);
-    //Pre decrement
-//Unary operator test
+--i152;
+java.lang.System.out.println(--i152);
+java.lang.System.out.println(i152);

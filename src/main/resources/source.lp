@@ -91,3 +91,7 @@ java.lang.Integer i152 = 1234;
 i152++;
 java.lang.System.out.println(i152++);
 java.lang.System.out.println(i152);
+
+--i152;
+java.lang.System.out.println(--i152);
+java.lang.System.out.println(i152);
