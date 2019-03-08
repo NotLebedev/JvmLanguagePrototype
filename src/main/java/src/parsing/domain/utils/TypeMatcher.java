@@ -1,6 +1,8 @@
 package src.parsing.domain.utils;
 
 import javafx.util.Pair;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectMethodInvocation;
 import src.parsing.domain.StaticMethodInvocation;
@@ -143,14 +145,12 @@ public class TypeMatcher {
     }
 
     /**
-     * Convert boxed type to primitive and visa-versa
+     * Convert value on stack from boxed type to primitive and visa-versa
      * @param value value to be (un)boxed
      * @return (un)boxed value
      * @throws NotBoxedTypeException the type can not be (un)boxed
      */
-    public Value doBoxing(Value value) throws NotBoxedTypeException {
-
-        var type = value.getType();
+    public void doStackBoxing(AbstractClass type, MethodVisitor methodVisitor) throws NotBoxedTypeException {
 
         Optional<Pair<AbstractClass, AbstractClass>> result = boxingPairs.stream()
                 .filter(classPair ->
@@ -162,13 +162,32 @@ public class TypeMatcher {
 
         try {
 
-            if(result.get().getKey().equals(type)) //Value is primitive
-                return matchP2B(result.get().getValue(), value);
-            else //Value is box
-                return matchB2P(result.get().getKey(), value);
+            if(result.get().getKey().equals(type)) { //Value is primitive
 
-        }catch (IncompatibleTypesException ignored) {
-            throw new IllegalStateException("Expected correct boxing pair");
+                var method = type.getMethod("valueOf",
+                        new AbstractClass[]{result.get().getKey()});
+
+                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC,
+                        type.getSlashName(),
+                        method.getName(),
+                        method.getDescriptor(),
+                        type.isInterface());
+
+            } else { //Value is box
+
+                var method = type.getMethod(
+                        result.get().getKey().getName() + "Value", new AbstractClass[0]);
+
+                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL,
+                        type.getSlashName(),
+                        method.getName(),
+                        method.getDescriptor(),
+                        type.isInterface());
+
+            }
+
+        } catch (NoSuchMethodException e) {
+            throw new IllegalStateException("Method expected to be found", e);
         }
 
     }

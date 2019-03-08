@@ -7,8 +7,10 @@ import src.parsing.domain.Interfaces.Value;
 import src.parsing.domain.ObjectField;
 import src.parsing.domain.StaticClassField;
 import src.parsing.domain.Variable;
+import src.parsing.domain.exceptions.NotBoxedTypeException;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.utils.TypeMatcher;
 
 import java.util.ArrayList;
 
@@ -63,7 +65,7 @@ public class MathUnaryOperator implements Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
-        if(floats.contains(type) || ints.contains(type) || longT.equals(type)) {
+        //if(floats.contains(type) || ints.contains(type) || longT.equals(type)) {
 
             switch(operatorType) {
 
@@ -84,7 +86,7 @@ public class MathUnaryOperator implements Value {
 
             }
 
-        }
+        //}
 
     }
 
