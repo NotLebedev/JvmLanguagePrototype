@@ -141,7 +141,7 @@ public class MathUnaryOperator implements Value {
             if(boxed.contains(accessible.getType()))
                 boxTo(accessible.getType(), methodVisitor);
 
-            dupUpdate(methodVisitor, accessible, opcode, false);
+            dupUpdate(methodVisitor, opcode, false);
 
             if(boxed.contains(accessible.getType()))
                 boxTo(type, methodVisitor);
@@ -177,7 +177,7 @@ public class MathUnaryOperator implements Value {
                 methodVisitor.visitIincInsn(((Variable) accessible).getId(), iincN);
             else {
 
-                dupUpdate(methodVisitor, accessible, opcode, true);
+                dupUpdate(methodVisitor, opcode, true);
 
                 if(boxed.contains(accessible.getType())) {
                     boxTo(type, methodVisitor);
@@ -190,7 +190,7 @@ public class MathUnaryOperator implements Value {
 
         }else {
 
-            dupUpdate(methodVisitor, accessible, opcode, true);
+            dupUpdate(methodVisitor, opcode, true);
 
             if(boxed.contains(accessible.getType())) {
                 boxTo(type, methodVisitor);
@@ -205,12 +205,10 @@ public class MathUnaryOperator implements Value {
     /**
      * Dup value and update it
      * @param methodVisitor method visitor to use
-     * @param accessible accessible to preform action on
      * @param sample sample of opcode (IADD/ISUB) to be used
      * @param dupFirst true if value must be first duped than only
-     *                 one should be incremented false otherwise
      */
-    private void dupUpdate(MethodVisitor methodVisitor, Accessible accessible, int sample, boolean dupFirst) {
+    private void dupUpdate(MethodVisitor methodVisitor, int sample, boolean dupFirst) {
 
         int dupOpcode;
         Object constant;
@@ -275,10 +273,10 @@ public class MathUnaryOperator implements Value {
 
     }
 
-    private AbstractClass boxTo(AbstractClass type, MethodVisitor methodVisitor) {
+    private void boxTo(AbstractClass type, MethodVisitor methodVisitor) {
 
         try {
-            return TypeMatcher.getInstance().doStackBoxing(type, methodVisitor);
+            TypeMatcher.getInstance().doStackBoxing(type, methodVisitor);
         } catch (NotBoxedTypeException e) {
             throw new IllegalStateException("Expected to be boxed", e);
         }

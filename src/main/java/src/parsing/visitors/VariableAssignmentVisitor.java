@@ -67,8 +67,6 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
             var variable = ((Variable) val);
 
-            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
-
             try {
                 variableAssignment.setParams(variable, value);
             } catch (IncompatibleTypesException e) {

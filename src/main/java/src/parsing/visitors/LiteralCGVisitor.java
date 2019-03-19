@@ -18,7 +18,7 @@ public class LiteralCGVisitor extends RootBaseVisitor<Value> {
     private LiteralCGVisitor(){}
 
     private static class SingletonHolder {
-        private static LiteralCGVisitor HOLDER_INSTANCE = new LiteralCGVisitor();
+        private static final LiteralCGVisitor HOLDER_INSTANCE = new LiteralCGVisitor();
     }
 
     public static LiteralCGVisitor getInstance() {

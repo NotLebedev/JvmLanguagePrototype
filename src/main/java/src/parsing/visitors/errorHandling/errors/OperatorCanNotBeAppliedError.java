@@ -1,6 +1,5 @@
 package src.parsing.visitors.errorHandling.errors;
 
-import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.CompilationError;
 
 /**

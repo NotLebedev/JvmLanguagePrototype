@@ -10,7 +10,7 @@ public class ClassFactory {
     private final HashMap<Class<?>, ReflectionClassWrapper> reflectionClassMap = new HashMap<>();
 
     private static class SingletonHolder {
-        private static ClassFactory HOLDER_INSTANCE = new ClassFactory();
+        private static final ClassFactory HOLDER_INSTANCE = new ClassFactory();
     }
 
     public static ClassFactory getInstance() {
