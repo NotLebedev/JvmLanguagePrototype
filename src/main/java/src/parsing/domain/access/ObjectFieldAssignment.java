@@ -2,8 +2,8 @@ package src.parsing.domain.access;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.domain.Interfaces.Expression;
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Expression;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.utils.TypeMatcher;
 

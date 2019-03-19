@@ -2,7 +2,7 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.literals.FloatLiteral;
 import src.parsing.domain.literals.IntLiteral;
 import src.parsing.domain.literals.LongLiteral;

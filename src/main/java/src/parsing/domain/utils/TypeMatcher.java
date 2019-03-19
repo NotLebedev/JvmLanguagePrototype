@@ -3,7 +3,7 @@ package src.parsing.domain.utils;
 import javafx.util.Pair;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.access.ObjectMethodInvocation;
 import src.parsing.domain.access.StaticMethodInvocation;
 import src.parsing.domain.exceptions.IncompatibleTypesException;

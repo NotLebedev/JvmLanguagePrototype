@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.access.Variable;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
 import src.parsing.domain.structure.ClassFactory;

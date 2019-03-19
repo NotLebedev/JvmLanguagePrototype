@@ -1,7 +1,7 @@
 package src.parsing.domain.structure;
 
 import org.objectweb.asm.MethodVisitor;
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 
 /**

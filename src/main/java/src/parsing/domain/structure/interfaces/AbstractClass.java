@@ -1,6 +1,6 @@
 package src.parsing.domain.structure.interfaces;
 
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.exceptions.NoSuchConstructorException;
 import src.parsing.domain.structure.ReflectionConstructorWrapper;
 import src.parsing.domain.structure.ReflectionFieldWrapper;

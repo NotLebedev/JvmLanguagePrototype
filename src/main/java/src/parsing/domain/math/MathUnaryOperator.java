@@ -1,9 +1,9 @@
-package src.parsing.domain.Math;
+package src.parsing.domain.math;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import src.parsing.domain.Interfaces.Accessible;
-import src.parsing.domain.Interfaces.Value;
+import src.parsing.domain.interfaces.Accessible;
+import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.access.ObjectField;
 import src.parsing.domain.access.StaticClassField;
 import src.parsing.domain.access.Variable;

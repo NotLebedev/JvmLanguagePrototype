@@ -1,4 +1,4 @@
-package src.parsing.domain.Interfaces;
+package src.parsing.domain.interfaces;
 
 import org.objectweb.asm.MethodVisitor;
 import src.parsing.domain.structure.interfaces.AbstractClass;
