@@ -89,6 +89,18 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPreDecrement(RootParser.PreDecrementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RootParser#unaryPlus}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryPlus(RootParser.UnaryPlusContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#unaryMinus}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryMinus(RootParser.UnaryMinusContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RootParser#cast}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

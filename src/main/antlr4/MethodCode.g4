@@ -41,10 +41,15 @@ value   : literalCG
         | value incrementS
         | value decrementS
         | preIncrement
-        | preDecrement ;
+        | preDecrement
+        | unaryPlus
+        | unaryMinus ;
 
 preIncrement : incrementS value;
 preDecrement : decrementS value;
+
+unaryPlus : plusS value ;
+unaryMinus : minusS value ;
 
 cast : bracketOpenS declarationType bracketCloseS value;
 
