@@ -114,6 +114,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_DECREMENT);
 
+        } else if(ctx.unaryPlus() != null) {
+
+
+
         }
 
         throw new IllegalStateException("visitValue execution should not reach this point, if " +
