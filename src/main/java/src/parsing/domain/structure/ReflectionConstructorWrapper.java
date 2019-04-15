@@ -1,6 +1,7 @@
 package src.parsing.domain.structure;
 
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractConstructor;
 import src.parsing.domain.utils.Utils;
 
 import java.lang.reflect.Constructor;
@@ -10,7 +11,7 @@ import java.util.Arrays;
 /**
  * @author NotLebedev
  */
-public class ReflectionConstructorWrapper extends ReflectionExecutable {
+public class ReflectionConstructorWrapper extends ReflectionExecutable implements AbstractConstructor {
 
     private final Constructor containedConstructor;
     private final ReflectionClassWrapper ownerClass;
