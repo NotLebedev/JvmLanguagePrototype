@@ -16,6 +16,8 @@ public class MathUtils {
 
     private final static ArrayList<AbstractClass> boxed;
 
+    private final static ArrayList<AbstractClass> mathCompatible;
+
     static {
 
         var cf = ClassFactory.getInstance();
@@ -41,6 +43,31 @@ public class MathUtils {
         boxed.add(cf.forCorrectName("java.lang.Double"));
         boxed.add(cf.forCorrectName("java.lang.Long"));
 
+        mathCompatible = new ArrayList<>(14);
+        mathCompatible.add(longT);
+        mathCompatible.addAll(ints);
+        mathCompatible.addAll(floats);
+        mathCompatible.addAll(boxed);
+
     }
 
+    public static ArrayList<AbstractClass> getInts() {
+        return ints;
+    }
+
+    public static ArrayList<AbstractClass> getFloats() {
+        return floats;
+    }
+
+    public static AbstractClass getLong() {
+        return longT;
+    }
+
+    public static ArrayList<AbstractClass> getBoxed() {
+        return boxed;
+    }
+
+    public static ArrayList<AbstractClass> getMathCompatible() {
+        return mathCompatible;
+    }
 }

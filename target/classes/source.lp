@@ -86,4 +86,18 @@ long l85 = (long) d84
 short s86 = (short) l85
 */
 
-src.parsing.Class2.sf++;
+int i = 123;
+    byte b = (byte)123;
+    short s = (short)123;
+    char c = (char)123;
+    long l = 123l;
+    float f = 123.0;
+    double d = (double)123.0;
+
+    int convertHere = +i;
+    convertHere = +b;
+    convertHere = +s;
+    convertHere = +c;
+    convertHere = +l;
+    convertHere = +f;
+    convertHere = +d;
