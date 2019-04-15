@@ -6,6 +6,7 @@ import src.parsing.domain.interfaces.Accessible;
 import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractField;
 
 public class ObjectField implements Accessible {
 
@@ -13,7 +14,7 @@ public class ObjectField implements Accessible {
     private AbstractClass fieldOwnerClass;
 
     private String fieldName;
-    private ReflectionFieldWrapper field;
+    private AbstractField field;
 
     public void setNames(Value object, String fieldName) throws NoSuchFieldException {
 
@@ -32,7 +33,7 @@ public class ObjectField implements Accessible {
 
     }
 
-    public ReflectionFieldWrapper getField() {
+    public AbstractField getField() {
         return field;
     }
 

@@ -35,13 +35,13 @@ public interface AbstractClass extends Value {
     String getJvmName();
 
     /**
-     * Returns a {@link ReflectionFieldWrapper} object that reflects the specified field of the class or interface represented by this object
+     * Returns a {@link AbstractField} object that reflects the specified field of the class or interface represented by this object
      *
      * @param fieldName field name
-     * @return {@link ReflectionFieldWrapper} for specified name
+     * @return {@link AbstractField} for specified name
      * @throws NoSuchFieldException field with given name does not exist
      */
-    ReflectionFieldWrapper getField(String fieldName) throws NoSuchFieldException;
+    AbstractField getField(String fieldName) throws NoSuchFieldException;
 
     /**
      * Returns a {@link ReflectionMethodWrapper} object that reflects the specified field of the class or interface represented by this object

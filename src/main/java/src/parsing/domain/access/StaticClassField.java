@@ -5,6 +5,7 @@ import org.objectweb.asm.Opcodes;
 import src.parsing.domain.interfaces.Accessible;
 import src.parsing.domain.structure.ReflectionFieldWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractField;
 
 
 public class StaticClassField implements Accessible {
@@ -12,7 +13,7 @@ public class StaticClassField implements Accessible {
     private AbstractClass fieldOwnerClass;
 
     private String fieldName;
-    private ReflectionFieldWrapper field;
+    private AbstractField field;
 
     public void setNames(AbstractClass fieldOwnerClass, String fieldName) throws NoSuchFieldException {
 
@@ -33,7 +34,7 @@ public class StaticClassField implements Accessible {
 
     }
 
-    public ReflectionFieldWrapper getField() {
+    public AbstractField getField() {
         return field;
     }
 
