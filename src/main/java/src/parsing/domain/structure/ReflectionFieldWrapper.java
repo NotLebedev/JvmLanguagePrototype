@@ -1,6 +1,7 @@
 package src.parsing.domain.structure;
 
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractField;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -8,7 +9,7 @@ import java.lang.reflect.Modifier;
 /**
  * @author NotLebedev
  */
-public class ReflectionFieldWrapper {
+public class ReflectionFieldWrapper implements AbstractField {
 
     private final Field containedField;
     private final AbstractClass ownerClass;
