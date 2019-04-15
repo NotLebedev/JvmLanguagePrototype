@@ -4,8 +4,8 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
-import src.parsing.domain.structure.ReflectionConstructorWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractConstructor;
 import src.parsing.domain.utils.TypeMatcher;
 
 public class ObjectInstantiation implements Value {
@@ -14,9 +14,9 @@ public class ObjectInstantiation implements Value {
 
     private Value[] paramValues;
 
-    private ReflectionConstructorWrapper constructor;
+    private AbstractConstructor constructor;
 
-    public void setNames(ReflectionConstructorWrapper constructor) {
+    public void setNames(AbstractConstructor constructor) {
 
         this.constructor = constructor;
         constructorOwnerClass = constructor.getOwnerClass();
