@@ -1,6 +1,7 @@
 package src.parsing.domain.structure;
 
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractMethod;
 import src.parsing.domain.utils.Utils;
 
 import java.lang.reflect.Executable;
@@ -10,7 +11,7 @@ import java.util.Arrays;
 /**
  * @author NotLebedev
  */
-public class ReflectionMethodWrapper extends ReflectionExecutable {
+public class ReflectionMethodWrapper extends ReflectionExecutable implements AbstractMethod {
 
     private final Method containedMethod;
 
@@ -18,21 +19,10 @@ public class ReflectionMethodWrapper extends ReflectionExecutable {
         containedMethod = method;
     }
 
-    @Override
-    protected Executable getExecutable() {
-        return containedMethod;
-    }
-
-    @Override
-    public String getName() {
-        return containedMethod.getName();
-    }
-
     public ReflectionClassWrapper getReturnType() {
         return ClassFactory.getInstance().forClass(containedMethod.getReturnType());
     }
 
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isBridge() {
         return containedMethod.isBridge();
     }
@@ -64,6 +54,16 @@ public class ReflectionMethodWrapper extends ReflectionExecutable {
         return Arrays.stream(containedMethod.getParameterTypes())
                 .map(classFactory::forClass).toArray(AbstractClass[]::new);
 
+    }
+
+    @Override
+    protected Executable getExecutable() {
+        return containedMethod;
+    }
+
+    @Override
+    public String getName() {
+        return containedMethod.getName();
     }
 
 }

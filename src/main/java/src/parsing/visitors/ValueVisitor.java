@@ -11,8 +11,8 @@ import src.parsing.domain.access.*;
 import src.parsing.domain.exceptions.*;
 import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.PackageO;
-import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractMethod;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.*;
 import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
@@ -369,7 +369,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             paramTypes = params.stream()
                     .map(Value::getType).toArray(AbstractClass[]::new);
 
-            ReflectionMethodWrapper method;
+            AbstractMethod method;
 
             try {
                 method = val.getType().getMethod(ctx.id().getText(),

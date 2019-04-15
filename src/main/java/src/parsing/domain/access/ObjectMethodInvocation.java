@@ -4,8 +4,8 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
-import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractMethod;
 import src.parsing.domain.utils.TypeMatcher;
 
 /**
@@ -16,7 +16,7 @@ public class ObjectMethodInvocation implements Value {
     private Value object;
     private AbstractClass objectClass;
 
-    private ReflectionMethodWrapper method;
+    private AbstractMethod method;
 
     private Value[] paramValues;
 
@@ -24,7 +24,7 @@ public class ObjectMethodInvocation implements Value {
      * @param object object owning method
      * @param method method
      */
-    public void setNames(Value object, ReflectionMethodWrapper method) {
+    public void setNames(Value object, AbstractMethod method) {
 
         this.object = object;
         this.method = method;

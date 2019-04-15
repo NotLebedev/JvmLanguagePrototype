@@ -4,19 +4,19 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.exceptions.IncompatibleTypesException;
-import src.parsing.domain.structure.ReflectionMethodWrapper;
 import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.parsing.domain.structure.interfaces.AbstractMethod;
 import src.parsing.domain.utils.TypeMatcher;
 
 public class StaticMethodInvocation implements Value {
 
     private AbstractClass methodOwnerClass;
 
-    private ReflectionMethodWrapper method;
+    private AbstractMethod method;
 
     private Value[] paramValues;
 
-    public void setNames(AbstractClass methodOwnerClass, ReflectionMethodWrapper method) {
+    public void setNames(AbstractClass methodOwnerClass, AbstractMethod method) {
 
         this.methodOwnerClass = methodOwnerClass;
         this.method = method;

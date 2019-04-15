@@ -2,7 +2,6 @@ package src.parsing.domain.structure.interfaces;
 
 import src.parsing.domain.interfaces.Value;
 import src.parsing.domain.exceptions.NoSuchConstructorException;
-import src.parsing.domain.structure.ReflectionMethodWrapper;
 
 /**
  * Interface for all class containers
@@ -42,14 +41,14 @@ public interface AbstractClass extends Value {
     AbstractField getField(String fieldName) throws NoSuchFieldException;
 
     /**
-     * Returns a {@link ReflectionMethodWrapper} object that reflects the specified field of the class or interface represented by this object
+     * Returns a {@link AbstractMethod} object that reflects the specified field of the class or interface represented by this object
      *
      * @param methodName method name
      * @param params     parameter types
-     * @return {@link ReflectionMethodWrapper} for specified name
+     * @return {@link AbstractMethod} for specified name
      * @throws NoSuchMethodException method with given names and parameters does not exist
      */
-    ReflectionMethodWrapper getMethod(String methodName, AbstractClass[] params) throws NoSuchMethodException;
+    AbstractMethod getMethod(String methodName, AbstractClass[] params) throws NoSuchMethodException;
 
     AbstractConstructor getConstructor(AbstractClass[] params) throws NoSuchConstructorException;
 
@@ -77,7 +76,7 @@ public interface AbstractClass extends Value {
     boolean isPrimitive();
 
     /**
-     * Determines if the specified ReflectionClassWrapper object is array
+     * Determines if the specified AbstractClass object is array
      *
      * @return true if array, false if reference
      */
