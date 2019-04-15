@@ -86,4 +86,5 @@ long l85 = (long) d84
 short s86 = (short) l85
 */
 
-src.parsing.Class2.sf++;
+long l = 123l;
+int i = +l;

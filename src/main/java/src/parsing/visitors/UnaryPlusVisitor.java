@@ -2,10 +2,15 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
+import src.parsing.domain.TypeCast;
+import src.parsing.domain.exceptions.WrongCastException;
 import src.parsing.domain.interfaces.Scope;
 import src.parsing.domain.interfaces.Value;
+import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -16,6 +21,8 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
 
     private final Scope scope;
     private final ErrorCollector errorCollector;
+
+    private static AbstractClass intType = ClassFactory.getInstance().forCorrectName("int");
 
     private static final MultiKeyHashMap<UnaryPlusVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
@@ -50,6 +57,17 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitUnaryPlus(RootParser.UnaryPlusContext ctx) {
-        return super.visitUnaryPlus(ctx);
+
+        var value = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
+
+        try {
+            return new TypeCast(intType, value);
+        } catch (WrongCastException e) {
+            errorCollector.reportError(new OperatorCanNotBeAppliedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
+                    ctx.value().getText(),
+                    "+"));
+            throw new ExpressionParseCancelationException();
+        }
+
     }
 }

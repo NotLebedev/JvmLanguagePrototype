@@ -116,7 +116,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         } else if(ctx.unaryPlus() != null) {
 
-
+            return ctx.unaryPlus().accept(UnaryPlusVisitor.getInstance(scope, errorCollector));
 
         }
 
