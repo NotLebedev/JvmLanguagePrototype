@@ -39,7 +39,7 @@ public class MathNegate implements Value {
         if(MathUtils.getBoxed().contains(value.getType())) {
 
             try {
-                TypeMatcher.getInstance().doStackBoxing(type, methodVisitor);
+                TypeMatcher.getInstance().doStackBoxing(value.getType(), methodVisitor);
             } catch (NotBoxedTypeException e) {
                 throw new IllegalStateException("Expected to be boxed", e);
             }
