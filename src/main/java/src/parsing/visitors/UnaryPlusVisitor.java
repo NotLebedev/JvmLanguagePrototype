@@ -58,14 +58,14 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
     @Override
     public Value visitUnaryPlus(RootParser.UnaryPlusContext ctx) {
 
-        var value = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
+        Value value = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
 
         try {
             return new TypeCast(intType, value);
         } catch (WrongCastException e) {
             errorCollector.reportError(new OperatorCanNotBeAppliedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
                     ctx.value().getText(),
-                    "+"));
+                    "Operator '+' can not be applied to " + value.getType().getName()));
             throw new ExpressionParseCancelationException();
         }
 

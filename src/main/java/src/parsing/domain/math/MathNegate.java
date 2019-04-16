@@ -36,10 +36,14 @@ public class MathNegate implements Value {
 
         value.generateBytecode(methodVisitor);
 
-        try {
-            TypeMatcher.getInstance().doStackBoxing(type, methodVisitor);
-        } catch (NotBoxedTypeException e) {
-            throw new IllegalStateException("Expected to be boxed", e);
+        if(MathUtils.getBoxed().contains(value.getType())) {
+
+            try {
+                TypeMatcher.getInstance().doStackBoxing(type, methodVisitor);
+            } catch (NotBoxedTypeException e) {
+                throw new IllegalStateException("Expected to be boxed", e);
+            }
+
         }
 
         methodVisitor.visitInsn(type.getOpcode(Opcodes.INEG));

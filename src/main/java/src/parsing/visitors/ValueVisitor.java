@@ -118,6 +118,10 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             return ctx.unaryPlus().accept(UnaryPlusVisitor.getInstance(scope, errorCollector));
 
+        } else if(ctx.unaryMinus() != null) {
+
+            return ctx.unaryMinus().accept(UnaryMinusVisitor.getInstance(scope, errorCollector));
+
         }
 
         throw new IllegalStateException("visitValue execution should not reach this point, if " +
