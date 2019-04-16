@@ -87,12 +87,20 @@ short s86 = (short) l85
 */
 
 int i = 123;
-    byte b = -(byte)123;
-    short s = -(short)123;
-    char c = (char)123;
-    long l = 123l;
-    float f = 123.0;
-    double d = (double)123.0;
+byte b = -(byte)123;
+short s = -(short)123;
+char c = (char)123;
+long l = 123l;
+float f = 123.0;
+double d = (double)123.0;
+
+java.lang.Integer ic= i;
+java.lang.Byte bc= b;
+java.lang.Short sc = s;
+java.lang.Character cc = c;
+java.lang.Long lc = l;
+java.lang.Float fc = f;
+java.lang.Double dc = d;
 
 java.lang.System.out.println(-i);
 java.lang.System.out.println((int)b);
@@ -101,3 +109,11 @@ java.lang.System.out.println(-c);
 java.lang.System.out.println(-l);
 java.lang.System.out.println(-f);
 java.lang.System.out.println(-d);
+
+java.lang.System.out.println(-ic);
+java.lang.System.out.println((int)-bc);
+java.lang.System.out.println((int)-sc);
+java.lang.System.out.println(-cc);
+java.lang.System.out.println(-lc);
+java.lang.System.out.println(-fc);
+java.lang.System.out.println(-dc);
