@@ -9,7 +9,6 @@ import src.parsing.domain.access.StaticClassField;
 import src.parsing.domain.access.Variable;
 import src.parsing.domain.exceptions.NotBoxedTypeException;
 import src.parsing.domain.exceptions.OperatorCanNotBeAppliedException;
-import src.parsing.domain.structure.ClassFactory;
 import src.parsing.domain.structure.interfaces.AbstractClass;
 import src.parsing.domain.utils.TypeMatcher;
 
