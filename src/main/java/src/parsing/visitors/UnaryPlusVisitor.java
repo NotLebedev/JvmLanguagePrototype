@@ -2,12 +2,12 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.TypeCast;
-import src.parsing.domain.exceptions.WrongCastException;
-import src.parsing.domain.interfaces.Scope;
-import src.parsing.domain.interfaces.Value;
-import src.parsing.domain.structure.ClassFactory;
-import src.parsing.domain.structure.interfaces.AbstractClass;
+import src.compilation.domain.TypeCast;
+import src.compilation.domain.exceptions.WrongCastException;
+import src.compilation.domain.interfaces.Scope;
+import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.structure.ClassFactory;
+import src.compilation.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;

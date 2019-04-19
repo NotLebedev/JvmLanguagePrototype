@@ -2,8 +2,8 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.interfaces.Expression;
-import src.parsing.domain.interfaces.Scope;
+import src.compilation.domain.interfaces.Expression;
+import src.compilation.domain.interfaces.Scope;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;

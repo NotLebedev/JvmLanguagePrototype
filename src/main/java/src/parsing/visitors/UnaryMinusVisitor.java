@@ -2,10 +2,10 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.exceptions.OperatorCanNotBeAppliedException;
-import src.parsing.domain.interfaces.Scope;
-import src.parsing.domain.interfaces.Value;
-import src.parsing.domain.math.MathNegate;
+import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
+import src.compilation.domain.interfaces.Scope;
+import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.math.MathNegate;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;

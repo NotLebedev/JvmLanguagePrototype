@@ -2,7 +2,7 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.Method;
+import src.compilation.domain.Method;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;

@@ -1,5 +1,5 @@
 import org.junit.Test;
-import src.parsing.domain.structure.ClassFactory;
+import src.compilation.domain.structure.ClassFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

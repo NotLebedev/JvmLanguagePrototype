@@ -1,9 +1,9 @@
 import org.junit.jupiter.api.Test;
-import src.parsing.domain.interfaces.Value;
-import src.parsing.domain.access.Variable;
-import src.parsing.domain.exceptions.IncompatibleTypesException;
-import src.parsing.domain.structure.ClassFactory;
-import src.parsing.domain.utils.TypeMatcher;
+import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.access.Variable;
+import src.compilation.domain.exceptions.IncompatibleTypesException;
+import src.compilation.domain.structure.ClassFactory;
+import src.compilation.domain.utils.TypeMatcher;
 
 import static org.junit.jupiter.api.Assertions.*;
 

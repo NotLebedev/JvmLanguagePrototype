@@ -4,7 +4,7 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.Method;
+import src.compilation.domain.Method;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 
 /**

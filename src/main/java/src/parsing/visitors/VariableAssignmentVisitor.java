@@ -2,11 +2,11 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.interfaces.Expression;
-import src.parsing.domain.interfaces.Scope;
-import src.parsing.domain.interfaces.Value;
-import src.parsing.domain.access.*;
-import src.parsing.domain.exceptions.IncompatibleTypesException;
+import src.compilation.domain.interfaces.Expression;
+import src.compilation.domain.interfaces.Scope;
+import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.access.*;
+import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableExpectedError;

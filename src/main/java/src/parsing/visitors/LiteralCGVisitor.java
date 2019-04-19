@@ -2,11 +2,11 @@ package src.parsing.visitors;
 
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
-import src.parsing.domain.interfaces.Value;
-import src.parsing.domain.literals.FloatLiteral;
-import src.parsing.domain.literals.IntLiteral;
-import src.parsing.domain.literals.LongLiteral;
-import src.parsing.domain.literals.StringLiteral;
+import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.literals.FloatLiteral;
+import src.compilation.domain.literals.IntLiteral;
+import src.compilation.domain.literals.LongLiteral;
+import src.compilation.domain.literals.StringLiteral;
 
 /**
  * Class responsible for visiting and parsing capture groups of literals
