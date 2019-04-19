@@ -80,6 +80,7 @@ asteriskS : ASTERISK ;
 slashS : SLASH ;
 incrementS : INCREMENT ;
 decrementS : DECREMENT ;
+percentS : PERCENT ;
 //End symbols
 
 //End tokens

@@ -85,4 +85,5 @@ ASTERISK : '*' ;
 SLASH : '/' ;
 INCREMENT : '++' ;
 DECREMENT : '--' ;
+PERCENT : '%' ;
 //End symbols

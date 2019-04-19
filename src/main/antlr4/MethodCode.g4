@@ -43,7 +43,8 @@ value   : literalCG
         | preIncrement
         | preDecrement
         | unaryPlus
-        | unaryMinus ;
+        | unaryMinus
+        | value (asteriskS | slashS | percentS) value ;
 
 preIncrement : incrementS value;
 preDecrement : decrementS value;

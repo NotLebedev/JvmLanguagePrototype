@@ -412,4 +412,10 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDecrementS(RootParser.DecrementSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#percentS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPercentS(RootParser.PercentSContext ctx);
 }
