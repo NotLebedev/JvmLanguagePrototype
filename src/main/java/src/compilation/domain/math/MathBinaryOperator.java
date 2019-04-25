@@ -1,7 +1,9 @@
 package src.compilation.domain.math;
 
 import org.objectweb.asm.MethodVisitor;
+import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.compilation.domain.exceptions.NotBoxedTypeException;
+import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 import src.compilation.domain.utils.TypeMatcher;
@@ -16,7 +18,7 @@ public class MathBinaryOperator implements Value {
     private final Value firstOperand;
     private final Value secondOperand;
 
-    public MathBinaryOperator(Type operatorType, Value firstOperand, Value secondOperand) {
+    public MathBinaryOperator(Type operatorType, Value firstOperand, Value secondOperand) throws OperatorCanNotBeAppliedException, IncompatibleTypesException {
 
         this.operatorType = operatorType;
         this.firstOperand = firstOperand;
@@ -39,6 +41,15 @@ public class MathBinaryOperator implements Value {
             secondType = secondOperand.getType();
         }
 
+        if(!MathUtils.getMathCompatible().contains(firstType))
+            throw new OperatorCanNotBeAppliedException(operatorType.name, firstType);
+
+        if(!MathUtils.getMathCompatible().contains(secondType))
+            throw new OperatorCanNotBeAppliedException(operatorType.name, secondType);
+
+        if(!firstType.equals(secondType))
+            throw new IncompatibleTypesException(firstType.getName(), secondType.getName());
+
     }
 
     @Override
@@ -53,10 +64,15 @@ public class MathBinaryOperator implements Value {
 
     public enum Type {
 
-        MULTIPLY,
-        DIVIDE,
-        REMAINDER
+        MULTIPLY("*"),
+        DIVIDE("/"),
+        REMAINDER("%");
 
+        public final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
     }
 
 }
