@@ -3,7 +3,6 @@ package src.parsing.visitors;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.*;
-import src.compilation.domain.interfaces.Accessible;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.math.MathUnaryOperator;
@@ -248,35 +247,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value visitMathUnaryOperator(RootParser.ValueContext ctx, MathUnaryOperator.Type type) {
-
-        Value value;
-
-        if(type == MathUnaryOperator.Type.POST_INCREMENT
-                || type == MathUnaryOperator.Type.POST_DECREMENT)
-            value = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
-        else if (type == MathUnaryOperator.Type.PRE_INCREMENT)
-            value = ctx.preIncrement().value().accept(ValueVisitor.getInstance(scope, errorCollector));
-        else
-            value = ctx.preDecrement().value().accept(ValueVisitor.getInstance(scope, errorCollector));
-
-        if(!(value instanceof Accessible)) {
-            errorCollector.reportError(new VariableExpectedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
-                            ctx.getText()));
-            throw new ExpressionParseCancelationException();
-        }
-
-        try {
-            return new MathUnaryOperator(type, ((Accessible) value));
-        } catch (OperatorCanNotBeAppliedException e) {
-            errorCollector.reportError(new OperatorCanNotBeAppliedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
-                    ctx.getText(),
-                    e.getMessage()));
-            throw new ExpressionParseCancelationException();
-        }
-
-    }
-
     private class MethodInvVisitor extends RootBaseVisitor<Value> {
 
         private final Value val;
@@ -397,22 +367,22 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitPOST_INCREMENT(RootParser.POST_INCREMENTContext ctx) {
-        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_INCREMENT);
+        return ctx.accept(CrementVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
     public Value visitPOST_DECREMENT(RootParser.POST_DECREMENTContext ctx) {
-        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_DECREMENT);
+        return ctx.accept(CrementVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
     public Value visitPRE_INCREMENT(RootParser.PRE_INCREMENTContext ctx) {
-        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_INCREMENT);
+        return ctx.accept(CrementVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
     public Value visitPRE_DECREMENT(RootParser.PRE_DECREMENTContext ctx) {
-        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_DECREMENT);
+        return ctx.accept(CrementVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
