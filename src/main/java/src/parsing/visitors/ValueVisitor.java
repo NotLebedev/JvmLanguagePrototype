@@ -189,8 +189,8 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             }
 
-        }*/
-
+        }
+*/
         throw new IllegalStateException("errorCollector must throw exception");
 
     }
@@ -243,82 +243,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             );
 
             throw new ExpressionParseCancelationException();
-        }
-
-    }
-
-    private class MethodInvVisitor extends RootBaseVisitor<Value> {
-
-        private final Value val;
-        private final Boolean requireStatic;
-        private final Scope scope;
-
-        private MethodInvVisitor(Value val, Boolean requireStatic, Scope scope) {
-
-            this.val = val;
-            this.requireStatic = requireStatic;
-            this.scope = scope;
-
-        }
-
-        @Override
-        public Value visitMethodInv(RootParser.MethodInvContext ctx) {
-
-            var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
-
-            List<Value> params = ctx.value().stream()
-                    .map(valueContext -> valueContext.accept(valueVisitor))
-                    .collect(Collectors.toList());
-
-            var paramTypes = new AbstractClass[params.size()];
-
-            paramTypes = params.stream()
-                    .map(Value::getType).toArray(AbstractClass[]::new);
-
-            AbstractMethod method;
-
-            try {
-                method = val.getType().getMethod(ctx.id().getText(),
-                        paramTypes);
-            } catch (NoSuchMethodException e) {
-                errorCollector.reportError(
-                        new NoSuchMethodError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
-                                ctx.id().getText(),
-                                paramTypes));
-                throw new ExpressionParseCancelationException();
-            }
-
-            boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
-
-            if(requireStatic && !isStatic) {
-
-                errorCollector.reportError(
-                        new WrongContextError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
-                                ctx.id().getText()));
-                throw new ExpressionParseCancelationException();
-
-            }
-
-            if(isStatic) {
-
-                var smi = new StaticMethodInvocation();
-                smi.setNames(val.getType(), method);
-
-                smi.setParamValues(params.toArray(new Value[0]));
-
-                return smi;
-
-            } else {
-
-                var omi = new ObjectMethodInvocation();
-                omi.setNames(val, method);
-
-                omi.setParamValues(params.toArray(new Value[0]));
-
-                return omi;
-
-            }
-
         }
 
     }
