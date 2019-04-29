@@ -71,11 +71,110 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssignment(RootParser.AssignmentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link RootParser#value}.
+	 * Visit a parse tree produced by the {@code CAST}
+	 * labeled alternative in {@link RootParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitValue(RootParser.ValueContext ctx);
+	T visitCAST(RootParser.CASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LITERAL}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLITERAL(RootParser.LITERALContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PRE_DECREMENT}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPRE_DECREMENT(RootParser.PRE_DECREMENTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code UNARY_PLUS}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUNARY_PLUS(RootParser.UNARY_PLUSContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PRE_INCREMENT}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPRE_INCREMENT(RootParser.PRE_INCREMENTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code POST_INCREMENT}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPOST_INCREMENT(RootParser.POST_INCREMENTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code OBJECT_INSTANTIATION}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOBJECT_INSTANTIATION(RootParser.OBJECT_INSTANTIATIONContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code POST_DECREMENT}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPOST_DECREMENT(RootParser.POST_DECREMENTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code METHOD_INV}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMETHOD_INV(RootParser.METHOD_INVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code UNARY_MINUS}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUNARY_MINUS(RootParser.UNARY_MINUSContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PARENTHESIS}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPARENTHESIS(RootParser.PARENTHESISContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ID}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitID(RootParser.IDContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MULTIPLICATIVE_OP}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ACCESS}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitACCESS(RootParser.ACCESSContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ARRAY_ACCESS}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitARRAY_ACCESS(RootParser.ARRAY_ACCESSContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link RootParser#preIncrement}.
 	 * @param ctx the parse tree

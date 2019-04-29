@@ -699,47 +699,166 @@ public class RootParser extends Parser {
 	}
 
 	public static class ValueContext extends ParserRuleContext {
-		public LiteralCGContext literalCG() {
-			return getRuleContext(LiteralCGContext.class,0);
+		public ValueContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
 		}
-		public MethodInvContext methodInv() {
-			return getRuleContext(MethodInvContext.class,0);
+		@Override public int getRuleIndex() { return RULE_value; }
+	 
+		public ValueContext() { }
+		public void copyFrom(ValueContext ctx) {
+			super.copyFrom(ctx);
 		}
-		public IdContext id() {
-			return getRuleContext(IdContext.class,0);
-		}
-		public ObjectInstantiationContext objectInstantiation() {
-			return getRuleContext(ObjectInstantiationContext.class,0);
-		}
+	}
+	public static class CASTContext extends ValueContext {
 		public CastContext cast() {
 			return getRuleContext(CastContext.class,0);
 		}
+		public CASTContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitCAST(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class LITERALContext extends ValueContext {
+		public LiteralCGContext literalCG() {
+			return getRuleContext(LiteralCGContext.class,0);
+		}
+		public LITERALContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitLITERAL(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PRE_DECREMENTContext extends ValueContext {
+		public PreDecrementContext preDecrement() {
+			return getRuleContext(PreDecrementContext.class,0);
+		}
+		public PRE_DECREMENTContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitPRE_DECREMENT(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class UNARY_PLUSContext extends ValueContext {
+		public UnaryPlusContext unaryPlus() {
+			return getRuleContext(UnaryPlusContext.class,0);
+		}
+		public UNARY_PLUSContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitUNARY_PLUS(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PRE_INCREMENTContext extends ValueContext {
+		public PreIncrementContext preIncrement() {
+			return getRuleContext(PreIncrementContext.class,0);
+		}
+		public PRE_INCREMENTContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitPRE_INCREMENT(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class POST_INCREMENTContext extends ValueContext {
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
+		public IncrementSContext incrementS() {
+			return getRuleContext(IncrementSContext.class,0);
+		}
+		public POST_INCREMENTContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitPOST_INCREMENT(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class OBJECT_INSTANTIATIONContext extends ValueContext {
+		public ObjectInstantiationContext objectInstantiation() {
+			return getRuleContext(ObjectInstantiationContext.class,0);
+		}
+		public OBJECT_INSTANTIATIONContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitOBJECT_INSTANTIATION(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class POST_DECREMENTContext extends ValueContext {
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
+		public DecrementSContext decrementS() {
+			return getRuleContext(DecrementSContext.class,0);
+		}
+		public POST_DECREMENTContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitPOST_DECREMENT(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class METHOD_INVContext extends ValueContext {
+		public MethodInvContext methodInv() {
+			return getRuleContext(MethodInvContext.class,0);
+		}
+		public METHOD_INVContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitMETHOD_INV(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class UNARY_MINUSContext extends ValueContext {
+		public UnaryMinusContext unaryMinus() {
+			return getRuleContext(UnaryMinusContext.class,0);
+		}
+		public UNARY_MINUSContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitUNARY_MINUS(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PARENTHESISContext extends ValueContext {
 		public BracketOpenSContext bracketOpenS() {
 			return getRuleContext(BracketOpenSContext.class,0);
 		}
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
+		public BracketCloseSContext bracketCloseS() {
+			return getRuleContext(BracketCloseSContext.class,0);
+		}
+		public PARENTHESISContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitPARENTHESIS(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IDContext extends ValueContext {
+		public IdContext id() {
+			return getRuleContext(IdContext.class,0);
+		}
+		public IDContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitID(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class MULTIPLICATIVE_OPContext extends ValueContext {
 		public List<ValueContext> value() {
 			return getRuleContexts(ValueContext.class);
 		}
 		public ValueContext value(int i) {
 			return getRuleContext(ValueContext.class,i);
-		}
-		public BracketCloseSContext bracketCloseS() {
-			return getRuleContext(BracketCloseSContext.class,0);
-		}
-		public PreIncrementContext preIncrement() {
-			return getRuleContext(PreIncrementContext.class,0);
-		}
-		public PreDecrementContext preDecrement() {
-			return getRuleContext(PreDecrementContext.class,0);
-		}
-		public UnaryPlusContext unaryPlus() {
-			return getRuleContext(UnaryPlusContext.class,0);
-		}
-		public UnaryMinusContext unaryMinus() {
-			return getRuleContext(UnaryMinusContext.class,0);
-		}
-		public DotSContext dotS() {
-			return getRuleContext(DotSContext.class,0);
 		}
 		public AsteriskSContext asteriskS() {
 			return getRuleContext(AsteriskSContext.class,0);
@@ -750,22 +869,41 @@ public class RootParser extends Parser {
 		public PercentSContext percentS() {
 			return getRuleContext(PercentSContext.class,0);
 		}
+		public MULTIPLICATIVE_OPContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitMULTIPLICATIVE_OP(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ACCESSContext extends ValueContext {
+		public List<ValueContext> value() {
+			return getRuleContexts(ValueContext.class);
+		}
+		public ValueContext value(int i) {
+			return getRuleContext(ValueContext.class,i);
+		}
+		public DotSContext dotS() {
+			return getRuleContext(DotSContext.class,0);
+		}
+		public ACCESSContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitACCESS(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ARRAY_ACCESSContext extends ValueContext {
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
 		public ArrayIndexContext arrayIndex() {
 			return getRuleContext(ArrayIndexContext.class,0);
 		}
-		public IncrementSContext incrementS() {
-			return getRuleContext(IncrementSContext.class,0);
-		}
-		public DecrementSContext decrementS() {
-			return getRuleContext(DecrementSContext.class,0);
-		}
-		public ValueContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_value; }
+		public ARRAY_ACCESSContext(ValueContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitValue(this);
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitARRAY_ACCESS(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -790,36 +928,55 @@ public class RootParser extends Parser {
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				{
+				_localctx = new LITERALContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
 				setState(188);
 				literalCG();
 				}
 				break;
 			case 2:
 				{
+				_localctx = new METHOD_INVContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(189);
 				methodInv();
 				}
 				break;
 			case 3:
 				{
+				_localctx = new IDContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(190);
 				id();
 				}
 				break;
 			case 4:
 				{
+				_localctx = new OBJECT_INSTANTIATIONContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(191);
 				objectInstantiation();
 				}
 				break;
 			case 5:
 				{
+				_localctx = new CASTContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(192);
 				cast();
 				}
 				break;
 			case 6:
 				{
+				_localctx = new PARENTHESISContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(193);
 				bracketOpenS();
 				setState(194);
@@ -830,24 +987,36 @@ public class RootParser extends Parser {
 				break;
 			case 7:
 				{
+				_localctx = new PRE_INCREMENTContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(197);
 				preIncrement();
 				}
 				break;
 			case 8:
 				{
+				_localctx = new PRE_DECREMENTContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(198);
 				preDecrement();
 				}
 				break;
 			case 9:
 				{
+				_localctx = new UNARY_PLUSContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(199);
 				unaryPlus();
 				}
 				break;
 			case 10:
 				{
+				_localctx = new UNARY_MINUSContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(200);
 				unaryMinus();
 				}
@@ -867,7 +1036,7 @@ public class RootParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 					case 1:
 						{
-						_localctx = new ValueContext(_parentctx, _parentState);
+						_localctx = new ACCESSContext(new ValueContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_value);
 						setState(203);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
@@ -879,7 +1048,7 @@ public class RootParser extends Parser {
 						break;
 					case 2:
 						{
-						_localctx = new ValueContext(_parentctx, _parentState);
+						_localctx = new MULTIPLICATIVE_OPContext(new ValueContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_value);
 						setState(207);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
@@ -913,7 +1082,7 @@ public class RootParser extends Parser {
 						break;
 					case 3:
 						{
-						_localctx = new ValueContext(_parentctx, _parentState);
+						_localctx = new ARRAY_ACCESSContext(new ValueContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_value);
 						setState(215);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
@@ -923,7 +1092,7 @@ public class RootParser extends Parser {
 						break;
 					case 4:
 						{
-						_localctx = new ValueContext(_parentctx, _parentState);
+						_localctx = new POST_INCREMENTContext(new ValueContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_value);
 						setState(217);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
@@ -933,7 +1102,7 @@ public class RootParser extends Parser {
 						break;
 					case 5:
 						{
-						_localctx = new ValueContext(_parentctx, _parentState);
+						_localctx = new POST_DECREMENTContext(new ValueContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_value);
 						setState(219);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");

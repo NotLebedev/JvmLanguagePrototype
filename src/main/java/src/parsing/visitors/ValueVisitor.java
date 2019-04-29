@@ -67,75 +67,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    @Override
-    public Value visitValue(RootParser.ValueContext ctx) {
-
-        if(ctx.dotS() != null) { ///////////////////////Dot
-
-            return visitDotS(ctx);
-
-        } else if(ctx.id() != null) { //////////////////ID
-
-            return visitId(ctx);
-
-        } else if(ctx.bracketOpenS() != null) {/////////Parenthesis
-
-            return ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
-
-        } else if(ctx.objectInstantiation() != null) {//Object instantiation
-
-            return ctx.objectInstantiation().accept(ObjectInstantiationVisitor.getInstance(scope, errorCollector));
-
-        } else if(ctx.arrayIndex() != null) {///////////Array
-
-            return visitArray(ctx);
-
-        } else if(ctx.cast() != null) {/////////////////Cast
-
-            return visitCast(ctx);
-
-        } else if(ctx.literalCG() != null) {////////////LiteralCG
-
-            return visitLiteral(ctx);
-
-        } else if(ctx.incrementS() != null) {///////////Post increment
-
-            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_INCREMENT);
-
-        } else if(ctx.decrementS() != null) {///////////Post decrement
-
-            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_DECREMENT);
-
-        } else if(ctx.preIncrement() != null) {
-
-            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_INCREMENT);
-
-        } else if(ctx.preDecrement() != null) {
-
-            return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_DECREMENT);
-
-        } else if(ctx.unaryPlus() != null) {
-
-            return ctx.unaryPlus().accept(UnaryPlusVisitor.getInstance(scope, errorCollector));
-
-        } else if(ctx.unaryMinus() != null) {
-
-            return ctx.unaryMinus().accept(UnaryMinusVisitor.getInstance(scope, errorCollector));
-
-        }
-
-        throw new IllegalStateException("visitValue execution should not reach this point, if " +
-                "it does, than one of cases is not implemented");
-
-    }
-
-    private Value visitLiteral(RootParser.ValueContext ctx) {
-
-        return ctx.literalCG().accept(LiteralCGVisitor.getInstance());
-
-    }
-
-    private Value visitId(RootParser.ValueContext ctx) {
+    private Value visitId(RootParser.IDContext ctx) {
 
         try {
             return scope.getVariableByName(ctx.id().getText());
@@ -153,9 +85,9 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value visitDotS(RootParser.ValueContext ctx) {
+    private Value visitDotS(RootParser.ACCESSContext ctx) {
 
-        var val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
+        /*var val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
 
         if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
             // only id to go next
@@ -258,22 +190,22 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
             }
 
-        }
+        }*/
 
         throw new IllegalStateException("errorCollector must throw exception");
 
     }
 
-    private Value visitArray(RootParser.ValueContext ctx) {
+    private Value visitArray(RootParser.ARRAY_ACCESSContext ctx) {
 
-        Value val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
+        Value val = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
         Value index = ctx.arrayIndex().value().accept(ValueVisitor.getInstance(scope, errorCollector));
 
         try {
             return new ArrayAccess(val, index);
         } catch (ArrayExpectedException e) {
             errorCollector.reportError(
-                    new ArrayExpectedError(ctx.value(0).start.getLine(), ctx.value(0).start.getCharPositionInLine(), ctx.value(0).getText(),
+                    new ArrayExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText(),
                             val.getType().getName()));
             throw new ExpressionParseCancelationException();
         } catch (IncompatibleTypesException e) {
@@ -288,7 +220,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value visitCast(RootParser.ValueContext ctx) {
+    private Value visitCast(RootParser.CASTContext ctx) {
 
         var value = ctx.cast().value().accept(ValueVisitor.getInstance(scope, errorCollector));
         AbstractClass type = null;
@@ -419,6 +351,83 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         }
 
+    }
+
+    @Override
+    public Value visitLITERAL(RootParser.LITERALContext ctx) {
+
+        return ctx.literalCG().accept(LiteralCGVisitor.getInstance());
+
+    }
+
+    @Override
+    public Value visitMETHOD_INV(RootParser.METHOD_INVContext ctx) {
+        throw new IllegalStateException("Not implemented yet");
+    }
+
+    @Override
+    public Value visitID(RootParser.IDContext ctx) {
+        return visitId(ctx);
+    }
+
+    @Override
+    public Value visitOBJECT_INSTANTIATION(RootParser.OBJECT_INSTANTIATIONContext ctx) {
+        return ctx.objectInstantiation().accept(ObjectInstantiationVisitor.getInstance(scope, errorCollector));
+    }
+
+    @Override
+    public Value visitCAST(RootParser.CASTContext ctx) {
+        return visitCast(ctx);
+    }
+
+    @Override
+    public Value visitPARENTHESIS(RootParser.PARENTHESISContext ctx) {
+        return ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
+    }
+
+    @Override
+    public Value visitACCESS(RootParser.ACCESSContext ctx) {
+        return visitDotS(ctx);
+    }
+
+    @Override
+    public Value visitARRAY_ACCESS(RootParser.ARRAY_ACCESSContext ctx) {
+        return visitArray(ctx);
+    }
+
+    @Override
+    public Value visitPOST_INCREMENT(RootParser.POST_INCREMENTContext ctx) {
+        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_INCREMENT);
+    }
+
+    @Override
+    public Value visitPOST_DECREMENT(RootParser.POST_DECREMENTContext ctx) {
+        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.POST_DECREMENT);
+    }
+
+    @Override
+    public Value visitPRE_INCREMENT(RootParser.PRE_INCREMENTContext ctx) {
+        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_INCREMENT);
+    }
+
+    @Override
+    public Value visitPRE_DECREMENT(RootParser.PRE_DECREMENTContext ctx) {
+        return visitMathUnaryOperator(ctx, MathUnaryOperator.Type.PRE_DECREMENT);
+    }
+
+    @Override
+    public Value visitUNARY_PLUS(RootParser.UNARY_PLUSContext ctx) {
+        return ctx.unaryPlus().accept(UnaryPlusVisitor.getInstance(scope, errorCollector));
+    }
+
+    @Override
+    public Value visitUNARY_MINUS(RootParser.UNARY_MINUSContext ctx) {
+        return ctx.unaryMinus().accept(UnaryMinusVisitor.getInstance(scope, errorCollector));
+    }
+
+    @Override
+    public Value visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx) {
+        throw new IllegalStateException("Not implemented yet");
     }
 
 }

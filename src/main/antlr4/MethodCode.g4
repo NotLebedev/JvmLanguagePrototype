@@ -30,21 +30,21 @@ variableAssignment : value assignment ;
 
 assignment : equalsS value ;
 
-value   : literalCG
-        | methodInv
-        | id
-        | objectInstantiation
-        | cast
-        | bracketOpenS value bracketCloseS
-        | value dotS value
-        | value arrayIndex
-        | value incrementS
-        | value decrementS
-        | preIncrement
-        | preDecrement
-        | unaryPlus
-        | unaryMinus
-        | value (asteriskS | slashS | percentS) value ;
+value   : literalCG #LITERAL
+        | methodInv #METHOD_INV
+        | id #ID
+        | objectInstantiation #OBJECT_INSTANTIATION
+        | cast #CAST
+        | bracketOpenS value bracketCloseS #PARENTHESIS
+        | value dotS value #ACCESS
+        | value arrayIndex #ARRAY_ACCESS
+        | value incrementS #POST_INCREMENT
+        | value decrementS #POST_DECREMENT
+        | preIncrement #PRE_INCREMENT
+        | preDecrement #PRE_DECREMENT
+        | unaryPlus #UNARY_PLUS
+        | unaryMinus #UNARY_MINUS
+        | value (asteriskS | slashS | percentS) value #MULTIPLICATIVE_OP ;
 
 preIncrement : incrementS value;
 preDecrement : decrementS value;
