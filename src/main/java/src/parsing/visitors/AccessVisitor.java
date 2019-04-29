@@ -75,16 +75,14 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
             // only id to go next
             var packageO = (PackageO) val;
 
-            String id = idText;
-
             //region Subpackage
-            if(packageO.updatePath(id))
+            if(packageO.updatePath(idText))
                 return packageO;
             //endregion
 
             //region Class
             try {
-                return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
+                return ClassFactory.getInstance().forName(packageO.getPath() + "." + idText);
             } catch (ClassNotFoundException ignored) {
                 errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                         ctx.value(1).start.getCharPositionInLine(),
@@ -99,11 +97,9 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
 
             if(idText != null) {
 
-                String id = idText;
-
                 //region Nested class
                 try {
-                    return ClassFactory.getInstance().forName(classO.getName() + "$" + id);
+                    return ClassFactory.getInstance().forName(classO.getName() + "$" + idText);
                 } catch (ClassNotFoundException ignored) {
                 }
                 //endregion
@@ -112,7 +108,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                 try {
 
                     var staticClassField = new StaticClassField();
-                    staticClassField.setNames(classO, id);
+                    staticClassField.setNames(classO, idText);
                     return staticClassField;
 
                 } catch (NoSuchFieldException e) {
@@ -188,21 +184,21 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
             private String str;
             private RootParser.MethodInvContext methodInvContext;
 
-            public Response(String str) {
+            private Response(String str) {
                 this.str = str;
                 this.methodInvContext = null;
             }
 
-            public Response(RootParser.MethodInvContext methodInvContext) {
+            private Response(RootParser.MethodInvContext methodInvContext) {
                 this.methodInvContext = methodInvContext;
                 this.str = null;
             }
 
-            public String getStr() {
+            private String getStr() {
                 return str;
             }
 
-            public RootParser.MethodInvContext getMethodInvContext() {
+            private RootParser.MethodInvContext getMethodInvContext() {
                 return methodInvContext;
             }
 
@@ -211,7 +207,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
         private ValueExtractor() {}
 
         private static class ValueExtractorLazyHolder {
-            static final ValueExtractor INSTANCE = new ValueExtractor();
+            private static final ValueExtractor INSTANCE = new ValueExtractor();
         }
 
         public static ValueExtractor getInstance() {

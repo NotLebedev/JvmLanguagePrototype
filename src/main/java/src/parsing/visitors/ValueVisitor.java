@@ -1,27 +1,26 @@
 package src.parsing.visitors;
 
-import src.parsing.antlr4Gen.Root.RootBaseVisitor;
-import src.parsing.antlr4Gen.Root.RootParser;
-import src.compilation.domain.*;
+import src.compilation.domain.TypeCast;
+import src.compilation.domain.access.ArrayAccess;
+import src.compilation.domain.exceptions.ArrayExpectedException;
+import src.compilation.domain.exceptions.IncompatibleTypesException;
+import src.compilation.domain.exceptions.VariableNotFoundException;
+import src.compilation.domain.exceptions.WrongCastException;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
-import src.compilation.domain.math.MathUnaryOperator;
-import src.compilation.domain.access.*;
-import src.compilation.domain.exceptions.*;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.PackageO;
 import src.compilation.domain.structure.interfaces.AbstractClass;
-import src.compilation.domain.structure.interfaces.AbstractMethod;
+import src.parsing.antlr4Gen.Root.RootBaseVisitor;
+import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
-import src.parsing.visitors.errorHandling.errors.*;
-import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
+import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
+import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
+import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
+import src.parsing.visitors.errorHandling.errors.WrongCastError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
-
-import java.lang.reflect.Modifier;
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Class responsible for recursive visiting of values, this is visitor of
@@ -81,117 +80,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         errorCollector.reportError(
                 new CanNotResolveSymbolError(ctx.id()));
         throw new ExpressionParseCancelationException();
-
-    }
-
-    private Value visitDotS(RootParser.ACCESSContext ctx) {
-
-        /*var val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
-
-        if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
-            // only id to go next
-            var packageO = (PackageO) val;
-
-            String id = ctx.value(1).id().getText();
-
-            //region Subpackage
-            if(packageO.updatePath(id))
-                return packageO;
-            //endregion
-
-            //region Class
-            try {
-                return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
-            } catch (ClassNotFoundException ignored) {
-                errorCollector.reportError(
-                        new CanNotResolveSymbolError(ctx.value(1).id()));
-                throw new ExpressionParseCancelationException();
-            }
-            //endregion
-
-        } else if(val instanceof AbstractClass) {
-
-            var classO = (AbstractClass) val;
-
-            if(ctx.value(1).id() != null) {
-
-                String id = ctx.value(1).id().getText();
-
-                //region Nested class
-                try {
-                    return ClassFactory.getInstance().forName(classO.getName() + "$" + id);
-                } catch (ClassNotFoundException ignored) {
-                }
-                //endregion
-
-                //region Static field
-                try {
-
-                    var staticClassField = new StaticClassField();
-                    staticClassField.setNames(classO, id);
-                    return staticClassField;
-
-                } catch (NoSuchFieldException e) {
-                    errorCollector.reportError(
-                            new CanNotResolveSymbolError(ctx.value(1).id()));
-                    throw new ExpressionParseCancelationException();
-                }
-                //endregion
-
-            }
-
-            if(ctx.value(1).methodInv() != null) {
-
-                //Is static method invocation
-                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, true, scope));
-                //Is static method invocation
-
-            }
-
-        } else { // Last case is for any object value
-
-            if(ctx.value(1).id() != null) {
-
-
-                //region Is static field
-                try {
-
-                    var staticField = new StaticClassField();
-                    staticField.setNames(val.getType(), ctx.value(1).id().getText());
-                    return staticField;
-
-                } catch (NoSuchFieldException ignored) {
-                } //This exception will be thrown if no such static field exists
-                //In this case search for object fields will happen
-                //endregion
-
-                //Is object field
-                try {
-
-                    var objectField = new ObjectField();
-                    objectField.setNames(val, ctx.value(1).id().getText());
-                    return objectField;
-
-                } catch (NoSuchFieldException e) {
-                    errorCollector.reportError(
-                            new CanNotResolveSymbolError(ctx.value(1).id()));
-                    throw new ExpressionParseCancelationException();
-                }
-                //Is object field
-
-            }
-
-            if(ctx.value(1).methodInv() != null) {
-
-                //Is object method invocation
-                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope));
-                //Is object method invocation
-
-            }
-
-        }
-*/
-        throw new IllegalStateException("errorCollector must throw exception");
 
     }
 
