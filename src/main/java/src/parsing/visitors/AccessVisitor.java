@@ -59,11 +59,23 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
 
         var val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
 
-        if(val instanceof PackageO && ctx.value(1).id() != null) {  // Package part may expect
+        var response = ctx.value(1).accept(ValueExtractor.getInstance());
+
+        if(response == null) {
+            errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
+                    ctx.value(1).start.getCharPositionInLine(),
+                    ctx.value(1).getText()));
+            throw new ExpressionParseCancelationException();
+        }
+
+        String idText = response.getStr();
+        RootParser.MethodInvContext methodInv = response.getMethodInvContext();
+
+        if(val instanceof PackageO && idText != null) {  // Package part may expect
             // only id to go next
             var packageO = (PackageO) val;
 
-            String id = ctx.value(1).id().getText();
+            String id = idText;
 
             //region Subpackage
             if(packageO.updatePath(id))
@@ -74,8 +86,9 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
             try {
                 return ClassFactory.getInstance().forName(packageO.getPath() + "." + id);
             } catch (ClassNotFoundException ignored) {
-                errorCollector.reportError(
-                        new CanNotResolveSymbolError(ctx.value(1).id()));
+                errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
+                        ctx.value(1).start.getCharPositionInLine(),
+                        ctx.value(1).getText()));
                 throw new ExpressionParseCancelationException();
             }
             //endregion
@@ -84,9 +97,9 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
 
             var classO = (AbstractClass) val;
 
-            if(ctx.value(1).id() != null) {
+            if(idText != null) {
 
-                String id = ctx.value(1).id().getText();
+                String id = idText;
 
                 //region Nested class
                 try {
@@ -103,32 +116,33 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                     return staticClassField;
 
                 } catch (NoSuchFieldException e) {
-                    errorCollector.reportError(
-                            new CanNotResolveSymbolError(ctx.value(1).id()));
+                    errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
+                            ctx.value(1).start.getCharPositionInLine(),
+                            ctx.value(1).getText()));
                     throw new ExpressionParseCancelationException();
                 }
                 //endregion
 
             }
 
-            if(ctx.value(1).methodInv() != null) {
+            if(methodInv != null) {
 
                 //Is static method invocation
-                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, true, scope, errorCollector));
+                return methodInv.accept(new MethodInvVisitor(val, true, scope, errorCollector));
                 //Is static method invocation
 
             }
 
         } else { // Last case is for any object value
 
-            if(ctx.value(1).id() != null) {
+            if(idText != null) {
 
 
                 //region Is static field
                 try {
 
                     var staticField = new StaticClassField();
-                    staticField.setNames(val.getType(), ctx.value(1).id().getText());
+                    staticField.setNames(val.getType(), idText);
                     return staticField;
 
                 } catch (NoSuchFieldException ignored) {
@@ -140,22 +154,23 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                 try {
 
                     var objectField = new ObjectField();
-                    objectField.setNames(val, ctx.value(1).id().getText());
+                    objectField.setNames(val, idText);
                     return objectField;
 
                 } catch (NoSuchFieldException e) {
-                    errorCollector.reportError(
-                            new CanNotResolveSymbolError(ctx.value(1).id()));
+                    errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
+                            ctx.value(1).start.getCharPositionInLine(),
+                            ctx.value(1).getText()));
                     throw new ExpressionParseCancelationException();
                 }
                 //Is object field
 
             }
 
-            if(ctx.value(1).methodInv() != null) {
+            if(methodInv != null) {
 
                 //Is object method invocation
-                return ctx.value(1).methodInv().accept(new MethodInvVisitor(val, false, scope, errorCollector));
+                return methodInv.accept(new MethodInvVisitor(val, false, scope, errorCollector));
                 //Is object method invocation
 
             }
@@ -166,7 +181,52 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private class IdExtractor extends RootBaseVisitor<String> {
+    private static class ValueExtractor extends RootBaseVisitor<ValueExtractor.Response> {
+
+        private class Response {
+
+            private String str;
+            private RootParser.MethodInvContext methodInvContext;
+
+            public Response(String str) {
+                this.str = str;
+                this.methodInvContext = null;
+            }
+
+            public Response(RootParser.MethodInvContext methodInvContext) {
+                this.methodInvContext = methodInvContext;
+                this.str = null;
+            }
+
+            public String getStr() {
+                return str;
+            }
+
+            public RootParser.MethodInvContext getMethodInvContext() {
+                return methodInvContext;
+            }
+
+        }
+
+        private ValueExtractor() {}
+
+        private static class ValueExtractorLazyHolder {
+            static final ValueExtractor INSTANCE = new ValueExtractor();
+        }
+
+        public static ValueExtractor getInstance() {
+            return ValueExtractorLazyHolder.INSTANCE;
+        }
+
+        @Override
+        public Response visitID_LABEL(RootParser.ID_LABELContext ctx) {
+            return new Response(ctx.id().getText());
+        }
+
+        @Override
+        public Response visitMETHOD_INV(RootParser.METHOD_INVContext ctx) {
+            return new Response(ctx.methodInv());
+        }
 
     }
 

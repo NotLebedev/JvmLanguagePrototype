@@ -71,13 +71,6 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssignment(RootParser.AssignmentContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code CAST}
-	 * labeled alternative in {@link RootParser#value}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCAST(RootParser.CASTContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code LITERAL}
 	 * labeled alternative in {@link RootParser#value}.
 	 * @param ctx the parse tree
@@ -141,6 +134,13 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUNARY_MINUS(RootParser.UNARY_MINUSContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ID_LABEL}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitID_LABEL(RootParser.ID_LABELContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code PARENTHESIS}
 	 * labeled alternative in {@link RootParser#value}.
 	 * @param ctx the parse tree
@@ -148,12 +148,12 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPARENTHESIS(RootParser.PARENTHESISContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ID}
+	 * Visit a parse tree produced by the {@code CAST_LABEL}
 	 * labeled alternative in {@link RootParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitID(RootParser.IDContext ctx);
+	T visitCAST_LABEL(RootParser.CAST_LABELContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MULTIPLICATIVE_OP}
 	 * labeled alternative in {@link RootParser#value}.

@@ -709,17 +709,6 @@ public class RootParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class CASTContext extends ValueContext {
-		public CastContext cast() {
-			return getRuleContext(CastContext.class,0);
-		}
-		public CASTContext(ValueContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitCAST(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class LITERALContext extends ValueContext {
 		public LiteralCGContext literalCG() {
 			return getRuleContext(LiteralCGContext.class,0);
@@ -825,6 +814,17 @@ public class RootParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class ID_LABELContext extends ValueContext {
+		public IdContext id() {
+			return getRuleContext(IdContext.class,0);
+		}
+		public ID_LABELContext(ValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitID_LABEL(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class PARENTHESISContext extends ValueContext {
 		public BracketOpenSContext bracketOpenS() {
 			return getRuleContext(BracketOpenSContext.class,0);
@@ -842,14 +842,14 @@ public class RootParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class IDContext extends ValueContext {
-		public IdContext id() {
-			return getRuleContext(IdContext.class,0);
+	public static class CAST_LABELContext extends ValueContext {
+		public CastContext cast() {
+			return getRuleContext(CastContext.class,0);
 		}
-		public IDContext(ValueContext ctx) { copyFrom(ctx); }
+		public CAST_LABELContext(ValueContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitID(this);
+			if ( visitor instanceof RootVisitor ) return ((RootVisitor<? extends T>)visitor).visitCAST_LABEL(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -947,7 +947,7 @@ public class RootParser extends Parser {
 				break;
 			case 3:
 				{
-				_localctx = new IDContext(_localctx);
+				_localctx = new ID_LABELContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(190);
@@ -965,7 +965,7 @@ public class RootParser extends Parser {
 				break;
 			case 5:
 				{
-				_localctx = new CASTContext(_localctx);
+				_localctx = new CAST_LABELContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(192);

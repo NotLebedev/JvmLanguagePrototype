@@ -32,9 +32,9 @@ assignment : equalsS value ;
 
 value   : literalCG #LITERAL
         | methodInv #METHOD_INV
-        | id #ID
+        | id #ID_LABEL
         | objectInstantiation #OBJECT_INSTANTIATION
-        | cast #CAST
+        | cast #CAST_LABEL
         | bracketOpenS value bracketCloseS #PARENTHESIS
         | value dotS value #ACCESS
         | value arrayIndex #ARRAY_ACCESS

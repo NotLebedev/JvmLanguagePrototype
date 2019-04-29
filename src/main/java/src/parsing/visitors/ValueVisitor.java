@@ -66,7 +66,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value visitId(RootParser.IDContext ctx) {
+    private Value visitId(RootParser.ID_LABELContext ctx) {
 
         try {
             return scope.getVariableByName(ctx.id().getText());
@@ -219,7 +219,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value visitCast(RootParser.CASTContext ctx) {
+    private Value visitCast(RootParser.CAST_LABELContext ctx) {
 
         var value = ctx.cast().value().accept(ValueVisitor.getInstance(scope, errorCollector));
         AbstractClass type = null;
@@ -260,7 +260,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitID(RootParser.IDContext ctx) {
+    public Value visitID_LABEL(RootParser.ID_LABELContext ctx) {
         return visitId(ctx);
     }
 
@@ -270,7 +270,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitCAST(RootParser.CASTContext ctx) {
+    public Value visitCAST_LABEL(RootParser.CAST_LABELContext ctx) {
         return visitCast(ctx);
     }
 
@@ -281,7 +281,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitACCESS(RootParser.ACCESSContext ctx) {
-        return visitDotS(ctx);
+        return ctx.accept(AccessVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
