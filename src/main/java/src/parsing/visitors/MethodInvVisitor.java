@@ -19,18 +19,25 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
+ * Class for visiting method invocations
  * @author NotLebedev
  */
 public class MethodInvVisitor extends RootBaseVisitor<Value> {
 
-    private final Value val;
+    private final Value context;
     private final Boolean requireStatic;
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    public MethodInvVisitor(Value val, Boolean requireStatic, Scope scope, ErrorCollector errorCollector) {
+    /**
+     * @param context object/class which method is called
+     * @param requireStatic is method called expected be static
+     * @param scope scope to be used
+     * @param errorCollector error collector to be used
+     */
+    public MethodInvVisitor(Value context, Boolean requireStatic, Scope scope, ErrorCollector errorCollector) {
 
-        this.val = val;
+        this.context = context;
         this.requireStatic = requireStatic;
         this.scope = scope;
         this.errorCollector = errorCollector;
@@ -42,19 +49,20 @@ public class MethodInvVisitor extends RootBaseVisitor<Value> {
 
         var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
+        //Fetch all method parameters
         List<Value> params = ctx.value().stream()
                 .map(valueContext -> valueContext.accept(valueVisitor))
                 .collect(Collectors.toList());
 
+        //Resolve parameter types
         var paramTypes = new AbstractClass[params.size()];
-
         paramTypes = params.stream()
                 .map(Value::getType).toArray(AbstractClass[]::new);
 
+        //Try getting method with given names and parameters
         AbstractMethod method;
-
         try {
-            method = val.getType().getMethod(ctx.id().getText(),
+            method = context.getType().getMethod(ctx.id().getText(),
                     paramTypes);
         } catch (NoSuchMethodException e) {
             errorCollector.reportError(
@@ -64,6 +72,7 @@ public class MethodInvVisitor extends RootBaseVisitor<Value> {
             throw new ExpressionParseCancelationException();
         }
 
+        //Verify if method is static in case it should be
         boolean isStatic = (Objects.requireNonNull(method).getModifiers() & Modifier.STATIC) != 0;
 
         if(requireStatic && !isStatic) {
@@ -75,10 +84,11 @@ public class MethodInvVisitor extends RootBaseVisitor<Value> {
 
         }
 
+        //Create dynamic or static invocation based on method acquired
         if(isStatic) {
 
             var smi = new StaticMethodInvocation();
-            smi.setNames(val.getType(), method);
+            smi.setNames(context.getType(), method);
 
             smi.setParamValues(params.toArray(new Value[0]));
 
@@ -87,7 +97,7 @@ public class MethodInvVisitor extends RootBaseVisitor<Value> {
         } else {
 
             var omi = new ObjectMethodInvocation();
-            omi.setNames(val, method);
+            omi.setNames(context, method);
 
             omi.setParamValues(params.toArray(new Value[0]));
 
