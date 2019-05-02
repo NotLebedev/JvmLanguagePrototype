@@ -15,6 +15,7 @@ import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
+ * Class for visiting pre/post increment/decrement
  * @author NotLebedev
  */
 public class CrementVisitor extends RootBaseVisitor<Value> {
@@ -22,6 +23,7 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
+    //region Flyweight container
     private static final MultiKeyHashMap<CrementVisitor> containerMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private CrementVisitor(Scope scope, ErrorCollector errorCollector) {
@@ -52,6 +54,7 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
         }
 
     }
+    //endregion
 
     @Override
     public Value visitPRE_INCREMENT(RootParser.PRE_INCREMENTContext ctx) {
@@ -92,14 +95,23 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
 
     }
 
+    /**
+     * Construct one of the "crement" operations
+     * @param value value to be used as operand
+     * @param type operation type
+     * @param line code line (for error)
+     * @param symbol symbol num in line (for error)
+     * @param offendingSymbol value text (for error)
+     * @return constructed operation
+     */
     private Value buildMathUnaryOperator(Value value, MathUnaryOperator.Type type, int line, int symbol, String offendingSymbol) {
-
+        //Value should be variable/field
         if(!(value instanceof Accessible)) {
             errorCollector.reportError(new VariableExpectedError(line, symbol,
                     offendingSymbol));
             throw new ExpressionParseCancelationException();
         }
-
+        //Try constructing operation
         try {
             return new MathUnaryOperator(type, ((Accessible) value));
         } catch (OperatorCanNotBeAppliedException e) {
