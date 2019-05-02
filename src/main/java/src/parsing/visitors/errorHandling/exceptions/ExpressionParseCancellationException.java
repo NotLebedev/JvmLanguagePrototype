@@ -8,5 +8,5 @@ import java.util.concurrent.CancellationException;
  *
  * @author NotLebedev
  */
-public class ExpressionParseCancelationException extends CancellationException {
+public class ExpressionParseCancellationException extends CancellationException {
 }

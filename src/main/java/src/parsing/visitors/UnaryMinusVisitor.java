@@ -8,7 +8,7 @@ import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.math.MathNegate;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -62,7 +62,7 @@ public class UnaryMinusVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(new OperatorCanNotBeAppliedError(ctx.start.getLine(), ctx.value().start.getCharPositionInLine(),
                     ctx.value().getText(),
                     e.getMessage()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
 
     }

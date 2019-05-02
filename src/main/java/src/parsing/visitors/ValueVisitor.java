@@ -18,7 +18,7 @@ import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
 import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.WrongCastError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -79,7 +79,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         errorCollector.reportError(
                 new CanNotResolveSymbolError(ctx.id()));
-        throw new ExpressionParseCancelationException();
+        throw new ExpressionParseCancellationException();
 
     }
 
@@ -94,7 +94,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(
                     new ArrayExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText(),
                             val.getType().getName()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         } catch (IncompatibleTypesException e) {
             errorCollector.reportError(
                     new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
@@ -102,7 +102,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                             ctx.arrayIndex().value().getText(),
                             e.getTypeExpected(),
                             e.getTypeFound()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
 
     }
@@ -121,7 +121,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(
                     new CanNotResolveSymbolError(ctx.cast().declarationType().start.getLine(), ctx.cast().declarationType().start.getCharPositionInLine(),
                             ctx.cast().declarationType().getText()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         } catch (WrongCastException e) {
 
             errorCollector.reportError(
@@ -130,7 +130,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
                             type.getName(), value.getType().getName())
             );
 
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
 
     }

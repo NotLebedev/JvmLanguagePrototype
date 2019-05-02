@@ -4,7 +4,7 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.Method;
 import src.parsing.visitors.errorHandling.ErrorCollector;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -61,7 +61,7 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
                 if(expression != null)
                     method.addExpression(expression);
 
-            } catch (ExpressionParseCancelationException ignored) {
+            } catch (ExpressionParseCancellationException ignored) {
             }
 
         });

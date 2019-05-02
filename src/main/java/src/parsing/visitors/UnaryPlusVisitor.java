@@ -10,7 +10,7 @@ import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -66,7 +66,7 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(new OperatorCanNotBeAppliedError(ctx.start.getLine(), ctx.start.getCharPositionInLine(),
                     ctx.value().getText(),
                     "Operator '+' can not be applied to " + value.getType().getName()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
 
     }

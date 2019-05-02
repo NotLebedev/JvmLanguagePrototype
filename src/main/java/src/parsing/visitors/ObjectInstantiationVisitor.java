@@ -14,7 +14,7 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -83,12 +83,12 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
             } catch (ClassNotFoundException | NoClassDefFoundError ignored) {
                 errorCollector.reportError(new ClassNotFoundError(ctx.arrayType().start.getLine(),
                                 ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
             } catch (NoSuchConstructorException e) {
                 errorCollector.reportError(
                         new NoSuchMethodError(ctx.arrayType().start.getLine(), ctx.arrayType().start.getCharPositionInLine(),
                                 "<init>", params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
             }
 
             objectInstantiation.setParamValues(params.toArray(new Value[0]));
@@ -110,14 +110,14 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                 errorCollector.reportError(
                         new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
                                 ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));   //error
-                throw new ExpressionParseCancelationException();                         //This error fails compilation of expression only
+                throw new ExpressionParseCancellationException();                         //This error fails compilation of expression only
             } catch (IncompatibleTypesException e) {
                 errorCollector.reportError(
                         new IncompatibleTypesError(ctx.arrayType().start.getLine(),
                                 ctx.start.getCharPositionInLine(), "[",
                                 e.getTypeExpected(),
                                 e.getTypeFound()));
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
             }
 
         }

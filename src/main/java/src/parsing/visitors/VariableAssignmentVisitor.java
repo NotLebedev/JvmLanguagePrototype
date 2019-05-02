@@ -10,7 +10,7 @@ import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableExpectedError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -75,7 +75,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
                         new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
 
             }
 
@@ -95,7 +95,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
                         new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
 
             }
 
@@ -113,7 +113,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
                         new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
 
             }
 
@@ -131,7 +131,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
                         new IncompatibleTypesError(ctx.assignment().value(),
                                 e.getTypeExpected(), e.getTypeFound()));
 
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
 
             }
 
@@ -140,7 +140,7 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
         errorCollector.reportError(
                 new VariableExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText()));
 
-        throw new ExpressionParseCancelationException();
+        throw new ExpressionParseCancellationException();
 
     }
 }

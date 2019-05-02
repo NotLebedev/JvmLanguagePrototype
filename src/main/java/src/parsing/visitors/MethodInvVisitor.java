@@ -11,7 +11,7 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.NoSuchMethodError;
 import src.parsing.visitors.errorHandling.errors.WrongContextError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -69,7 +69,7 @@ public class MethodInvVisitor extends RootBaseVisitor<Value> {
                     new NoSuchMethodError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
                             ctx.id().getText(),
                             paramTypes));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
 
         //Verify if method is static in case it should be
@@ -80,7 +80,7 @@ public class MethodInvVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(
                     new WrongContextError(ctx.id().start.getLine(), ctx.id().start.getCharPositionInLine(),
                             ctx.id().getText()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
 
         }
 

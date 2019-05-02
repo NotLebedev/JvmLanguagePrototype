@@ -11,7 +11,7 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -69,7 +69,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                     ctx.value(1).start.getCharPositionInLine(),
                     ctx.value(1).getText()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
         //
         String idText = response.getStr();
@@ -90,7 +90,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                 errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                         ctx.value(1).start.getCharPositionInLine(),
                         ctx.value(1).getText()));
-                throw new ExpressionParseCancelationException();
+                throw new ExpressionParseCancellationException();
             }
 
         } else if(val instanceof AbstractClass) {
@@ -116,7 +116,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                     errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                             ctx.value(1).start.getCharPositionInLine(),
                             ctx.value(1).getText()));
-                    throw new ExpressionParseCancelationException();
+                    throw new ExpressionParseCancellationException();
                 }
 
             }else if(methodInv != null) {
@@ -149,7 +149,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                     errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                             ctx.value(1).start.getCharPositionInLine(),
                             ctx.value(1).getText()));
-                    throw new ExpressionParseCancelationException();
+                    throw new ExpressionParseCancellationException();
                 }
 
             }else if(methodInv != null) {

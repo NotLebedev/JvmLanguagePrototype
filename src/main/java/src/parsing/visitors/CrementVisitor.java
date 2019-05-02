@@ -10,7 +10,7 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
 import src.parsing.visitors.errorHandling.errors.VariableExpectedError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancelationException;
+import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -109,7 +109,7 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
         if(!(value instanceof Accessible)) {
             errorCollector.reportError(new VariableExpectedError(line, symbol,
                     offendingSymbol));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
         //Try constructing operation
         try {
@@ -118,7 +118,7 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
             errorCollector.reportError(new OperatorCanNotBeAppliedError(line, symbol,
                     offendingSymbol,
                     e.getMessage()));
-            throw new ExpressionParseCancelationException();
+            throw new ExpressionParseCancellationException();
         }
 
     }
