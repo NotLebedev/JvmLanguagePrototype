@@ -48,6 +48,8 @@ public class Utils {
             case "double":
             case "D":
                 return double.class;
+            case "void":
+                return void.class;
             default:
                 return Class.forName(name);
 

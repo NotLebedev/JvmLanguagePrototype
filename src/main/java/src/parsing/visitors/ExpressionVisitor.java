@@ -1,5 +1,6 @@
 package src.parsing.visitors;
 
+import src.compilation.domain.ValueAsExpressionHolder;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.interfaces.Expression;
@@ -72,7 +73,8 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
             var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
 
-            return ctx.value().accept(valueVisitor);
+            //Wrapping to eliminate unwanted value on stack
+            return new ValueAsExpressionHolder(ctx.value().accept(valueVisitor));
 
         }
 
