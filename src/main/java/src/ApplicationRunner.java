@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import src.interfaces.CustomRunnable;
 
-
 /**
  * @author NotLebedev
  */
@@ -16,7 +15,7 @@ public class ApplicationRunner {
 
         try {
             applicationInstance.run();
-        } catch (Exception e) {
+        } catch (Throwable e) {
             LOG.error("Exception occured while running " + applicationInstance.getClass().getSimpleName() + " providing stacktrace :\n", e);
         }
 
