@@ -38,6 +38,18 @@ public class CommandLineOptionsParser {
 
     }
 
+    public String getInput() {
+        return getOptionValue(Opts.INPUT);
+    }
+
+    public String getOutput() {
+        return getOptionValue(Opts.OUTPUT);
+    }
+
+    private String getOptionValue(Opts opt) {
+        return cmd.getOptionValue(opt.longOpt);
+    }
+
     private enum Opts {
         OUTPUT("o", "output", true, "output file", true),
         INPUT("i", "input", true, "input file", true);
