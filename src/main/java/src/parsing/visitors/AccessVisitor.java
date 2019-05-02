@@ -16,6 +16,7 @@ import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
+ * Class used to visit dot access (e.g. {@code System.out.println()})
  * @author NotLebedev
  */
 public class AccessVisitor extends RootBaseVisitor<Value> {
@@ -23,6 +24,7 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
+    //region Flyweight container
     private static final MultiKeyHashMap<AccessVisitor> containerMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 
     private AccessVisitor(Scope scope, ErrorCollector errorCollector) {
@@ -53,43 +55,43 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
         }
 
     }
+    //endregion
 
     @Override
     public Value visitACCESS(RootParser.ACCESSContext ctx) {
 
+        //Extract value to the left of the dot
         var val = ctx.value(0).accept(ValueVisitor.getInstance(scope, errorCollector));
-
+        //Extract value to the right of the dot
         var response = ctx.value(1).accept(ValueExtractor.getInstance());
-
+        //If it is of wrong type issue error
         if(response == null) {
             errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                     ctx.value(1).start.getCharPositionInLine(),
                     ctx.value(1).getText()));
             throw new ExpressionParseCancelationException();
         }
-
+        //
         String idText = response.getStr();
         RootParser.MethodInvContext methodInv = response.getMethodInvContext();
 
-        if(val instanceof PackageO && idText != null) {  // Package part may expect
-            // only id to go next
+        if(val instanceof PackageO && idText != null) { // Package part may expect
+                                                        // only id to go next
             var packageO = (PackageO) val;
 
-            //region Subpackage
+            //If package with given name relative to previous path exists
             if(packageO.updatePath(idText))
                 return packageO;
-            //endregion
 
-            //region Class
+            //Otherwise a class with given name should exist
             try {
                 return ClassFactory.getInstance().forName(packageO.getPath() + "." + idText);
-            } catch (ClassNotFoundException ignored) {
+            } catch (ClassNotFoundException ignored) { //Or error will be issued
                 errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                         ctx.value(1).start.getCharPositionInLine(),
                         ctx.value(1).getText()));
                 throw new ExpressionParseCancelationException();
             }
-            //endregion
 
         } else if(val instanceof AbstractClass) {
 
@@ -97,44 +99,36 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
 
             if(idText != null) {
 
-                //region Nested class
+                //If nested class can be found
                 try {
                     return ClassFactory.getInstance().forName(classO.getName() + "$" + idText);
                 } catch (ClassNotFoundException ignored) {
                 }
-                //endregion
 
-                //region Static field
+                //Otherwise search for a static field
                 try {
 
                     var staticClassField = new StaticClassField();
                     staticClassField.setNames(classO, idText);
                     return staticClassField;
 
-                } catch (NoSuchFieldException e) {
+                } catch (NoSuchFieldException e) { //If nothing found issue error
                     errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                             ctx.value(1).start.getCharPositionInLine(),
                             ctx.value(1).getText()));
                     throw new ExpressionParseCancelationException();
                 }
-                //endregion
 
-            }
-
-            if(methodInv != null) {
-
-                //Is static method invocation
+            }else if(methodInv != null) {
+                //In this case it may only be static method invocation
                 return methodInv.accept(new MethodInvVisitor(val, true, scope, errorCollector));
-                //Is static method invocation
-
             }
 
         } else { // Last case is for any object value
 
             if(idText != null) {
 
-
-                //region Is static field
+                //If static field can be found
                 try {
 
                     var staticField = new StaticClassField();
@@ -142,43 +136,45 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
                     return staticField;
 
                 } catch (NoSuchFieldException ignored) {
-                } //This exception will be thrown if no such static field exists
-                //In this case search for object fields will happen
-                //endregion
+                }
 
-                //Is object field
+                //Otherwise search for object fields
                 try {
 
                     var objectField = new ObjectField();
                     objectField.setNames(val, idText);
                     return objectField;
 
-                } catch (NoSuchFieldException e) {
+                } catch (NoSuchFieldException e) {//If nothing found issue error
                     errorCollector.reportError(new CanNotResolveSymbolError(ctx.start.getLine(),
                             ctx.value(1).start.getCharPositionInLine(),
                             ctx.value(1).getText()));
                     throw new ExpressionParseCancelationException();
                 }
-                //Is object field
 
-            }
+            }else if(methodInv != null) {
 
-            if(methodInv != null) {
-
-                //Is object method invocation
+                //In this case it`s a method that can be both static and dynamic
                 return methodInv.accept(new MethodInvVisitor(val, false, scope, errorCollector));
-                //Is object method invocation
 
             }
 
         }
-
+        //This statement should be unreachable, since either methodInv or idText will be not null
         throw new IllegalStateException("errorCollector must throw exception");
 
     }
 
+    /**
+     * Class used to extract value to the right of the dot.
+     * If value is id returns String, if method invocation returns context,
+     * otherwise default RootBaseVisitor will return null
+     */
     private static class ValueExtractor extends RootBaseVisitor<ValueExtractor.Response> {
 
+        /**
+         * Optional response, contains only one of two options
+         */
         private class Response {
 
             private String str;
