@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.objectweb.asm.ClassWriter;
+import src.exceptions.IncorrectOptionsException;
 import src.interfaces.CustomRunnable;
 import src.parsing.antlr4Gen.Root.RootLexer;
 import src.parsing.antlr4Gen.Root.RootParser;
@@ -29,7 +30,16 @@ public class ApplicationInstance implements CustomRunnable {
     @Override
     public void run() throws Exception {
 
-        RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("C:\\Users\\Tema.leog-PC\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\source.lp"));
+        CommandLineOptionsParser optionParser;
+
+        try {
+            optionParser = new CommandLineOptionsParser(args);
+        }catch (IncorrectOptionsException e) {
+            e.printMessage();
+            return;
+        }
+
+        RootLexer rootLexer = new RootLexer(CharStreams.fromFileName(optionParser.getInput()));
 
         CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
         RootParser rootParser = new RootParser(tokenStream);
@@ -59,20 +69,7 @@ public class ApplicationInstance implements CustomRunnable {
 
         }
 
-        ///////////////////////////
-
-        String startPath = "C:\\Users\\Tema.leog-PC\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\src";
-
-        JFileChooser fc = new JFileChooser(startPath);
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        var result = fc.showOpenDialog(null);
-
-        if(result != JFileChooser.APPROVE_OPTION) {
-            System.err.println("File not choosed");
-            return;
-        }
-
-        String classPath = fc.getSelectedFile().getAbsolutePath() + "\\Test.class";
+        String classPath = optionParser.getOutput();
 
         try {
             OutputStream os = new FileOutputStream(classPath);
