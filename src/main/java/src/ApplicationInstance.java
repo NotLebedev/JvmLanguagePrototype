@@ -20,10 +20,16 @@ import java.io.OutputStream;
  */
 public class ApplicationInstance implements CustomRunnable {
 
+    private final String[] args;
+
+    public ApplicationInstance(String[] args) {
+        this.args = args;
+    }
+
     @Override
     public void run() throws Exception {
 
-        RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("E:\\Work\\JvmLanguagePrototype\\target\\classes\\source.lp"));
+        RootLexer rootLexer = new RootLexer(CharStreams.fromFileName("C:\\Users\\Tema.leog-PC\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\source.lp"));
 
         CommonTokenStream tokenStream = new CommonTokenStream(rootLexer);
         RootParser rootParser = new RootParser(tokenStream);
@@ -55,7 +61,7 @@ public class ApplicationInstance implements CustomRunnable {
 
         ///////////////////////////
 
-        String startPath = "E:\\Work\\JvmLanguagePrototype\\target\\classes\\src";
+        String startPath = "C:\\Users\\Tema.leog-PC\\IdeaProjects\\JvmLanguagePrototype\\target\\classes\\src";
 
         JFileChooser fc = new JFileChooser(startPath);
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -77,5 +83,7 @@ public class ApplicationInstance implements CustomRunnable {
         }
 
     }
+
+
 
 }

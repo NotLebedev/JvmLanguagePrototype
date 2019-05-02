@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 @RunWith(Parameterized.class)
 public class BytecodeEqualityTest {
 
-    private final static String resourcesPath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources";
+    private final static String resourcesPath = "C:\\Users\\Tema.leog-PC\\IdeaProjects\\JvmLanguagePrototype\\src\\test\\java\\resources";
 
     private final static String sourceName = "source.lp";
     private final static String bytecodeName = "sample.byt";
