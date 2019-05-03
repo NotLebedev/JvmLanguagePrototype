@@ -91,7 +91,7 @@ public class MathBinaryOperator implements Value {
 
     @Override
     public AbstractClass getType() {
-        return null;
+        return type;
     }
 
     public enum Type {
