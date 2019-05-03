@@ -177,8 +177,8 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
          */
         private class Response {
 
-            private String str;
-            private RootParser.MethodInvContext methodInvContext;
+            private final String str;
+            private final RootParser.MethodInvContext methodInvContext;
 
             private Response(String str) {
                 this.str = str;

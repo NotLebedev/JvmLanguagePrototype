@@ -16,7 +16,7 @@ public class ApplicationRunner {
         try {
             applicationInstance.run();
         } catch (Throwable e) {
-            LOG.error("Exception occured while running " + applicationInstance.getClass().getSimpleName() + " providing stacktrace :\n", e);
+            LOG.error("Exception occurred while running " + applicationInstance.getClass().getSimpleName() + " providing stacktrace :\n", e);
         }
 
     }

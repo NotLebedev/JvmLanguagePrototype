@@ -22,7 +22,7 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static AbstractClass intType = ClassFactory.getInstance().forCorrectName("int");
+    private static final AbstractClass intType = ClassFactory.getInstance().forCorrectName("int");
 
     private static final MultiKeyHashMap<UnaryPlusVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
 

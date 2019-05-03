@@ -3,7 +3,7 @@ package src.parsing.visitors.errorHandling.exceptions;
 import java.util.concurrent.CancellationException;
 
 /**
- * Expression to be thrown, when parsing of expression can not be continiued
+ * Expression to be thrown, when parsing of expression can not be continued
  * but this does not affect the rest of method code
  *
  * @author NotLebedev

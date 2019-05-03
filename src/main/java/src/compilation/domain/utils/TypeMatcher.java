@@ -146,7 +146,7 @@ public class TypeMatcher {
 
     /**
      * Convert value on stack from boxed type to primitive and visa-versa
-     * @param value value to be (un)boxed
+     * @param type type of value to be (un)boxed
      * @return new type
      * @throws NotBoxedTypeException the type can not be (un)boxed
      */

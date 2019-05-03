@@ -32,7 +32,6 @@ public class BytecodeEqualityTest {
 
     private final static String sourceName = "source.lp";
     private final static String bytecodeName = "sample.byt";
-    private final static String backupName = "backup.byt";
 
     private final String path;
     private final String directory;

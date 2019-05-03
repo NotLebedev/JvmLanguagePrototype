@@ -12,7 +12,6 @@ import src.parsing.visitors.CodeVisitor;
 import src.parsing.visitors.errorHandling.CompilationError;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 
-import javax.swing.*;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 

@@ -18,7 +18,7 @@ public class MathUnaryOperator implements Value {
 
     private final Type operatorType;
 
-    private Accessible accessible;
+    private final Accessible accessible;
     private final AbstractClass type;
 
     private final static ArrayList<AbstractClass> ints = MathUtils.getInts();
