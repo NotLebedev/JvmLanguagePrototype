@@ -1,4 +1,4 @@
-package src.parsing.visitors;
+package src.parsing.visitors.methodCodeVisitors;
 
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 import src.compilation.domain.EmptyExpression;
@@ -20,7 +20,6 @@ import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Class responsible for visiting variable declarations (e.g. {@code String str;})

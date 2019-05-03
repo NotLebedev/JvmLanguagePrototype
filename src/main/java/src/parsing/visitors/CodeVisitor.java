@@ -6,6 +6,7 @@ import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.Method;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.methodCodeVisitors.MethodCodeVisitor;
 
 /**
  * Class responsible for visiting single file aka top level visitor

@@ -1,4 +1,4 @@
-package src.parsing.visitors;
+package src.parsing.visitors.methodCodeVisitors;
 
 import src.compilation.domain.ValueAsExpressionHolder;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;

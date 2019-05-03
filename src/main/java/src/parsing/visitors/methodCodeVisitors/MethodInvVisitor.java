@@ -1,4 +1,4 @@
-package src.parsing.visitors;
+package src.parsing.visitors.methodCodeVisitors;
 
 import src.compilation.domain.access.ObjectMethodInvocation;
 import src.compilation.domain.access.StaticMethodInvocation;

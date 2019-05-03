@@ -1,4 +1,4 @@
-package src.parsing.visitors;
+package src.parsing.visitors.methodCodeVisitors;
 
 import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
 import src.compilation.domain.interfaces.Accessible;
