@@ -12,6 +12,7 @@ import src.compilation.domain.utils.TypeMatcher;
 import java.util.ArrayList;
 
 /**
+ * Class describing mathematical binary operators (e.g. + / %)
  * @author NotLebedev
  */
 public class MathBinaryOperator implements Value {
@@ -38,7 +39,7 @@ public class MathBinaryOperator implements Value {
 
         var typeMatcher = TypeMatcher.getInstance();
 
-        try {
+        try { //Get unboxed types for both operands
             firstType = typeMatcher.getUnboxed(firstOperand.getType());
         } catch (NotBoxedTypeException e) {
             firstType = firstOperand.getType();
@@ -49,33 +50,38 @@ public class MathBinaryOperator implements Value {
         } catch (NotBoxedTypeException e) {
             secondType = secondOperand.getType();
         }
-
+        //Check if both operands are numbers
         if(!mathCompatible.contains(firstType))
             throw new OperatorCanNotBeAppliedException(operatorType.name, firstType);
 
         if(!mathCompatible.contains(secondType))
             throw new OperatorCanNotBeAppliedException(operatorType.name, secondType);
-
+        //Check if both operands are of the same type
         if(!firstType.equals(secondType))
             throw new IncompatibleTypesException(firstType.getName(), secondType.getName());
-
+        //If all checks passed unboxed type of first operand will be resulting type of operation
         this.type = firstType;
 
     }
 
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
-
+        //Create both operands on stack and unbox them
         firstOperand.generateBytecode(methodVisitor);
         unBox(firstOperand.getType(), methodVisitor);
 
         secondOperand.generateBytecode(methodVisitor);
         unBox(secondOperand.getType(), methodVisitor);
-
+        //Add created values
         methodVisitor.visitInsn(type.getOpcode(operatorType.opcode));
 
     }
 
+    /**
+     * Check if value is boxed and unbox on stack if it is
+     * @param type type of value
+     * @param methodVisitor MethodVisitor to be used
+     */
     private void unBox(AbstractClass type, MethodVisitor methodVisitor) {
 
         if(boxed.contains(type)) {
