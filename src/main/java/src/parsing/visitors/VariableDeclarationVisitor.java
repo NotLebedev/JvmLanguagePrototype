@@ -1,6 +1,7 @@
 package src.parsing.visitors;
 
 import org.antlr.v4.runtime.misc.ParseCancellationException;
+import src.compilation.domain.EmptyExpression;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.interfaces.Expression;
@@ -18,10 +19,11 @@ import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellation
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Class responsible for visiting variable assignments (e.g. {@code String str})
+ * Class responsible for visiting variable declarations (e.g. {@code String str;})
  *
  * @author NotLebedev
  */
@@ -62,7 +64,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
     }
 
     @Override
-    @Nullable
+    @Nonnull
     public Expression visitVariableDeclaration(RootParser.VariableDeclarationContext ctx) {
 
         var type = ctx.declarationType().getText();
@@ -70,7 +72,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         Variable variable;
 
-        try {
+        try { //Try creating a variable with given type
             variable = new Variable(type, name, 0);
         } catch (ClassNotFoundException e) {
 
@@ -82,7 +84,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        try {
+        try { //Than try adding it to scope
             scope.addVariable(variable);
         } catch (VariableAlreadyDefinedException e) {
 
@@ -95,7 +97,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        if(ctx.assignment() != null) {
+        if(ctx.assignment() != null) { //If assignment is present
 
             var variableAssignment = new VariableAssignment();
 
@@ -103,7 +105,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
             Value value = ctx.assignment().accept(valueVisitor);
 
-            try {
+            try { //Try assigning value to variable
                 variableAssignment.setParams(variable, value);
             } catch (IncompatibleTypesException e) {
 
@@ -118,7 +120,6 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         }
 
-        return null; //Returning null is expected here, as variable
-        // declaration may not produce any bytecode
+        return new EmptyExpression(); //If no assignment occurs no bytecode is generated
     }
 }

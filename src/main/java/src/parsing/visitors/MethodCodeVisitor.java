@@ -58,8 +58,7 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
 
                 var expression = expressionContext.accept(ExpressionVisitor.getInstance(method, errorCollector));
 
-                if(expression != null)
-                    method.addExpression(expression);
+                method.addExpression(expression);
 
             } catch (ExpressionParseCancellationException ignored) {
             }
