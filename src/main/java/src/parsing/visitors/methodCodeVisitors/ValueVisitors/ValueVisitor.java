@@ -205,7 +205,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx) {
-        throw new IllegalStateException("Not implemented yet");
+        return ctx.accept(MultiplicativeOperatorVisitor.getInstance(scope, errorCollector));
     }
 
 }
