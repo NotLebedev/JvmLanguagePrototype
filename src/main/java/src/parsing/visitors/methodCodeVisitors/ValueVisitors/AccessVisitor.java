@@ -1,4 +1,4 @@
-package src.parsing.visitors.methodCodeVisitors;
+package src.parsing.visitors.methodCodeVisitors.ValueVisitors;
 
 import src.compilation.domain.access.ObjectField;
 import src.compilation.domain.access.StaticClassField;

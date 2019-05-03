@@ -6,6 +6,7 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.interfaces.Expression;
 import src.compilation.domain.interfaces.Scope;
 import src.parsing.visitors.errorHandling.ErrorCollector;
+import src.parsing.visitors.methodCodeVisitors.ValueVisitors.ValueVisitor;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 

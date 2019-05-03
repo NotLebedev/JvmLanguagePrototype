@@ -16,6 +16,7 @@ import src.parsing.visitors.errorHandling.errors.ClassNotFoundError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableAlreadyDefinedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.methodCodeVisitors.ValueVisitors.ValueVisitor;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
