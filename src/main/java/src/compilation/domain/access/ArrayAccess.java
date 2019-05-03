@@ -2,6 +2,7 @@ package src.compilation.domain.access;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import src.compilation.domain.interfaces.Accessible;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.exceptions.ArrayExpectedException;
 import src.compilation.domain.exceptions.IncompatibleTypesException;
@@ -14,7 +15,7 @@ import src.compilation.domain.utils.TypeMatcher;
  *
  * @author NotLebedev
  */
-public class ArrayAccess implements Value {
+public class ArrayAccess implements Accessible {
 
     private final static AbstractClass INDEX_TYPE = ClassFactory.getInstance().forCorrectName("int");
 

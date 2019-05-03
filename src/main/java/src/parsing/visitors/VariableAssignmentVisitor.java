@@ -1,5 +1,6 @@
 package src.parsing.visitors;
 
+import src.compilation.domain.interfaces.Accessible;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.interfaces.Expression;
@@ -57,90 +58,99 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
     @Override
     public Expression visitVariableAssignment(RootParser.VariableAssignmentContext ctx) {
-
+        //Fetch values to left and right of assignment
         Value val = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
-        var value = ctx.assignment().accept(ValueVisitor.getInstance(scope, errorCollector));
+        Value value = ctx.assignment().accept(ValueVisitor.getInstance(scope, errorCollector));
 
-        if(val instanceof Variable) {
+        if(val instanceof Accessible) { //If value can be assigned to it is Accessible
 
-            var variableAssignment = new VariableAssignment();
+            if (val instanceof Variable) { //If value is variable
+                //Create variable assignment
+                var variableAssignment = new VariableAssignment();
 
-            var variable = ((Variable) val);
+                var variable = ((Variable) val);
+                //Try assigning
+                try {
+                    variableAssignment.setParams(variable, value);
+                } catch (IncompatibleTypesException e) { //If types are incompatible issue error
 
-            try {
-                variableAssignment.setParams(variable, value);
-            } catch (IncompatibleTypesException e) {
+                    errorCollector.reportError(
+                            new IncompatibleTypesError(ctx.assignment().value(),
+                                    e.getTypeExpected(), e.getTypeFound()));
 
-                errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.assignment().value(),
-                                e.getTypeExpected(), e.getTypeFound()));
+                    throw new ExpressionParseCancellationException();
 
-                throw new ExpressionParseCancellationException();
+                }
 
-            }
-
-            return variableAssignment;
-
-        }
-
-        if(val instanceof ArrayAccess) {
-
-            var arrayAccess = ((ArrayAccess) val);
-
-            try {
-                return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
-            } catch (IncompatibleTypesException e) {
-
-                errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.assignment().value(),
-                                e.getTypeExpected(), e.getTypeFound()));
-
-                throw new ExpressionParseCancellationException();
+                return variableAssignment;
 
             }
 
-        }
+            if (val instanceof ArrayAccess) { //If value is array
 
-        if(val instanceof StaticClassField) {
+                var arrayAccess = ((ArrayAccess) val);
+                //Create array assignment
+                try {
+                    return new ArrayAssignment(arrayAccess.getArray(), arrayAccess.getIndex(), value);
+                } catch (IncompatibleTypesException e) { //If types are incompatible issue error
 
-            var staticField = ((StaticClassField) val);
+                    errorCollector.reportError(
+                            new IncompatibleTypesError(ctx.assignment().value(),
+                                    e.getTypeExpected(), e.getTypeFound()));
 
-            try {
-                return new StaticClassFieldAssignment(staticField, value);
-            } catch (IncompatibleTypesException e) {
+                    throw new ExpressionParseCancellationException();
 
-                errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.assignment().value(),
-                                e.getTypeExpected(), e.getTypeFound()));
-
-                throw new ExpressionParseCancellationException();
-
-            }
-
-        }
-
-        if(val instanceof ObjectField) {
-
-            var objectField = ((ObjectField) val);
-
-            try {
-                return new ObjectFieldAssignment(objectField, value);
-            } catch (IncompatibleTypesException e) {
-
-                errorCollector.reportError(
-                        new IncompatibleTypesError(ctx.assignment().value(),
-                                e.getTypeExpected(), e.getTypeFound()));
-
-                throw new ExpressionParseCancellationException();
+                }
 
             }
 
+            if (val instanceof StaticClassField) { //If value is static class field
+
+                var staticField = ((StaticClassField) val);
+
+                try {
+                    return new StaticClassFieldAssignment(staticField, value);
+                } catch (IncompatibleTypesException e) { //If types are incompatible issue error
+
+                    errorCollector.reportError(
+                            new IncompatibleTypesError(ctx.assignment().value(),
+                                    e.getTypeExpected(), e.getTypeFound()));
+
+                    throw new ExpressionParseCancellationException();
+
+                }
+
+            }
+
+            if (val instanceof ObjectField) { //If value is object field
+
+                var objectField = ((ObjectField) val);
+
+                try {
+                    return new ObjectFieldAssignment(objectField, value);
+                } catch (IncompatibleTypesException e) { //If types are incompatible issue error
+
+                    errorCollector.reportError(
+                            new IncompatibleTypesError(ctx.assignment().value(),
+                                    e.getTypeExpected(), e.getTypeFound()));
+
+                    throw new ExpressionParseCancellationException();
+
+                }
+
+            }
+
+            throw new IllegalStateException("One of the cases is not implemented");
+
+        }else {
+            //If value to the left is not Accessible it can not be assigned
+            errorCollector.reportError(
+                    new VariableExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(),
+                            ctx.value().getText()));
+
+            throw new ExpressionParseCancellationException();
+
         }
-
-        errorCollector.reportError(
-                new VariableExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText()));
-
-        throw new ExpressionParseCancellationException();
 
     }
 }
