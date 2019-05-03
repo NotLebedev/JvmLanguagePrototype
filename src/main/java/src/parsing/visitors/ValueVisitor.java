@@ -23,10 +23,8 @@ import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
- * Class responsible for recursive visiting of values, this is visitor of
- * main grammar rule responsible for parsing of all access (e.g. {@code System.out.println()})
- * arithmetical (e.g. {@code (i + 32) / j}) boolean (e.g. {@code !(b & a)}) and combined expressions
- *
+ * Class responsible for routing all value rule options to
+ * corresponding visitors
  * @author NotLebedev
  */
 public class ValueVisitor extends RootBaseVisitor<Value> {
@@ -64,7 +62,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         }
 
     }
-
+    @Deprecated//Intended to move to separate class
     private Value visitId(RootParser.ID_LABELContext ctx) {
 
         try {
@@ -82,7 +80,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         throw new ExpressionParseCancellationException();
 
     }
-
+    @Deprecated//Intended to move to separate class
     private Value visitArray(RootParser.ARRAY_ACCESSContext ctx) {
 
         Value val = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
@@ -106,7 +104,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         }
 
     }
-
+    @Deprecated//Intended to move to separate class
     private Value visitCast(RootParser.CAST_LABELContext ctx) {
 
         var value = ctx.cast().value().accept(ValueVisitor.getInstance(scope, errorCollector));
@@ -137,9 +135,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitLITERAL(RootParser.LITERALContext ctx) {
-
         return ctx.literalCG().accept(LiteralCGVisitor.getInstance());
-
     }
 
     @Override

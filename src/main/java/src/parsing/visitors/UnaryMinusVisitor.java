@@ -13,6 +13,7 @@ import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
+ * Class for visiting unary minus operator (e.g. {@code -i})
  * @author NotLebedev
  */
 public class UnaryMinusVisitor extends RootBaseVisitor<Value> {

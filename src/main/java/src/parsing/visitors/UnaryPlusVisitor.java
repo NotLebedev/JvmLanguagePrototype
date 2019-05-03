@@ -59,7 +59,7 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
     public Value visitUnaryPlus(RootParser.UnaryPlusContext ctx) {
 
         Value value = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
-
+        //Unary "+" casts everything to int if possible
         try {
             return new TypeCast(intType, value);
         } catch (WrongCastException e) {

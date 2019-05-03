@@ -66,17 +66,17 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
     public Value visitObjectInstantiation(RootParser.ObjectInstantiationContext ctx) {
 
         if(ctx.bracketOpenS() != null) {
-
+            //If brackets are present its object instantiation
             var objectInstantiation = new ObjectInstantiation();
 
             List<Value> params;
 
             var valueVisitor = ValueVisitor.getInstance(scope, errorCollector);
-
+            //Fetch all params
             params = ctx.value().stream()
                     .map(valueContext -> valueContext.accept(valueVisitor))
                     .collect(Collectors.toList());
-
+            //Try creating ObjectInstantiation with given params
             try {
                 objectInstantiation.setNames(ClassFactory.getInstance().forName(ctx.arrayType().getText())
                         .getConstructor(params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
@@ -90,17 +90,19 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                                 "<init>", params.stream().map(Value::getType).toArray(AbstractClass[]::new)));
                 throw new ExpressionParseCancellationException();
             }
-
+            //If constructor is found, set parameters
             objectInstantiation.setParamValues(params.toArray(new Value[0]));
 
             return objectInstantiation;
 
         } else {
-
+            //If brackets are not present its array instantiation
+            //Calculate array dimensions
             var dimensions = ctx.arrayIndex().stream()
                     .map(arrayIndexContext ->
                             arrayIndexContext.value().accept(ValueVisitor.getInstance(scope, errorCollector)))
                     .toArray(Value[]::new);
+            //Free dimensions are arrays with unspecified size (new int [3][3][][] <- last two)
             var freeDimensions = ctx.arrayModifier().size();
 
             try {
@@ -108,9 +110,9 @@ public class ObjectInstantiationVisitor extends RootBaseVisitor<Value> {
                         dimensions, freeDimensions);
             } catch (ClassNotFoundException e) {
                 errorCollector.reportError(
-                        new ClassNotFoundError(ctx.arrayType().start.getLine(),                  //Reporting class not found
-                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));   //error
-                throw new ExpressionParseCancellationException();                         //This error fails compilation of expression only
+                        new ClassNotFoundError(ctx.arrayType().start.getLine(),
+                                ctx.start.getCharPositionInLine(), ctx.arrayType().getText()));
+                throw new ExpressionParseCancellationException();
             } catch (IncompatibleTypesException e) {
                 errorCollector.reportError(
                         new IncompatibleTypesError(ctx.arrayType().start.getLine(),
