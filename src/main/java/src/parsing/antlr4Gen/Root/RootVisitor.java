@@ -1,5 +1,4 @@
-// Generated from E:/Work/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
-package src.parsing.antlr4Gen.Root;
+package src.parsing.antlr4Gen.Root;// Generated from C:/Users/Tema.leog-PC/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -77,6 +76,13 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLITERAL(RootParser.LITERALContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ADDITIVE_OP}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitADDITIVE_OP(RootParser.ADDITIVE_OPContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code PRE_DECREMENT}
 	 * labeled alternative in {@link RootParser#value}.

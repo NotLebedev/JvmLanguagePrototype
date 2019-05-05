@@ -44,7 +44,8 @@ value   : literalCG #LITERAL
         | preDecrement #PRE_DECREMENT
         | unaryPlus #UNARY_PLUS
         | unaryMinus #UNARY_MINUS
-        | value (asteriskS | slashS | percentS) value #MULTIPLICATIVE_OP ;
+        | value (asteriskS | slashS | percentS) value #MULTIPLICATIVE_OP
+        | value (plusS | minusS) value #ADDITIVE_OP;
 
 preIncrement : incrementS value;
 preDecrement : decrementS value;
