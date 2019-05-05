@@ -205,7 +205,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx) {
-        return ctx.accept(MultiplicativeOperatorVisitor.getInstance(scope, errorCollector));
+        return ctx.accept(BinaryMathOperatorVisitor.getInstance(scope, errorCollector));
     }
 
+    @Override
+    public Value visitADDITIVE_OP(RootParser.ADDITIVE_OPContext ctx) {
+        return ctx.accept(BinaryMathOperatorVisitor.getInstance(scope, errorCollector));
+    }
 }

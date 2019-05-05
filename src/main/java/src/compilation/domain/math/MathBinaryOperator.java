@@ -104,7 +104,10 @@ public class MathBinaryOperator implements Value {
 
         MULTIPLY("*", Opcodes.IMUL),
         DIVIDE("/", Opcodes.IDIV),
-        REMAINDER("%", Opcodes.IREM);
+        REMAINDER("%", Opcodes.IREM),
+
+        ADD("+", Opcodes.IADD),
+        SUBSTRACT("-", Opcodes.ISUB);
 
         public final String name;
         public final int opcode;
