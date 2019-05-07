@@ -5,7 +5,7 @@ src.parsing.Class2.test().printString();
 
 //region variable tests
 java.lang.String str1 = "Hello ";
-java.lang.String str2 = "world!";
+java.lang.String str2 = "world!!";
 
 java.lang.String tmp;
 tmp = str1;

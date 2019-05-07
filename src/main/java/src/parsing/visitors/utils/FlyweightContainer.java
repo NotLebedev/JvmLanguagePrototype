@@ -27,8 +27,6 @@ public class FlyweightContainer<T> {
         else {
 
             T flyweight = supplier.get();
-            System.out.println("creating new flyweight");
-            System.out.println(flyweight);
             flyweightMap.put(new WeakReference<>(flyweight), keys);
             return flyweight;
 

@@ -3,13 +3,14 @@ package src.parsing.visitors.utils;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author NotLebedev
  */
 public class MultiKeyHashMap <T> {
 
-    private final HashMap<List<Object>, T> map;
+    private final HashMap<List<Integer>, T> map;
     private final Class<?>[] keyTypes;
 
     public MultiKeyHashMap(Class<?>... keyTypes) {
@@ -22,14 +23,14 @@ public class MultiKeyHashMap <T> {
     public void put(T value, Object... keys) throws InvalidKeyTypesException {
 
         verifyKeys(keys);
-        map.put(Arrays.asList(keys), value);
+        map.put(Arrays.stream(keys).map(Object::hashCode).collect(Collectors.toList()), value);
 
     }
 
     public T get(Object... keys) throws InvalidKeyTypesException {
 
         verifyKeys(keys);
-        return map.get(Arrays.asList(keys));
+        return map.get(Arrays.stream(keys).map(Object::hashCode).collect(Collectors.toList()));
 
     }
 
