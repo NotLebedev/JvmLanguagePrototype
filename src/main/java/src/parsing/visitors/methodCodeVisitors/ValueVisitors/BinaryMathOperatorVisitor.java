@@ -45,6 +45,7 @@ public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
     }
     //endregion
 
+    @SuppressWarnings("Duplicates")
     @Override
     public Value visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx) {
         //Acquire both values
@@ -59,6 +60,7 @@ public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
 
     }
 
+    @SuppressWarnings("Duplicates")
     @Override
     public Value visitADDITIVE_OP(RootParser.ADDITIVE_OPContext ctx) {
         //Acquire both values
