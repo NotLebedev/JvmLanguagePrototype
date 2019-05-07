@@ -8,7 +8,6 @@ import src.compilation.domain.access.Variable;
 import src.compilation.domain.utils.VariableController;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * TODO: documentation, when class is more finished

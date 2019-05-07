@@ -53,11 +53,9 @@ public class MathUnaryOperator implements Value {
             switch(operatorType) {
 
                 case POST_INCREMENT:
-                    throw new OperatorCanNotBeAppliedException("++", type);
-                case POST_DECREMENT:
-                    throw new OperatorCanNotBeAppliedException("--", type);
                 case PRE_INCREMENT:
                     throw new OperatorCanNotBeAppliedException("++", type);
+                case POST_DECREMENT:
                 case PRE_DECREMENT:
                     throw new OperatorCanNotBeAppliedException("--", type);
                 default:
