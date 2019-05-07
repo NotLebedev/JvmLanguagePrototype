@@ -17,6 +17,7 @@ import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableAlreadyDefinedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.methodCodeVisitors.ValueVisitors.ValueVisitor;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 import src.parsing.visitors.utils.MultiKeyHashMap;
 
@@ -32,7 +33,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static final MultiKeyHashMap<VariableDeclarationVisitor> variableDeclarationVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<VariableDeclarationVisitor> flyweightContainer = new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private VariableDeclarationVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -45,17 +46,7 @@ public class VariableDeclarationVisitor extends RootBaseVisitor<Expression> {
 
         try {
 
-            VariableDeclarationVisitor result = variableDeclarationVisitorMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                VariableDeclarationVisitor visitor = new VariableDeclarationVisitor(scope, errorCollector);
-                variableDeclarationVisitorMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(() -> new VariableDeclarationVisitor(scope, errorCollector), scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);
