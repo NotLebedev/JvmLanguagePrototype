@@ -14,7 +14,7 @@ public class ApplicationRunner {
     private static final Logger LOG = LogManager.getLogger();
 
     public void runApplication(CustomRunnable applicationInstance) {
-//new Scanner(System.in).next();
+new Scanner(System.in).next();
         try {
             applicationInstance.run();
         } catch (Throwable e) {
