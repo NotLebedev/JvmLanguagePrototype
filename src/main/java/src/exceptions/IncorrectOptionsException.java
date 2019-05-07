@@ -17,7 +17,7 @@ public class IncorrectOptionsException extends Exception {
 
     public void printMessage() {
         System.out.println(message);
-        formatter.printHelp("", options);
+        formatter.printHelp(" ", options);
     }
 
 }
