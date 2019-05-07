@@ -19,8 +19,8 @@ import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.WrongCastError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class responsible for routing all value rule options to
@@ -32,7 +32,8 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static final MultiKeyHashMap<ValueVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<ValueVisitor> flyweightContainer =
+            new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private ValueVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -45,17 +46,9 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         try {
 
-            ValueVisitor result = valueVisitorMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                ValueVisitor visitor = new ValueVisitor(scope, errorCollector);
-                valueVisitorMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(
+                    () -> new ValueVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);

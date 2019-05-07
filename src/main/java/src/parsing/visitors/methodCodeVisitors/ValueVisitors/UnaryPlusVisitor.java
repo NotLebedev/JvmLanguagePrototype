@@ -1,18 +1,18 @@
 package src.parsing.visitors.methodCodeVisitors.ValueVisitors;
 
-import src.parsing.antlr4Gen.Root.RootBaseVisitor;
-import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.TypeCast;
 import src.compilation.domain.exceptions.WrongCastException;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
+import src.parsing.antlr4Gen.Root.RootBaseVisitor;
+import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * @author NotLebedev
@@ -24,7 +24,8 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
 
     private static final AbstractClass intType = ClassFactory.getInstance().forCorrectName("int");
 
-    private static final MultiKeyHashMap<UnaryPlusVisitor> valueVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<UnaryPlusVisitor> flyweightContainer =
+            new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private UnaryPlusVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -37,17 +38,9 @@ public class UnaryPlusVisitor extends RootBaseVisitor<Value> {
 
         try {
 
-            UnaryPlusVisitor result = valueVisitorMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                UnaryPlusVisitor visitor = new UnaryPlusVisitor(scope, errorCollector);
-                valueVisitorMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(
+                    () -> new UnaryPlusVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);

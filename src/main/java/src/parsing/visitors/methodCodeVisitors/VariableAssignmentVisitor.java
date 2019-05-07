@@ -1,13 +1,13 @@
 package src.parsing.visitors.methodCodeVisitors;
 
+import src.compilation.domain.access.*;
+import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.compilation.domain.interfaces.Accessible;
-import src.parsing.antlr4Gen.Root.RootBaseVisitor;
-import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.interfaces.Expression;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
-import src.compilation.domain.access.*;
-import src.compilation.domain.exceptions.IncompatibleTypesException;
+import src.parsing.antlr4Gen.Root.RootBaseVisitor;
+import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.VariableExpectedError;
@@ -15,7 +15,6 @@ import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellation
 import src.parsing.visitors.methodCodeVisitors.ValueVisitors.ValueVisitor;
 import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class responsible for visiting assignments (e.g. {@code str1 = str2})
@@ -27,7 +26,8 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static final FlyweightContainer<VariableAssignmentVisitor> flyweightContainer = new FlyweightContainer<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<VariableAssignmentVisitor> flyweightContainer =
+            new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private VariableAssignmentVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -40,7 +40,9 @@ public class VariableAssignmentVisitor extends RootBaseVisitor<Expression> {
 
         try {
 
-            return flyweightContainer.getFlyweight(() -> new VariableAssignmentVisitor(scope, errorCollector), scope, errorCollector);
+            return flyweightContainer.getFlyweight(
+                    () -> new VariableAssignmentVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);

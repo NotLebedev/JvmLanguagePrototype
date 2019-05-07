@@ -11,8 +11,8 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
 import src.parsing.visitors.errorHandling.errors.VariableExpectedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class for visiting pre/post increment/decrement
@@ -24,7 +24,8 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
     private final ErrorCollector errorCollector;
 
     //region Flyweight container
-    private static final MultiKeyHashMap<CrementVisitor> containerMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<CrementVisitor> flyweightContainer =
+            new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private CrementVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -37,17 +38,9 @@ public class CrementVisitor extends RootBaseVisitor<Value> {
 
         try {
 
-            CrementVisitor result = containerMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                CrementVisitor visitor = new CrementVisitor(scope, errorCollector);
-                containerMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(
+                    () -> new CrementVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);

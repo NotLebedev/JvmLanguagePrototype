@@ -11,8 +11,8 @@ import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
 import src.parsing.visitors.errorHandling.errors.OperatorCanNotBeAppliedError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
 
@@ -20,7 +20,8 @@ public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
     private final ErrorCollector errorCollector;
 
     //region Flyweight container
-    private static final MultiKeyHashMap<BinaryMathOperatorVisitor> containerMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<BinaryMathOperatorVisitor> flyweightContainer =
+            new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private BinaryMathOperatorVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -33,17 +34,9 @@ public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
 
         try {
 
-            BinaryMathOperatorVisitor result = containerMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                BinaryMathOperatorVisitor visitor = new BinaryMathOperatorVisitor(scope, errorCollector);
-                containerMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(
+                    () -> new BinaryMathOperatorVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);

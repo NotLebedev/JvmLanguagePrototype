@@ -12,8 +12,8 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class used to visit dot access (e.g. {@code System.out.println()})
@@ -25,7 +25,8 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
     private final ErrorCollector errorCollector;
 
     //region Flyweight container
-    private static final MultiKeyHashMap<AccessVisitor> containerMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<AccessVisitor> flyweightContainer =
+            new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private AccessVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -38,17 +39,9 @@ public class AccessVisitor extends RootBaseVisitor<Value> {
 
         try {
 
-            AccessVisitor result = containerMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                AccessVisitor visitor = new AccessVisitor(scope, errorCollector);
-                containerMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(
+                    () -> new AccessVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);
