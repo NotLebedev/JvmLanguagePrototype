@@ -8,7 +8,7 @@ import java.util.function.Supplier;
  */
 public class FlyweightContainer<T> {
 
-    private final MultiKeyHashMap<T> flyweightMap;
+    private final MultiKeyHashMap<WeakReference<T>> flyweightMap;
     private final Class<?>[] keyTypes;
 
     public FlyweightContainer(Class<?>... keyTypes) {
@@ -20,14 +20,16 @@ public class FlyweightContainer<T> {
 
     public T getFlyweight(Supplier<T> supplier, Object... keys) throws InvalidKeyTypesException {
 
-        T result = flyweightMap.get(keys);
+        WeakReference<T> result = flyweightMap.get(keys);
 
         if(result != null)
-            return result;
+            return result.get();
         else {
 
             T flyweight = supplier.get();
-            flyweightMap.put(flyweight, keys);
+            System.out.println("creating new flyweight");
+            System.out.println(flyweight);
+            flyweightMap.put(new WeakReference<>(flyweight), keys);
             return flyweight;
 
         }

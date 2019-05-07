@@ -1,13 +1,15 @@
 package src.parsing.visitors.utils;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author NotLebedev
  */
 public class MultiKeyHashMap <T> {
 
-    private final HashMap<Object[], T> map;
+    private final HashMap<List<Object>, T> map;
     private final Class<?>[] keyTypes;
 
     public MultiKeyHashMap(Class<?>... keyTypes) {
@@ -20,14 +22,14 @@ public class MultiKeyHashMap <T> {
     public void put(T value, Object... keys) throws InvalidKeyTypesException {
 
         verifyKeys(keys);
-        map.put(keys, value);
+        map.put(Arrays.asList(keys), value);
 
     }
 
     public T get(Object... keys) throws InvalidKeyTypesException {
 
         verifyKeys(keys);
-        return map.get(keys);
+        return map.get(Arrays.asList(keys));
 
     }
 

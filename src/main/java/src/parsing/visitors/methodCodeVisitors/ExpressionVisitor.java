@@ -1,5 +1,6 @@
 package src.parsing.visitors.methodCodeVisitors;
 
+import src.compilation.domain.Method;
 import src.compilation.domain.ValueAsExpressionHolder;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
@@ -7,8 +8,8 @@ import src.compilation.domain.interfaces.Expression;
 import src.compilation.domain.interfaces.Scope;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.methodCodeVisitors.ValueVisitors.ValueVisitor;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class responsible for visiting single expressions in code
@@ -20,7 +21,7 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
     private final Scope scope;
     private final ErrorCollector errorCollector;
 
-    private static final MultiKeyHashMap<ExpressionVisitor> expressionVisitorMap = new MultiKeyHashMap<>(Scope.class, ErrorCollector.class);
+    private static final FlyweightContainer<ExpressionVisitor> flyweightContainer = new FlyweightContainer<>(Scope.class, ErrorCollector.class);
 
     private ExpressionVisitor(Scope scope, ErrorCollector errorCollector) {
 
@@ -33,17 +34,8 @@ public class ExpressionVisitor extends RootBaseVisitor<Expression> {
 
         try {
 
-            ExpressionVisitor result = expressionVisitorMap.get(scope, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                ExpressionVisitor visitor = new ExpressionVisitor(scope, errorCollector);
-                expressionVisitorMap.put(visitor, scope, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(() -> new ExpressionVisitor(scope, errorCollector),
+                    scope, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);

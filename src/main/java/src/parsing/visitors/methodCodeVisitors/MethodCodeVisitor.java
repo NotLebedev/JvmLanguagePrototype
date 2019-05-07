@@ -5,8 +5,8 @@ import src.parsing.antlr4Gen.Root.RootParser;
 import src.compilation.domain.Method;
 import src.parsing.visitors.errorHandling.ErrorCollector;
 import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
+import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
-import src.parsing.visitors.utils.MultiKeyHashMap;
 
 /**
  * Class responsible for visiting of method body content
@@ -18,7 +18,7 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
     private final Method method;
     private final ErrorCollector errorCollector;
 
-    private static final MultiKeyHashMap<MethodCodeVisitor> methodCodeVisitorMap = new MultiKeyHashMap<>(Method.class, ErrorCollector.class);
+    private static final FlyweightContainer<MethodCodeVisitor> flyweightContainer = new FlyweightContainer<>(Method.class, ErrorCollector.class);
 
     private MethodCodeVisitor(Method method, ErrorCollector errorCollector) {
 
@@ -31,17 +31,8 @@ public class MethodCodeVisitor extends RootBaseVisitor<Method> {
 
         try {
 
-            MethodCodeVisitor result = methodCodeVisitorMap.get(method, errorCollector);
-
-            if(result != null)
-                return result;
-            else {
-
-                MethodCodeVisitor visitor = new MethodCodeVisitor(method, errorCollector);
-                methodCodeVisitorMap.put(visitor, method, errorCollector);
-                return visitor;
-
-            }
+            return flyweightContainer.getFlyweight(() -> new MethodCodeVisitor(method, errorCollector),
+                    method, errorCollector);
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);
