@@ -1,10 +1,14 @@
 package src.parsing.visitors.methodCodeVisitors.ValueVisitors;
 
+import src.compilation.domain.StringConcat;
 import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
+import src.compilation.domain.exceptions.StringLiteralConcatException;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.math.MathBinaryOperator;
+import src.compilation.domain.structure.ClassFactory;
+import src.compilation.domain.structure.interfaces.AbstractClass;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
@@ -18,6 +22,8 @@ public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
 
     private final Scope scope;
     private final ErrorCollector errorCollector;
+    private static final AbstractClass stringType = ClassFactory.getInstance()
+            .forCorrectName("java.lang.String");
 
     //region Flyweight container
     private static final FlyweightContainer<BinaryMathOperatorVisitor> flyweightContainer =
@@ -77,6 +83,18 @@ public class BinaryMathOperatorVisitor extends RootBaseVisitor<Value> {
 
     private Value buildValue(Value val1, Value val2, MathBinaryOperator.Type operationType,
                              int line, int charPosition, String offendingSymbol) {
+
+        if(operationType == MathBinaryOperator.Type.ADD && val1.getType().equals(stringType)) {
+            //If operation is addition this can be string concatenation
+            try {
+                return new StringConcat(val1, val2);
+            } catch (IncompatibleTypesException ignored) {
+                //Ignored to proceed to math operations
+            } catch (StringLiteralConcatException e) {  //Exception is thrown when string literal can
+                return e.getStringLiteral();            //be optimized
+            }
+
+        }
 
         try { //Try creating operator
             return new MathBinaryOperator(operationType, val1, val2);
