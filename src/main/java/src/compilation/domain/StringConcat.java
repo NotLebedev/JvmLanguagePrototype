@@ -10,6 +10,7 @@ import src.compilation.domain.literals.StringLiteral;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 
+import java.lang.invoke.StringConcatFactory;
 import java.util.LinkedList;
 
 /**
@@ -28,6 +29,20 @@ public class StringConcat implements Value {
     private static final String concatMethodName = "makeConcatWithConstants";
     //This method should be called statically
     private static final int methodTag = Opcodes.H_INVOKESTATIC;
+    //
+    private static final String bootstrapMethodDescriptor =
+            "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;" +
+                    "Ljava/lang/invoke/MethodType;" +
+                    "Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;";
+
+    /**
+     * Tag used by makeConcatWithConstants to declare ordinary argument {@link StringConcatFactory}
+     */
+    private static final char TAG_ARG = '\u0001';
+    /**
+     * Tag used by makeConcatWithConstants to declare constant {@link StringConcatFactory}
+     */
+    private static final char TAG_CONST = '\u0002';
 
     private final Value str1;
     private final Value str2;
@@ -74,6 +89,8 @@ public class StringConcat implements Value {
 
         LinkedList<Value> elements = getConcatElements();
 
+        //Build argument for bootstrap call
+        StringBuilder methodArgs = new StringBuilder();
         //Descriptor is built here
         StringBuilder descriptorBuilder = new StringBuilder();
         descriptorBuilder.append('(');
@@ -82,19 +99,19 @@ public class StringConcat implements Value {
         {
             value.generateBytecode(methodVisitor);
             descriptorBuilder.append(value.getType().getJvmName());
+            methodArgs.append(TAG_ARG); //TODO : apply TAG_CONST if literal is used
         });
         descriptorBuilder.append(')');
         descriptorBuilder.append(stringType.getJvmName());
-
-        //Arrays.stream(StringConcatFactory.class.getMethods()).filter(e -> e.getName().equals(concatMethodName)).findFirst().get();
 
         //Creating dynamic method handle using params specified above
         Handle handle = new Handle(methodTag,
                 concatHandlerClass.getSlashName(),
                 concatMethodName,
-                "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;");
+                bootstrapMethodDescriptor);
 
-        methodVisitor.visitInvokeDynamicInsn(concatMethodName, descriptorBuilder.toString(), handle, "\u0001\u0001");
+        methodVisitor.visitInvokeDynamicInsn(concatMethodName,
+                descriptorBuilder.toString(), handle, methodArgs.toString());
 
     }
 
