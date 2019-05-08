@@ -26,6 +26,10 @@ public class StringLiteral implements Value {
         this.string = string;
     }
 
+    public String getString() {
+        return string;
+    }
+
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
