@@ -90,11 +90,11 @@ public class StringConcat implements Value {
 
         //Creating dynamic method handle using params specified above
         Handle handle = new Handle(methodTag,
-                concatHandlerClass.getJvmName(),
+                concatHandlerClass.getSlashName(),
                 concatMethodName,
-                descriptorBuilder.toString());
+                "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;");
 
-        methodVisitor.visitInvokeDynamicInsn(concatMethodName, descriptorBuilder.toString(), handle);
+        methodVisitor.visitInvokeDynamicInsn(concatMethodName, descriptorBuilder.toString(), handle, "\u0001\u0001");
 
     }
 
