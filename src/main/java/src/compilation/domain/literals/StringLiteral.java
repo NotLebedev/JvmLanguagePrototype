@@ -2,13 +2,14 @@ package src.compilation.domain.literals;
 
 import org.objectweb.asm.MethodVisitor;
 import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.literals.interfaces.Literal;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing {@link String} literals
  */
-public class StringLiteral implements Value {
+public class StringLiteral implements Literal {
 
     private final String string;
 

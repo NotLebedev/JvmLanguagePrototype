@@ -3,13 +3,14 @@ package src.compilation.domain.literals;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.literals.interfaces.Literal;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 
 /**
  * Class describing {@link int} literals
  */
-public class IntLiteral implements Value {
+public class IntLiteral implements Literal {
 
     private final int integer;
 
@@ -27,6 +28,11 @@ public class IntLiteral implements Value {
 
         this.integer = integer;
 
+    }
+
+    @Override
+    public String getString() {
+        return Integer.toString(integer);
     }
 
     @Override

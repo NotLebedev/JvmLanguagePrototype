@@ -2,10 +2,11 @@ package src.compilation.domain.literals;
 
 import org.objectweb.asm.MethodVisitor;
 import src.compilation.domain.interfaces.Value;
+import src.compilation.domain.literals.interfaces.Literal;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 
-public class FloatLiteral implements Value {
+public class FloatLiteral implements Literal {
 
     private final float aFloat;
 
@@ -23,6 +24,11 @@ public class FloatLiteral implements Value {
 
         this.aFloat = aFloat;
 
+    }
+
+    @Override
+    public String getString() {
+        return Float.toString(aFloat);
     }
 
     @Override
