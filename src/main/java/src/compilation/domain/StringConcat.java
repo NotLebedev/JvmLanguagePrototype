@@ -7,6 +7,7 @@ import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.compilation.domain.exceptions.StringLiteralConcatException;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.literals.StringLiteral;
+import src.compilation.domain.literals.interfaces.Literal;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
 
@@ -14,6 +15,7 @@ import java.lang.invoke.StringConcatFactory;
 import java.util.LinkedList;
 
 /**
+ * Class responsible for concatenating multiple strings
  * @author NotLebedev
  */
 public class StringConcat implements Value {
@@ -36,13 +38,9 @@ public class StringConcat implements Value {
                     "Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;";
 
     /**
-     * Tag used by makeConcatWithConstants to declare ordinary argument {@link StringConcatFactory}
+     * Tag used by makeConcatWithConstants rule to declare ordinary argument {@link StringConcatFactory}
      */
     private static final char TAG_ARG = '\u0001';
-    /**
-     * Tag used by makeConcatWithConstants to declare constant {@link StringConcatFactory}
-     */
-    private static final char TAG_CONST = '\u0002';
 
     private final Value str1;
     private final Value str2;
@@ -89,17 +87,21 @@ public class StringConcat implements Value {
 
         LinkedList<Value> elements = getConcatElements();
 
-        //Build argument for bootstrap call
-        StringBuilder methodArgs = new StringBuilder();
+        //Build rule for concatenation
+        StringBuilder concatRule = new StringBuilder();
         //Descriptor is built here
         StringBuilder descriptorBuilder = new StringBuilder();
         descriptorBuilder.append('(');
 
         elements.forEach(value ->
         {
-            value.generateBytecode(methodVisitor);
-            descriptorBuilder.append(value.getType().getJvmName());
-            methodArgs.append(TAG_ARG); //TODO : apply TAG_CONST if literal is used
+            if(value instanceof Literal) { //If value is literal it can be added to concat rule
+                concatRule.append(((Literal) value).getString());
+            }else { //otherwise it should be passed as a parameter
+                value.generateBytecode(methodVisitor);
+                descriptorBuilder.append(value.getType().getJvmName());
+                concatRule.append(TAG_ARG);
+            }
         });
         descriptorBuilder.append(')');
         descriptorBuilder.append(stringType.getJvmName());
@@ -111,7 +113,7 @@ public class StringConcat implements Value {
                 bootstrapMethodDescriptor);
 
         methodVisitor.visitInvokeDynamicInsn(concatMethodName,
-                descriptorBuilder.toString(), handle, methodArgs.toString());
+                descriptorBuilder.toString(), handle, concatRule.toString());
 
     }
 
