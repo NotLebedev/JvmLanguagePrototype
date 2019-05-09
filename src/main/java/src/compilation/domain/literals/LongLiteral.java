@@ -1,7 +1,6 @@
 package src.compilation.domain.literals;
 
 import org.objectweb.asm.MethodVisitor;
-import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.literals.interfaces.Literal;
 import src.compilation.domain.structure.ClassFactory;
 import src.compilation.domain.structure.interfaces.AbstractClass;
