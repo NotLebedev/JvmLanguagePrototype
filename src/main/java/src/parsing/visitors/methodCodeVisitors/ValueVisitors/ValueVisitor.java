@@ -158,8 +158,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitACCESS(RootParser.ACCESSContext ctx) {
-        if(AccessVisitor.getInstance(scope, errorCollector) == null)
-            System.out.println();
         return ctx.accept(AccessVisitor.getInstance(scope, errorCollector));
     }
 
