@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 public class UpdateSampleBytecode {
 
-    private final static String resourcesPath = "E:\\Work\\JvmLanguagePrototype\\src\\test\\java\\resources";
+    private final static String resourcesPath = "src\\test\\java\\resources";
 
     private final static String sourceName = "source.lp";
     private final static String bytecodeName = "sample.byt";
@@ -45,7 +45,7 @@ public class UpdateSampleBytecode {
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
 
-        System.out.println("Confirm your choice [yes]");
+        System.out.println("Confirm your choice, updating test \"" + directories[choice] + "\" [yes]");
 
         String confirmation = in.next().replaceAll("[^A-Za-z0-9]", "");
 
