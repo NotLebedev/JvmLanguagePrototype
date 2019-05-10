@@ -1,24 +1,10 @@
 package src.parsing.visitors.methodCodeVisitors.ValueVisitors;
 
-import src.compilation.domain.TypeCast;
-import src.compilation.domain.access.ArrayAccess;
-import src.compilation.domain.exceptions.ArrayExpectedException;
-import src.compilation.domain.exceptions.IncompatibleTypesException;
-import src.compilation.domain.exceptions.VariableNotFoundException;
-import src.compilation.domain.exceptions.WrongCastException;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
-import src.compilation.domain.structure.ClassFactory;
-import src.compilation.domain.structure.PackageO;
-import src.compilation.domain.structure.interfaces.AbstractClass;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
-import src.parsing.visitors.errorHandling.errors.ArrayExpectedError;
-import src.parsing.visitors.errorHandling.errors.CanNotResolveSymbolError;
-import src.parsing.visitors.errorHandling.errors.IncompatibleTypesError;
-import src.parsing.visitors.errorHandling.errors.WrongCastError;
-import src.parsing.visitors.errorHandling.exceptions.ExpressionParseCancellationException;
 import src.parsing.visitors.utils.FlyweightContainer;
 import src.parsing.visitors.utils.InvalidKeyTypesException;
 
@@ -52,31 +38,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
         }catch (InvalidKeyTypesException e) {
             throw new IllegalStateException("Key types expected to be correct", e);
-        }
-
-    }
-
-    @Deprecated//Intended to move to separate class
-    private Value visitArray(RootParser.ARRAY_ACCESSContext ctx) {
-
-        Value val = ctx.value().accept(ValueVisitor.getInstance(scope, errorCollector));
-        Value index = ctx.arrayIndex().value().accept(ValueVisitor.getInstance(scope, errorCollector));
-
-        try {
-            return new ArrayAccess(val, index);
-        } catch (ArrayExpectedException e) {
-            errorCollector.reportError(
-                    new ArrayExpectedError(ctx.value().start.getLine(), ctx.value().start.getCharPositionInLine(), ctx.value().getText(),
-                            val.getType().getName()));
-            throw new ExpressionParseCancellationException();
-        } catch (IncompatibleTypesException e) {
-            errorCollector.reportError(
-                    new IncompatibleTypesError(ctx.arrayIndex().value().start.getLine(),
-                            ctx.arrayIndex().value().start.getCharPositionInLine(),
-                            ctx.arrayIndex().value().getText(),
-                            e.getTypeExpected(),
-                            e.getTypeFound()));
-            throw new ExpressionParseCancellationException();
         }
 
     }
@@ -118,7 +79,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitARRAY_ACCESS(RootParser.ARRAY_ACCESSContext ctx) {
-        return visitArray(ctx);
+        return ctx.accept(ArrayVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
