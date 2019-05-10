@@ -55,24 +55,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         }
 
     }
-    @Deprecated//Intended to move to separate class
-    private Value visitId(RootParser.ID_LABELContext ctx) {
 
-        try {
-            return scope.getVariableByName(ctx.id().getText());
-        } catch (VariableNotFoundException ignored) {
-        }
-
-        var packagePart = new PackageO();
-
-        if(packagePart.updatePath(ctx.id().getText()))
-            return packagePart;
-
-        errorCollector.reportError(
-                new CanNotResolveSymbolError(ctx.id()));
-        throw new ExpressionParseCancellationException();
-
-    }
     @Deprecated//Intended to move to separate class
     private Value visitArray(RootParser.ARRAY_ACCESSContext ctx) {
 
@@ -138,7 +121,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitID_LABEL(RootParser.ID_LABELContext ctx) {
-        return visitId(ctx);
+        return ctx.accept(IdVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
