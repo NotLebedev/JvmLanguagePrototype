@@ -31,7 +31,7 @@ public class StringConcat implements Value {
     private static final String concatMethodName = "makeConcatWithConstants";
     //This method should be called statically
     private static final int methodTag = Opcodes.H_INVOKESTATIC;
-    //
+    //Descriptor of original makeConcatWithConstants method
     private static final String bootstrapMethodDescriptor =
             "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;" +
                     "Ljava/lang/invoke/MethodType;" +
