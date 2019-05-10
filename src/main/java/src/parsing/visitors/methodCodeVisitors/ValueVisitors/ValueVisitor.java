@@ -80,34 +80,6 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
         }
 
     }
-    @Deprecated//Intended to move to separate class
-    private Value visitCast(RootParser.CAST_LABELContext ctx) {
-
-        var value = ctx.cast().value().accept(ValueVisitor.getInstance(scope, errorCollector));
-        AbstractClass type = null;
-
-        try {
-            type = ClassFactory.getInstance().forName(ctx.cast().declarationType().getText());
-
-            return new TypeCast(type, value);
-
-        } catch (ClassNotFoundException e) {
-            errorCollector.reportError(
-                    new CanNotResolveSymbolError(ctx.cast().declarationType().start.getLine(), ctx.cast().declarationType().start.getCharPositionInLine(),
-                            ctx.cast().declarationType().getText()));
-            throw new ExpressionParseCancellationException();
-        } catch (WrongCastException e) {
-
-            errorCollector.reportError(
-                    new WrongCastError(ctx.cast().declarationType().start.getLine(), ctx.cast().declarationType().start.getCharPositionInLine(),
-                            ctx.cast().declarationType().getText(),
-                            type.getName(), value.getType().getName())
-            );
-
-            throw new ExpressionParseCancellationException();
-        }
-
-    }
 
     @Override
     public Value visitLITERAL(RootParser.LITERALContext ctx) {
@@ -131,7 +103,7 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
 
     @Override
     public Value visitCAST_LABEL(RootParser.CAST_LABELContext ctx) {
-        return visitCast(ctx);
+        return ctx.accept(CastVisitor.getInstance(scope, errorCollector));
     }
 
     @Override
