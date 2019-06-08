@@ -121,4 +121,14 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     public Value visitADDITIVE_OP(RootParser.ADDITIVE_OPContext ctx) {
         return ctx.accept(BinaryMathOperatorVisitor.getInstance(scope, errorCollector));
     }
+
+    @Override
+    public Value visitRELATIONAL_OP(RootParser.RELATIONAL_OPContext ctx) {
+        return ctx.accept(RelationLogicOperatorVisitor.getInstance(scope, errorCollector));
+    }
+
+    @Override
+    public Value visitEQUALITY_OP(RootParser.EQUALITY_OPContext ctx) {
+        return ctx.accept(RelationLogicOperatorVisitor.getInstance(scope, errorCollector));
+    }
 }
