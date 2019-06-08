@@ -46,6 +46,10 @@ SLASH=45
 INCREMENT=46
 DECREMENT=47
 PERCENT=48
+LESS_EQUAL=49
+MORE_EQUAL=50
+EQUAL=51
+NOT_EQUAL=52
 'new'=4
 'public'=5
 'private'=6
@@ -85,3 +89,7 @@ PERCENT=48
 '++'=46
 '--'=47
 '%'=48
+'<= '=49
+'>='=50
+'=='=51
+'!='=52

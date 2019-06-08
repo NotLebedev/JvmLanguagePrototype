@@ -86,4 +86,9 @@ SLASH : '/' ;
 INCREMENT : '++' ;
 DECREMENT : '--' ;
 PERCENT : '%' ;
+
+LESS_EQUAL : '<= ';
+MORE_EQUAL : '>=' ;
+EQUAL : '==' ;
+NOT_EQUAL : '!=' ;
 //End symbols
