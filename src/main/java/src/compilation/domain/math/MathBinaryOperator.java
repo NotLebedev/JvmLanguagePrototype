@@ -37,8 +37,6 @@ public class MathBinaryOperator implements Value {
         AbstractClass firstType;
         AbstractClass secondType;
 
-        var typeMatcher = TypeMatcher.getInstance();
-
         try { //Get unboxed types for both operands
             firstType = typeMatcher.getUnboxed(firstOperand.getType());
         } catch (NotBoxedTypeException e) {
