@@ -53,7 +53,9 @@ public class RelationLogicOperatorVisitor extends RootBaseVisitor<Value> {
         Value val1 = ctx.value(0).accept(valueVisitor);
         Value val2 = ctx.value(1).accept(valueVisitor);
 
-        throw new IllegalStateException("Not implemented yet");
+        return buildValue(val1, val2, getOperationType(ctx),
+                ctx.start.getLine(), ctx.value(0).start.getCharPositionInLine(),
+                ctx.value(0).getText());
 
     }
 
@@ -67,7 +69,10 @@ public class RelationLogicOperatorVisitor extends RootBaseVisitor<Value> {
         Value val1 = ctx.value(0).accept(valueVisitor);
         Value val2 = ctx.value(1).accept(valueVisitor);
 
-        throw new IllegalStateException("Not implemented yet");
+        return buildValue(val1, val2, getOperationType(ctx),
+                ctx.start.getLine(), ctx.value(0).start.getCharPositionInLine(),
+                ctx.value(0).getText());
+
     }
 
     private Value buildValue(Value val1, Value val2, LogicRelationOperator.Type operationType,
