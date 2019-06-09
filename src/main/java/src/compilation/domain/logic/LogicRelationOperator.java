@@ -70,6 +70,11 @@ public class LogicRelationOperator implements Value {
     @Override
     public void generateBytecode(MethodVisitor methodVisitor) {
 
+        firstOperand.generateBytecode(methodVisitor);
+        secondOperand.generateBytecode(methodVisitor);
+
+        operatorType.opcodeGen.generate(methodVisitor);
+
     }
 
     @Override
@@ -79,19 +84,38 @@ public class LogicRelationOperator implements Value {
 
     public enum Type {
 
-        LESS("<"),
-        LESS_EQUAL("<="),
-        GREATER(">"),
-        GREATER_EQUAL(">="),
+        LESS("<", visitor -> {
+            //Code here
+        }),
+        LESS_EQUAL("<=", visitor -> {
+            //Code here
+        }),
+        GREATER(">", visitor -> {
+            //Code here
+        }),
+        GREATER_EQUAL(">=", visitor -> {
+            //Code here
+        }),
 
-        EQUAL("=="),
-        NOT_EQUAL("!=");
+        EQUAL("==", visitor -> {
+            //Code here
+        }),
+        NOT_EQUAL("!=", visitor -> {
+            //Code here
+        });
 
         public final String name;
+        public final OpcodeGen opcodeGen;
 
-        Type(String name) {
+        Type(String name, OpcodeGen opcodeGen) {
             this.name = name;
+            this.opcodeGen = opcodeGen;
         }
+
+        interface OpcodeGen {
+            void generate(MethodVisitor methodVisitor);
+        }
+
     }
 
 }
