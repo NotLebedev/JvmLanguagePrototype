@@ -1,6 +1,8 @@
 package src.compilation.domain.logic;
 
+import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.compilation.domain.exceptions.NotBoxedTypeException;
 import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
@@ -85,7 +87,20 @@ public class LogicRelationOperator implements Value {
     public enum Type {
 
         LESS("<", visitor -> {
-            //Code here
+
+            var labelElse = new Label(); //Start of else branch #1
+            var labelEnd = new Label(); //End of else branch #2
+
+            visitor.visitJumpInsn(Opcodes.IF_ICMPLT, labelElse); //if val1 < val2 goto #1
+
+            visitor.visitInsn(Opcodes.ICONST_0); // leave 0 (true) on stack
+            visitor.visitJumpInsn(Opcodes.GOTO, labelEnd); //goto #2 (proceed execution)
+
+            visitor.visitLabel(labelElse);// #1
+            visitor.visitInsn(Opcodes.ICONST_1); // leave 1 (true) on stack
+            visitor.visitLabel(labelEnd); //#2
+
+
         }),
         LESS_EQUAL("<=", visitor -> {
             //Code here

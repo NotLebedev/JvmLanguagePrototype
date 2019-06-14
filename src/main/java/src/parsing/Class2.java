@@ -49,9 +49,9 @@ public class Class2 {
 
     }
 
-    public void printString(short s) {
+    public void printString(float s) {
 
-        System.out.println("short");
+        System.out.println(s < 2.0);
 
     }
 

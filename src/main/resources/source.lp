@@ -1,5 +1,4 @@
-java.lang.String str1 = "abc";
-java.lang.String str2 = "def";
-int i = 123;
-
-java.lang.System.out.println(str1 + i + str2 + "_STRRTRR_" + str1 + 13232);
+java.lang.System.out.println(2 < 1);//false
+java.lang.System.out.println(0 < 1);//true
+java.lang.System.out.println(1 < 1);//false
+java.lang.System.out.println(22.0 < -1010.0);
