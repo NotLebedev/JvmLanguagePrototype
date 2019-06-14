@@ -1,4 +1,4 @@
-package src.parsing.antlr4Gen.Root;// Generated from C:/Users/Tema.leog-PC/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
+package src.parsing.antlr4Gen.Root;// Generated from C:/Users/Tema.leog-PC/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\src.parsing.antlr4Gen.Root.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -126,6 +126,13 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPOST_DECREMENT(RootParser.POST_DECREMENTContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code RELATIONAL_OP}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRELATIONAL_OP(RootParser.RELATIONAL_OPContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code METHOD_INV}
 	 * labeled alternative in {@link RootParser#value}.
 	 * @param ctx the parse tree
@@ -167,6 +174,13 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code EQUALITY_OP}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEQUALITY_OP(RootParser.EQUALITY_OPContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ACCESS}
 	 * labeled alternative in {@link RootParser#value}.
@@ -434,17 +448,17 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCommaS(RootParser.CommaSContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link RootParser#inequalityOpenS}.
+	 * Visit a parse tree produced by {@link RootParser#less}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInequalityOpenS(RootParser.InequalityOpenSContext ctx);
+	T visitLess(RootParser.LessContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link RootParser#inequalityCloseS}.
+	 * Visit a parse tree produced by {@link RootParser#more}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInequalityCloseS(RootParser.InequalityCloseSContext ctx);
+	T visitMore(RootParser.MoreContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link RootParser#braceopenS}.
 	 * @param ctx the parse tree
@@ -523,4 +537,28 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPercentS(RootParser.PercentSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#lessEqual}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLessEqual(RootParser.LessEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#moreEqual}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMoreEqual(RootParser.MoreEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#equal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqual(RootParser.EqualContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#notEqual}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNotEqual(RootParser.NotEqualContext ctx);
 }

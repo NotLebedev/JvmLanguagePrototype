@@ -1,4 +1,4 @@
-package src.parsing.antlr4Gen.Root;// Generated from C:/Users/Tema.leog-PC/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
+package src.parsing.antlr4Gen.Root;// Generated from C:/Users/Tema.leog-PC/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\src.parsing.antlr4Gen.Root.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -142,6 +142,13 @@ public class RootBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements R
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitRELATIONAL_OP(RootParser.RELATIONAL_OPContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitMETHOD_INV(RootParser.METHOD_INVContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -178,6 +185,13 @@ public class RootBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements R
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitEQUALITY_OP(RootParser.EQUALITY_OPContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -492,14 +506,14 @@ public class RootBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements R
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInequalityOpenS(RootParser.InequalityOpenSContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLess(RootParser.LessContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInequalityCloseS(RootParser.InequalityCloseSContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMore(RootParser.MoreContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -591,4 +605,32 @@ public class RootBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements R
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitPercentS(RootParser.PercentSContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitLessEqual(RootParser.LessEqualContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitMoreEqual(RootParser.MoreEqualContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitEqual(RootParser.EqualContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitNotEqual(RootParser.NotEqualContext ctx) { return visitChildren(ctx); }
 }

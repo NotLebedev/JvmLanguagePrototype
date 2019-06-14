@@ -66,8 +66,8 @@ dotS : DOT ;
 semicolonS : SEMICOLON ;
 equalsS : EQUALS ;
 commaS : COMMA ;
-inequalityOpenS : INEQUALITYOPEN ;
-inequalityCloseS : INEQUALITYCLOSE ;
+less : INEQUALITYOPEN ;
+more : INEQUALITYCLOSE ;
 braceopenS : BRACEOPEN ;
 brcecloseS : BRACECLOSE ;
 bracketOpenS : BRACKETOPEN ;
@@ -81,6 +81,11 @@ slashS : SLASH ;
 incrementS : INCREMENT ;
 decrementS : DECREMENT ;
 percentS : PERCENT ;
+
+lessEqual : LESS_EQUAL ;
+moreEqual : MORE_EQUAL ;
+equal : EQUAL ;
+notEqual : NOT_EQUAL ;
 //End symbols
 
 //End tokens

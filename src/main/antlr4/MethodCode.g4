@@ -45,7 +45,9 @@ value   : literalCG #LITERAL
         | unaryPlus #UNARY_PLUS
         | unaryMinus #UNARY_MINUS
         | value (asteriskS | slashS | percentS) value #MULTIPLICATIVE_OP
-        | value (plusS | minusS) value #ADDITIVE_OP;
+        | value (plusS | minusS) value #ADDITIVE_OP
+        | value (less | lessEqual | more | moreEqual) value #RELATIONAL_OP
+        | value (equal | notEqual) value #EQUALITY_OP ;
 
 preIncrement : incrementS value;
 preDecrement : decrementS value;
