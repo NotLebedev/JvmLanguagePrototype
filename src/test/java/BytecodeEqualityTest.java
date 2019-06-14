@@ -44,7 +44,6 @@ public class BytecodeEqualityTest {
     @Test
     public void testBytecodeCompilationIntegrity() throws IOException {
 
-        System.out.println();
         System.out.println("\tExecuting " + directory);
 
         byte[] newBytecode = compile(CharStreams.fromFileName(path + "\\" + sourceName));
@@ -64,14 +63,14 @@ public class BytecodeEqualityTest {
 
         Collection<Object[]> data = new ArrayList<>(Objects.requireNonNull(directories).length);
 
-        System.out.println("Found directories : ");
+        System.out.println("Found directories : \n");
 
         for (String directory : directories) {
             System.out.println(directory);
             data.add(new Object[] {directory});
         }
 
-        System.out.println("Trying executing sources contained");
+        System.out.println("\n-------------------------\n\nTrying executing sources contained\n");
 
         return data;
 
