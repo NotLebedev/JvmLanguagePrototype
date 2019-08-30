@@ -1,4 +1,4 @@
-package src.compilation.domain.logic;
+package src.compilation.domain.logic.relational;
 
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
@@ -25,9 +25,13 @@ public class LogicRelationOperator implements Value {
             ClassFactory.getInstance().forCorrectName("boolean");
     private static final ArrayList<AbstractClass> mathCompatible = MathUtils.getMathCompatible();
 
+    private static ArrayList<AbstractClass> integers = MathUtils.getInts();
+    private static AbstractClass object = ClassFactory.getInstance().forCorrectName("java.lang.Object");
+
     private static final TypeMatcher typeMatcher = TypeMatcher.getInstance();
 
-    public LogicRelationOperator(Type operatorType, Value firstOperand, Value secondOperand) throws IncompatibleTypesException, OperatorCanNotBeAppliedException {
+    public LogicRelationOperator(Type operatorType, Value firstOperand, Value secondOperand
+            ) throws IncompatibleTypesException, OperatorCanNotBeAppliedException {
 
         if(operatorType == Type.EQUAL || operatorType == Type.NOT_EQUAL) {
 
@@ -75,7 +79,7 @@ public class LogicRelationOperator implements Value {
         firstOperand.generateBytecode(methodVisitor);
         secondOperand.generateBytecode(methodVisitor);
 
-        operatorType.opcodeGen.generate(methodVisitor);
+        operatorType.opcodeGen.generate(methodVisitor, firstOperand.getType());
 
     }
 
@@ -86,36 +90,23 @@ public class LogicRelationOperator implements Value {
 
     public enum Type {
 
-        LESS("<", visitor -> {
-
-            var labelElse = new Label(); //Start of else branch #1
-            var labelEnd = new Label(); //End of else branch #2
-
-            visitor.visitJumpInsn(Opcodes.IF_ICMPLT, labelElse); //if val1 < val2 goto #1
-
-            visitor.visitInsn(Opcodes.ICONST_0); // leave 0 (true) on stack
-            visitor.visitJumpInsn(Opcodes.GOTO, labelEnd); //goto #2 (proceed execution)
-
-            visitor.visitLabel(labelElse);// #1
-            visitor.visitInsn(Opcodes.ICONST_1); // leave 1 (true) on stack
-            visitor.visitLabel(labelEnd); //#2
-
-
-        }),
-        LESS_EQUAL("<=", visitor -> {
+        LESS("<", (visitor, type) -> {
             //Code here
         }),
-        GREATER(">", visitor -> {
+        LESS_EQUAL("<=", (visitor, type) -> {
             //Code here
         }),
-        GREATER_EQUAL(">=", visitor -> {
+        GREATER(">", (visitor, type) -> {
+            //Code here
+        }),
+        GREATER_EQUAL(">=", (visitor, type) -> {
             //Code here
         }),
 
-        EQUAL("==", visitor -> {
+        EQUAL("==", (visitor, type) -> {
             //Code here
         }),
-        NOT_EQUAL("!=", visitor -> {
+        NOT_EQUAL("!=", (visitor, type) -> {
             //Code here
         });
 
@@ -128,9 +119,29 @@ public class LogicRelationOperator implements Value {
         }
 
         interface OpcodeGen {
-            void generate(MethodVisitor methodVisitor);
+            void generate(MethodVisitor methodVisitor, AbstractClass type);
+        }
+
+        interface OpcodeGen2 {
+            void generate(int opcode, MethodVisitor methodVisitor);
         }
 
     }
+
+    private final static Type.OpcodeGen2 genSplit = (opcode, visitor) -> {
+
+        var labelElse = new Label(); //Start of else branch #1
+        var labelEnd = new Label(); //End of else branch #2
+
+        visitor.visitJumpInsn(opcode, labelElse); //if val1 < val2 goto #1
+
+        visitor.visitInsn(Opcodes.ICONST_0); // leave 0 (true) on stack
+        visitor.visitJumpInsn(Opcodes.GOTO, labelEnd); //goto #2 (proceed execution)
+
+        visitor.visitLabel(labelElse);// #1
+        visitor.visitInsn(Opcodes.ICONST_1); // leave 1 (true) on stack
+        visitor.visitLabel(labelEnd); //#2
+
+    };
 
 }

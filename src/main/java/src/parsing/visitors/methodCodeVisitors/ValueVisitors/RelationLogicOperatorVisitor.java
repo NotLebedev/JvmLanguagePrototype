@@ -4,7 +4,7 @@ import src.compilation.domain.exceptions.IncompatibleTypesException;
 import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
-import src.compilation.domain.logic.LogicRelationOperator;
+import src.compilation.domain.logic.relational.LogicRelationOperator;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
