@@ -79,7 +79,18 @@ public class LogicRelationOperator implements Value {
         firstOperand.generateBytecode(methodVisitor);
         secondOperand.generateBytecode(methodVisitor);
 
-        operatorType.opcodeGen.generate(methodVisitor, firstOperand.getType());
+        var labelElse = new Label(); //Start of else branch #1
+        var labelEnd = new Label(); //End of else branch #2
+
+        JumpInstructionSelector.getJumpInstruction(firstOperand.getType())
+            .branch(methodVisitor, labelElse, RelationType.LESS);
+
+        methodVisitor.visitInsn(Opcodes.ICONST_0); // leave 0 (true) on stack
+        methodVisitor.visitJumpInsn(Opcodes.GOTO, labelEnd); //goto #2 (proceed execution)
+
+        methodVisitor.visitLabel(labelElse);// #1
+        methodVisitor.visitInsn(Opcodes.ICONST_1); // leave 1 (true) on stack
+        methodVisitor.visitLabel(labelEnd); //#2
 
     }
 

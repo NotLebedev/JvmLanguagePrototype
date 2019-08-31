@@ -57,7 +57,7 @@ class JumpInstructionSelector {
         visitor.visitJumpInsn(opcode, labelElse);
     };
 
-    private static JumpInstructionGenerator getJumpInstruction(AbstractClass type) {
+    public static JumpInstructionGenerator getJumpInstruction(AbstractClass type) {
 
         if(ints.contains(type)) {
             return intJumpInstructionGenerator;
@@ -67,7 +67,7 @@ class JumpInstructionSelector {
 
     }
 
-    private interface JumpInstructionGenerator {
+    interface JumpInstructionGenerator {
         void branch(MethodVisitor methodVisitor, Label labelElse, RelationType type);
     }
 
