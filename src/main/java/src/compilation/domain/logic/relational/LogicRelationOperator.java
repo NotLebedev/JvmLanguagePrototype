@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class LogicRelationOperator implements Value {
 
-    private final Type operatorType;
+    private final RelationType operatorType;
 
     private final Value firstOperand;
     private final Value secondOperand;
@@ -30,10 +30,10 @@ public class LogicRelationOperator implements Value {
 
     private static final TypeMatcher typeMatcher = TypeMatcher.getInstance();
 
-    public LogicRelationOperator(Type operatorType, Value firstOperand, Value secondOperand
+    public LogicRelationOperator(RelationType operatorType, Value firstOperand, Value secondOperand
             ) throws IncompatibleTypesException, OperatorCanNotBeAppliedException {
 
-        if(operatorType == Type.EQUAL || operatorType == Type.NOT_EQUAL) {
+        if(operatorType == RelationType.EQUAL || operatorType == RelationType.NOT_EQUAL) {
 
             if(!firstOperand.getType().equals(secondOperand.getType()))
                 throw new IncompatibleTypesException(firstOperand.getType().getName(),
@@ -83,7 +83,7 @@ public class LogicRelationOperator implements Value {
         var labelEnd = new Label(); //End of else branch #2
 
         JumpInstructionSelector.getJumpInstruction(firstOperand.getType())
-            .branch(methodVisitor, labelElse, RelationType.LESS);
+            .branch(methodVisitor, labelElse, operatorType);
 
         methodVisitor.visitInsn(Opcodes.ICONST_0); // leave 0 (true) on stack
         methodVisitor.visitJumpInsn(Opcodes.GOTO, labelEnd); //goto #2 (proceed execution)
@@ -98,61 +98,5 @@ public class LogicRelationOperator implements Value {
     public AbstractClass getType() {
         return type;
     }
-
-    public enum Type {
-
-        LESS("<", (visitor, type) -> {
-            //Code here
-        }),
-        LESS_EQUAL("<=", (visitor, type) -> {
-            //Code here
-        }),
-        GREATER(">", (visitor, type) -> {
-            //Code here
-        }),
-        GREATER_EQUAL(">=", (visitor, type) -> {
-            //Code here
-        }),
-
-        EQUAL("==", (visitor, type) -> {
-            //Code here
-        }),
-        NOT_EQUAL("!=", (visitor, type) -> {
-            //Code here
-        });
-
-        public final String name;
-        public final OpcodeGen opcodeGen;
-
-        Type(String name, OpcodeGen opcodeGen) {
-            this.name = name;
-            this.opcodeGen = opcodeGen;
-        }
-
-        interface OpcodeGen {
-            void generate(MethodVisitor methodVisitor, AbstractClass type);
-        }
-
-        interface OpcodeGen2 {
-            void generate(int opcode, MethodVisitor methodVisitor);
-        }
-
-    }
-
-    private final static Type.OpcodeGen2 genSplit = (opcode, visitor) -> {
-
-        var labelElse = new Label(); //Start of else branch #1
-        var labelEnd = new Label(); //End of else branch #2
-
-        visitor.visitJumpInsn(opcode, labelElse); //if val1 < val2 goto #1
-
-        visitor.visitInsn(Opcodes.ICONST_0); // leave 0 (true) on stack
-        visitor.visitJumpInsn(Opcodes.GOTO, labelEnd); //goto #2 (proceed execution)
-
-        visitor.visitLabel(labelElse);// #1
-        visitor.visitInsn(Opcodes.ICONST_1); // leave 1 (true) on stack
-        visitor.visitLabel(labelEnd); //#2
-
-    };
 
 }

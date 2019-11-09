@@ -5,6 +5,7 @@ import src.compilation.domain.exceptions.OperatorCanNotBeAppliedException;
 import src.compilation.domain.interfaces.Scope;
 import src.compilation.domain.interfaces.Value;
 import src.compilation.domain.logic.relational.LogicRelationOperator;
+import src.compilation.domain.logic.relational.RelationType;
 import src.parsing.antlr4Gen.Root.RootBaseVisitor;
 import src.parsing.antlr4Gen.Root.RootParser;
 import src.parsing.visitors.errorHandling.ErrorCollector;
@@ -75,7 +76,7 @@ public class RelationLogicOperatorVisitor extends RootBaseVisitor<Value> {
 
     }
 
-    private Value buildValue(Value val1, Value val2, LogicRelationOperator.Type operationType,
+    private Value buildValue(Value val1, Value val2, RelationType operationType,
                              int line, int charPosition, String offendingSymbol) {
 
         try { //Try creating operator
@@ -100,27 +101,27 @@ public class RelationLogicOperatorVisitor extends RootBaseVisitor<Value> {
     }
 
 
-    private LogicRelationOperator.Type getOperationType(RootParser.RELATIONAL_OPContext ctx) {
+    private RelationType getOperationType(RootParser.RELATIONAL_OPContext ctx) {
 
         if(ctx.less() != null)
-            return LogicRelationOperator.Type.LESS;
+            return RelationType.LESS;
         else if(ctx.lessEqual() != null)
-            return LogicRelationOperator.Type.LESS_EQUAL;
+            return RelationType.LESS_EQUAL;
         else if(ctx.more() != null)
-            return LogicRelationOperator.Type.GREATER;
+            return RelationType.GREATER;
         else if(ctx.moreEqual() != null)
-            return LogicRelationOperator.Type.GREATER_EQUAL;
+            return RelationType.GREATER_EQUAL;
 
         throw new IllegalStateException("Unexpected relational operator");
 
     }
 
-    private LogicRelationOperator.Type getOperationType(RootParser.EQUALITY_OPContext ctx) {
+    private RelationType getOperationType(RootParser.EQUALITY_OPContext ctx) {
 
         if(ctx.equal() != null)
-            return LogicRelationOperator.Type.EQUAL;
+            return RelationType.EQUAL;
         else if(ctx.notEqual() != null)
-            return LogicRelationOperator.Type.NOT_EQUAL;
+            return RelationType.NOT_EQUAL;
 
         throw new IllegalStateException("Unexpected relational operator");
 
