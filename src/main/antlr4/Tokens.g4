@@ -87,6 +87,14 @@ INCREMENT : '++' ;
 DECREMENT : '--' ;
 PERCENT : '%' ;
 
+INVERT : '~' ;
+RSHIFT : '>>' ;
+RSHIFTSHIFT : '>>>' ;
+LSHIFT : '<<' ;
+BITAND : '&' ;
+BITXOR : '^' ;
+BITOR : '|' ;
+
 LESS_EQUAL : '<= ';
 MORE_EQUAL : '>=' ;
 EQUAL : '==' ;

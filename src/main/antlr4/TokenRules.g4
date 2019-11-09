@@ -82,6 +82,15 @@ incrementS : INCREMENT ;
 decrementS : DECREMENT ;
 percentS : PERCENT ;
 
+invertS : INVERT ;
+rightShiftArithmetic : RSHIFT ;
+rightShiftLogical : RSHIFTSHIFT ;
+leftShift : LSHIFT ;
+bitAnd : BITAND ;
+bitXor : BITXOR ;
+bitOr : BITOR ;
+
+
 lessEqual : LESS_EQUAL ;
 moreEqual : MORE_EQUAL ;
 equal : EQUAL ;
