@@ -47,8 +47,12 @@ value   : literalCG #LITERAL
         | invertS value #INVERT
         | value (asteriskS | slashS | percentS) value #MULTIPLICATIVE_OP
         | value (plusS | minusS) value #ADDITIVE_OP
+        | value (rightShiftArithmetic | rightShiftLogical | leftShift) value #SHIFT_OP
         | value (less | lessEqual | more | moreEqual) value #RELATIONAL_OP
-        | value (equal | notEqual) value #EQUALITY_OP ;
+        | value (equal | notEqual) value #EQUALITY_OP
+        | value bitAnd value #BITWISE_AND
+        | value bitXor value #BITWISE_XOR
+        | value bitOr value #BITWISE_OR;
 
 preIncrement : incrementS value;
 preDecrement : decrementS value;
