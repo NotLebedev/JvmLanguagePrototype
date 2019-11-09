@@ -1,4 +1,5 @@
-package src.parsing.antlr4Gen.Root;// Generated from C:/Users/Tema.leog-PC/IdeaProjects/JvmLanguagePrototype/src/main/antlr4\src.parsing.antlr4Gen.Root.g4 by ANTLR 4.7.2
+// Generated from E:/Work/JvmLanguagePrototype/src/main/antlr4\Root.g4 by ANTLR 4.7.2
+package src.parsing.antlr4Gen.Root;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -84,6 +85,27 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitADDITIVE_OP(RootParser.ADDITIVE_OPContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code BITWISE_OR}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBITWISE_OR(RootParser.BITWISE_ORContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code SHIFT_OP}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSHIFT_OP(RootParser.SHIFT_OPContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BITWISE_AND}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBITWISE_AND(RootParser.BITWISE_ANDContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code PRE_DECREMENT}
 	 * labeled alternative in {@link RootParser#value}.
 	 * @param ctx the parse tree
@@ -97,6 +119,13 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitUNARY_PLUS(RootParser.UNARY_PLUSContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BITWISE_XOR}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBITWISE_XOR(RootParser.BITWISE_XORContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code PRE_INCREMENT}
 	 * labeled alternative in {@link RootParser#value}.
@@ -118,6 +147,13 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOBJECT_INSTANTIATION(RootParser.OBJECT_INSTANTIATIONContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code INVERT}
+	 * labeled alternative in {@link RootParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitINVERT(RootParser.INVERTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code POST_DECREMENT}
 	 * labeled alternative in {@link RootParser#value}.
@@ -537,6 +573,48 @@ public interface RootVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPercentS(RootParser.PercentSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#invertS}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInvertS(RootParser.InvertSContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#rightShiftArithmetic}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRightShiftArithmetic(RootParser.RightShiftArithmeticContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#rightShiftLogical}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRightShiftLogical(RootParser.RightShiftLogicalContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#leftShift}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLeftShift(RootParser.LeftShiftContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#bitAnd}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBitAnd(RootParser.BitAndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#bitXor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBitXor(RootParser.BitXorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link RootParser#bitOr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBitOr(RootParser.BitOrContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link RootParser#lessEqual}.
 	 * @param ctx the parse tree
