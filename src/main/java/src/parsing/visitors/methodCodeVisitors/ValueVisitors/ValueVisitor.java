@@ -113,6 +113,11 @@ public class ValueVisitor extends RootBaseVisitor<Value> {
     }
 
     @Override
+    public Value visitINVERT(RootParser.INVERTContext ctx) {
+        return ctx.accept(InvertVisitor.getInstance(scope, errorCollector));
+    }
+
+    @Override
     public Value visitMULTIPLICATIVE_OP(RootParser.MULTIPLICATIVE_OPContext ctx) {
         return ctx.accept(BinaryMathOperatorVisitor.getInstance(scope, errorCollector));
     }
