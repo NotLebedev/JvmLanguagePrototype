@@ -1,8 +1,8 @@
 import javax.swing.JFileChooser
 
-javapPath = "C:\\Program Files\\Java\\jdk-11.0.1\\bin\\javap"
+javapPath = "C:\\Users\\Artemiy-WS\\.jdks\\openjdk-14.0.1\\bin\\javap.exe"
 
-startPath = "E:\\Work\\JvmLanguagePrototype\\target\\classes\\src"
+startPath = "D:\\Work\\JvmLanguagePrototype\\target\\classes\\src"
 
 JFileChooser fc = new JFileChooser(startPath)
 fc.setFileSelectionMode(JFileChooser.FILES_ONLY)
